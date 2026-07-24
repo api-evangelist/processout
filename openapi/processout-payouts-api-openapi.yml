@@ -1,0 +1,796 @@
+openapi: 3.1.0
+info:
+  title: ProcessOut Balances Payouts API
+  version: 1.0.3
+  description: ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation. Authentication is HTTP Basic using a project ID (username) and secret API key (password). This OpenAPI 3.1 description was assembled by API Evangelist from the per-operation OpenAPI fragments ProcessOut publishes in each ReadMe API-reference page.
+  contact:
+    email: help@processout.com
+    url: https://docs.processout.com
+servers:
+- url: https://api.processout.com
+  description: Production
+security:
+- sec0: []
+tags:
+- name: Payouts
+paths:
+  /payouts/{payout_id}:
+    delete:
+      summary: Deleting payout
+      description: ''
+      operationId: deleting-payout
+      parameters:
+      - name: payout_id
+        in: path
+        description: ID of the payout
+        schema:
+          type: string
+        required: true
+      - name: Idempotency-Key
+        in: header
+        description: Unique key to your request that will be used for idempotency
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"success\": true\n}"
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                    default: true
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"success\": false,\n    \"message\": \"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\",\n    \"error_type\": \"request.authentication.invalid\"\n}"
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+                  message:
+                    type: string
+                    example: Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!
+                  error_type:
+                    type: string
+                    example: request.authentication.invalid
+        4XX:
+          description: 4XX
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"error_type\": \"*Error code*\",\n  \"message\": \"*Error message*\",\n  \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: '*Error code*'
+                  message:
+                    type: string
+                    example: '*Error message*'
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+      deprecated: false
+      tags:
+      - Payouts
+    get:
+      summary: Fetching a payout
+      description: ''
+      operationId: fetching-a-payout
+      parameters:
+      - name: payout_id
+        in: path
+        description: ID of the payout, received via webhooks or fetched with the API
+        schema:
+          type: string
+        required: true
+      - name: Idempotency-Key
+        in: header
+        description: Unique key to your request that will be used for idempotency
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"payout\": {\n        \"id\": \"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\",\n        \"project_id\": \"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\",\n        \"gateway_configuration\": {\n            \"id\": \"gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2\",\n            \"project_id\": \"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\",\n            \"gateway_id\": 6,\n            \"gateway_name\": \"stripe\",\n            \"name\": \"Stripe US\",\n            \"default_currency\": \"USD\",\n            \"processing_region\": null,\n            \"merchant_account_country_code\": null,\n            \"enabled\": true,\n            \"sub_accounts_enabled\": [\n                \"stripe\"\n            ],\n            \"public_keys\": {\n                \"public_key\": \"pk_test_pFEddfERFEdfEFE\"\n            },\n            \"is_pulling\": false,\n            \"config_entries\": null,\n            \"sandbox\": false,\n            \"created_at\": \"2017-12-12T16:25:49.238147Z\",\n            \"enabled_at\": \"2017-12-12T16:25:50.553585Z\"\n        },\n        \"gateway_configuration_id\": \"gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2\",\n        \"report_ids\": [\n            \"rep_123CLedNlW2WSdqEF0DlxWJtBOZfvMK0\",\n            \"rep_456CLedNlW2WSdqEF0DlxWJtBOZfvMK1\"\n        ],\n        \"gateway_resource_id\": \"po_1GZ5A3GY1kBCI7IQNUjT6oeK\",\n        \"status\": \"received\",\n        \"failure_reason_code\": null,\n        \"failure_reason\": null,\n        \"metadata\": {},\n        \"amount\": \"5315.26\",\n        \"currency\": \"EUR\",\n        \"bank_name\": \"N26 BANK GMBH\",\n        \"bank_summary\": \"\",\n        \"sales_transactions\": 617,\n        \"sales_volume\": \"5549.72\",\n        \"sales_fees\": \"-234.46\",\n        \"refunds_transactions\": 0,\n        \"refunds_volume\": \"0\",\n        \"refunds_fees\": \"0\",\n        \"chargebacks_transactions\": 0,\n        \"chargebacks_volume\": \"0\",\n        \"chargebacks_fees\": \"0\",\n        \"fees\": \"-234.46\",\n\t\t\t  \"adjustments\": \"0\",\n        \"adjustments_volume\": \"0\",\n        \"adjustments_fees\": \"0\",\n        \"reserve\": \"0\",\n        \"reserve_volume\": \"0\",\n        \"reserve_fees\": \"0\",\n        \"settled_at\": \"2020-04-16T23:59:25Z\",\n        \"created_at\": \"2020-04-18T01:17:48.755358Z\"\n    },\n    \"success\": true\n}"
+              schema:
+                type: object
+                properties:
+                  payout:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe
+                      project_id:
+                        type: string
+                        example: proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh
+                      gateway_configuration:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            example: gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2
+                          project_id:
+                            type: string
+                            example: proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh
+                          gateway_id:
+                            type: integer
+                            example: 6
+                            default: 0
+                          gateway_name:
+                            type: string
+                            example: stripe
+                          name:
+                            type: string
+                            example: Stripe US
+                          default_currency:
+                            type: string
+                            example: USD
+                          processing_region: {}
+                          merchant_account_country_code: {}
+                          enabled:
+                            type: boolean
+                            example: true
+                            default: true
+                          sub_accounts_enabled:
+                            type: array
+                            items:
+                              type: string
+                              example: stripe
+                          public_keys:
+                            type: object
+                            properties:
+                              public_key:
+                                type: string
+                                example: pk_test_pFEddfERFEdfEFE
+                          is_pulling:
+                            type: boolean
+                            example: false
+                            default: true
+                          config_entries: {}
+                          sandbox:
+                            type: boolean
+                            example: false
+                            default: true
+                          created_at:
+                            type: string
+                            example: '2017-12-12T16:25:49.238147Z'
+                          enabled_at:
+                            type: string
+                            example: '2017-12-12T16:25:50.553585Z'
+                      gateway_configuration_id:
+                        type: string
+                        example: gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2
+                      report_ids:
+                        type: array
+                        items:
+                          type: string
+                          example: rep_123CLedNlW2WSdqEF0DlxWJtBOZfvMK0
+                      gateway_resource_id:
+                        type: string
+                        example: po_1GZ5A3GY1kBCI7IQNUjT6oeK
+                      status:
+                        type: string
+                        example: received
+                      failure_reason_code: {}
+                      failure_reason: {}
+                      metadata:
+                        type: object
+                        properties: {}
+                      amount:
+                        type: string
+                        example: '5315.26'
+                      currency:
+                        type: string
+                        example: EUR
+                      bank_name:
+                        type: string
+                        example: N26 BANK GMBH
+                      bank_summary:
+                        type: string
+                        example: ''
+                      sales_transactions:
+                        type: integer
+                        example: 617
+                        default: 0
+                      sales_volume:
+                        type: string
+                        example: '5549.72'
+                      sales_fees:
+                        type: string
+                        example: '-234.46'
+                      refunds_transactions:
+                        type: integer
+                        example: 0
+                        default: 0
+                      refunds_volume:
+                        type: string
+                        example: '0'
+                      refunds_fees:
+                        type: string
+                        example: '0'
+                      chargebacks_transactions:
+                        type: integer
+                        example: 0
+                        default: 0
+                      chargebacks_volume:
+                        type: string
+                        example: '0'
+                      chargebacks_fees:
+                        type: string
+                        example: '0'
+                      fees:
+                        type: string
+                        example: '-234.46'
+                      adjustments:
+                        type: string
+                        example: '0'
+                      adjustments_volume:
+                        type: string
+                        example: '0'
+                      adjustments_fees:
+                        type: string
+                        example: '0'
+                      reserve:
+                        type: string
+                        example: '0'
+                      reserve_volume:
+                        type: string
+                        example: '0'
+                      reserve_fees:
+                        type: string
+                        example: '0'
+                      settled_at:
+                        type: string
+                        example: '2020-04-16T23:59:25Z'
+                      created_at:
+                        type: string
+                        example: '2020-04-18T01:17:48.755358Z'
+                  success:
+                    type: boolean
+                    example: true
+                    default: true
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"success\": false,\n  \"message\": \"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\",\n  \"error_type\": \"request.authentication.invalid\"\n}"
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+                  message:
+                    type: string
+                    example: Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!
+                  error_type:
+                    type: string
+                    example: request.authentication.invalid
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"error_type\":\"resource.payout.not-found\",\n  \"message\":\"The payout could not be found.\",\n  \"success\":false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: resource.payout.not-found
+                  message:
+                    type: string
+                    example: The payout could not be found.
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+        4XX:
+          description: 4XX
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"error_type\": \"*Error code*\",\n  \"message\": \"*Error message*\",\n  \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: '*Error code*'
+                  message:
+                    type: string
+                    example: '*Error message*'
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: node
+          code: "var ProcessOut = require(\"processout\");\nvar client = new ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\",\n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\");\n\nclient.newPayout().find(\"payt_3vfLtjoiQxpXZrdd6dc8Qgxxe26vy0aH\").then(\n    function(payout) {\n        // The payout was fetched\n\n    }, function(err) {\n        // The payout could not be found\n    });"
+          name: node.js
+        - language: python
+          code: "import processout\nclient = processout.ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\")\n\npayout = client.new_payout().find(\"payt_3vfLtjoiQxpXZrdd6dc8Qgxxe26vy0aH\")"
+        - language: ruby
+          code: "require \"processout\"\nclient = ProcessOut::Client.new(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\")\n\npayout = client.payout.find(\"payt_3vfLtjoiQxpXZrdd6dc8Qgxxe26vy0aH\")"
+        - language: php
+          code: "<?php\n$client = new \\ProcessOut\\ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\");\n\n$payout = $client->newPayout()->find(\"payt_3vfLtjoiQxpXZrdd6dc8Qgxxe26vy0aH\");"
+        - language: go
+          code: "import \"github.com/processout/processout-go\"\n\nvar client = processout.New(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\",\n)\n\npayout, err := client.NewPayout().Find(\"payt_3vfLtjoiQxpXZrdd6dc8Qgxxe26vy0aH\")"
+        samples-languages:
+        - node
+        - python
+        - ruby
+        - php
+        - go
+      tags:
+      - Payouts
+  /payouts/{payout_id}/items:
+    get:
+      summary: Listing payout items
+      description: ''
+      operationId: listing-payout-items
+      parameters:
+      - name: payout_id
+        in: path
+        description: ID of the payout, received via webhooks or fetched with the API
+        schema:
+          type: string
+        required: true
+      - name: Idempotency-Key
+        in: header
+        description: Unique key to your request that will be used for idempotency
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"count\": 10,\n  \"has_more\": true,\n  \"items\": [\n    {\n      \"id\": \"payt_itm_UokoiqzvKDC3Ab1VTAyP07lE6Ebu7zMa\",\n      \"project_id\": \"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\",\n      \"payout_id\": \"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\",\n      \"transaction_id\": null,\n      \"report_id\": \"rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW\",\n      \"type\": \"sale\",\n      \"payment_provider_type\": null,\n      \"gateway_resource_id\": \"pi_XXXXbqGY1kBCI7IQyjDGB8Ih\",\n      \"amount\": \"9\",\n      \"fees\": \"-0.38\",\n      \"breakdown\": {\n        \"scheme_fee\":  null,\n        \"interchange_fee\":  null,\n        \"gateway_fee\": null,\n        \"markup_fee\":  null,\n        \"acquirer_fee\": null,\n        \"other_fee\": \"-0.38\"\n      },\n      \"metadata\": {},\n      \"created_at\": \"2020-04-16T23:59:25Z\"\n    },\n    {\n      \"id\": \"payt_itm_opEjabroBqashziWVbTWwfdT0Efv6dZ5\",\n      \"project_id\": \"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\",\n      \"payout_id\": \"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\",\n      \"transaction_id\": null,\n      \"report_id\": \"rep_456e5RDbW3zf0eu73bkeeeSc1d0D6aiW\",\n      \"type\": \"sale\",\n      \"payment_provider_type\": null,\n      \"gateway_resource_id\": \"pi_XXXXZ5GY1kBCI7IQlFp9E4ek\",\n      \"amount\": \"9\",\n      \"fees\": \"-0.38\",\n      \"breakdown\": {\n        \"scheme_fee\":  null,\n        \"interchange_fee\":  null,\n        \"gateway_fee\": null,\n        \"markup_fee\":  null,\n        \"acquirer_fee\": null,\n        \"other_fee\": \"-0.38\"\n      },\n      \"metadata\": {},\n      \"created_at\": \"2020-04-16T23:56:40Z\"\n    },\n    {\n      \"id\": \"payt_itm_2bYYgllki6k6ozN1zzt5dPizabtKDmpA\",\n      \"project_id\": \"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\",\n      \"payout_id\": \"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\",\n      \"transaction_id\": null,\n      \"report_id\": \"rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW\",\n      \"type\": \"sale\",\n      \"payment_provider_type\": null,\n      \"gateway_resource_id\": \"pi_XXXXX2GY1kBCI7IQRxTrZw9z\",\n      \"amount\": \"9\",\n      \"fees\": \"-0.38\",\n      \"breakdown\": {\n        \"scheme_fee\":  null,\n        \"interchange_fee\":  null,\n        \"gateway_fee\": null,\n        \"markup_fee\":  null,\n        \"acquirer_fee\": null,\n        \"other_fee\": \"-0.38\"\n      },\n      \"metadata\": {},\n      \"created_at\": \"2020-04-16T23:54:25Z\"\n    },\n    {\n      \"id\": \"payt_itm_k28TTQvQUKXwt2nzEpyI8a4eCT7pEkxD\",\n      \"project_id\": \"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\",\n      \"payout_id\": \"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\",\n      \"transaction_id\": null,\n      \"report_id\": \"rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW\",\n      \"type\": \"sale\",\n      \"payment_provider_type\": null,\n      \"gateway_resource_id\": \"pi_XXXXUNGY1kBCI7IQYn01EhgS\",\n      \"amount\": \"9\",\n      \"fees\": \"-0.38\",\n      \"breakdown\": {\n        \"scheme_fee\":  null,\n        \"interchange_fee\":  null,\n        \"gateway_fee\": null,\n        \"markup_fee\":  null,\n        \"acquirer_fee\": null,\n        \"other_fee\": \"-0.38\"\n      },\n      \"metadata\": {},\n      \"created_at\": \"2020-04-16T23:51:43Z\"\n    },\n    {\n      \"id\": \"payt_itm_hmoYuFGmwPWHLaPoIwuUjVZEzOgwfnyG\",\n      \"project_id\": \"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\",\n      \"payout_id\": \"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\",\n      \"transaction_id\": null,\n      \"report_id\": \"rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW\",\n      \"type\": \"sale\",\n      \"payment_provider_type\": null,\n      \"gateway_resource_id\": \"pi_XXXXS4GY1kBCI7IQNh8AMOaT\",\n      \"amount\": \"9\",\n      \"fees\": \"-0.38\",\n      \"breakdown\": {\n        \"scheme_fee\":  null,\n        \"interchange_fee\":  null,\n        \"gateway_fee\": null,\n        \"markup_fee\":  null,\n        \"acquirer_fee\": null,\n        \"other_fee\": \"-0.38\"\n      },\n      \"metadata\": {},\n      \"created_at\": \"2020-04-16T23:49:23Z\"\n    },\n    {\n      \"id\": \"payt_itm_07I3UDtOIAKQeRDBcI6UbqcO1M1rZmmW\",\n      \"project_id\": \"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\",\n      \"payout_id\": \"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\",\n      \"transaction_id\": null,\n      \"report_id\": \"rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW\",\n      \"type\": \"sale\",\n      \"payment_provider_type\": null,\n      \"gateway_resource_id\": \"pi_XXXXPPGY1kBCI7IQdDMhAoHe\",\n      \"amount\": \"9\",\n      \"fees\": \"-0.38\",\n      \"breakdown\": {\n        \"scheme_fee\":  null,\n        \"interchange_fee\":  null,\n        \"gateway_fee\": null,\n        \"markup_fee\":  null,\n        \"acquirer_fee\": null,\n        \"other_fee\": \"-0.38\"\n      },\n      \"metadata\": {},\n      \"created_at\": \"2020-04-16T23:46:44Z\"\n    },\n    {\n      \"id\": \"payt_itm_A4BwCS4WsnuabEjBOFiwmjtv6IVK7c18\",\n      \"project_id\": \"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\",\n      \"payout_id\": \"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\",\n      \"transaction_id\": null,\n      \"report_id\": \"rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW\",\n      \"type\": \"sale\",\n      \"payment_provider_type\": null,\n      \"gateway_resource_id\": \"pi_XXXXNBGY1kBCI7IQBV7R7MIU\",\n      \"amount\": \"9\",\n      \"fees\": \"-0.38\",\n      \"breakdown\": {\n        \"scheme_fee\":  null,\n        \"interchange_fee\":  null,\n        \"gateway_fee\": null,\n        \"markup_fee\":  null,\n        \"acquirer_fee\": null,\n        \"other_fee\": \"-0.38\"\n      },\n      \"metadata\": {},\n      \"created_at\": \"2020-04-16T23:44:19Z\"\n    },\n    {\n      \"id\": \"payt_itm_Wpo6ZCeuG1GT8mbYprGxm2Kue7hOubdC\",\n      \"project_id\": \"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\",\n      \"payout_id\": \"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\",\n      \"transaction_id\": null,\n      \"report_id\": \"rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW\",\n      \"type\": \"sale\",\n      \"payment_provider_type\": null,\n      \"gateway_resource_id\": \"pi_XXXXKUGY1kBCI7IQ9ADiiy4C\",\n      \"amount\": \"9\",\n      \"fees\": \"-0.38\",\n      \"breakdown\": {\n        \"scheme_fee\":  null,\n        \"interchange_fee\":  null,\n        \"gateway_fee\": null,\n        \"markup_fee\":  null,\n        \"acquirer_fee\": null,\n        \"other_fee\": \"-0.38\"\n      },\n      \"metadata\": {},\n      \"created_at\": \"2020-04-16T23:41:36Z\"\n    },\n    {\n      \"id\": \"payt_itm_yitkEAVd6Lle1Wtk5A1PmtCY1D82cMKg\",\n      \"project_id\": \"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\",\n      \"payout_id\": \"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\",\n      \"transaction_id\": null,\n      \"report_id\": \"rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW\",\n      \"type\": \"sale\",\n      \"payment_provider_type\": null,\n      \"gateway_resource_id\": \"pi_XXXXIIGY1kBCI7IQc2Hg9h3y\",\n      \"amount\": \"9\",\n      \"fees\": \"-0.38\",\n      \"breakdown\": {\n        \"scheme_fee\":  null,\n        \"interchange_fee\":  null,\n        \"gateway_fee\": null,\n        \"markup_fee\":  null,\n        \"acquirer_fee\": null,\n        \"other_fee\": \"-0.38\"\n      },\n      \"metadata\": {},\n      \"created_at\": \"2020-04-16T23:39:16Z\"\n    },\n    {\n      \"id\": \"payt_itm_MHkO7Ls54sFxuFxGjnwl0RLKPU7gaCFy\",\n      \"project_id\": \"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\",\n      \"payout_id\": \"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\",\n      \"transaction_id\": null,\n      \"report_id\": \"rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW\",\n      \"type\": \"sale\",\n      \"payment_provider_type\": null,\n      \"gateway_resource_id\": \"pi_XXXXFdGY1kBCI7IQNcs7VbCq\",\n      \"amount\": \"9\",\n      \"fees\": \"-0.38\",\n      \"breakdown\": {\n        \"scheme_fee\":  null,\n        \"interchange_fee\":  null,\n        \"gateway_fee\": null,\n        \"markup_fee\":  null,\n        \"acquirer_fee\": null,\n        \"other_fee\": \"-0.38\"\n      },\n      \"metadata\": {},\n      \"created_at\": \"2020-04-16T23:36:39Z\"\n    }\n  ],\n  \"limit\": 10,\n  \"order\": \"desc\",\n  \"success\": true,\n  \"total_count\": 14451\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 10
+                    default: 0
+                  has_more:
+                    type: boolean
+                    example: true
+                    default: true
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: payt_itm_UokoiqzvKDC3Ab1VTAyP07lE6Ebu7zMa
+                        project_id:
+                          type: string
+                          example: proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh
+                        payout_id:
+                          type: string
+                          example: payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe
+                        transaction_id: {}
+                        report_id:
+                          type: string
+                          example: rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW
+                        type:
+                          type: string
+                          example: sale
+                        payment_provider_type: {}
+                        gateway_resource_id:
+                          type: string
+                          example: pi_XXXXbqGY1kBCI7IQyjDGB8Ih
+                        amount:
+                          type: string
+                          example: '9'
+                        fees:
+                          type: string
+                          example: '-0.38'
+                        breakdown:
+                          type: object
+                          properties:
+                            scheme_fee: {}
+                            interchange_fee: {}
+                            gateway_fee: {}
+                            markup_fee: {}
+                            acquirer_fee: {}
+                            other_fee:
+                              type: string
+                              example: '-0.38'
+                        metadata:
+                          type: object
+                          properties: {}
+                        created_at:
+                          type: string
+                          example: '2020-04-16T23:59:25Z'
+                  limit:
+                    type: integer
+                    example: 10
+                    default: 0
+                  order:
+                    type: string
+                    example: desc
+                  success:
+                    type: boolean
+                    example: true
+                    default: true
+                  total_count:
+                    type: integer
+                    example: 14451
+                    default: 0
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"success\": false,\n  \"message\": \"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\",\n  \"error_type\": \"request.authentication.invalid\"\n}"
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+                  message:
+                    type: string
+                    example: Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!
+                  error_type:
+                    type: string
+                    example: request.authentication.invalid
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"error_type\":\"resource.payout.not-found\",\n  \"message\":\"The payout could not be found.\",\n  \"success\":false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: resource.payout.not-found
+                  message:
+                    type: string
+                    example: The payout could not be found.
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+        4XX:
+          description: 4XX
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"error_type\": \"*Error code*\",\n  \"message\": \"*Error message*\",\n  \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: '*Error code*'
+                  message:
+                    type: string
+                    example: '*Error message*'
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: node
+          code: "var ProcessOut = require(\"processout\");\nvar client = new ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\",\n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\");\n\npayout.fetchItems({\n    limit:      20,\n    order:      \"asc\"\n}).then(function(payoutItems) {\n    // Payout items were fetched\n}, function(err) {\n    // An error occured\n});"
+          name: node.js
+        - language: python
+          code: "import processout\nclient = processout.ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\")\n\npayout_items = payout.fetch_items()({\n    \"limit\":       20,\n    \"order\":       \"asc\"\n})\n"
+        - language: ruby
+          code: "require \"processout\"\nclient = ProcessOut::Client.new(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\")\n\npayout_items = payout.fetch_items(\n    limit:       20,\n    order:       \"asc\"\n)"
+        - language: php
+          code: "<?php\n$client = new \\ProcessOut\\ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\");\n\n$payoutItems = $payout->fetchItems(array(\n    \"limit\"      => 20,\n    \"order\"      => \"asc\"\n));"
+        - language: go
+          code: "import \"github.com/processout/processout-go\"\n\nvar client = processout.New(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\",\n)\n\npayoutItems, err := payout.FetchItems(processout.PayoutFetchItemsParameters{\n    Options: &processout.Options{\n        Limit:      20,\n        Order:      \"asc\",\n    },\n})"
+        samples-languages:
+        - node
+        - python
+        - ruby
+        - php
+        - go
+      tags:
+      - Payouts
+  /payouts:
+    get:
+      summary: Listing payouts
+      description: ''
+      operationId: listing-payouts
+      parameters:
+      - name: Idempotency-Key
+        in: header
+        description: Unique key to your request that will be used for idempotency
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"count\": 3,\n    \"has_more\": false,\n    \"limit\": 10,\n    \"order\": \"desc\",\n    \"payouts\": [\n        {\n            \"id\": \"payt_xrrP1uGvDRkP0aAXtqqehDdFhqIgXJ30\",\n            \"project_id\": \"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\",\n            \"gateway_configuration\": {\n                \"id\": \"gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2\",\n                \"project_id\": \"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\",\n                \"gateway_id\": 6,\n                \"gateway_name\": \"stripe\",\n                \"name\": \"Stripe US Account\",\n                \"default_currency\": \"USD\",\n                \"processing_region\": null,\n                \"merchant_account_country_code\": null,\n                \"enabled\": true,\n                \"sub_accounts_enabled\": [\n                    \"stripe\"\n                ],\n                \"public_keys\": {\n                    \"public_key\": \"pk_test_pmXXEEFGFlFeFFTRd33\"\n                },\n                \"is_pulling\": false,\n                \"config_entries\": null,\n                \"sandbox\": false,\n                \"created_at\": \"2017-12-12T16:25:49.238147Z\",\n                \"enabled_at\": \"2017-12-12T16:25:50.553585Z\"\n            },\n            \"gateway_configuration_id\": \"gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2\",\n            \"gateway_resource_id\": \"po_1GaXWaGY1kBCI7IQirV34GFM\",\n            \"status\": \"received\",\n            \"failure_reason_code\": null,\n            \"failure_reason\": null,\n            \"metadata\": {},\n            \"amount\": \"5402.93\",\n            \"currency\": \"EUR\",\n            \"bank_name\": \"N26 BANK GMBH\",\n            \"bank_summary\": \"\",\n            \"sales_transactions\": 625,\n            \"sales_volume\": \"5640.43\",\n            \"sales_fees\": \"-237.5\",\n            \"refunds_transactions\": 0,\n            \"refunds_volume\": \"0\",\n            \"refunds_fees\": \"0\",\n            \"chargebacks_transactions\": 0,\n            \"chargebacks_volume\": \"0\",\n            \"chargebacks_fees\": \"0\",\n            \"fees\": \"-234.46\",\n            \"adjustments\": \"0\",\n            \"adjustments_volume\": \"0\",\n            \"adjustments_fees\": \"0\",\n            \"reserve\": \"0\",\n            \"reserve_volume\": \"0\",\n            \"reserve_fees\": \"0\",\n            \"settled_at\": \"2020-04-20T23:57:14Z\",\n            \"created_at\": \"2020-04-22T01:47:58.250171Z\"\n        },\n        {\n            \"id\": \"payt_uuVSsvmuGdxqVR1YoquQxLUt3cBw74gc\",\n            \"project_id\": \"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\",\n            \"gateway_configuration\": {\n                \"id\": \"gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2\",\n                \"project_id\": \"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\",\n                \"gateway_id\": 6,\n                \"gateway_name\": \"stripe\",\n                \"name\": \"Adyen\",\n                \"default_currency\": \"USD\",\n                \"processing_region\": null,\n                \"merchant_account_country_code\": null,\n                \"enabled\": true,\n                \"sub_accounts_enabled\": [\n                    \"stripe\"\n                ],\n                \"public_keys\": {\n                    \"public_key\": \"pk_test_pmXXEEFGFlFeFFTRd33\"\n                },\n                \"is_pulling\": false,\n                \"config_entries\": null,\n                \"sandbox\": false,\n                \"created_at\": \"2017-12-12T16:25:49.238147Z\",\n                \"enabled_at\": \"2017-12-12T16:25:50.553585Z\"\n            },\n            \"gateway_configuration_id\": \"gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2\",\n            \"gateway_resource_id\": \"po_1GaAfVGY1kBCI7IQ2DxffZUN\",\n            \"status\": \"received\",\n            \"failure_reason_code\": null,\n            \"failure_reason\": null,\n            \"metadata\": {},\n            \"amount\": \"5367.86\",\n            \"currency\": \"EUR\",\n            \"bank_name\": \"N26 BANK GMBH\",\n            \"bank_summary\": \"\",\n            \"sales_transactions\": 622,\n            \"sales_volume\": \"5604.22\",\n            \"sales_fees\": \"-236.36\",\n            \"refunds_transactions\": 0,\n            \"refunds_volume\": \"0\",\n            \"refunds_fees\": \"0\",\n            \"chargebacks_transactions\": 0,\n            \"chargebacks_volume\": \"0\",\n            \"chargebacks_fees\": \"0\",\n            \"fees\": \"-234.46\",\n            \"adjustments\": \"0\",\n            \"adjustments_volume\": \"0\",\n            \"adjustments_fees\": \"0\",\n            \"reserve\": \"0\",\n            \"reserve_volume\": \"0\",\n            \"reserve_fees\": \"0\",\n            \"settled_at\": \"2020-04-19T23:58:54Z\",\n            \"created_at\": \"2020-04-21T01:17:58.583458Z\"\n        },\n        {\n            \"id\": \"payt_Q4LcEBbnjppQqYn5rxJzOYoml07ODnaM\",\n            \"project_id\": \"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\",\n            \"gateway_configuration\": {\n                \"id\": \"gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2\",\n                \"project_id\": \"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\",\n                \"gateway_id\": 6,\n                \"gateway_name\": \"stripe\",\n                \"name\": \"Adyen\",\n                \"default_currency\": \"USD\",\n                \"processing_region\": null,\n                \"merchant_account_country_code\": null,\n                \"enabled\": true,\n                \"sub_accounts_enabled\": [\n                    \"stripe\"\n                ],\n                \"public_keys\": {\n                    \"public_key\": \"pk_test_pmXXEEFGFlFeFFTRd33\"\n                },\n                \"is_pulling\": false,\n                \"config_entries\": null,\n                \"sandbox\": false,\n                \"created_at\": \"2017-12-12T16:25:49.238147Z\",\n                \"enabled_at\": \"2017-12-12T16:25:50.553585Z\"\n            },\n            \"gateway_configuration_id\": \"gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2\",\n            \"gateway_resource_id\": \"po_1GZobgGY1kBCI7IQB7bpVoT2\",\n            \"status\": \"received\",\n            \"failure_reason_code\": null,\n            \"failure_reason\": null,\n            \"metadata\": {},\n            \"amount\": \"5350.78\",\n            \"currency\": \"EUR\",\n            \"bank_name\": \"N26 BANK GMBH\",\n            \"bank_summary\": \"\",\n            \"sales_transactions\": 620,\n            \"sales_volume\": \"5586.38\",\n            \"sales_fees\": \"-235.6\",\n            \"refunds_transactions\": 0,\n            \"refunds_volume\": \"0\",\n            \"refunds_fees\": \"0\",\n            \"chargebacks_transactions\": 0,\n            \"chargebacks_volume\": \"0\",\n            \"chargebacks_fees\": \"0\",\n            \"fees\": \"-234.46\",\n            \"adjustments\": \"0\",\n            \"adjustments_volume\": \"0\",\n            \"adjustments_fees\": \"0\",\n            \"reserve\": \"0\",\n            \"reserve_volume\": \"0\",\n            \"reserve_fees\": \"0\",\n            \"settled_at\": \"2020-04-18T23:59:57Z\",\n            \"created_at\": \"2020-04-20T01:47:16.05964Z\"\n        }\n    ],\n    \"success\": true,\n    \"total_count\": 2\n}"
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 3
+                    default: 0
+                  has_more:
+                    type: boolean
+                    example: false
+                    default: true
+                  limit:
+                    type: integer
+                    example: 10
+                    default: 0
+                  order:
+                    type: string
+                    example: desc
+                  payouts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: payt_xrrP1uGvDRkP0aAXtqqehDdFhqIgXJ30
+                        project_id:
+                          type: string
+                          example: proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh
+                        gateway_configuration:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2
+                            project_id:
+                              type: string
+                              example: proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh
+                            gateway_id:
+                              type: integer
+                              example: 6
+                              default: 0
+                            gateway_name:
+                              type: string
+                              example: stripe
+                            name:
+                              type: string
+                              example: Stripe US Account
+                            default_currency:
+                              type: string
+                              example: USD
+                            processing_region: {}
+                            merchant_account_country_code: {}
+                            enabled:
+                              type: boolean
+                              example: true
+                              default: true
+                            sub_accounts_enabled:
+                              type: array
+                              items:
+                                type: string
+                                example: stripe
+                            public_keys:
+                              type: object
+                              properties:
+                                public_key:
+                                  type: string
+                                  example: pk_test_pmXXEEFGFlFeFFTRd33
+                            is_pulling:
+                              type: boolean
+                              example: false
+                              default: true
+                            config_entries: {}
+                            sandbox:
+                              type: boolean
+                              example: false
+                              default: true
+                            created_at:
+                              type: string
+                              example: '2017-12-12T16:25:49.238147Z'
+                            enabled_at:
+                              type: string
+                              example: '2017-12-12T16:25:50.553585Z'
+                        gateway_configuration_id:
+                          type: string
+                          example: gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2
+                        gateway_resource_id:
+                          type: string
+                          example: po_1GaXWaGY1kBCI7IQirV34GFM
+                        status:
+                          type: string
+                          example: received
+                        failure_reason_code: {}
+                        failure_reason: {}
+                        metadata:
+                          type: object
+                          properties: {}
+                        amount:
+                          type: string
+                          example: '5402.93'
+                        currency:
+                          type: string
+                          example: EUR
+                        bank_name:
+                          type: string
+                          example: N26 BANK GMBH
+                        bank_summary:
+                          type: string
+                          example: ''
+                        sales_transactions:
+                          type: integer
+                          example: 625
+                          default: 0
+                        sales_volume:
+                          type: string
+                          example: '5640.43'
+                        sales_fees:
+                          type: string
+                          example: '-237.5'
+                        refunds_transactions:
+                          type: integer
+                          example: 0
+                          default: 0
+                        refunds_volume:
+                          type: string
+                          example: '0'
+                        refunds_fees:
+                          type: string
+                          example: '0'
+                        chargebacks_transactions:
+                          type: integer
+                          example: 0
+                          default: 0
+                        chargebacks_volume:
+                          type: string
+                          example: '0'
+                        chargebacks_fees:
+                          type: string
+                          example: '0'
+                        fees:
+                          type: string
+                          example: '-234.46'
+                        adjustments:
+                          type: string
+                          example: '0'
+                        adjustments_volume:
+                          type: string
+                          example: '0'
+                        adjustments_fees:
+                          type: string
+                          example: '0'
+                        reserve:
+                          type: string
+                          example: '0'
+                        reserve_volume:
+                          type: string
+                          example: '0'
+                        reserve_fees:
+                          type: string
+                          example: '0'
+                        settled_at:
+                          type: string
+                          example: '2020-04-20T23:57:14Z'
+                        created_at:
+                          type: string
+                          example: '2020-04-22T01:47:58.250171Z'
+                  success:
+                    type: boolean
+                    example: true
+                    default: true
+                  total_count:
+                    type: integer
+                    example: 2
+                    default: 0
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"success\": false,\n  \"message\": \"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\",\n  \"error_type\": \"request.authentication.invalid\"\n}"
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+                  message:
+                    type: string
+                    example: Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!
+                  error_type:
+                    type: string
+                    example: request.authentication.invalid
+        4XX:
+          description: 4XX
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"error_type\": \"*Error code*\",\n  \"message\": \"*Error message*\",\n  \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: '*Error code*'
+                  message:
+                    type: string
+                    example: '*Error message*'
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: node
+          code: "var ProcessOut = require(\"processout\");\nvar client = new ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\",\n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\");\n\nclient.newPayout().all({\n    limit:      20,\n    order:      \"asc\"\n}).then(function(payouts) {\n    // Payouts were fetched\n}, function(err) {\n    // An error occured\n});"
+          name: node.js
+        - language: python
+          code: "import processout\nclient = processout.ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\")\n\npayouts = client.new_payout().all({\n    \"limit\":       20,\n    \"order\":       \"asc\"\n})"
+        - language: ruby
+          code: "require \"processout\"\nclient = ProcessOut::Client.new(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\")\n\npayouts = client.payout.all(\n    limit:       20,\n    order:       \"asc\"\n)"
+        - language: php
+          code: "<?php\n$client = new \\ProcessOut\\ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\");\n\n$payouts = $client->newPayout()->all(array(\n    \"limit\"      => 20,\n    \"order\"      => \"asc\"\n));"
+        - language: go
+          code: "import \"github.com/processout/processout-go\"\n\nvar client = processout.New(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\",\n)\n\npayouts, err := client.NewPayout().All(processout.PayoutAllParameters{\n    Options: &processout.Options{\n        Limit:      20,\n        Order:      \"asc\",\n    },\n})"
+        samples-languages:
+        - node
+        - python
+        - ruby
+        - php
+        - go
+      tags:
+      - Payouts
+components:
+  securitySchemes:
+    sec0:
+      type: http
+      scheme: basic

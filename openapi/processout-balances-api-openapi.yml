@@ -1,0 +1,143 @@
+openapi: 3.1.0
+info:
+  title: ProcessOut Balances API
+  version: 1.0.3
+  description: ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation. Authentication is HTTP Basic using a project ID (username) and secret API key (password). This OpenAPI 3.1 description was assembled by API Evangelist from the per-operation OpenAPI fragments ProcessOut publishes in each ReadMe API-reference page.
+  contact:
+    email: help@processout.com
+    url: https://docs.processout.com
+servers:
+- url: https://api.processout.com
+  description: Production
+security:
+- sec0: []
+tags:
+- name: Balances
+paths:
+  /balances/tokens/{token_id}:
+    get:
+      summary: Fetch a token balance
+      description: ''
+      operationId: fetch-a-token-balance
+      parameters:
+      - name: token_id
+        in: path
+        description: ID of the customer token
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                200 OK - Amount:
+                  value: "{\n    \"balances\": {\n        \"vouchers\": [{\n            \"amount\": \"1500\",\n            \"currency\": \"RON\",\n            \"expiry\": null\n        }],\n        \"available_balance\": {\n            \"amount\": \"1500\",\n            \"currency\": \"RON\",\n            \"expiry\": null\n        },\n        \"customer_action\": {\n      \t\t\"type\": \"REDIRECT\",\n      \t\t\"value\": \"path\"\n    \t\t}\n    },\n    \"success\": true\n}"
+              schema:
+                type: object
+                properties:
+                  balances:
+                    type: object
+                    properties:
+                      vouchers:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            amount:
+                              type: string
+                              example: '1500'
+                            currency:
+                              type: string
+                              example: RON
+                            expiry: {}
+                      available_balance:
+                        type: object
+                        properties:
+                          amount:
+                            type: string
+                            example: '1500'
+                          currency:
+                            type: string
+                            example: RON
+                          expiry: {}
+                      customer_action:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            example: REDIRECT
+                          value:
+                            type: string
+                            example: path
+                  success:
+                    type: boolean
+                    example: true
+                    default: true
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"success\": false,\n  \"message\": \"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\",\n  \"error_type\": \"request.authentication.invalid\"\n}"
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+                  message:
+                    type: string
+                    example: Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!
+                  error_type:
+                    type: string
+                    example: request.authentication.invalid
+        4XX:
+          description: 4XX
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"error_type\": \"*Error code*\",\n  \"message\": \"*Error message*\",\n  \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: '*Error code*'
+                  message:
+                    type: string
+                    example: '*Error message*'
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: node
+          code: "const ProcessOut = require(\"processout\");\nconst client = new ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\",\n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\");\n\n// ...\n\nconst balances = await client.newBalances().find(\"tok_fKK4btSG7wd13ZZaevzhMcuNbpjcu1Zy\");"
+        - language: python
+          code: "import processout\nclient = processout.ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\",\n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\")\n\n# use customer payment token to retrieve any available balance\nbalances = client.new_balances().find(\"tok_fKK4btSG7wd13ZZaevzhMcuNbpjcu1Zy\")"
+        - language: ruby
+          code: "require \"processout\"\nclient = ProcessOut::Client.new(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\",\n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\")\n\n# use customer payment token to retrieve any available balance\nbalances = client.balances.find(\"tok_fKK4btSG7wd13ZZaevzhMcuNbpjcu1Zy\")"
+        - language: php
+          code: "<?php\n$client = new \\ProcessOut\\ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\",\n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\");\n\n// use customer payment token to retrieve any available balance\n$balances = $client->newBalances()->find(\"tok_fKK4btSG7wd13ZZaevzhMcuNbpjcu1Zy\");\n?>"
+        - language: go
+          code: "import \"github.com/processout/processout-go\"\n\nclient := processout.New(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\",\n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\",\n)\n\n// use customer payment token to retrieve any available balance\nbalances, err := client.NewBalances().Find(\"tok_fKK4btSG7wd13ZZaevzhMcuNbpjcu1Zy\")"
+        samples-languages:
+        - node
+        - python
+        - ruby
+        - php
+        - go
+      tags:
+      - Balances
+components:
+  securitySchemes:
+    sec0:
+      type: http
+      scheme: basic

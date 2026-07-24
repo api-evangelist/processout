@@ -1,0 +1,101 @@
+openapi: 3.1.0
+info:
+  title: ProcessOut Balances Network Tokens API
+  version: 1.0.3
+  description: ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation. Authentication is HTTP Basic using a project ID (username) and secret API key (password). This OpenAPI 3.1 description was assembled by API Evangelist from the per-operation OpenAPI fragments ProcessOut publishes in each ReadMe API-reference page.
+  contact:
+    email: help@processout.com
+    url: https://docs.processout.com
+servers:
+- url: https://api.processout.com
+  description: Production
+security:
+- sec0: []
+tags:
+- name: Network Tokens
+paths:
+  /network-tokens:
+    post:
+      summary: Provisioning Network Token for card
+      description: ''
+      operationId: provisioning-network-token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - card_id
+              properties:
+                card_id:
+                  type: string
+                  description: ID of the tokenized card
+      responses:
+        '202':
+          description: '202'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"network_token\": {\n        \"status\": \"pending\"\n    },\n    \"success\": true\n}"
+              schema:
+                type: object
+                properties:
+                  network_token:
+                    type: object
+                    properties:
+                      status:
+                        type: string
+                        example: pending
+                  success:
+                    type: boolean
+                    example: true
+                    default: true
+        '422':
+          description: '422'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"error_type\": \"request.validation.provisioning-not-possible\",\n    \"message\": \"network token status is active: provisioning not possible\",\n    \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: request.validation.provisioning-not-possible
+                  message:
+                    type: string
+                    example: 'network token status is active: provisioning not possible'
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+        4XX:
+          description: 4XX
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"error_type\": \"*Error code*\",\n  \"message\": \"*Error message*\",\n  \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: '*Error code*'
+                  message:
+                    type: string
+                    example: '*Error message*'
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+      deprecated: false
+      tags:
+      - Network Tokens
+components:
+  securitySchemes:
+    sec0:
+      type: http
+      scheme: basic

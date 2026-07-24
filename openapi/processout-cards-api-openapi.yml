@@ -1,0 +1,640 @@
+openapi: 3.1.0
+info:
+  title: ProcessOut Balances Cards API
+  version: 1.0.3
+  description: ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation. Authentication is HTTP Basic using a project ID (username) and secret API key (password). This OpenAPI 3.1 description was assembled by API Evangelist from the per-operation OpenAPI fragments ProcessOut publishes in each ReadMe API-reference page.
+  contact:
+    email: help@processout.com
+    url: https://docs.processout.com
+servers:
+- url: https://api.processout.com
+  description: Production
+security:
+- sec0: []
+tags:
+- name: Cards
+paths:
+  /cards:
+    post:
+      summary: Creating a card
+      description: ''
+      operationId: creating-a-card
+      parameters:
+      - name: Idempotency-Key
+        in: header
+        description: Unique key to your request that will be used for idempotency
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - number
+              - exp_year
+              - exp_month
+              properties:
+                number:
+                  type: string
+                  description: Number of the card (PAN)<br>_Must respect the Luhn check_
+                exp_year:
+                  type: string
+                  description: Expiration year of the card
+                exp_month:
+                  type: string
+                  description: Expiration month of the card
+                cvc2:
+                  type: string
+                  description: CVC of the card
+                name:
+                  type: string
+                  description: Cardholder’s name.<br>_Maximum 255 characters long. Automatically sanitised on write — emoji, currency symbols, and non-printable characters are stripped, and underscores are converted to spaces. All Unicode scripts are supported._
+                contact:
+                  type: object
+                  description: Card billing details
+                  properties:
+                    address1:
+                      type: string
+                      description: First line of the cardholder's address.<br>_Maximum 80 characters long_
+                    address2:
+                      type: string
+                      description: Second line of the cardholder's address.<br>_Maximum 80 characters long_
+                    city:
+                      type: string
+                      description: City of the cardholder's address.<br>_Maximum 80 characters long_
+                    state:
+                      type: string
+                      description: State or county of the cardholder's address.<br>_Maximum 80 characters long_
+                    country_code:
+                      type: string
+                      description: Deprecated alias for billing_country_code. Country code of the cardholder's address  (`US`, `FR`...).<br>Kept for backward compatibility; prefer billing_country_code.<br>_Must be a valid ISO 3166 country code with 2 characters_
+                    billing_country_code:
+                      type: string
+                      description: Country code of the cardholder's address (US, FR...).<br>Takes precedence over country_code when both are supplied.<br>_Must be a valid ISO 3166 country code with 2 characters_
+                    zip:
+                      type: string
+                      description: ZIP code of the cardholders's address.<br>_Maximum 16 characters long_
+                device:
+                  type: object
+                  description: Object used to override end user parameters
+                  properties:
+                    request_origin:
+                      type: string
+                      description: Must be `backend` for any request made by merchant's backend
+                    ip_address:
+                      type: string
+                      description: Override the IP address being saved on the card<br>_Must be a valid IPv4 or IPv6 address_
+                preferred_scheme:
+                  type: string
+                  description: You can offer the customer a preferred scheme to pay on, say, if the customer's card supports co-schemes such as carte bancaire. This will be used as default for future transactions for this card.
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value:
+                    card:
+                      project_id: proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S
+                      update_type: null
+                      update_reason_code: null
+                      scheme: visa
+                      co_scheme: null
+                      preferred_scheme: null
+                      type: credit
+                      bank_name: null
+                      brand: null
+                      category: null
+                      iin: '400000'
+                      last_4_digits: '0101'
+                      fingerprint: 0f041fb914a50c7555df2318df1a9f9571cc96305c07b4f944e29fd17bfd1691
+                      exp_month: 11
+                      exp_year: 2026
+                      cvc_check: unavailable
+                      avs_check: unavailable
+                      checks:
+                        cvc_check: unavailable
+                        cvc_check_reason: null
+                        avs_check: unavailable
+                        avs_postal_check: unavailable
+                        avs_postal_check_reason: null
+                        avs_street_check: unavailable
+                        avs_street_check_reason: null
+                        avs_name_check: unavailable
+                        avs_name_check_reason: null
+                      token_type: null
+                      name: Matéo Garnier
+                      address1: 133 rue Lamarck
+                      address2: Cedex 7
+                      city: Paris
+                      state: Ile De France
+                      country_code: US
+                      billing_country_code: FR
+                      zip: '75018'
+                      ip_address: 1.2.3.4
+                      user_agent: PostmanRuntime/7.32.2
+                      header_accept: '*/*'
+                      app_color_depth: null
+                      app_java_enabled: null
+                      app_language: null
+                      app_screen_height: null
+                      app_screen_width: null
+                      app_timezone_offset: null
+                      header_referer: null
+                      expires_soon: false
+                      metadata: {}
+                      used: null
+                      sandbox: true
+                      created_at: '2023-04-22T10:10:21.019103785Z'
+                      updated_at: '2023-04-22T10:10:21.019103681Z'
+                      id: card_zZAeVmdrJjN58PbB8lVSrqh3rqEuH3Ai
+                      cvc_tokenized: true
+                      tokenization_method: null
+                      payment_source_detail: null
+                    success: true
+              schema:
+                type: object
+                properties:
+                  card:
+                    type: object
+                    properties:
+                      project_id:
+                        type: string
+                        example: proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S
+                      update_type: {}
+                      update_reason_code: {}
+                      scheme:
+                        type: string
+                        example: visa
+                      co_scheme: {}
+                      preferred_scheme: {}
+                      type:
+                        type: string
+                        example: credit
+                      bank_name: {}
+                      brand: {}
+                      category: {}
+                      iin:
+                        type: string
+                        example: '400000'
+                      last_4_digits:
+                        type: string
+                        example: '0101'
+                      fingerprint:
+                        type: string
+                        example: 0f041fb914a50c7555df2318df1a9f9571cc96305c07b4f944e29fd17bfd1691
+                      exp_month:
+                        type: integer
+                        example: 11
+                        default: 0
+                      exp_year:
+                        type: integer
+                        example: 2026
+                        default: 0
+                      cvc_check:
+                        type: string
+                        example: unavailable
+                      avs_check:
+                        type: string
+                        example: unavailable
+                      checks:
+                        type: object
+                        properties:
+                          cvc_check:
+                            type: string
+                            example: unavailable
+                          cvc_check_reason: {}
+                          avs_check:
+                            type: string
+                            example: unavailable
+                          avs_postal_check:
+                            type: string
+                            example: unavailable
+                          avs_postal_check_reason: {}
+                          avs_street_check:
+                            type: string
+                            example: unavailable
+                          avs_street_check_reason: {}
+                          avs_name_check:
+                            type: string
+                            example: unavailable
+                          avs_name_check_reason: {}
+                      token_type: {}
+                      name:
+                        type: string
+                        example: Matéo Garnier
+                      address1:
+                        type: string
+                        example: 133 rue Lamarck
+                      address2:
+                        type: string
+                        example: Cedex 7
+                      city:
+                        type: string
+                        example: Paris
+                      state:
+                        type: string
+                        example: Ile De France
+                      country_code:
+                        type: string
+                        example: US
+                      billing_country_code:
+                        type: string
+                      zip:
+                        type: string
+                        example: '75018'
+                      ip_address:
+                        type: string
+                        example: 1.2.3.4
+                      user_agent:
+                        type: string
+                        example: PostmanRuntime/7.32.2
+                      header_accept:
+                        type: string
+                        example: '*/*'
+                      app_color_depth: {}
+                      app_java_enabled: {}
+                      app_language: {}
+                      app_screen_height: {}
+                      app_screen_width: {}
+                      app_timezone_offset: {}
+                      header_referer: {}
+                      expires_soon:
+                        type: boolean
+                        example: false
+                        default: true
+                      metadata:
+                        type: object
+                        properties: {}
+                      used: {}
+                      sandbox:
+                        type: boolean
+                        example: true
+                        default: true
+                      created_at:
+                        type: string
+                        example: '2023-04-22T10:10:21.019103785Z'
+                      updated_at:
+                        type: string
+                        example: '2023-04-22T10:10:21.019103681Z'
+                      id:
+                        type: string
+                        example: card_zZAeVmdrJjN58PbB8lVSrqh3rqEuH3Ai
+                      cvc_tokenized:
+                        type: boolean
+                        example: true
+                        default: true
+                      tokenization_method: {}
+                      payment_source_detail: {}
+                  success:
+                    type: boolean
+                    example: true
+                    default: true
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"success\":false,\n  \"error_type\":\"card.invalid-number\",\n  \"message\":\"Your card’s number is invalid.\"\n}"
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+                  error_type:
+                    type: string
+                    example: card.invalid-number
+                  message:
+                    type: string
+                    example: Your card’s number is invalid.
+        4XX:
+          description: 4XX
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"error_type\": \"*Error code*\",\n  \"message\": \"*Error message*\",\n  \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: '*Error code*'
+                  message:
+                    type: string
+                    example: '*Error message*'
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+      tags:
+      - Cards
+  /cards/{card_id}:
+    put:
+      summary: Updating a card
+      description: ''
+      operationId: updating-a-card
+      parameters:
+      - name: card_id
+        in: path
+        description: ID of the card tokenized
+        schema:
+          type: string
+        required: true
+      - name: Idempotency-Key
+        in: header
+        description: Unique key to your request that will be used for idempotency
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cvc2:
+                  type: string
+                  description: CVC of the card
+                preferred_scheme:
+                  type: string
+                  description: Preferred scheme defined by the Customer. This gets priority when processing the Transaction. If you wish to update this back to empty, you can use the value `none`.
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value:
+                    card:
+                      project_id: proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S
+                      update_type: new-cvc2
+                      update_reason_code: request
+                      scheme: visa
+                      co_scheme: null
+                      preferred_scheme: null
+                      type: credit
+                      bank_name: null
+                      brand: null
+                      category: null
+                      iin: '400000'
+                      last_4_digits: '0101'
+                      fingerprint: 0f041fb914a50c7555df2318df1a9f9571cc96305c07b4f944e29fd17bfd1691
+                      exp_month: 11
+                      exp_year: 2026
+                      cvc_check: unavailable
+                      avs_check: unavailable
+                      checks:
+                        cvc_check: unavailable
+                        cvc_check_reason: null
+                        avs_check: unavailable
+                        avs_postal_check: unavailable
+                        avs_postal_check_reason: null
+                        avs_street_check: unavailable
+                        avs_street_check_reason: null
+                        avs_name_check: unavailable
+                        avs_name_check_reason: null
+                      token_type: null
+                      name: Matéo Garnier
+                      address1: 133 rue Lamarck
+                      address2: Cedex 7
+                      city: Paris
+                      state: Ile De France
+                      country_code: US
+                      billing_country_code: FR
+                      zip: '75018'
+                      ip_address: 1.2.3.4
+                      user_agent: PostmanRuntime/7.32.2
+                      header_accept: '*/*'
+                      app_color_depth: null
+                      app_java_enabled: null
+                      app_language: null
+                      app_screen_height: null
+                      app_screen_width: null
+                      app_timezone_offset: null
+                      header_referer: null
+                      expires_soon: false
+                      metadata: {}
+                      used: null
+                      sandbox: true
+                      created_at: '2023-04-22T10:10:21.019103Z'
+                      updated_at: '2023-04-22T10:22:11.46316117Z'
+                      id: card_zZAeVmdrJjN58PbB8lVSrqh3rqEuH3Ai
+                      cvc_tokenized: true
+                      tokenization_method: null
+                      payment_source_detail: null
+                    success: true
+              schema:
+                type: object
+                properties:
+                  card:
+                    type: object
+                    properties:
+                      project_id:
+                        type: string
+                        example: proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S
+                      update_type:
+                        type: string
+                        example: new-cvc2
+                      update_reason_code:
+                        type: string
+                        example: request
+                      scheme:
+                        type: string
+                        example: visa
+                      co_scheme: {}
+                      preferred_scheme: {}
+                      type:
+                        type: string
+                        example: credit
+                      bank_name: {}
+                      brand: {}
+                      category: {}
+                      iin:
+                        type: string
+                        example: '400000'
+                      last_4_digits:
+                        type: string
+                        example: '0101'
+                      fingerprint:
+                        type: string
+                        example: 0f041fb914a50c7555df2318df1a9f9571cc96305c07b4f944e29fd17bfd1691
+                      exp_month:
+                        type: integer
+                        example: 11
+                        default: 0
+                      exp_year:
+                        type: integer
+                        example: 2026
+                        default: 0
+                      cvc_check:
+                        type: string
+                        example: unavailable
+                      avs_check:
+                        type: string
+                        example: unavailable
+                      checks:
+                        type: object
+                        properties:
+                          cvc_check:
+                            type: string
+                            example: unavailable
+                          cvc_check_reason: {}
+                          avs_check:
+                            type: string
+                            example: unavailable
+                          avs_postal_check:
+                            type: string
+                            example: unavailable
+                          avs_postal_check_reason: {}
+                          avs_street_check:
+                            type: string
+                            example: unavailable
+                          avs_street_check_reason: {}
+                          avs_name_check:
+                            type: string
+                            example: unavailable
+                          avs_name_check_reason: {}
+                      token_type: {}
+                      name:
+                        type: string
+                        example: Matéo Garnier
+                      address1:
+                        type: string
+                        example: 133 rue Lamarck
+                      address2:
+                        type: string
+                        example: Cedex 7
+                      city:
+                        type: string
+                        example: Paris
+                      state:
+                        type: string
+                        example: Ile De France
+                      country_code:
+                        type: string
+                        example: US
+                      billing_country_code:
+                        type: string
+                      zip:
+                        type: string
+                        example: '75018'
+                      ip_address:
+                        type: string
+                        example: 1.2.3.4
+                      user_agent:
+                        type: string
+                        example: PostmanRuntime/7.32.2
+                      header_accept:
+                        type: string
+                        example: '*/*'
+                      app_color_depth: {}
+                      app_java_enabled: {}
+                      app_language: {}
+                      app_screen_height: {}
+                      app_screen_width: {}
+                      app_timezone_offset: {}
+                      header_referer: {}
+                      expires_soon:
+                        type: boolean
+                        example: false
+                        default: true
+                      metadata:
+                        type: object
+                        properties: {}
+                      used: {}
+                      sandbox:
+                        type: boolean
+                        example: true
+                        default: true
+                      created_at:
+                        type: string
+                        example: '2023-04-22T10:10:21.019103Z'
+                      updated_at:
+                        type: string
+                        example: '2023-04-22T10:22:11.46316117Z'
+                      id:
+                        type: string
+                        example: card_zZAeVmdrJjN58PbB8lVSrqh3rqEuH3Ai
+                      cvc_tokenized:
+                        type: boolean
+                        example: true
+                        default: true
+                      tokenization_method: {}
+                      payment_source_detail: {}
+                  success:
+                    type: boolean
+                    example: true
+                    default: true
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"success\": false,\n    \"message\": \"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\",\n    \"error_type\": \"request.authentication.invalid\"\n}"
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+                  message:
+                    type: string
+                    example: Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!
+                  error_type:
+                    type: string
+                    example: request.authentication.invalid
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"error_type\": \"resource.card.not-found\",\n    \"message\": \"The card could not be found.\",\n    \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: resource.card.not-found
+                  message:
+                    type: string
+                    example: The card could not be found.
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+        4XX:
+          description: 4XX
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"error_type\": \"*Error code*\",\n  \"message\": \"*Error message*\",\n  \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: '*Error code*'
+                  message:
+                    type: string
+                    example: '*Error message*'
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+      tags:
+      - Cards
+components:
+  securitySchemes:
+    sec0:
+      type: http
+      scheme: basic

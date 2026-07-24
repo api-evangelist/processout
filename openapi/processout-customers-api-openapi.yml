@@ -1,0 +1,1941 @@
+openapi: 3.1.0
+info:
+  title: ProcessOut Balances Customers API
+  version: 1.0.3
+  description: ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation. Authentication is HTTP Basic using a project ID (username) and secret API key (password). This OpenAPI 3.1 description was assembled by API Evangelist from the per-operation OpenAPI fragments ProcessOut publishes in each ReadMe API-reference page.
+  contact:
+    email: help@processout.com
+    url: https://docs.processout.com
+servers:
+- url: https://api.processout.com
+  description: Production
+security:
+- sec0: []
+tags:
+- name: Customers
+paths:
+  /customers:
+    post:
+      summary: Creating a customer
+      description: ''
+      operationId: creating-a-customer
+      parameters:
+      - name: Idempotency-Key
+        in: header
+        description: Unique key to your request that will be used for idempotency
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: First name of the customer.<br>_Maximum 80 characters long. Automatically sanitised on write — emoji, currency symbols, and non-printable characters are stripped, and underscores are converted to spaces. All Unicode scripts are supported._
+                last_name:
+                  type: string
+                  description: Last name of the customer.<br>_Maximum 80 characters long. Automatically sanitised on write — emoji, currency symbols, and non-printable characters are stripped, and underscores are converted to spaces. All Unicode scripts are supported._
+                email:
+                  type: string
+                  description: Customer’s email address.<br>_Must be a valid email_
+                address1:
+                  type: string
+                  description: First line of the customer’s address.<br>_Maximum 80 characters long_
+                address2:
+                  type: string
+                  description: Second line of the customer’s address.<br>_Maximum 80 characters long_
+                city:
+                  type: string
+                  description: City of the customer’s address.<br>_Maximum 80 characters long_
+                state:
+                  type: string
+                  description: State or county of the customer’s address.<br>_Maximum 80 characters long_
+                zip:
+                  type: string
+                  description: ZIP code of the customer’s address.<br>_Maximum 16 characters long_
+                country_code:
+                  type: string
+                  description: Country code of the customer's address  (`US`, `FR`...).<br>_Must be a valid ISO 3166 country code with 2 characters_
+                phone:
+                  type: object
+                  description: Phone number of the customer.
+                  properties:
+                    number:
+                      type: string
+                      description: Phone number without the dialing code.<br>_Maximum 14 characters long_
+                    dialing_code:
+                      type: string
+                      description: 'International dialing code (Note: “+” will be treated as “00”)'
+                legal_document:
+                  type: string
+                  description: 'Legal document number (required in some countries).<br>_Maximum 255 characters long; example for a CPF document in Brazil: 853.513.468-93_'
+                ip_address:
+                  type: string
+                  description: IP address of the customer.<br>_Must be a valid IPv4 or IPv6 address_
+                sex:
+                  type: string
+                  description: Sex of the customer. Can be `male` or `female`.
+                date_of_birth:
+                  type: string
+                  description: Customer’s date of birth.<br>_RFC1123 date or timestamp_
+                  format: date
+                is_business:
+                  type: boolean
+                  description: Denotes whether or not the customer represents a business.
+                metadata:
+                  type: string
+                  description: Metadata related to the customer, in the form of key-value pairs (string - string).
+                  default: '{}'
+                  format: json
+                registered_at:
+                  type: string
+                  description: Date when the customer was registered on your platform. This defaults to the same date as `created_at` if you omit it.<br>_RFC1123 date or timestamp_
+                  format: date
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"customer\": {\n        \"id\": \"cust_IaR72c6JPoYdWvr5N1XX3blkH2ilRIvK\",\n        \"project_id\": \"proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S\",\n        \"tokens\": null,\n        \"subscriptions\": null,\n        \"transactions\": null,\n        \"balance\": \"0\",\n        \"currency\": null,\n        \"email\": \"lorenzo.roger@example.com\",\n        \"first_name\": \"Lorenzo\",\n        \"last_name\": \"Roger\",\n        \"address1\": \"4848 Rue Abel\",\n        \"address2\": \"Cedex 7\",\n        \"city\": \"Poitiers\",\n        \"state\": \"Pyrénées-Orientales\",\n        \"zip\": \"29173\",\n        \"country_code\": \"FR\",\n        \"ip_address\": \"1.1.1.1\",\n        \"phone\": {\n            \"number\": \"685869595\",\n            \"dialing_code\": \"0033\"\n        },\n        \"legal_document\": \"1122.434.234\",\n        \"date_of_birth\": \"2001-11-11T04:56:05Z\",\n        \"metadata\": {},\n        \"sandbox\": true,\n        \"created_at\": \"2023-04-22T08:55:55.645447048Z\",\n        \"registered_at\": \"2005-08-07T23:19:49Z\",\n        \"is_business\": false,\n        \"sex\": \"male\",\n        \"default_token_id\": null\n    },\n    \"success\": true\n}"
+              schema:
+                type: object
+                properties:
+                  customer:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: cust_IaR72c6JPoYdWvr5N1XX3blkH2ilRIvK
+                      project_id:
+                        type: string
+                        example: proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S
+                      tokens: {}
+                      subscriptions: {}
+                      transactions: {}
+                      balance:
+                        type: string
+                        example: '0'
+                      currency: {}
+                      email:
+                        type: string
+                        example: lorenzo.roger@example.com
+                      first_name:
+                        type: string
+                        example: Lorenzo
+                      last_name:
+                        type: string
+                        example: Roger
+                      address1:
+                        type: string
+                        example: 4848 Rue Abel
+                      address2:
+                        type: string
+                        example: Cedex 7
+                      city:
+                        type: string
+                        example: Poitiers
+                      state:
+                        type: string
+                        example: Pyrénées-Orientales
+                      zip:
+                        type: string
+                        example: '29173'
+                      country_code:
+                        type: string
+                        example: FR
+                      ip_address:
+                        type: string
+                        example: 1.1.1.1
+                      phone:
+                        type: object
+                        properties:
+                          number:
+                            type: string
+                            example: '685869595'
+                          dialing_code:
+                            type: string
+                            example: '0033'
+                      legal_document:
+                        type: string
+                        example: 1122.434.234
+                      date_of_birth:
+                        type: string
+                        example: '2001-11-11T04:56:05Z'
+                      metadata:
+                        type: object
+                        properties: {}
+                      sandbox:
+                        type: boolean
+                        example: true
+                        default: true
+                      created_at:
+                        type: string
+                        example: '2023-04-22T08:55:55.645447048Z'
+                      registered_at:
+                        type: string
+                        example: '2005-08-07T23:19:49Z'
+                      is_business:
+                        type: boolean
+                        example: false
+                        default: true
+                      sex:
+                        type: string
+                        example: male
+                      default_token_id: {}
+                  success:
+                    type: boolean
+                    example: true
+                    default: true
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"error_type\": \"request.validation.invalid-ip-address\",\n    \"message\": \"The customer IP address is invalid.\",\n    \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: request.validation.invalid-ip-address
+                  message:
+                    type: string
+                    example: The customer IP address is invalid.
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"success\": false,\n    \"message\": \"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\",\n    \"error_type\": \"request.authentication.invalid\"\n}"
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+                  message:
+                    type: string
+                    example: Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!
+                  error_type:
+                    type: string
+                    example: request.authentication.invalid
+        4XX:
+          description: 4XX
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"error_type\": \"*Error code*\",\n    \"message\": \"*Error message*\",\n    \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: '*Error code*'
+                  message:
+                    type: string
+                    example: '*Error message*'
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+      x-readme:
+        code-samples:
+        - language: node
+          code: "var ProcessOut = require(\"processout\");\nvar client = new ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\",\n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\");\n\nvar customer = client.newCustomer().create({\n    \"email\":      \"john@smith.com\",\n    \"first_name\": \"John\",\n    \"last_name\":  \"Smith\"\n}).then(function(customer) {\n    //\n\n}, function(err) {\n    // An error occured\n\n});"
+          name: node.js
+        - language: python
+          code: "import processout\nclient = processout.ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\")\n\ncustomer = client.new_customer().create({\n    \"email\":      \"john@smith.com\",\n    \"first_name\": \"John\",\n    \"last_name\":  \"Smith\"\n})"
+        - language: ruby
+          code: "require \"processout\"\nclient = ProcessOut::Client.new(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\")\n\ncustomer = client.customer.create(\n    email:      \"john@smith.com\",\n    first_name: \"John\",\n    last_name:  \"Smith\"\n)"
+        - language: php
+          code: "<?php\n$client = new \\ProcessOut\\ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\");\n\n$customer = $client->newCustomer()->create(array(\n    \"email\"      => \"john@smith.com\",\n    \"first_name\" => \"John\",\n    \"last_name\"  => \"Smith\"\n));"
+        - language: go
+          code: "import \"github.com/processout/processout-go\"\n\nvar client = processout.New(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\",\n)\n\ncust, err := client.NewCustomer().Create(processout.CustomerCreateParameters{\n    Customer: &processout.Customer{\n        Email:     processout.String(\"john@smith.com\"),\n        FirstName: processout.String(\"John\"),\n        LastName:  processout.String(\"Smith\"),\n    },\n})"
+        samples-languages:
+        - node
+        - python
+        - ruby
+        - php
+        - go
+      tags:
+      - Customers
+  /customers/{customer_id}/tokens:
+    post:
+      summary: Creating a token
+      description: ''
+      operationId: creating-a-token
+      parameters:
+      - name: customer_id
+        in: path
+        description: ID of your customer
+        schema:
+          type: string
+        required: true
+      - name: Idempotency-Key
+        in: header
+        description: Unique key to your request that will be used for idempotency
+        schema:
+          properties: {}
+          type: object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                invoice_id:
+                  type: string
+                  description: Invoice ID that'll be used to verify the token. By default, ProcessOut will create its own invoice.
+                description:
+                  type: string
+                  description: Description that will be sent to the tokenization gateway service.
+                invoice_return_url:
+                  type: string
+                  description: This is the URL to be set on the invoice that is created for card verification (when `verify` is set to `true`).<br>_Must be a valid URL_
+                return_url:
+                  type: string
+                  description: For APMs, this is the URL to return to the app after payment is accepted.<br>_Must be a valid URL_
+                cancel_url:
+                  type: string
+                  description: For APMs, this is the URL to return to the app after payment is canceled.<br>_Must be a valid URL_
+                metadata:
+                  type: object
+                  description: Metadata related to the token, in the form of key-value pairs (string - string).
+                  properties: {}
+                source:
+                  type: string
+                  description: If you already have the payment details (`card_` or `gway_req_`), you can already assign it to the token.
+                verify:
+                  type: boolean
+                  description: Flag if you wish to verify the customer token by making zero value transaction. Applicable for cards only.
+                verify_statement_descriptor:
+                  type: string
+                  description: Statement descriptor set for invoice in verification flow. Used only when `verify` is true.
+                verify_metadata:
+                  type: string
+                  description: Metadata set for invoice in verification flow. Used only when `verify` is true and no custom invoice ID passed in.
+                manual_invoice_cancellation:
+                  type: boolean
+                  description: If set to true, verification invoice will not automatically be voided after verification. This parameter controls autovoid when a custom invoice is created for token verification. <br> <br>This is to perform verification on PSPs that do not support explicit verification, or you are wanting to conduct a buy and tokenize flow whereby this must be set to true (Please reach out to your account manager to understand PSP Support for this.)
+                webhook_url:
+                  type: string
+                  description: Custom webhook URL for this customer token. Customer token events will be sent to this URL on top off your webhook endpoint URL. <br>_Must be a valid URL_
+                device:
+                  type: object
+                  description: Information about the device and channel used by the customer to initiate the payment.
+                  properties:
+                    id:
+                      type: string
+                      description: ID of the device. This can be anything but would usually be a UUID generated by a third-party anti-fraud solution.<br>_Maximum 100 characters long_
+                    channel:
+                      type: string
+                      description: 'Channel used by the device. Must be `web`, `ios`, `android` or `other`. Note: Please only set this field to `ios` or `android` if you are utilising our mobile SDKs.'
+                    ip_address:
+                      type: string
+                      description: IP address of the device.<br>_Must be a valid IP address_
+                preferred_scheme:
+                  type: string
+                  description: 'The scheme the customer would prefer to process the transaction on. Ex: carte bancaire vs visa. This only applies to card verifications.'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Card token attached:
+                  value: "{\n    \"success\": true,\n    \"token\": {\n        \"id\": \"tok_4H77e0IrpFrp3YhvBGmbuJr54MRob5yl\",\n        \"customer_id\": \"cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA\",\n        \"invoice_id\": null,\n        \"gateway_configuration_id\": null,\n        \"gateway_configuration_sub_account\": null,\n        \"card\": {\n            \"project_id\": \"proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S\",\n            \"update_type\": null,\n            \"update_reason_code\": null,\n            \"scheme\": \"visa\",\n            \"co_scheme\": null,\n            \"preferred_scheme\": null,\n            \"type\": \"credit\",\n            \"bank_name\": null,\n            \"brand\": null,\n            \"category\": null,\n            \"iin\": \"400000\",\n            \"last_4_digits\": \"0101\",\n            \"fingerprint\": \"43d7ff88cb38993d87311c2e54779cc9ec0c20298a5ef84c31e519ef6a068a79\",\n            \"exp_month\": 7,\n            \"exp_year\": 2026,\n            \"cvc_check\": \"unavailable\",\n            \"avs_check\": \"unavailable\",\n            \"checks\": {\n                \"cvc_check\": \"unavailable\",\n                \"cvc_check_reason\": null,\n                \"avs_check\": \"unavailable\",\n                \"avs_postal_check\": \"unavailable\",\n                \"avs_postal_check_reason\": null,\n                \"avs_street_check\": \"unavailable\",\n                \"avs_street_check_reason\": null,\n                \"avs_name_check\": \"unavailable\",\n                \"avs_name_check_reason\": null\n            },\n            \"token_type\": null,\n            \"name\": \"Matéo Garnier\",\n            \"address1\": \"133 rue Lamarck\",\n            \"address2\": \"Cedex 7\",\n            \"city\": \"Paris\",\n            \"state\": \"Ile De France\",\n            \"country_code\": \"US\",\n            \"zip\": \"75018\",\n            \"ip_address\": \"176.27.120.213\",\n            \"user_agent\": \"PostmanRuntime/7.32.2\",\n            \"header_accept\": \"*/*\",\n            \"app_color_depth\": null,\n            \"app_java_enabled\": null,\n            \"app_language\": null,\n            \"app_screen_height\": null,\n            \"app_screen_width\": null,\n            \"app_timezone_offset\": null,\n            \"header_referer\": null,\n            \"expires_soon\": false,\n            \"metadata\": {},\n            \"used\": null,\n            \"sandbox\": true,\n            \"created_at\": \"2023-04-22T10:37:15.854105Z\",\n            \"updated_at\": \"2023-04-22T10:37:15.854104Z\",\n            \"id\": \"card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy\",\n            \"cvc_tokenized\": true,\n            \"tokenization_method\": null,\n            \"payment_source_detail\": null\n        },\n        \"card_id\": \"card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy\",\n        \"is_subscription_only\": false,\n        \"is_default\": true,\n        \"return_url\": \"https://mymerchant.com/return\",\n        \"cancel_url\": \"https://mymerchant.com/cancel\",\n        \"is_chargeable\": true,\n        \"type\": \"card\",\n        \"metadata\": {\n            \"test\": \"23456789\"\n        },\n        \"description\": null,\n        \"created_at\": \"2023-04-22T10:37:17.950649Z\",\n        \"summary\": \"**** **** **** 0101\",\n        \"verification_status\": \"not-requested\",\n        \"manual_invoice_cancellation\": null,\n        \"can_get_balance\": null\n    }\n}"
+                APM token attached:
+                  value: "{\n    \"success\": true,\n    \"token\": {\n        \"id\": \"tok_X6kIALJ8FR1x8wDuzOoWQRyZIbtzpA22\",\n        \"customer_id\": \"cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA\",\n        \"invoice_id\": null,\n        \"gateway_configuration_id\": \"gway_conf_c23e011db34f4bac44e051840dfa3783\",\n        \"gateway_configuration_sub_account\": null,\n        \"card_id\": null,\n        \"is_subscription_only\": false,\n        \"is_default\": false,\n        \"return_url\": null,\n        \"cancel_url\": null,\n        \"is_chargeable\": true,\n        \"type\": \"gateway_token\",\n        \"metadata\": {\n            \"test\": \"23456789\"\n        },\n        \"description\": null,\n        \"created_at\": \"2023-04-22T09:36:33.798042Z\",\n        \"summary\": \"test_summary\",\n        \"verification_status\": \"not-requested\",\n        \"manual_invoice_cancellation\": null,\n        \"can_get_balance\": true\n    }\n}"
+                Empty token:
+                  value: "{\n    \"success\": true,\n    \"token\": {\n        \"id\": \"tok_ETX8PdnQtKduob3ypkrJiHTNlK0skH6c\",\n        \"customer_id\": \"cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA\",\n        \"invoice_id\": null,\n        \"gateway_configuration_id\": null,\n        \"gateway_configuration_sub_account\": null,\n        \"card_id\": null,\n        \"is_subscription_only\": false,\n        \"is_default\": false,\n        \"return_url\": \"https://mymerchant.com/return\",\n        \"cancel_url\": \"https://mymerchant.com/cancel\",\n        \"is_chargeable\": false,\n        \"type\": \"pending\",\n        \"metadata\": {\n            \"test\": \"23456789\"\n        },\n        \"description\": null,\n        \"created_at\": \"2023-04-22T10:39:09.826201718Z\",\n        \"summary\": null,\n        \"verification_status\": \"not-requested\",\n        \"manual_invoice_cancellation\": null,\n        \"can_get_balance\": null\n    }\n}"
+                Card token with Network Token pending:
+                  value: "{\n    \"success\": true,\n    \"token\": {\n        \"id\": \"tok_4H77e0IrpFrp3YhvBGmbuJr54MRob5yl\",\n        \"customer_id\": \"cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA\",\n        \"invoice_id\": null,\n        \"gateway_configuration_id\": null,\n        \"gateway_configuration_sub_account\": null,\n        \"network_token\": {\n        \t\t\"id\": \"nt_3f9jfiojfewFEW3fkaio3FdfaOL\",\n           \t\"status\": \"pending\"\n        },\n        \"card\": {\n            \"project_id\": \"proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S\",\n            \"update_type\": null,\n            \"update_reason_code\": null,\n            \"scheme\": \"visa\",\n            \"co_scheme\": null,\n            \"preferred_scheme\": null,\n            \"type\": \"credit\",\n            \"bank_name\": null,\n            \"brand\": null,\n            \"category\": null,\n            \"iin\": \"400000\",\n            \"last_4_digits\": \"0101\",\n            \"fingerprint\": \"43d7ff88cb38993d87311c2e54779cc9ec0c20298a5ef84c31e519ef6a068a79\",\n            \"exp_month\": 7,\n            \"exp_year\": 2026,\n            \"cvc_check\": \"unavailable\",\n            \"avs_check\": \"unavailable\",\n            \"checks\": {\n                \"cvc_check\": \"unavailable\",\n                \"cvc_check_reason\": null,\n                \"avs_check\": \"unavailable\",\n                \"avs_postal_check\": \"unavailable\",\n                \"avs_postal_check_reason\": null,\n                \"avs_street_check\": \"unavailable\",\n                \"avs_street_check_reason\": null,\n                \"avs_name_check\": \"unavailable\",\n                \"avs_name_check_reason\": null\n            },\n            \"token_type\": null,\n            \"name\": \"Matéo Garnier\",\n            \"address1\": \"133 rue Lamarck\",\n            \"address2\": \"Cedex 7\",\n            \"city\": \"Paris\",\n            \"state\": \"Ile De France\",\n            \"country_code\": \"US\",\n            \"zip\": \"75018\",\n            \"ip_address\": \"176.27.120.213\",\n            \"user_agent\": \"PostmanRuntime/7.32.2\",\n            \"header_accept\": \"*/*\",\n            \"app_color_depth\": null,\n            \"app_java_enabled\": null,\n            \"app_language\": null,\n            \"app_screen_height\": null,\n            \"app_screen_width\": null,\n            \"app_timezone_offset\": null,\n            \"header_referer\": null,\n            \"expires_soon\": false,\n            \"metadata\": {},\n            \"used\": null,\n            \"sandbox\": true,\n            \"created_at\": \"2023-04-22T10:37:15.854105Z\",\n            \"updated_at\": \"2023-04-22T10:37:15.854104Z\",\n            \"id\": \"card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy\",\n            \"cvc_tokenized\": true,\n            \"tokenization_method\": null,\n            \"payment_source_detail\": null\n        },\n        \"card_id\": \"card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy\",\n        \"is_subscription_only\": false,\n        \"is_default\": true,\n        \"return_url\": \"https://mymerchant.com/return\",\n        \"cancel_url\": \"https://mymerchant.com/cancel\",\n        \"is_chargeable\": true,\n        \"type\": \"card\",\n        \"metadata\": {\n            \"test\": \"23456789\"\n        },\n        \"description\": null,\n        \"created_at\": \"2023-04-22T10:37:17.950649Z\",\n        \"summary\": \"**** **** **** 0101\",\n        \"verification_status\": \"not-requested\",\n        \"manual_invoice_cancellation\": null,\n        \"can_get_balance\": null\n    }\n}"
+              schema:
+                oneOf:
+                - title: Card token attached
+                  type: object
+                  properties:
+                    success:
+                      type: boolean
+                      example: true
+                      default: true
+                    token:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: tok_4H77e0IrpFrp3YhvBGmbuJr54MRob5yl
+                        customer_id:
+                          type: string
+                          example: cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA
+                        invoice_id: {}
+                        gateway_configuration_id: {}
+                        gateway_configuration_sub_account: {}
+                        card:
+                          type: object
+                          properties:
+                            project_id:
+                              type: string
+                              example: proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S
+                            update_type: {}
+                            update_reason_code: {}
+                            scheme:
+                              type: string
+                              example: visa
+                            co_scheme: {}
+                            preferred_scheme: {}
+                            type:
+                              type: string
+                              example: credit
+                            bank_name: {}
+                            brand: {}
+                            category: {}
+                            iin:
+                              type: string
+                              example: '400000'
+                            last_4_digits:
+                              type: string
+                              example: '0101'
+                            fingerprint:
+                              type: string
+                              example: 43d7ff88cb38993d87311c2e54779cc9ec0c20298a5ef84c31e519ef6a068a79
+                            exp_month:
+                              type: integer
+                              example: 7
+                              default: 0
+                            exp_year:
+                              type: integer
+                              example: 2026
+                              default: 0
+                            cvc_check:
+                              type: string
+                              example: unavailable
+                            avs_check:
+                              type: string
+                              example: unavailable
+                            checks:
+                              type: object
+                              properties:
+                                cvc_check:
+                                  type: string
+                                  example: unavailable
+                                cvc_check_reason: {}
+                                avs_check:
+                                  type: string
+                                  example: unavailable
+                                avs_postal_check:
+                                  type: string
+                                  example: unavailable
+                                avs_postal_check_reason: {}
+                                avs_street_check:
+                                  type: string
+                                  example: unavailable
+                                avs_street_check_reason: {}
+                                avs_name_check:
+                                  type: string
+                                  example: unavailable
+                                avs_name_check_reason: {}
+                            token_type: {}
+                            name:
+                              type: string
+                              example: Matéo Garnier
+                            address1:
+                              type: string
+                              example: 133 rue Lamarck
+                            address2:
+                              type: string
+                              example: Cedex 7
+                            city:
+                              type: string
+                              example: Paris
+                            state:
+                              type: string
+                              example: Ile De France
+                            country_code:
+                              type: string
+                              example: US
+                            zip:
+                              type: string
+                              example: '75018'
+                            ip_address:
+                              type: string
+                              example: 176.27.120.213
+                            user_agent:
+                              type: string
+                              example: PostmanRuntime/7.32.2
+                            header_accept:
+                              type: string
+                              example: '*/*'
+                            app_color_depth: {}
+                            app_java_enabled: {}
+                            app_language: {}
+                            app_screen_height: {}
+                            app_screen_width: {}
+                            app_timezone_offset: {}
+                            header_referer: {}
+                            expires_soon:
+                              type: boolean
+                              example: false
+                              default: true
+                            metadata:
+                              type: object
+                              properties: {}
+                            used: {}
+                            sandbox:
+                              type: boolean
+                              example: true
+                              default: true
+                            created_at:
+                              type: string
+                              example: '2023-04-22T10:37:15.854105Z'
+                            updated_at:
+                              type: string
+                              example: '2023-04-22T10:37:15.854104Z'
+                            id:
+                              type: string
+                              example: card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy
+                            cvc_tokenized:
+                              type: boolean
+                              example: true
+                              default: true
+                            tokenization_method: {}
+                            payment_source_detail: {}
+                        card_id:
+                          type: string
+                          example: card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy
+                        is_subscription_only:
+                          type: boolean
+                          example: false
+                          default: true
+                        is_default:
+                          type: boolean
+                          example: true
+                          default: true
+                        return_url:
+                          type: string
+                          example: https://mymerchant.com/return
+                        cancel_url:
+                          type: string
+                          example: https://mymerchant.com/cancel
+                        is_chargeable:
+                          type: boolean
+                          example: true
+                          default: true
+                        type:
+                          type: string
+                          example: card
+                        metadata:
+                          type: object
+                          properties:
+                            test:
+                              type: string
+                              example: '23456789'
+                        description: {}
+                        created_at:
+                          type: string
+                          example: '2023-04-22T10:37:17.950649Z'
+                        summary:
+                          type: string
+                          example: '**** **** **** 0101'
+                        verification_status:
+                          type: string
+                          example: not-requested
+                        manual_invoice_cancellation: {}
+                        can_get_balance: {}
+                - title: APM token attached
+                  type: object
+                  properties:
+                    success:
+                      type: boolean
+                      example: true
+                      default: true
+                    token:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: tok_X6kIALJ8FR1x8wDuzOoWQRyZIbtzpA22
+                        customer_id:
+                          type: string
+                          example: cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA
+                        invoice_id: {}
+                        gateway_configuration_id:
+                          type: string
+                          example: gway_conf_c23e011db34f4bac44e051840dfa3783
+                        gateway_configuration_sub_account: {}
+                        card_id: {}
+                        is_subscription_only:
+                          type: boolean
+                          example: false
+                          default: true
+                        is_default:
+                          type: boolean
+                          example: false
+                          default: true
+                        return_url: {}
+                        cancel_url: {}
+                        is_chargeable:
+                          type: boolean
+                          example: true
+                          default: true
+                        type:
+                          type: string
+                          example: gateway_token
+                        metadata:
+                          type: object
+                          properties:
+                            test:
+                              type: string
+                              example: '23456789'
+                        description: {}
+                        created_at:
+                          type: string
+                          example: '2023-04-22T09:36:33.798042Z'
+                        summary:
+                          type: string
+                          example: test_summary
+                        verification_status:
+                          type: string
+                          example: not-requested
+                        manual_invoice_cancellation: {}
+                        can_get_balance:
+                          type: boolean
+                          example: true
+                          default: true
+                - title: Empty token
+                  type: object
+                  properties:
+                    success:
+                      type: boolean
+                      example: true
+                      default: true
+                    token:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: tok_ETX8PdnQtKduob3ypkrJiHTNlK0skH6c
+                        customer_id:
+                          type: string
+                          example: cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA
+                        invoice_id: {}
+                        gateway_configuration_id: {}
+                        gateway_configuration_sub_account: {}
+                        card_id: {}
+                        is_subscription_only:
+                          type: boolean
+                          example: false
+                          default: true
+                        is_default:
+                          type: boolean
+                          example: false
+                          default: true
+                        return_url:
+                          type: string
+                          example: https://mymerchant.com/return
+                        cancel_url:
+                          type: string
+                          example: https://mymerchant.com/cancel
+                        is_chargeable:
+                          type: boolean
+                          example: false
+                          default: true
+                        type:
+                          type: string
+                          example: pending
+                        metadata:
+                          type: object
+                          properties:
+                            test:
+                              type: string
+                              example: '23456789'
+                        description: {}
+                        created_at:
+                          type: string
+                          example: '2023-04-22T10:39:09.826201718Z'
+                        summary: {}
+                        verification_status:
+                          type: string
+                          example: not-requested
+                        manual_invoice_cancellation: {}
+                        can_get_balance: {}
+                - title: Card token with Network Token pending
+                  type: object
+                  properties:
+                    success:
+                      type: boolean
+                      example: true
+                      default: true
+                    token:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: tok_4H77e0IrpFrp3YhvBGmbuJr54MRob5yl
+                        customer_id:
+                          type: string
+                          example: cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA
+                        invoice_id: {}
+                        gateway_configuration_id: {}
+                        gateway_configuration_sub_account: {}
+                        network_token:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: nt_3f9jfiojfewFEW3fkaio3FdfaOL
+                            status:
+                              type: string
+                              example: pending
+                        card:
+                          type: object
+                          properties:
+                            project_id:
+                              type: string
+                              example: proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S
+                            update_type: {}
+                            update_reason_code: {}
+                            scheme:
+                              type: string
+                              example: visa
+                            co_scheme: {}
+                            preferred_scheme: {}
+                            type:
+                              type: string
+                              example: credit
+                            bank_name: {}
+                            brand: {}
+                            category: {}
+                            iin:
+                              type: string
+                              example: '400000'
+                            last_4_digits:
+                              type: string
+                              example: '0101'
+                            fingerprint:
+                              type: string
+                              example: 43d7ff88cb38993d87311c2e54779cc9ec0c20298a5ef84c31e519ef6a068a79
+                            exp_month:
+                              type: integer
+                              example: 7
+                              default: 0
+                            exp_year:
+                              type: integer
+                              example: 2026
+                              default: 0
+                            cvc_check:
+                              type: string
+                              example: unavailable
+                            avs_check:
+                              type: string
+                              example: unavailable
+                            checks:
+                              type: object
+                              properties:
+                                cvc_check:
+                                  type: string
+                                  example: unavailable
+                                cvc_check_reason: {}
+                                avs_check:
+                                  type: string
+                                  example: unavailable
+                                avs_postal_check:
+                                  type: string
+                                  example: unavailable
+                                avs_postal_check_reason: {}
+                                avs_street_check:
+                                  type: string
+                                  example: unavailable
+                                avs_street_check_reason: {}
+                                avs_name_check:
+                                  type: string
+                                  example: unavailable
+                                avs_name_check_reason: {}
+                            token_type: {}
+                            name:
+                              type: string
+                              example: Matéo Garnier
+                            address1:
+                              type: string
+                              example: 133 rue Lamarck
+                            address2:
+                              type: string
+                              example: Cedex 7
+                            city:
+                              type: string
+                              example: Paris
+                            state:
+                              type: string
+                              example: Ile De France
+                            country_code:
+                              type: string
+                              example: US
+                            zip:
+                              type: string
+                              example: '75018'
+                            ip_address:
+                              type: string
+                              example: 176.27.120.213
+                            user_agent:
+                              type: string
+                              example: PostmanRuntime/7.32.2
+                            header_accept:
+                              type: string
+                              example: '*/*'
+                            app_color_depth: {}
+                            app_java_enabled: {}
+                            app_language: {}
+                            app_screen_height: {}
+                            app_screen_width: {}
+                            app_timezone_offset: {}
+                            header_referer: {}
+                            expires_soon:
+                              type: boolean
+                              example: false
+                              default: true
+                            metadata:
+                              type: object
+                              properties: {}
+                            used: {}
+                            sandbox:
+                              type: boolean
+                              example: true
+                              default: true
+                            created_at:
+                              type: string
+                              example: '2023-04-22T10:37:15.854105Z'
+                            updated_at:
+                              type: string
+                              example: '2023-04-22T10:37:15.854104Z'
+                            id:
+                              type: string
+                              example: card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy
+                            cvc_tokenized:
+                              type: boolean
+                              example: true
+                              default: true
+                            tokenization_method: {}
+                            payment_source_detail: {}
+                        card_id:
+                          type: string
+                          example: card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy
+                        is_subscription_only:
+                          type: boolean
+                          example: false
+                          default: true
+                        is_default:
+                          type: boolean
+                          example: true
+                          default: true
+                        return_url:
+                          type: string
+                          example: https://mymerchant.com/return
+                        cancel_url:
+                          type: string
+                          example: https://mymerchant.com/cancel
+                        is_chargeable:
+                          type: boolean
+                          example: true
+                          default: true
+                        type:
+                          type: string
+                          example: card
+                        metadata:
+                          type: object
+                          properties:
+                            test:
+                              type: string
+                              example: '23456789'
+                        description: {}
+                        created_at:
+                          type: string
+                          example: '2023-04-22T10:37:17.950649Z'
+                        summary:
+                          type: string
+                          example: '**** **** **** 0101'
+                        verification_status:
+                          type: string
+                          example: not-requested
+                        manual_invoice_cancellation: {}
+                        can_get_balance: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"error_type\": \"request.validation.invalid-description\",\n    \"message\": \"The description Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ...  must be at most 255 characters long.\",\n    \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: request.validation.invalid-description
+                  message:
+                    type: string
+                    example: The description Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ...  must be at most 255 characters long.
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"success\": false,\n    \"message\": \"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\",\n    \"error_type\": \"request.authentication.invalid\"\n}"
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+                  message:
+                    type: string
+                    example: Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!
+                  error_type:
+                    type: string
+                    example: request.authentication.invalid
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"error_type\": \"resource.customer.not-found\",\n    \"message\": \"The customer could not be found.\",\n    \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: resource.customer.not-found
+                  message:
+                    type: string
+                    example: The customer could not be found.
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+        4XX:
+          description: 4XX
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"error_type\": \"*Error code*\",\n  \"message\": \"*Error message*\",\n  \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: '*Error code*'
+                  message:
+                    type: string
+                    example: '*Error message*'
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: node
+          code: "var ProcessOut = require(\"processout\");\nvar client = new ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\",\n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\");\n\nclient.newToken().create({\n    customer_id: \"cust_C4hZXQTU0aWoYeenHYC0DektYDqf8ocj\", \n    source:      \"card_C4hZXQTU0aWoYeenHYC0DektYDqf8ocj\"\n}).then(function(token) {\n    // \n\n}, function(err) {\n    // An error occured\n\n});"
+          name: node.js
+        - language: python
+          code: "import processout\nclient = processout.ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\")\n\ntoken = client.new_token().create({\n    \"customer_id\": \"cust_C4hZXQTU0aWoYeenHYC0DektYDqf8ocj\",\n    \"source\":      \"card_C4hZXQTU0aWoYeenHYC0DektYDqf8ocj\"\n})"
+        - language: ruby
+          code: "require \"processout\"\nclient = ProcessOut::Client.new(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\")\n\ntoken = client.token.create(\n    customer_id: \"cust_C4hZXQTU0aWoYeenHYC0DektYDqf8ocj\",\n    source:      \"card_C4hZXQTU0aWoYeenHYC0DektYDqf8ocj\"\n)"
+        - language: php
+          code: "<?php\n$client = new \\ProcessOut\\ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\");\n\n$token = $client->newToken()->create(array(\n    \"customer_id\" => \"cust_C4hZXQTU0aWoYeenHYC0DektYDqf8ocj\",\n    \"source\"      => \"card_C4hZXQTU0aWoYeenHYC0DektYDqf8ocj\"\n));"
+        - language: go
+          code: "import \"github.com/processout/processout-go\"\n\nvar client = processout.New(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\",\n)\n\ntoken, err := client.NewToken().Create(processout.TokenCreateParameters{\n    Token: &processout.Token{\n        CustomerID: processout.String(\"cust_C4hZXQTU0aWoYeenHYC0DektYDqf8ocj\"),\n    },\n    Source: \"card_C4hZXQTU0aWoYeenHYC0DektYDqf8ocj\",\n})"
+        samples-languages:
+        - node
+        - python
+        - ruby
+        - php
+        - go
+      tags:
+      - Customers
+  /customers/{customer_id}/tokens/{token_id}:
+    get:
+      summary: Fetching a token
+      description: ''
+      operationId: fetching-a-token
+      parameters:
+      - name: customer_id
+        in: path
+        description: ID of your customer
+        schema:
+          type: string
+        required: true
+      - name: Idempotency-Key
+        in: header
+        description: Unique key to your request that will be used for idempotency
+        schema:
+          type: string
+      - name: token_id
+        in: path
+        description: ID of the customer token
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Card token attached:
+                  value: "{\n    \"success\": true,\n    \"token\": {\n        \"id\": \"tok_4H77e0IrpFrp3YhvBGmbuJr54MRob5yl\",\n        \"customer_id\": \"cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA\",\n        \"invoice_id\": null,\n        \"gateway_configuration_id\": null,\n        \"gateway_configuration_sub_account\": null,\n        \"card\": {\n            \"project_id\": \"proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S\",\n            \"update_type\": null,\n            \"update_reason_code\": null,\n            \"scheme\": \"visa\",\n            \"co_scheme\": null,\n            \"preferred_scheme\": null,\n            \"type\": \"credit\",\n            \"bank_name\": null,\n            \"brand\": null,\n            \"category\": null,\n            \"iin\": \"400000\",\n            \"last_4_digits\": \"0101\",\n            \"fingerprint\": \"43d7ff88cb38993d87311c2e54779cc9ec0c20298a5ef84c31e519ef6a068a79\",\n            \"exp_month\": 7,\n            \"exp_year\": 2026,\n            \"cvc_check\": \"unavailable\",\n            \"avs_check\": \"unavailable\",\n            \"checks\": {\n                \"cvc_check\": \"unavailable\",\n                \"cvc_check_reason\": null,\n                \"avs_check\": \"unavailable\",\n                \"avs_postal_check\": \"unavailable\",\n                \"avs_postal_check_reason\": null,\n                \"avs_street_check\": \"unavailable\",\n                \"avs_street_check_reason\": null,\n                \"avs_name_check\": \"unavailable\",\n                \"avs_name_check_reason\": null\n            },\n            \"token_type\": null,\n            \"name\": \"Matéo Garnier\",\n            \"address1\": \"133 rue Lamarck\",\n            \"address2\": \"Cedex 7\",\n            \"city\": \"Paris\",\n            \"state\": \"Ile De France\",\n            \"country_code\": \"US\",\n            \"zip\": \"75018\",\n            \"ip_address\": \"176.27.120.213\",\n            \"user_agent\": \"PostmanRuntime/7.32.2\",\n            \"header_accept\": \"*/*\",\n            \"app_color_depth\": null,\n            \"app_java_enabled\": null,\n            \"app_language\": null,\n            \"app_screen_height\": null,\n            \"app_screen_width\": null,\n            \"app_timezone_offset\": null,\n            \"header_referer\": null,\n            \"expires_soon\": false,\n            \"metadata\": {},\n            \"used\": null,\n            \"sandbox\": true,\n            \"created_at\": \"2023-04-22T10:37:15.854105Z\",\n            \"updated_at\": \"2023-04-22T10:37:15.854104Z\",\n            \"id\": \"card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy\",\n            \"cvc_tokenized\": true,\n            \"tokenization_method\": null,\n            \"payment_source_detail\": null\n        },\n        \"card_id\": \"card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy\",\n        \"is_subscription_only\": false,\n        \"is_default\": true,\n        \"return_url\": \"https://mymerchant.com/return\",\n        \"cancel_url\": \"https://mymerchant.com/cancel\",\n        \"is_chargeable\": true,\n        \"type\": \"card\",\n        \"metadata\": {\n            \"test\": \"23456789\"\n        },\n        \"description\": null,\n        \"created_at\": \"2023-04-22T10:37:17.950649Z\",\n        \"summary\": \"**** **** **** 0101\",\n        \"verification_status\": \"not-requested\",\n        \"manual_invoice_cancellation\": null,\n        \"can_get_balance\": null\n    }\n}"
+                APM token attached:
+                  value: "{\n    \"success\": true,\n    \"token\": {\n        \"id\": \"tok_X6kIALJ8FR1x8wDuzOoWQRyZIbtzpA22\",\n        \"customer_id\": \"cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA\",\n        \"invoice_id\": null,\n        \"gateway_configuration_id\": \"gway_conf_c23e011db34f4bac44e051840dfa3783\",\n        \"gateway_configuration_sub_account\": null,\n        \"card_id\": null,\n        \"is_subscription_only\": false,\n        \"is_default\": false,\n        \"return_url\": null,\n        \"cancel_url\": null,\n        \"is_chargeable\": true,\n        \"type\": \"gateway_token\",\n        \"metadata\": {\n            \"test\": \"23456789\"\n        },\n        \"description\": null,\n        \"created_at\": \"2023-04-22T09:36:33.798042Z\",\n        \"summary\": \"test_summary\",\n        \"verification_status\": \"not-requested\",\n        \"manual_invoice_cancellation\": null,\n        \"can_get_balance\": true\n    }\n}"
+                Empty token:
+                  value: "{\n    \"success\": true,\n    \"token\": {\n        \"id\": \"tok_ETX8PdnQtKduob3ypkrJiHTNlK0skH6c\",\n        \"customer_id\": \"cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA\",\n        \"invoice_id\": null,\n        \"gateway_configuration_id\": null,\n        \"gateway_configuration_sub_account\": null,\n        \"card_id\": null,\n        \"is_subscription_only\": false,\n        \"is_default\": false,\n        \"return_url\": \"https://mymerchant.com/return\",\n        \"cancel_url\": \"https://mymerchant.com/cancel\",\n        \"is_chargeable\": false,\n        \"type\": \"pending\",\n        \"metadata\": {\n            \"test\": \"23456789\"\n        },\n        \"description\": null,\n        \"created_at\": \"2023-04-22T10:39:09.826201718Z\",\n        \"summary\": null,\n        \"verification_status\": \"not-requested\",\n        \"manual_invoice_cancellation\": null,\n        \"can_get_balance\": null\n    }\n}"
+                Card token with Network Token active:
+                  value: "{\n    \"success\": true,\n    \"token\": {\n        \"id\": \"tok_4H77e0IrpFrp3YhvBGmbuJr54MRob5yl\",\n        \"customer_id\": \"cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA\",\n        \"invoice_id\": null,\n        \"gateway_configuration_id\": null,\n        \"gateway_configuration_sub_account\": null,\n        \"network_token\": {\n        \t\t\"id\": \"nt_3f9jfiojfewFEW3fkaio3FdfaOL\",\n           \t\"status\": \"active\"\n        },\n        \"card\": {\n            \"project_id\": \"proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S\",\n            \"update_type\": null,\n            \"update_reason_code\": null,\n            \"scheme\": \"visa\",\n            \"co_scheme\": null,\n            \"preferred_scheme\": null,\n            \"type\": \"credit\",\n            \"bank_name\": null,\n            \"brand\": null,\n            \"category\": null,\n            \"iin\": \"400000\",\n            \"last_4_digits\": \"0101\",\n            \"fingerprint\": \"43d7ff88cb38993d87311c2e54779cc9ec0c20298a5ef84c31e519ef6a068a79\",\n            \"exp_month\": 7,\n            \"exp_year\": 2026,\n            \"cvc_check\": \"unavailable\",\n            \"avs_check\": \"unavailable\",\n            \"checks\": {\n                \"cvc_check\": \"unavailable\",\n                \"cvc_check_reason\": null,\n                \"avs_check\": \"unavailable\",\n                \"avs_postal_check\": \"unavailable\",\n                \"avs_postal_check_reason\": null,\n                \"avs_street_check\": \"unavailable\",\n                \"avs_street_check_reason\": null,\n                \"avs_name_check\": \"unavailable\",\n                \"avs_name_check_reason\": null\n            },\n            \"token_type\": null,\n            \"name\": \"Matéo Garnier\",\n            \"address1\": \"133 rue Lamarck\",\n            \"address2\": \"Cedex 7\",\n            \"city\": \"Paris\",\n            \"state\": \"Ile De France\",\n            \"country_code\": \"US\",\n            \"zip\": \"75018\",\n            \"ip_address\": \"176.27.120.213\",\n            \"user_agent\": \"PostmanRuntime/7.32.2\",\n            \"header_accept\": \"*/*\",\n            \"app_color_depth\": null,\n            \"app_java_enabled\": null,\n            \"app_language\": null,\n            \"app_screen_height\": null,\n            \"app_screen_width\": null,\n            \"app_timezone_offset\": null,\n            \"header_referer\": null,\n            \"expires_soon\": false,\n            \"metadata\": {},\n            \"used\": null,\n            \"sandbox\": true,\n            \"created_at\": \"2023-04-22T10:37:15.854105Z\",\n            \"updated_at\": \"2023-04-22T10:37:15.854104Z\",\n            \"id\": \"card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy\",\n            \"cvc_tokenized\": true,\n            \"tokenization_method\": null,\n            \"payment_source_detail\": null\n        },\n        \"card_id\": \"card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy\",\n        \"is_subscription_only\": false,\n        \"is_default\": true,\n        \"return_url\": \"https://mymerchant.com/return\",\n        \"cancel_url\": \"https://mymerchant.com/cancel\",\n        \"is_chargeable\": true,\n        \"type\": \"card\",\n        \"metadata\": {\n            \"test\": \"23456789\"\n        },\n        \"description\": null,\n        \"created_at\": \"2023-04-22T10:37:17.950649Z\",\n        \"summary\": \"**** **** **** 0101\",\n        \"verification_status\": \"not-requested\",\n        \"manual_invoice_cancellation\": null,\n        \"can_get_balance\": null\n    }\n}"
+              schema:
+                oneOf:
+                - title: Card token attached
+                  type: object
+                  properties:
+                    success:
+                      type: boolean
+                      example: true
+                      default: true
+                    token:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: tok_4H77e0IrpFrp3YhvBGmbuJr54MRob5yl
+                        customer_id:
+                          type: string
+                          example: cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA
+                        invoice_id: {}
+                        gateway_configuration_id: {}
+                        gateway_configuration_sub_account: {}
+                        card:
+                          type: object
+                          properties:
+                            project_id:
+                              type: string
+                              example: proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S
+                            update_type: {}
+                            update_reason_code: {}
+                            scheme:
+                              type: string
+                              example: visa
+                            co_scheme: {}
+                            preferred_scheme: {}
+                            type:
+                              type: string
+                              example: credit
+                            bank_name: {}
+                            brand: {}
+                            category: {}
+                            iin:
+                              type: string
+                              example: '400000'
+                            last_4_digits:
+                              type: string
+                              example: '0101'
+                            fingerprint:
+                              type: string
+                              example: 43d7ff88cb38993d87311c2e54779cc9ec0c20298a5ef84c31e519ef6a068a79
+                            exp_month:
+                              type: integer
+                              example: 7
+                              default: 0
+                            exp_year:
+                              type: integer
+                              example: 2026
+                              default: 0
+                            cvc_check:
+                              type: string
+                              example: unavailable
+                            avs_check:
+                              type: string
+                              example: unavailable
+                            checks:
+                              type: object
+                              properties:
+                                cvc_check:
+                                  type: string
+                                  example: unavailable
+                                cvc_check_reason: {}
+                                avs_check:
+                                  type: string
+                                  example: unavailable
+                                avs_postal_check:
+                                  type: string
+                                  example: unavailable
+                                avs_postal_check_reason: {}
+                                avs_street_check:
+                                  type: string
+                                  example: unavailable
+                                avs_street_check_reason: {}
+                                avs_name_check:
+                                  type: string
+                                  example: unavailable
+                                avs_name_check_reason: {}
+                            token_type: {}
+                            name:
+                              type: string
+                              example: Matéo Garnier
+                            address1:
+                              type: string
+                              example: 133 rue Lamarck
+                            address2:
+                              type: string
+                              example: Cedex 7
+                            city:
+                              type: string
+                              example: Paris
+                            state:
+                              type: string
+                              example: Ile De France
+                            country_code:
+                              type: string
+                              example: US
+                            zip:
+                              type: string
+                              example: '75018'
+                            ip_address:
+                              type: string
+                              example: 176.27.120.213
+                            user_agent:
+                              type: string
+                              example: PostmanRuntime/7.32.2
+                            header_accept:
+                              type: string
+                              example: '*/*'
+                            app_color_depth: {}
+                            app_java_enabled: {}
+                            app_language: {}
+                            app_screen_height: {}
+                            app_screen_width: {}
+                            app_timezone_offset: {}
+                            header_referer: {}
+                            expires_soon:
+                              type: boolean
+                              example: false
+                              default: true
+                            metadata:
+                              type: object
+                              properties: {}
+                            used: {}
+                            sandbox:
+                              type: boolean
+                              example: true
+                              default: true
+                            created_at:
+                              type: string
+                              example: '2023-04-22T10:37:15.854105Z'
+                            updated_at:
+                              type: string
+                              example: '2023-04-22T10:37:15.854104Z'
+                            id:
+                              type: string
+                              example: card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy
+                            cvc_tokenized:
+                              type: boolean
+                              example: true
+                              default: true
+                            tokenization_method: {}
+                            payment_source_detail: {}
+                        card_id:
+                          type: string
+                          example: card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy
+                        is_subscription_only:
+                          type: boolean
+                          example: false
+                          default: true
+                        is_default:
+                          type: boolean
+                          example: true
+                          default: true
+                        return_url:
+                          type: string
+                          example: https://mymerchant.com/return
+                        cancel_url:
+                          type: string
+                          example: https://mymerchant.com/cancel
+                        is_chargeable:
+                          type: boolean
+                          example: true
+                          default: true
+                        type:
+                          type: string
+                          example: card
+                        metadata:
+                          type: object
+                          properties:
+                            test:
+                              type: string
+                              example: '23456789'
+                        description: {}
+                        created_at:
+                          type: string
+                          example: '2023-04-22T10:37:17.950649Z'
+                        summary:
+                          type: string
+                          example: '**** **** **** 0101'
+                        verification_status:
+                          type: string
+                          example: not-requested
+                        manual_invoice_cancellation: {}
+                        can_get_balance: {}
+                - title: APM token attached
+                  type: object
+                  properties:
+                    success:
+                      type: boolean
+                      example: true
+                      default: true
+                    token:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: tok_X6kIALJ8FR1x8wDuzOoWQRyZIbtzpA22
+                        customer_id:
+                          type: string
+                          example: cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA
+                        invoice_id: {}
+                        gateway_configuration_id:
+                          type: string
+                          example: gway_conf_c23e011db34f4bac44e051840dfa3783
+                        gateway_configuration_sub_account: {}
+                        card_id: {}
+                        is_subscription_only:
+                          type: boolean
+                          example: false
+                          default: true
+                        is_default:
+                          type: boolean
+                          example: false
+                          default: true
+                        return_url: {}
+                        cancel_url: {}
+                        is_chargeable:
+                          type: boolean
+                          example: true
+                          default: true
+                        type:
+                          type: string
+                          example: gateway_token
+                        metadata:
+                          type: object
+                          properties:
+                            test:
+                              type: string
+                              example: '23456789'
+                        description: {}
+                        created_at:
+                          type: string
+                          example: '2023-04-22T09:36:33.798042Z'
+                        summary:
+                          type: string
+                          example: test_summary
+                        verification_status:
+                          type: string
+                          example: not-requested
+                        manual_invoice_cancellation: {}
+                        can_get_balance:
+                          type: boolean
+                          example: true
+                          default: true
+                - title: Empty token
+                  type: object
+                  properties:
+                    success:
+                      type: boolean
+                      example: true
+                      default: true
+                    token:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: tok_ETX8PdnQtKduob3ypkrJiHTNlK0skH6c
+                        customer_id:
+                          type: string
+                          example: cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA
+                        invoice_id: {}
+                        gateway_configuration_id: {}
+                        gateway_configuration_sub_account: {}
+                        card_id: {}
+                        is_subscription_only:
+                          type: boolean
+                          example: false
+                          default: true
+                        is_default:
+                          type: boolean
+                          example: false
+                          default: true
+                        return_url:
+                          type: string
+                          example: https://mymerchant.com/return
+                        cancel_url:
+                          type: string
+                          example: https://mymerchant.com/cancel
+                        is_chargeable:
+                          type: boolean
+                          example: false
+                          default: true
+                        type:
+                          type: string
+                          example: pending
+                        metadata:
+                          type: object
+                          properties:
+                            test:
+                              type: string
+                              example: '23456789'
+                        description: {}
+                        created_at:
+                          type: string
+                          example: '2023-04-22T10:39:09.826201718Z'
+                        summary: {}
+                        verification_status:
+                          type: string
+                          example: not-requested
+                        manual_invoice_cancellation: {}
+                        can_get_balance: {}
+                - title: Card token with Network Token active
+                  type: object
+                  properties:
+                    success:
+                      type: boolean
+                      example: true
+                      default: true
+                    token:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: tok_4H77e0IrpFrp3YhvBGmbuJr54MRob5yl
+                        customer_id:
+                          type: string
+                          example: cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA
+                        invoice_id: {}
+                        gateway_configuration_id: {}
+                        gateway_configuration_sub_account: {}
+                        network_token:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: nt_3f9jfiojfewFEW3fkaio3FdfaOL
+                            status:
+                              type: string
+                              example: active
+                        card:
+                          type: object
+                          properties:
+                            project_id:
+                              type: string
+                              example: proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S
+                            update_type: {}
+                            update_reason_code: {}
+                            scheme:
+                              type: string
+                              example: visa
+                            co_scheme: {}
+                            preferred_scheme: {}
+                            type:
+                              type: string
+                              example: credit
+                            bank_name: {}
+                            brand: {}
+                            category: {}
+                            iin:
+                              type: string
+                              example: '400000'
+                            last_4_digits:
+                              type: string
+                              example: '0101'
+                            fingerprint:
+                              type: string
+                              example: 43d7ff88cb38993d87311c2e54779cc9ec0c20298a5ef84c31e519ef6a068a79
+                            exp_month:
+                              type: integer
+                              example: 7
+                              default: 0
+                            exp_year:
+                              type: integer
+                              example: 2026
+                              default: 0
+                            cvc_check:
+                              type: string
+                              example: unavailable
+                            avs_check:
+                              type: string
+                              example: unavailable
+                            checks:
+                              type: object
+                              properties:
+                                cvc_check:
+                                  type: string
+                                  example: unavailable
+                                cvc_check_reason: {}
+                                avs_check:
+                                  type: string
+                                  example: unavailable
+                                avs_postal_check:
+                                  type: string
+                                  example: unavailable
+                                avs_postal_check_reason: {}
+                                avs_street_check:
+                                  type: string
+                                  example: unavailable
+                                avs_street_check_reason: {}
+                                avs_name_check:
+                                  type: string
+                                  example: unavailable
+                                avs_name_check_reason: {}
+                            token_type: {}
+                            name:
+                              type: string
+                              example: Matéo Garnier
+                            address1:
+                              type: string
+                              example: 133 rue Lamarck
+                            address2:
+                              type: string
+                              example: Cedex 7
+                            city:
+                              type: string
+                              example: Paris
+                            state:
+                              type: string
+                              example: Ile De France
+                            country_code:
+                              type: string
+                              example: US
+                            zip:
+                              type: string
+                              example: '75018'
+                            ip_address:
+                              type: string
+                              example: 176.27.120.213
+                            user_agent:
+                              type: string
+                              example: PostmanRuntime/7.32.2
+                            header_accept:
+                              type: string
+                              example: '*/*'
+                            app_color_depth: {}
+                            app_java_enabled: {}
+                            app_language: {}
+                            app_screen_height: {}
+                            app_screen_width: {}
+                            app_timezone_offset: {}
+                            header_referer: {}
+                            expires_soon:
+                              type: boolean
+                              example: false
+                              default: true
+                            metadata:
+                              type: object
+                              properties: {}
+                            used: {}
+                            sandbox:
+                              type: boolean
+                              example: true
+                              default: true
+                            created_at:
+                              type: string
+                              example: '2023-04-22T10:37:15.854105Z'
+                            updated_at:
+                              type: string
+                              example: '2023-04-22T10:37:15.854104Z'
+                            id:
+                              type: string
+                              example: card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy
+                            cvc_tokenized:
+                              type: boolean
+                              example: true
+                              default: true
+                            tokenization_method: {}
+                            payment_source_detail: {}
+                        card_id:
+                          type: string
+                          example: card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy
+                        is_subscription_only:
+                          type: boolean
+                          example: false
+                          default: true
+                        is_default:
+                          type: boolean
+                          example: true
+                          default: true
+                        return_url:
+                          type: string
+                          example: https://mymerchant.com/return
+                        cancel_url:
+                          type: string
+                          example: https://mymerchant.com/cancel
+                        is_chargeable:
+                          type: boolean
+                          example: true
+                          default: true
+                        type:
+                          type: string
+                          example: card
+                        metadata:
+                          type: object
+                          properties:
+                            test:
+                              type: string
+                              example: '23456789'
+                        description: {}
+                        created_at:
+                          type: string
+                          example: '2023-04-22T10:37:17.950649Z'
+                        summary:
+                          type: string
+                          example: '**** **** **** 0101'
+                        verification_status:
+                          type: string
+                          example: not-requested
+                        manual_invoice_cancellation: {}
+                        can_get_balance: {}
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"success\": false,\n    \"message\": \"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\",\n    \"error_type\": \"request.authentication.invalid\"\n}"
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+                  message:
+                    type: string
+                    example: Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!
+                  error_type:
+                    type: string
+                    example: request.authentication.invalid
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"error_type\": \"resource.token.not-found\",\n    \"message\": \"The token could not be found.\",\n    \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: resource.token.not-found
+                  message:
+                    type: string
+                    example: The token could not be found.
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+        4XX:
+          description: 4XX
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"error_type\": \"*Error code*\",\n  \"message\": \"*Error message*\",\n  \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: '*Error code*'
+                  message:
+                    type: string
+                    example: '*Error message*'
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: node
+          code: "var ProcessOut = require(\"processout\");\nvar client = new ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\",\n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\");\n\nclient.newToken().find(\"cust_WtaVdUjAGpOlbLiYWYXBR67whr91Rlks\",\n        \"tok_fKK4btSG7wd13ZZaevzhMcuNbpjcu1Zy\").then(\n    function(token) {\n        // And let's say our customer wants to remove its token\n        token.delete(); \n\n    }, function(err) {\n        // The customer's token could not be fetched\n    });"
+          name: node.js
+        - language: python
+          code: "import processout\nclient = processout.ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\")\n\ntoken = client.new_token().find(\"cust_WtaVdUjAGpOlbLiYWYXBR67whr91Rlks\",\n    \"tok_fKK4btSG7wd13ZZaevzhMcuNbpjcu1Zy\")"
+        - language: ruby
+          code: "require \"processout\"\nclient = ProcessOut::Client.new(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\")\n\ntoken = client.token.find(\"cust_WtaVdUjAGpOlbLiYWYXBR67whr91Rlks\",\n    \"tok_fKK4btSG7wd13ZZaevzhMcuNbpjcu1Zy\")"
+        - language: php
+          code: "<?php\n$client = new \\ProcessOut\\ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\");\n\n$token = $client->newToken()->find(\"cust_WtaVdUjAGpOlbLiYWYXBR67whr91Rlks\",\n    \"tok_fKK4btSG7wd13ZZaevzhMcuNbpjcu1Zy\");"
+        - language: go
+          code: "import \"github.com/processout/processout-go\"\n\nvar client = processout.New(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\",\n)\n\ntok, err := client.NewToken().Find(\"cust_WtaVdUjAGpOlbLiYWYXBR67whr91Rlks\",\n    \"tok_fKK4btSG7wd13ZZaevzhMcuNbpjcu1Zy\")"
+        samples-languages:
+        - node
+        - python
+        - ruby
+        - php
+        - go
+      tags:
+      - Customers
+    put:
+      summary: Update a token
+      description: ''
+      operationId: update-a-token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                source:
+                  type: string
+                  description: The source represents the token (`card_` or `gway_req_`) to save on the customer token
+                metadata:
+                  type: string
+                  description: Metadata related to the token, in the form of key-value pairs (string - string).
+                  format: json
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Card token attached:
+                  value: "{\n    \"success\": true,\n    \"token\": {\n        \"id\": \"tok_4H77e0IrpFrp3YhvBGmbuJr54MRob5yl\",\n        \"customer_id\": \"cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA\",\n        \"invoice_id\": null,\n        \"gateway_configuration_id\": null,\n        \"gateway_configuration_sub_account\": null,\n        \"card\": {\n            \"project_id\": \"proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S\",\n            \"update_type\": null,\n            \"update_reason_code\": null,\n            \"scheme\": \"visa\",\n            \"co_scheme\": null,\n            \"preferred_scheme\": null,\n            \"type\": \"credit\",\n            \"bank_name\": null,\n            \"brand\": null,\n            \"category\": null,\n            \"iin\": \"400000\",\n            \"last_4_digits\": \"0101\",\n            \"fingerprint\": \"43d7ff88cb38993d87311c2e54779cc9ec0c20298a5ef84c31e519ef6a068a79\",\n            \"exp_month\": 7,\n            \"exp_year\": 2026,\n            \"cvc_check\": \"unavailable\",\n            \"avs_check\": \"unavailable\",\n            \"checks\": {\n                \"cvc_check\": \"unavailable\",\n                \"cvc_check_reason\": null,\n                \"avs_check\": \"unavailable\",\n                \"avs_postal_check\": \"unavailable\",\n                \"avs_postal_check_reason\": null,\n                \"avs_street_check\": \"unavailable\",\n                \"avs_street_check_reason\": null,\n                \"avs_name_check\": \"unavailable\",\n                \"avs_name_check_reason\": null\n            },\n            \"token_type\": null,\n            \"name\": \"Matéo Garnier\",\n            \"address1\": \"133 rue Lamarck\",\n            \"address2\": \"Cedex 7\",\n            \"city\": \"Paris\",\n            \"state\": \"Ile De France\",\n            \"country_code\": \"US\",\n            \"zip\": \"75018\",\n            \"ip_address\": \"176.27.120.213\",\n            \"user_agent\": \"PostmanRuntime/7.32.2\",\n            \"header_accept\": \"*/*\",\n            \"app_color_depth\": null,\n            \"app_java_enabled\": null,\n            \"app_language\": null,\n            \"app_screen_height\": null,\n            \"app_screen_width\": null,\n            \"app_timezone_offset\": null,\n            \"header_referer\": null,\n            \"expires_soon\": false,\n            \"metadata\": {},\n            \"used\": null,\n            \"sandbox\": true,\n            \"created_at\": \"2023-04-22T10:37:15.854105Z\",\n            \"updated_at\": \"2023-04-22T10:37:15.854104Z\",\n            \"id\": \"card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy\",\n            \"cvc_tokenized\": true,\n            \"tokenization_method\": null,\n            \"payment_source_detail\": null\n        },\n        \"card_id\": \"card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy\",\n        \"is_subscription_only\": false,\n        \"is_default\": true,\n        \"return_url\": \"https://mymerchant.com/return\",\n        \"cancel_url\": \"https://mymerchant.com/cancel\",\n        \"is_chargeable\": true,\n        \"type\": \"card\",\n        \"metadata\": {\n            \"test\": \"23456789\"\n        },\n        \"description\": null,\n        \"created_at\": \"2023-04-22T10:37:17.950649Z\",\n        \"summary\": \"**** **** **** 0101\",\n        \"verification_status\": \"not-requested\",\n        \"manual_invoice_cancellation\": null,\n        \"can_get_balance\": null\n    }\n}"
+                APM token attached:
+                  value: "{\n    \"success\": true,\n    \"token\": {\n        \"id\": \"tok_X6kIALJ8FR1x8wDuzOoWQRyZIbtzpA22\",\n        \"customer_id\": \"cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA\",\n        \"invoice_id\": null,\n        \"gateway_configuration_id\": \"gway_conf_c23e011db34f4bac44e051840dfa3783\",\n        \"gateway_configuration_sub_account\": null,\n        \"card_id\": null,\n        \"is_subscription_only\": false,\n        \"is_default\": false,\n        \"return_url\": null,\n        \"cancel_url\": null,\n        \"is_chargeable\": true,\n        \"type\": \"gateway_token\",\n        \"metadata\": {\n            \"test\": \"23456789\"\n        },\n        \"description\": null,\n        \"created_at\": \"2023-04-22T09:36:33.798042Z\",\n        \"summary\": \"test_summary\",\n        \"verification_status\": \"not-requested\",\n        \"manual_invoice_cancellation\": null,\n        \"can_get_balance\": true\n    }\n}"
+              schema:
+                oneOf:
+                - title: Card token attached
+                  type: object
+                  properties:
+                    success:
+                      type: boolean
+                      example: true
+                      default: true
+                    token:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: tok_4H77e0IrpFrp3YhvBGmbuJr54MRob5yl
+                        customer_id:
+                          type: string
+                          example: cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA
+                        invoice_id: {}
+                        gateway_configuration_id: {}
+                        gateway_configuration_sub_account: {}
+                        card:
+                          type: object
+                          properties:
+                            project_id:
+                              type: string
+                              example: proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S
+                            update_type: {}
+                            update_reason_code: {}
+                            scheme:
+                              type: string
+                              example: visa
+                            co_scheme: {}
+                            preferred_scheme: {}
+                            type:
+                              type: string
+                              example: credit
+                            bank_name: {}
+                            brand: {}
+                            category: {}
+                            iin:
+                              type: string
+                              example: '400000'
+                            last_4_digits:
+                              type: string
+                              example: '0101'
+                            fingerprint:
+                              type: string
+                              example: 43d7ff88cb38993d87311c2e54779cc9ec0c20298a5ef84c31e519ef6a068a79
+                            exp_month:
+                              type: integer
+                              example: 7
+                              default: 0
+                            exp_year:
+                              type: integer
+                              example: 2026
+                              default: 0
+                            cvc_check:
+                              type: string
+                              example: unavailable
+                            avs_check:
+                              type: string
+                              example: unavailable
+                            checks:
+                              type: object
+                              properties:
+                                cvc_check:
+                                  type: string
+                                  example: unavailable
+                                cvc_check_reason: {}
+                                avs_check:
+                                  type: string
+                                  example: unavailable
+                                avs_postal_check:
+                                  type: string
+                                  example: unavailable
+                                avs_postal_check_reason: {}
+                                avs_street_check:
+                                  type: string
+                                  example: unavailable
+                                avs_street_check_reason: {}
+                                avs_name_check:
+                                  type: string
+                                  example: unavailable
+                                avs_name_check_reason: {}
+                            token_type: {}
+                            name:
+                              type: string
+                              example: Matéo Garnier
+                            address1:
+                              type: string
+                              example: 133 rue Lamarck
+                            address2:
+                              type: string
+                              example: Cedex 7
+                            city:
+                              type: string
+                              example: Paris
+                            state:
+                              type: string
+                              example: Ile De France
+                            country_code:
+                              type: string
+                              example: US
+                            zip:
+                              type: string
+                              example: '75018'
+                            ip_address:
+                              type: string
+                              example: 176.27.120.213
+                            user_agent:
+                              type: string
+                              example: PostmanRuntime/7.32.2
+                            header_accept:
+                              type: string
+                              example: '*/*'
+                            app_color_depth: {}
+                            app_java_enabled: {}
+                            app_language: {}
+                            app_screen_height: {}
+                            app_screen_width: {}
+                            app_timezone_offset: {}
+                            header_referer: {}
+                            expires_soon:
+                              type: boolean
+                              example: false
+                              default: true
+                            metadata:
+                              type: object
+                              properties: {}
+                            used: {}
+                            sandbox:
+                              type: boolean
+                              example: true
+                              default: true
+                            created_at:
+                              type: string
+                              example: '2023-04-22T10:37:15.854105Z'
+                            updated_at:
+                              type: string
+                              example: '2023-04-22T10:37:15.854104Z'
+                            id:
+                              type: string
+                              example: card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy
+                            cvc_tokenized:
+                              type: boolean
+                              example: true
+                              default: true
+                            tokenization_method: {}
+                            payment_source_detail: {}
+                        card_id:
+                          type: string
+                          example: card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy
+                        is_subscription_only:
+                          type: boolean
+                          example: false
+                          default: true
+                        is_default:
+                          type: boolean
+                          example: true
+                          default: true
+                        return_url:
+                          type: string
+                          example: https://mymerchant.com/return
+                        cancel_url:
+                          type: string
+                          example: https://mymerchant.com/cancel
+                        is_chargeable:
+                          type: boolean
+                          example: true
+                          default: true
+                        type:
+                          type: string
+                          example: card
+                        metadata:
+                          type: object
+                          properties:
+                            test:
+                              type: string
+                              example: '23456789'
+                        description: {}
+                        created_at:
+                          type: string
+                          example: '2023-04-22T10:37:17.950649Z'
+                        summary:
+                          type: string
+                          example: '**** **** **** 0101'
+                        verification_status:
+                          type: string
+                          example: not-requested
+                        manual_invoice_cancellation: {}
+                        can_get_balance: {}
+                - title: APM token attached
+                  type: object
+                  properties:
+                    success:
+                      type: boolean
+                      example: true
+                      default: true
+                    token:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: tok_X6kIALJ8FR1x8wDuzOoWQRyZIbtzpA22
+                        customer_id:
+                          type: string
+                          example: cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA
+                        invoice_id: {}
+                        gateway_configuration_id:
+                          type: string
+                          example: gway_conf_c23e011db34f4bac44e051840dfa3783
+                        gateway_configuration_sub_account: {}
+                        card_id: {}
+                        is_subscription_only:
+                          type: boolean
+                          example: false
+                          default: true
+                        is_default:
+                          type: boolean
+                          example: false
+                          default: true
+                        return_url: {}
+                        cancel_url: {}
+                        is_chargeable:
+                          type: boolean
+                          example: true
+                          default: true
+                        type:
+                          type: string
+                          example: gateway_token
+                        metadata:
+                          type: object
+                          properties:
+                            test:
+                              type: string
+                              example: '23456789'
+                        description: {}
+                        created_at:
+                          type: string
+                          example: '2023-04-22T09:36:33.798042Z'
+                        summary:
+                          type: string
+                          example: test_summary
+                        verification_status:
+                          type: string
+                          example: not-requested
+                        manual_invoice_cancellation: {}
+                        can_get_balance:
+                          type: boolean
+                          example: true
+                          default: true
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"error_type\": \"resource.customer.not-found\",\n    \"message\": \"The customer could not be found.\",\n    \"success\": false\n}"
+              schema:
+                oneOf:
+                - type: object
+                  properties:
+                    error_type:
+                      type: string
+                      example: request.validation.invalid-description
+                    message:
+                      type: string
+                      example: The description Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ...  must be at most 255 characters long.
+                    success:
+                      type: boolean
+                      example: false
+                      default: true
+                - type: object
+                  properties:
+                    error_type:
+                      type: string
+                      example: resource.customer.not-found
+                    message:
+                      type: string
+                      example: The customer could not be found.
+                    success:
+                      type: boolean
+                      example: false
+                      default: true
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"success\": false,\n    \"message\": \"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\",\n    \"error_type\": \"request.authentication.invalid\"\n}"
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+                  message:
+                    type: string
+                    example: Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!
+                  error_type:
+                    type: string
+                    example: request.authentication.invalid
+      deprecated: false
+      tags:
+      - Customers
+components:
+  securitySchemes:
+    sec0:
+      type: http
+      scheme: basic

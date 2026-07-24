@@ -1,0 +1,1201 @@
+openapi: 3.1.0
+info:
+  title: ProcessOut Balances Transactions API
+  version: 1.0.3
+  description: ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation. Authentication is HTTP Basic using a project ID (username) and secret API key (password). This OpenAPI 3.1 description was assembled by API Evangelist from the per-operation OpenAPI fragments ProcessOut publishes in each ReadMe API-reference page.
+  contact:
+    email: help@processout.com
+    url: https://docs.processout.com
+servers:
+- url: https://api.processout.com
+  description: Production
+security:
+- sec0: []
+tags:
+- name: Transactions
+paths:
+  /transactions/{transaction_id}:
+    get:
+      summary: Fetching a transaction
+      description: ''
+      operationId: fetching-a-transaction
+      parameters:
+      - name: transaction_id
+        in: path
+        description: ID of the transaction
+        schema:
+          type: string
+        required: true
+      - name: Idempotency-Key
+        in: header
+        description: Unique key to your request that will be used for idempotency
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"success\": true,\n    \"transaction\": {\n        \"id\": \"tr_msUOyQgmJp8UduKANzblNwa5hrjQGag5\",\n        \"project_id\": \"proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S\",\n        \"customer_id\": \"cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA\",\n        \"routing_tags\": [\n            \"rule-2-route\",\n            \"GB1\",\n            \"rule-3-dynamic_3ds\",\n            \"country == FR\",\n            \"currency == EUR\",\n            \"card_last4 == 0001\",\n            \"rule-4-dynamic_3ds\",\n            \"card_country == FR\",\n            \"currency == EUR\",\n            \"amount > 30\",\n            \"rule-5-dynamic_3ds\",\n            \"card_country == FR\",\n            \"currency == EUR\",\n            \"amount > 30\"\n        ],\n        \"fraud_service_results\": null,\n        \"operations\": null,\n        \"name\": \"Amazing Product\",\n        \"currency\": \"EUR\",\n        \"details\": {\n            \"country\": \"GB\"\n        },\n        \"metadata\": {\n            \"fruit\": \"banana\"\n        },\n        \"sandbox\": true,\n        \"created_at\": \"2023-04-22T15:19:08.653492Z\",\n        \"invoice_id\": \"iv_cyxGn7nrOHuqQO4X5jbbwv16eN7GkZvB\",\n        \"gateway_name\": \"sandbox\",\n        \"status\": \"authorized\",\n        \"three_d_s_status\": \"unchecked\",\n        \"three_d_s_version\": null,\n        \"gateway_configuration_id\": \"gway_conf_c23e011db34f4bac44e051840dfa3783\",\n        \"token_id\": null,\n        \"card_id\": \"card_DOekWV1nHVVloKxjqDOuZFr4CmSGj5rx\",\n        \"error_code\": null,\n        \"error_message\": null,\n        \"three_d_s\": null,\n        \"payment_type\": \"card\",\n        \"eci\": null,\n        \"mcc\": null,\n        \"merchant_account_id\": null,\n        \"cvc_check\": \"passed\",\n        \"avs_check\": \"passed\",\n        \"card_checks\": {\n            \"cvc_check\": \"passed\",\n            \"cvc_check_reason\": null,\n            \"avs_check\": \"passed\",\n            \"avs_postal_check\": \"passed\",\n            \"avs_postal_check_reason\": null,\n            \"avs_street_check\": \"passed\",\n            \"avs_street_check_reason\": null,\n            \"avs_name_check\": \"passed\",\n            \"avs_name_check_reason\": null\n        },\n        \"amount\": \"29\",\n        \"amount_local\": \"32.18\",\n        \"authorized_amount\": \"29\",\n        \"authorized_amount_local\": \"32.18\",\n        \"captured_amount\": \"0\",\n        \"captured_amount_local\": \"0\",\n        \"available_amount\": \"0\",\n        \"available_amount_local\": \"0\",\n        \"incremented_amount\": \"0\",\n        \"incremented_amount_local\": \"0\",\n        \"refunded_amount\": \"0\",\n        \"refunded_amount_local\": \"0\",\n        \"currency_fee\": null,\n        \"gateway_fee\": \"0\",\n        \"gateway_fee_local\": \"0\",\n        \"authorized_at\": \"2023-04-22T15:19:13.048765Z\",\n        \"captured_at\": null,\n        \"refunded_at\": null,\n        \"voided_at\": null,\n        \"chargedback_at\": null,\n        \"received_fraud_notification\": false,\n        \"received_retrieval_request\": false,\n        \"acquirer_name\": null,\n        \"attempts_count\": 1,\n        \"authorized\": true,\n        \"captured\": false,\n        \"refunded\": false,\n        \"voided\": false,\n        \"chargedback\": false,\n        \"merchant_advice_code\": null,\n        \"merchant_advice_reason\": null,\n        \"recommendation_code\": null,\n        \"recommendation_reason\": null,\n        \"scheme_id\": \"5196843282\",\n        \"initial_scheme_transaction_id\": null,\n        \"sca\": null,\n        \"subscription_cycle\": null,\n        \"error_recommendations\": [],\n        \"gateway_fee_details\": {\n            \"processing_fee\": \"0\",\n            \"exchange_fee\": \"0\",\n            \"refund_fee\": \"0\",\n            \"interchange_fee\": \"0\",\n            \"scheme_fee\": \"0\",\n            \"markup_fee\": \"0\",\n            \"interchange_fee_estimate\": \"0\",\n            \"scheme_fee_estimate\": \"0\"\n        },\n        \"external_details\": {\n        \t\t\"customer\": {\n              \"last_name\": \"\",\n              \"first_name\": \"\",\n              \"address1\": \"\",\n              \"address2\": \"\",\n              \"state\": \"\",\n              \"city\": \"\",\n              \"zip\": \"\",\n              \"country_code\": \"\",\n              \"phone_number\": \"\",\n              \"email\": \"\"\n  \t\t\t\t\t},\n  \t\t\t\t\t\"shipping\": {\n              \"address1\": \"\",\n              \"address2\": \"\",\n              \"state\": \"\",\n              \"city\": \"\",\n              \"zip\": \"\",\n              \"country_code\": \"\"\n  \t\t\t\t\t}\n        },  \n        \"estimated_fee\": \"1.17\",\n        \"refunds\": null,\n        \"buyer\": {\n            \"name\": \"\",\n            \"email\": \"\",\n            \"address\": \"\",\n            \"phone\": \"\"\n        },\n        \"is_on_us\": null,\n        \"processout_fee\": \"0\",\n        \"subscription_id\": null,\n        \"duplicate_distance_seconds\": null\n    }\n}"
+                Payout Items expanded:
+                  value: "{\n    \"success\": true,\n    \"transaction\": {\n        \"id\": \"tr_RbYZcNz86hRLVNOGKOGmIyyibguwFds5\",\n        \"project_id\": \"proj_nC8kogl1spXADQdfWjnKa1qz2cOebyvH\",\n        \"customer_id\": \"cust_4d5OfJzmyMt1dsLLk1mbNGrNGJkdpmjd\",\n        \"payout_items\": [\n            {\n                \"id\": \"payt_itm_v8ml10kZ7CKSv2Tn0ThbRuwjBJ0yTgsn\",\n                \"project_id\": \"proj_nC8kogl1spXADQdfWjnKa1qz2cOebyvH\",\n                \"payout_id\": \"payt_6qb4XAzPbQcA8pcVtQyTsMjU8AA44YHD\",\n                \"transaction_id\": \"tr_RbYZcNz86hRLVNOGKOGmIyyibguwFds5\",\n                \"type\": \"sale\",\n                \"payment_provider_type\": \"SettledInstallment\",\n                \"gateway_resource_id\": \"EXAMPLE123\",\n                \"amount\": \"40\",\n                \"fees\": \"-5.8\",\n                \"metadata\": {\n                    \"batch_number\": \"602\",\n                    \"settlement_type\": \"SettledInstallment\"\n                },\n                \"breakdown\": {\n                    \"scheme_fee\": \"-0.4\",\n                    \"interchange_fee\": \"-5\",\n                    \"gateway_fee\": null,\n                    \"markup_fee\": \"-0.4\",\n                    \"acquirer_fee\": null,\n                    \"other_fee\": null\n                },\n                \"created_at\": \"2024-02-22T18:30:30Z\"\n            }\n        ],\n        \"payout_summary\": {\n            \"currency\": null,\n            \"is_settled\": true,\n            \"settled_at\": \"2024-02-22T18:30:30Z\",\n            \"total_amount\": \"40\",\n            \"settled_amount\": \"40\",\n            \"settled_amount_local\": \"43.3291992\",\n            \"fees\": \"-5.8\",\n            \"fees_local\": \"-6.282733884\",\n            \"fees_breakdown\": {\n                \"scheme_fee\": \"-0.4\",\n                \"interchange_fee\": \"-5\",\n                \"gateway_fee\": \"0\",\n                \"markup_fee\": \"-0.4\",\n                \"acquirer_fee\": \"0\",\n                \"other_fee\": \"0\"\n            },\n            \"settlement_status\": \"settled\"\n        },\n        \"routing_tags\": [\n            \"rule-2-route\",\n            \"Adyen_reporting_Test\"\n        ],\n        \"fraud_service_results\": null,\n        \"operations\": null,\n        \"name\": \"adyen_report_test\",\n        \"currency\": \"EUR\",\n        \"details\": {\n            \"country\": \"PL\"\n        },\n        \"metadata\": {},\n        \"sandbox\": true,\n        \"created_at\": \"2024-02-26T08:20:38.77234Z\",\n        \"invoice_id\": \"iv_xILrHuS1UQQCGSkbTxf6v6YF6DHzMT3Z\",\n        \"gateway_name\": \"adyen\",\n        \"status\": \"completed\",\n        \"three_d_s_status\": \"unchecked\",\n        \"three_d_s_version\": null,\n        \"gateway_configuration_id\": \"gway_conf_6mds752ax40tscbca43qbw1r263u1y55\",\n        \"token_id\": null,\n        \"card_id\": \"card_MdpvCTbTyNvd0RBIZYg0xqIRl212aKt0\",\n        \"error_code\": null,\n        \"error_message\": null,\n        \"three_d_s\": null,\n        \"payment_type\": \"card\",\n        \"eci\": \"N/A\",\n        \"mcc\": null,\n        \"merchant_account_id\": \"\",\n        \"cvc_check\": \"unchecked\",\n        \"avs_check\": \"failed\",\n        \"card_checks\": {\n            \"cvc_check\": \"unchecked\",\n            \"cvc_check_reason\": null,\n            \"avs_check\": \"failed\",\n            \"avs_postal_check\": \"failed\",\n            \"avs_postal_check_reason\": null,\n            \"avs_street_check\": \"failed\",\n            \"avs_street_check_reason\": null,\n            \"avs_name_check\": \"unknown\",\n            \"avs_name_check_reason\": null\n        },\n        \"amount\": \"40\",\n        \"amount_local\": \"43.33\",\n        \"authorized_amount\": \"40\",\n        \"authorized_amount_local\": \"43.33\",\n        \"captured_amount\": \"40\",\n        \"captured_amount_local\": \"43.33\",\n        \"available_amount\": \"40\",\n        \"available_amount_local\": \"43.33\",\n        \"incremented_amount\": \"0\",\n        \"incremented_amount_local\": \"0\",\n        \"refunded_amount\": \"0\",\n        \"refunded_amount_local\": \"0\",\n        \"voided_amount\": \"0\",\n        \"voided_amount_local\": \"0\",\n        \"currency_fee\": \"EUR\",\n        \"gateway_fee\": \"0\",\n        \"gateway_fee_local\": \"0\",\n        \"authorized_at\": \"2024-02-26T08:20:45.804061Z\",\n        \"captured_at\": \"2024-02-26T08:20:50Z\",\n        \"refunded_at\": null,\n        \"voided_at\": null,\n        \"chargedback_at\": null,\n        \"received_fraud_notification\": false,\n        \"received_retrieval_request\": false,\n        \"acquirer_name\": \"\",\n        \"attempts_count\": 1,\n        \"authorized\": true,\n        \"captured\": true,\n        \"refunded\": false,\n        \"voided\": false,\n        \"chargedback\": false,\n        \"merchant_advice_code\": null,\n        \"merchant_advice_reason\": null,\n        \"recommendation_code\": null,\n        \"recommendation_reason\": null,\n        \"scheme_id\": \"285987934832252\",\n        \"initial_scheme_transaction_id\": null,\n        \"sca\": null,\n        \"external_details\": null,\n        \"subscription_cycle\": null,\n        \"error_recommendations\": [],\n        \"gateway_fee_details\": {\n            \"processing_fee\": \"0\",\n            \"exchange_fee\": \"0\",\n            \"refund_fee\": \"0\",\n            \"interchange_fee\": \"0\",\n            \"scheme_fee\": \"0\",\n            \"markup_fee\": \"0\",\n            \"interchange_fee_estimate\": \"0\",\n            \"scheme_fee_estimate\": \"0\",\n            \"currency\": \"EUR\"\n        },\n        \"estimated_fee\": \"1.5\",\n        \"refunds\": null,\n        \"buyer\": {\n            \"name\": \"\",\n            \"email\": \"\",\n            \"address\": \"\",\n            \"phone\": \"\"\n        },\n        \"is_on_us\": null,\n        \"processout_fee\": \"0\",\n        \"subscription_id\": null,\n        \"duplicate_distance_seconds\": null\n    }\n}"
+              schema:
+                oneOf:
+                - title: Operations expanded
+                  type: object
+                  properties:
+                    success:
+                      type: boolean
+                      example: true
+                      default: true
+                    transaction:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: tr_msUOyQgmJp8UduKANzblNwa5hrjQGag5
+                        project_id:
+                          type: string
+                          example: proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S
+                        customer_id:
+                          type: string
+                          example: cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA
+                        routing_tags:
+                          type: array
+                          items:
+                            type: string
+                            example: rule-2-route
+                        fraud_service_results: {}
+                        operations: {}
+                        name:
+                          type: string
+                          example: Amazing Product
+                        currency:
+                          type: string
+                          example: EUR
+                        details:
+                          type: object
+                          properties:
+                            country:
+                              type: string
+                              example: GB
+                        metadata:
+                          type: object
+                          properties:
+                            fruit:
+                              type: string
+                              example: banana
+                        sandbox:
+                          type: boolean
+                          example: true
+                          default: true
+                        created_at:
+                          type: string
+                          example: '2023-04-22T15:19:08.653492Z'
+                        invoice_id:
+                          type: string
+                          example: iv_cyxGn7nrOHuqQO4X5jbbwv16eN7GkZvB
+                        gateway_name:
+                          type: string
+                          example: sandbox
+                        status:
+                          type: string
+                          example: authorized
+                        three_d_s_status:
+                          type: string
+                          example: unchecked
+                        three_d_s_version: {}
+                        gateway_configuration_id:
+                          type: string
+                          example: gway_conf_c23e011db34f4bac44e051840dfa3783
+                        token_id: {}
+                        card_id:
+                          type: string
+                          example: card_DOekWV1nHVVloKxjqDOuZFr4CmSGj5rx
+                        error_code: {}
+                        error_message: {}
+                        three_d_s: {}
+                        payment_type:
+                          type: string
+                          example: card
+                        eci: {}
+                        mcc: {}
+                        merchant_account_id: {}
+                        cvc_check:
+                          type: string
+                          example: passed
+                        avs_check:
+                          type: string
+                          example: passed
+                        card_checks:
+                          type: object
+                          properties:
+                            cvc_check:
+                              type: string
+                              example: passed
+                            cvc_check_reason: {}
+                            avs_check:
+                              type: string
+                              example: passed
+                            avs_postal_check:
+                              type: string
+                              example: passed
+                            avs_postal_check_reason: {}
+                            avs_street_check:
+                              type: string
+                              example: passed
+                            avs_street_check_reason: {}
+                            avs_name_check:
+                              type: string
+                              example: passed
+                            avs_name_check_reason: {}
+                        amount:
+                          type: string
+                          example: '29'
+                        amount_local:
+                          type: string
+                          example: '32.18'
+                        authorized_amount:
+                          type: string
+                          example: '29'
+                        authorized_amount_local:
+                          type: string
+                          example: '32.18'
+                        captured_amount:
+                          type: string
+                          example: '0'
+                        captured_amount_local:
+                          type: string
+                          example: '0'
+                        available_amount:
+                          type: string
+                          example: '0'
+                        available_amount_local:
+                          type: string
+                          example: '0'
+                        incremented_amount:
+                          type: string
+                          example: '0'
+                        incremented_amount_local:
+                          type: string
+                          example: '0'
+                        refunded_amount:
+                          type: string
+                          example: '0'
+                        refunded_amount_local:
+                          type: string
+                          example: '0'
+                        currency_fee: {}
+                        gateway_fee:
+                          type: string
+                          example: '0'
+                        gateway_fee_local:
+                          type: string
+                          example: '0'
+                        authorized_at:
+                          type: string
+                          example: '2023-04-22T15:19:13.048765Z'
+                        captured_at: {}
+                        refunded_at: {}
+                        voided_at: {}
+                        chargedback_at: {}
+                        received_fraud_notification:
+                          type: boolean
+                          example: false
+                          default: true
+                        received_retrieval_request:
+                          type: boolean
+                          example: false
+                          default: true
+                        acquirer_name: {}
+                        attempts_count:
+                          type: integer
+                          example: 1
+                          default: 0
+                        authorized:
+                          type: boolean
+                          example: true
+                          default: true
+                        captured:
+                          type: boolean
+                          example: false
+                          default: true
+                        refunded:
+                          type: boolean
+                          example: false
+                          default: true
+                        voided:
+                          type: boolean
+                          example: false
+                          default: true
+                        chargedback:
+                          type: boolean
+                          example: false
+                          default: true
+                        merchant_advice_code: {}
+                        merchant_advice_reason: {}
+                        recommendation_code: {}
+                        recommendation_reason: {}
+                        scheme_id:
+                          type: string
+                          example: '5196843282'
+                        initial_scheme_transaction_id: {}
+                        sca: {}
+                        subscription_cycle: {}
+                        error_recommendations:
+                          type: array
+                        gateway_fee_details:
+                          type: object
+                          properties:
+                            processing_fee:
+                              type: string
+                              example: '0'
+                            exchange_fee:
+                              type: string
+                              example: '0'
+                            refund_fee:
+                              type: string
+                              example: '0'
+                            interchange_fee:
+                              type: string
+                              example: '0'
+                            scheme_fee:
+                              type: string
+                              example: '0'
+                            markup_fee:
+                              type: string
+                              example: '0'
+                            interchange_fee_estimate:
+                              type: string
+                              example: '0'
+                            scheme_fee_estimate:
+                              type: string
+                              example: '0'
+                        external_details:
+                          type: object
+                          properties:
+                            customer:
+                              type: object
+                              properties:
+                                last_name:
+                                  type: string
+                                  example: ''
+                                first_name:
+                                  type: string
+                                  example: ''
+                                address1:
+                                  type: string
+                                  example: ''
+                                address2:
+                                  type: string
+                                  example: ''
+                                state:
+                                  type: string
+                                  example: ''
+                                city:
+                                  type: string
+                                  example: ''
+                                zip:
+                                  type: string
+                                  example: ''
+                                country_code:
+                                  type: string
+                                  example: ''
+                                phone_number:
+                                  type: string
+                                  example: ''
+                                email:
+                                  type: string
+                                  example: ''
+                            shipping:
+                              type: object
+                              properties:
+                                address1:
+                                  type: string
+                                  example: ''
+                                address2:
+                                  type: string
+                                  example: ''
+                                state:
+                                  type: string
+                                  example: ''
+                                city:
+                                  type: string
+                                  example: ''
+                                zip:
+                                  type: string
+                                  example: ''
+                                country_code:
+                                  type: string
+                                  example: ''
+                        estimated_fee:
+                          type: string
+                          example: '1.17'
+                        refunds: {}
+                        buyer:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              example: ''
+                            email:
+                              type: string
+                              example: ''
+                            address:
+                              type: string
+                              example: ''
+                            phone:
+                              type: string
+                              example: ''
+                        is_on_us: {}
+                        processout_fee:
+                          type: string
+                          example: '0'
+                        subscription_id: {}
+                        duplicate_distance_seconds: {}
+                - title: Payout Items expanded
+                  type: object
+                  properties:
+                    success:
+                      type: boolean
+                      example: true
+                      default: true
+                    transaction:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: tr_RbYZcNz86hRLVNOGKOGmIyyibguwFds5
+                        project_id:
+                          type: string
+                          example: proj_nC8kogl1spXADQdfWjnKa1qz2cOebyvH
+                        customer_id:
+                          type: string
+                          example: cust_4d5OfJzmyMt1dsLLk1mbNGrNGJkdpmjd
+                        payout_items:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                example: payt_itm_v8ml10kZ7CKSv2Tn0ThbRuwjBJ0yTgsn
+                              project_id:
+                                type: string
+                                example: proj_nC8kogl1spXADQdfWjnKa1qz2cOebyvH
+                              payout_id:
+                                type: string
+                                example: payt_6qb4XAzPbQcA8pcVtQyTsMjU8AA44YHD
+                              transaction_id:
+                                type: string
+                                example: tr_RbYZcNz86hRLVNOGKOGmIyyibguwFds5
+                              type:
+                                type: string
+                                example: sale
+                              payment_provider_type:
+                                type: string
+                                example: SettledInstallment
+                              gateway_resource_id:
+                                type: string
+                                example: EXAMPLE123
+                              amount:
+                                type: string
+                                example: '40'
+                              fees:
+                                type: string
+                                example: '-5.8'
+                              metadata:
+                                type: object
+                                properties:
+                                  batch_number:
+                                    type: string
+                                    example: '602'
+                                  settlement_type:
+                                    type: string
+                                    example: SettledInstallment
+                              breakdown:
+                                type: object
+                                properties:
+                                  scheme_fee:
+                                    type: string
+                                    example: '-0.4'
+                                  interchange_fee:
+                                    type: string
+                                    example: '-5'
+                                  gateway_fee: {}
+                                  markup_fee:
+                                    type: string
+                                    example: '-0.4'
+                                  acquirer_fee: {}
+                                  other_fee: {}
+                              created_at:
+                                type: string
+                                example: '2024-02-22T18:30:30Z'
+                        payout_summary:
+                          type: object
+                          properties:
+                            currency: {}
+                            is_settled:
+                              type: boolean
+                              example: true
+                              default: true
+                            settled_at:
+                              type: string
+                              example: '2024-02-22T18:30:30Z'
+                            total_amount:
+                              type: string
+                              example: '40'
+                            settled_amount:
+                              type: string
+                              example: '40'
+                            settled_amount_local:
+                              type: string
+                              example: '43.3291992'
+                            fees:
+                              type: string
+                              example: '-5.8'
+                            fees_local:
+                              type: string
+                              example: '-6.282733884'
+                            fees_breakdown:
+                              type: object
+                              properties:
+                                scheme_fee:
+                                  type: string
+                                  example: '-0.4'
+                                interchange_fee:
+                                  type: string
+                                  example: '-5'
+                                gateway_fee:
+                                  type: string
+                                  example: '0'
+                                markup_fee:
+                                  type: string
+                                  example: '-0.4'
+                                acquirer_fee:
+                                  type: string
+                                  example: '0'
+                                other_fee:
+                                  type: string
+                                  example: '0'
+                            settlement_status:
+                              type: string
+                              example: settled
+                        routing_tags:
+                          type: array
+                          items:
+                            type: string
+                            example: rule-2-route
+                        fraud_service_results: {}
+                        operations: {}
+                        name:
+                          type: string
+                          example: adyen_report_test
+                        currency:
+                          type: string
+                          example: EUR
+                        details:
+                          type: object
+                          properties:
+                            country:
+                              type: string
+                              example: PL
+                        metadata:
+                          type: object
+                          properties: {}
+                        sandbox:
+                          type: boolean
+                          example: true
+                          default: true
+                        created_at:
+                          type: string
+                          example: '2024-02-26T08:20:38.77234Z'
+                        invoice_id:
+                          type: string
+                          example: iv_xILrHuS1UQQCGSkbTxf6v6YF6DHzMT3Z
+                        gateway_name:
+                          type: string
+                          example: adyen
+                        status:
+                          type: string
+                          example: completed
+                        three_d_s_status:
+                          type: string
+                          example: unchecked
+                        three_d_s_version: {}
+                        gateway_configuration_id:
+                          type: string
+                          example: gway_conf_6mds752ax40tscbca43qbw1r263u1y55
+                        token_id: {}
+                        card_id:
+                          type: string
+                          example: card_MdpvCTbTyNvd0RBIZYg0xqIRl212aKt0
+                        error_code: {}
+                        error_message: {}
+                        three_d_s: {}
+                        payment_type:
+                          type: string
+                          example: card
+                        eci:
+                          type: string
+                          example: N/A
+                        mcc: {}
+                        merchant_account_id:
+                          type: string
+                          example: ''
+                        cvc_check:
+                          type: string
+                          example: unchecked
+                        avs_check:
+                          type: string
+                          example: failed
+                        card_checks:
+                          type: object
+                          properties:
+                            cvc_check:
+                              type: string
+                              example: unchecked
+                            cvc_check_reason: {}
+                            avs_check:
+                              type: string
+                              example: failed
+                            avs_postal_check:
+                              type: string
+                              example: failed
+                            avs_postal_check_reason: {}
+                            avs_street_check:
+                              type: string
+                              example: failed
+                            avs_street_check_reason: {}
+                            avs_name_check:
+                              type: string
+                              example: unknown
+                            avs_name_check_reason: {}
+                        amount:
+                          type: string
+                          example: '40'
+                        amount_local:
+                          type: string
+                          example: '43.33'
+                        authorized_amount:
+                          type: string
+                          example: '40'
+                        authorized_amount_local:
+                          type: string
+                          example: '43.33'
+                        captured_amount:
+                          type: string
+                          example: '40'
+                        captured_amount_local:
+                          type: string
+                          example: '43.33'
+                        available_amount:
+                          type: string
+                          example: '40'
+                        available_amount_local:
+                          type: string
+                          example: '43.33'
+                        incremented_amount:
+                          type: string
+                          example: '0'
+                        incremented_amount_local:
+                          type: string
+                          example: '0'
+                        refunded_amount:
+                          type: string
+                          example: '0'
+                        refunded_amount_local:
+                          type: string
+                          example: '0'
+                        voided_amount:
+                          type: string
+                          example: '0'
+                        voided_amount_local:
+                          type: string
+                          example: '0'
+                        currency_fee:
+                          type: string
+                          example: EUR
+                        gateway_fee:
+                          type: string
+                          example: '0'
+                        gateway_fee_local:
+                          type: string
+                          example: '0'
+                        authorized_at:
+                          type: string
+                          example: '2024-02-26T08:20:45.804061Z'
+                        captured_at:
+                          type: string
+                          example: '2024-02-26T08:20:50Z'
+                        refunded_at: {}
+                        voided_at: {}
+                        chargedback_at: {}
+                        received_fraud_notification:
+                          type: boolean
+                          example: false
+                          default: true
+                        received_retrieval_request:
+                          type: boolean
+                          example: false
+                          default: true
+                        acquirer_name:
+                          type: string
+                          example: ''
+                        attempts_count:
+                          type: integer
+                          example: 1
+                          default: 0
+                        authorized:
+                          type: boolean
+                          example: true
+                          default: true
+                        captured:
+                          type: boolean
+                          example: true
+                          default: true
+                        refunded:
+                          type: boolean
+                          example: false
+                          default: true
+                        voided:
+                          type: boolean
+                          example: false
+                          default: true
+                        chargedback:
+                          type: boolean
+                          example: false
+                          default: true
+                        merchant_advice_code: {}
+                        merchant_advice_reason: {}
+                        recommendation_code: {}
+                        recommendation_reason: {}
+                        scheme_id:
+                          type: string
+                          example: '285987934832252'
+                        initial_scheme_transaction_id: {}
+                        sca: {}
+                        external_details: {}
+                        subscription_cycle: {}
+                        error_recommendations:
+                          type: array
+                        gateway_fee_details:
+                          type: object
+                          properties:
+                            processing_fee:
+                              type: string
+                              example: '0'
+                            exchange_fee:
+                              type: string
+                              example: '0'
+                            refund_fee:
+                              type: string
+                              example: '0'
+                            interchange_fee:
+                              type: string
+                              example: '0'
+                            scheme_fee:
+                              type: string
+                              example: '0'
+                            markup_fee:
+                              type: string
+                              example: '0'
+                            interchange_fee_estimate:
+                              type: string
+                              example: '0'
+                            scheme_fee_estimate:
+                              type: string
+                              example: '0'
+                            currency:
+                              type: string
+                              example: EUR
+                        estimated_fee:
+                          type: string
+                          example: '1.5'
+                        refunds: {}
+                        buyer:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              example: ''
+                            email:
+                              type: string
+                              example: ''
+                            address:
+                              type: string
+                              example: ''
+                            phone:
+                              type: string
+                              example: ''
+                        is_on_us: {}
+                        processout_fee:
+                          type: string
+                          example: '0'
+                        subscription_id: {}
+                        duplicate_distance_seconds: {}
+            text/plain:
+              examples:
+                Operations expanded:
+                  value: "{\n    \"success\": true,\n    \"transaction\": {\n        \"id\": \"tr_msUOyQgmJp8UduKANzblNwa5hrjQGag5\",\n        \"project_id\": \"proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S\",\n        \"customer_id\": \"cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA\",\n        \"routing_tags\": [\n            \"rule-2-route\",\n            \"GB1\",\n            \"rule-3-dynamic_3ds\",\n            \"country == FR\",\n            \"currency == EUR\",\n            \"card_last4 == 0001\",\n            \"rule-4-dynamic_3ds\",\n            \"card_country == FR\",\n            \"currency == EUR\",\n            \"amount > 30\",\n            \"rule-5-dynamic_3ds\",\n            \"card_country == FR\",\n            \"currency == EUR\",\n            \"amount > 30\"\n        ],\n        \"fraud_service_results\": null,\n        \"operations\": [\n            {\n                \"id\": \"tr_op_EVh8Ss7qmnWTVqna1CaU7HHbVopVdx1k\",\n                \"transaction_id\": \"tr_msUOyQgmJp8UduKANzblNwa5hrjQGag5\",\n                \"authenticated_transaction_id\": \"5196843282\",\n                \"authorization_code\": null,\n                \"gateway_configuration_id\": \"gway_conf_c23e011db34f4bac44e051840dfa3783\",\n                \"token_id\": null,\n                \"card_id\": \"card_DOekWV1nHVVloKxjqDOuZFr4CmSGj5rx\",\n                \"amount\": \"29\",\n                \"amount_local\": \"32.18\",\n                \"currency\": \"EUR\",\n                \"is_attempt\": false,\n                \"has_failed\": false,\n                \"is_accountable\": false,\n                \"type\": \"request\",\n                \"metadata\": {\n                    \"is_sale\": \"false\"\n                },\n                \"error_code\": null,\n                \"error_message\": null,\n                \"payment_type\": \"card\",\n                \"acquirer_name\": null,\n                \"payment_data_three_d_s_request\": null,\n                \"payment_data_network_authentication\": null,\n                \"payment_data_three_d_s_authentication\": null,\n                \"payment_data_three_d_s_2_authentication\": null,\n                \"eci\": null,\n                \"mcc\": null,\n                \"merchant_account_id\": null,\n                \"is_on_us\": null,\n                \"arn\": null,\n                \"scheme_id\": \"5196843282\",\n                \"initial_scheme_transaction_id\": \"\",\n                \"card_checks\": {\n                    \"cvc_check\": \"\",\n                    \"cvc_check_reason\": null,\n                    \"avs_check\": \"\",\n                    \"avs_postal_check\": \"\",\n                    \"avs_postal_check_reason\": null,\n                    \"avs_street_check\": \"\",\n                    \"avs_street_check_reason\": null,\n                    \"avs_name_check\": \"\",\n                    \"avs_name_check_reason\": null\n                },\n                \"gateway_operation_id\": \"\",\n                \"gateway_data\": {\n                    \"token\": \"test-valid\"\n                },\n                \"chargeback_reason\": null,\n                \"created_at\": \"2023-04-22T15:19:13.048677Z\",\n                \"merchant_advice_code\": null,\n                \"merchant_advice_reason\": null,\n                \"recommendation_code\": null,\n                \"recommendation_reason\": null,\n                \"challenge_indicator\": \"no-preference\",\n                \"sca_exemption_reason\": \"\"\n            },\n            {\n                \"id\": \"tr_op_mk6jIB4Hd5IVTe58s5D2yoTVCch8WVx4\",\n                \"transaction_id\": \"tr_msUOyQgmJp8UduKANzblNwa5hrjQGag5\",\n                \"authenticated_transaction_id\": \"5196843282\",\n                \"authorization_code\": null,\n                \"gateway_configuration_id\": \"gway_conf_c23e011db34f4bac44e051840dfa3783\",\n                \"token_id\": null,\n                \"card_id\": \"card_DOekWV1nHVVloKxjqDOuZFr4CmSGj5rx\",\n                \"amount\": \"29\",\n                \"amount_local\": \"32.18\",\n                \"currency\": \"EUR\",\n                \"is_attempt\": true,\n                \"has_failed\": false,\n                \"is_accountable\": false,\n                \"type\": \"authorization\",\n                \"metadata\": {\n                    \"is_sale\": \"false\"\n                },\n                \"error_code\": null,\n                \"error_message\": null,\n                \"payment_type\": \"card\",\n                \"acquirer_name\": null,\n                \"payment_data_three_d_s_request\": null,\n                \"payment_data_network_authentication\": null,\n                \"payment_data_three_d_s_authentication\": null,\n                \"payment_data_three_d_s_2_authentication\": null,\n                \"eci\": null,\n                \"mcc\": null,\n                \"merchant_account_id\": null,\n                \"is_on_us\": null,\n                \"arn\": null,\n                \"scheme_id\": \"5196843282\",\n                \"initial_scheme_transaction_id\": \"\",\n                \"card_checks\": {\n                    \"cvc_check\": \"\",\n                    \"cvc_check_reason\": null,\n                    \"avs_check\": \"\",\n                    \"avs_postal_check\": \"\",\n                    \"avs_postal_check_reason\": null,\n                    \"avs_street_check\": \"\",\n                    \"avs_street_check_reason\": null,\n                    \"avs_name_check\": \"\",\n                    \"avs_name_check_reason\": null\n                },\n                \"gateway_operation_id\": \"test-valid-17584ad826c34212\",\n                \"gateway_data\": {\n                    \"token\": \"test-valid\"\n                },\n                \"chargeback_reason\": null,\n                \"created_at\": \"2023-04-22T15:19:13.048722Z\",\n                \"merchant_advice_code\": null,\n                \"merchant_advice_reason\": null,\n                \"recommendation_code\": null,\n                \"recommendation_reason\": null,\n                \"challenge_indicator\": \"no-preference\",\n                \"sca_exemption_reason\": \"\"\n            },\n            {\n                \"id\": \"tr_op_WVcMoRwE3QFv5FpQf3xEwjoTqrwLUzVv\",\n                \"transaction_id\": \"tr_msUOyQgmJp8UduKANzblNwa5hrjQGag5\",\n                \"authenticated_transaction_id\": \"5196843282\",\n                \"authorization_code\": null,\n                \"gateway_configuration_id\": \"gway_conf_c23e011db34f4bac44e051840dfa3783\",\n                \"token_id\": null,\n                \"card_id\": \"card_DOekWV1nHVVloKxjqDOuZFr4CmSGj5rx\",\n                \"amount\": \"29\",\n                \"amount_local\": \"32.18\",\n                \"currency\": \"EUR\",\n                \"is_attempt\": false,\n                \"has_failed\": false,\n                \"is_accountable\": false,\n                \"type\": \"authorization\",\n                \"metadata\": {\n                    \"is_sale\": \"false\"\n                },\n                \"error_code\": null,\n                \"error_message\": null,\n                \"payment_type\": \"card\",\n                \"acquirer_name\": null,\n                \"payment_data_three_d_s_request\": null,\n                \"payment_data_network_authentication\": null,\n                \"payment_data_three_d_s_authentication\": null,\n                \"payment_data_three_d_s_2_authentication\": null,\n                \"eci\": null,\n                \"mcc\": null,\n                \"merchant_account_id\": null,\n                \"is_on_us\": null,\n                \"arn\": null,\n                \"scheme_id\": \"5196843282\",\n                \"initial_scheme_transaction_id\": \"\",\n                \"card_checks\": {\n                    \"cvc_check\": \"\",\n                    \"cvc_check_reason\": null,\n                    \"avs_check\": \"\",\n                    \"avs_postal_check\": \"\",\n                    \"avs_postal_check_reason\": null,\n                    \"avs_street_check\": \"\",\n                    \"avs_street_check_reason\": null,\n                    \"avs_name_check\": \"\",\n                    \"avs_name_check_reason\": null\n                },\n                \"gateway_operation_id\": \"test-valid-17584ad826c34212\",\n                \"gateway_data\": {\n                    \"token\": \"test-valid\"\n                },\n                \"chargeback_reason\": null,\n                \"created_at\": \"2023-04-22T15:19:13.048765Z\",\n                \"merchant_advice_code\": null,\n                \"merchant_advice_reason\": null,\n                \"recommendation_code\": null,\n                \"recommendation_reason\": null,\n                \"challenge_indicator\": \"no-preference\",\n                \"sca_exemption_reason\": \"\"\n            }\n        ],\n        \"name\": \"Amazing Product\",\n        \"currency\": \"EUR\",\n        \"details\": {\n            \"country\": \"GB\"\n        },\n        \"metadata\": {\n            \"fruit\": \"banana\"\n        },\n        \"sandbox\": true,\n        \"created_at\": \"2023-04-22T15:19:08.653492Z\",\n        \"invoice_id\": \"iv_cyxGn7nrOHuqQO4X5jbbwv16eN7GkZvB\",\n        \"gateway_name\": \"sandbox\",\n        \"status\": \"authorized\",\n        \"three_d_s_status\": \"unchecked\",\n        \"three_d_s_version\": null,\n        \"gateway_configuration_id\": \"gway_conf_c23e011db34f4bac44e051840dfa3783\",\n        \"token_id\": null,\n        \"card_id\": \"card_DOekWV1nHVVloKxjqDOuZFr4CmSGj5rx\",\n        \"error_code\": null,\n        \"error_message\": null,\n        \"three_d_s\": null,\n        \"payment_type\": \"card\",\n        \"eci\": null,\n        \"mcc\": null,\n        \"merchant_account_id\": null,\n        \"cvc_check\": \"passed\",\n        \"avs_check\": \"passed\",\n        \"card_checks\": {\n            \"cvc_check\": \"passed\",\n            \"cvc_check_reason\": null,\n            \"avs_check\": \"passed\",\n            \"avs_postal_check\": \"passed\",\n            \"avs_postal_check_reason\": null,\n            \"avs_street_check\": \"passed\",\n            \"avs_street_check_reason\": null,\n            \"avs_name_check\": \"passed\",\n            \"avs_name_check_reason\": null\n        },\n        \"amount\": \"29\",\n        \"amount_local\": \"32.18\",\n        \"authorized_amount\": \"29\",\n        \"authorized_amount_local\": \"32.18\",\n        \"captured_amount\": \"0\",\n        \"captured_amount_local\": \"0\",\n        \"available_amount\": \"0\",\n        \"available_amount_local\": \"0\",\n        \"incremented_amount\": \"0\",\n        \"incremented_amount_local\": \"0\",\n        \"refunded_amount\": \"0\",\n        \"refunded_amount_local\": \"0\",\n        \"currency_fee\": null,\n        \"gateway_fee\": \"0\",\n        \"gateway_fee_local\": \"0\",\n        \"authorized_at\": \"2023-04-22T15:19:13.048765Z\",\n        \"captured_at\": null,\n        \"refunded_at\": null,\n        \"voided_at\": null,\n        \"chargedback_at\": null,\n        \"received_fraud_notification\": false,\n        \"received_retrieval_request\": false,\n        \"acquirer_name\": null,\n        \"attempts_count\": 1,\n        \"authorized\": true,\n        \"captured\": false,\n        \"refunded\": false,\n        \"voided\": false,\n        \"chargedback\": false,\n        \"merchant_advice_code\": null,\n        \"merchant_advice_reason\": null,\n        \"recommendation_code\": null,\n        \"recommendation_reason\": null,\n        \"scheme_id\": \"5196843282\",\n        \"initial_scheme_transaction_id\": null,\n        \"sca\": null,\n        \"subscription_cycle\": null,\n        \"error_recommendations\": [],\n        \"gateway_fee_details\": {\n            \"processing_fee\": \"0\",\n            \"exchange_fee\": \"0\",\n            \"refund_fee\": \"0\",\n            \"interchange_fee\": \"0\",\n            \"scheme_fee\": \"0\",\n            \"markup_fee\": \"0\",\n            \"interchange_fee_estimate\": \"0\",\n            \"scheme_fee_estimate\": \"0\"\n        },\n        \"estimated_fee\": \"1.17\",\n        \"refunds\": null,\n        \"buyer\": {\n            \"name\": \"\",\n            \"email\": \"\",\n            \"address\": \"\",\n            \"phone\": \"\"\n        },\n        \"is_on_us\": null,\n        \"processout_fee\": \"0\",\n        \"subscription_id\": null,\n        \"duplicate_distance_seconds\": null\n    }\n}"
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                    default: true
+                  transaction:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: tr_msUOyQgmJp8UduKANzblNwa5hrjQGag5
+                      project_id:
+                        type: string
+                        example: proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S
+                      customer_id:
+                        type: string
+                        example: cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA
+                      routing_tags:
+                        type: array
+                        items:
+                          type: string
+                          example: rule-2-route
+                      fraud_service_results: {}
+                      operations:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: tr_op_EVh8Ss7qmnWTVqna1CaU7HHbVopVdx1k
+                            transaction_id:
+                              type: string
+                              example: tr_msUOyQgmJp8UduKANzblNwa5hrjQGag5
+                            authenticated_transaction_id:
+                              type: string
+                              example: '5196843282'
+                            authorization_code: {}
+                            gateway_configuration_id:
+                              type: string
+                              example: gway_conf_c23e011db34f4bac44e051840dfa3783
+                            token_id: {}
+                            card_id:
+                              type: string
+                              example: card_DOekWV1nHVVloKxjqDOuZFr4CmSGj5rx
+                            amount:
+                              type: string
+                              example: '29'
+                            amount_local:
+                              type: string
+                              example: '32.18'
+                            currency:
+                              type: string
+                              example: EUR
+                            is_attempt:
+                              type: boolean
+                              example: false
+                              default: true
+                            has_failed:
+                              type: boolean
+                              example: false
+                              default: true
+                            is_accountable:
+                              type: boolean
+                              example: false
+                              default: true
+                            type:
+                              type: string
+                              example: request
+                            metadata:
+                              type: object
+                              properties:
+                                is_sale:
+                                  type: string
+                                  example: 'false'
+                            error_code: {}
+                            error_message: {}
+                            payment_type:
+                              type: string
+                              example: card
+                            acquirer_name: {}
+                            payment_data_three_d_s_request: {}
+                            payment_data_network_authentication: {}
+                            payment_data_three_d_s_authentication: {}
+                            payment_data_three_d_s_2_authentication: {}
+                            eci: {}
+                            mcc: {}
+                            merchant_account_id: {}
+                            is_on_us: {}
+                            arn: {}
+                            scheme_id:
+                              type: string
+                              example: '5196843282'
+                            initial_scheme_transaction_id:
+                              type: string
+                              example: ''
+                            card_checks:
+                              type: object
+                              properties:
+                                cvc_check:
+                                  type: string
+                                  example: ''
+                                cvc_check_reason: {}
+                                avs_check:
+                                  type: string
+                                  example: ''
+                                avs_postal_check:
+                                  type: string
+                                  example: ''
+                                avs_postal_check_reason: {}
+                                avs_street_check:
+                                  type: string
+                                  example: ''
+                                avs_street_check_reason: {}
+                                avs_name_check:
+                                  type: string
+                                  example: ''
+                                avs_name_check_reason: {}
+                            gateway_operation_id:
+                              type: string
+                              example: ''
+                            gateway_data:
+                              type: object
+                              properties:
+                                token:
+                                  type: string
+                                  example: test-valid
+                            chargeback_reason: {}
+                            created_at:
+                              type: string
+                              example: '2023-04-22T15:19:13.048677Z'
+                            merchant_advice_code: {}
+                            merchant_advice_reason: {}
+                            recommendation_code: {}
+                            recommendation_reason: {}
+                            challenge_indicator:
+                              type: string
+                              example: no-preference
+                            sca_exemption_reason:
+                              type: string
+                              example: ''
+                      name:
+                        type: string
+                        example: Amazing Product
+                      currency:
+                        type: string
+                        example: EUR
+                      details:
+                        type: object
+                        properties:
+                          country:
+                            type: string
+                            example: GB
+                      metadata:
+                        type: object
+                        properties:
+                          fruit:
+                            type: string
+                            example: banana
+                      sandbox:
+                        type: boolean
+                        example: true
+                        default: true
+                      created_at:
+                        type: string
+                        example: '2023-04-22T15:19:08.653492Z'
+                      invoice_id:
+                        type: string
+                        example: iv_cyxGn7nrOHuqQO4X5jbbwv16eN7GkZvB
+                      gateway_name:
+                        type: string
+                        example: sandbox
+                      status:
+                        type: string
+                        example: authorized
+                      three_d_s_status:
+                        type: string
+                        example: unchecked
+                      three_d_s_version: {}
+                      gateway_configuration_id:
+                        type: string
+                        example: gway_conf_c23e011db34f4bac44e051840dfa3783
+                      token_id: {}
+                      card_id:
+                        type: string
+                        example: card_DOekWV1nHVVloKxjqDOuZFr4CmSGj5rx
+                      error_code: {}
+                      error_message: {}
+                      three_d_s: {}
+                      payment_type:
+                        type: string
+                        example: card
+                      eci: {}
+                      mcc: {}
+                      merchant_account_id: {}
+                      cvc_check:
+                        type: string
+                        example: passed
+                      avs_check:
+                        type: string
+                        example: passed
+                      card_checks:
+                        type: object
+                        properties:
+                          cvc_check:
+                            type: string
+                            example: passed
+                          cvc_check_reason: {}
+                          avs_check:
+                            type: string
+                            example: passed
+                          avs_postal_check:
+                            type: string
+                            example: passed
+                          avs_postal_check_reason: {}
+                          avs_street_check:
+                            type: string
+                            example: passed
+                          avs_street_check_reason: {}
+                          avs_name_check:
+                            type: string
+                            example: passed
+                          avs_name_check_reason: {}
+                      amount:
+                        type: string
+                        example: '29'
+                      amount_local:
+                        type: string
+                        example: '32.18'
+                      authorized_amount:
+                        type: string
+                        example: '29'
+                      authorized_amount_local:
+                        type: string
+                        example: '32.18'
+                      captured_amount:
+                        type: string
+                        example: '0'
+                      captured_amount_local:
+                        type: string
+                        example: '0'
+                      available_amount:
+                        type: string
+                        example: '0'
+                      available_amount_local:
+                        type: string
+                        example: '0'
+                      incremented_amount:
+                        type: string
+                        example: '0'
+                      incremented_amount_local:
+                        type: string
+                        example: '0'
+                      refunded_amount:
+                        type: string
+                        example: '0'
+                      refunded_amount_local:
+                        type: string
+                        example: '0'
+                      currency_fee: {}
+                      gateway_fee:
+                        type: string
+                        example: '0'
+                      gateway_fee_local:
+                        type: string
+                        example: '0'
+                      authorized_at:
+                        type: string
+                        example: '2023-04-22T15:19:13.048765Z'
+                      captured_at: {}
+                      refunded_at: {}
+                      voided_at: {}
+                      chargedback_at: {}
+                      received_fraud_notification:
+                        type: boolean
+                        example: false
+                        default: true
+                      received_retrieval_request:
+                        type: boolean
+                        example: false
+                        default: true
+                      acquirer_name: {}
+                      attempts_count:
+                        type: integer
+                        example: 1
+                        default: 0
+                      authorized:
+                        type: boolean
+                        example: true
+                        default: true
+                      captured:
+                        type: boolean
+                        example: false
+                        default: true
+                      refunded:
+                        type: boolean
+                        example: false
+                        default: true
+                      voided:
+                        type: boolean
+                        example: false
+                        default: true
+                      chargedback:
+                        type: boolean
+                        example: false
+                        default: true
+                      merchant_advice_code: {}
+                      merchant_advice_reason: {}
+                      recommendation_code: {}
+                      recommendation_reason: {}
+                      scheme_id:
+                        type: string
+                        example: '5196843282'
+                      initial_scheme_transaction_id: {}
+                      sca: {}
+                      subscription_cycle: {}
+                      error_recommendations:
+                        type: array
+                      gateway_fee_details:
+                        type: object
+                        properties:
+                          processing_fee:
+                            type: string
+                            example: '0'
+                          exchange_fee:
+                            type: string
+                            example: '0'
+                          refund_fee:
+                            type: string
+                            example: '0'
+                          interchange_fee:
+                            type: string
+                            example: '0'
+                          scheme_fee:
+                            type: string
+                            example: '0'
+                          markup_fee:
+                            type: string
+                            example: '0'
+                          interchange_fee_estimate:
+                            type: string
+                            example: '0'
+                          scheme_fee_estimate:
+                            type: string
+                            example: '0'
+                      estimated_fee:
+                        type: string
+                        example: '1.17'
+                      refunds: {}
+                      buyer:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                            example: ''
+                          email:
+                            type: string
+                            example: ''
+                          address:
+                            type: string
+                            example: ''
+                          phone:
+                            type: string
+                            example: ''
+                      is_on_us: {}
+                      processout_fee:
+                        type: string
+                        example: '0'
+                      subscription_id: {}
+                      duplicate_distance_seconds: {}
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"success\": false,\n  \"message\": \"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\",\n  \"error_type\": \"request.authentication.invalid\"\n}"
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+                  message:
+                    type: string
+                    example: Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!
+                  error_type:
+                    type: string
+                    example: request.authentication.invalid
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"error_type\": \"resource.transaction.not-found\",\n    \"message\": \"The transaction could not be found.\",\n    \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: resource.transaction.not-found
+                  message:
+                    type: string
+                    example: The transaction could not be found.
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+        4XX:
+          description: 4XX
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"error_type\": \"*Error code*\",\n  \"message\": \"*Error message*\",\n  \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: '*Error code*'
+                  message:
+                    type: string
+                    example: '*Error message*'
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: node
+          code: "var ProcessOut = require(\"processout\");\nvar client = new ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\",\n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\");\n\nclient.newTransaction().find(\"tr_ItJdKlhfaVn0SUGd9z1i9Jqe0STl4jxC\").then(\n    function(transaction) {\n        // Transaction was fetched\n    }, function(err) {\n        // An error occured\n    });"
+          name: node.js
+        - language: python
+          code: "import processout\nclient = processout.ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\")\n\ntransaction = client.new_transaction().find(\"tr_ItJdKlhfaVn0SUGd9z1i9Jqe0STl4jxC\")"
+        - language: ruby
+          code: "require \"processout\"\nclient = ProcessOut::Client.new(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\")\n\ntransaction = client.transaction.find(\"tr_ItJdKlhfaVn0SUGd9z1i9Jqe0STl4jxC\")"
+        - language: php
+          code: "<?php\n$client = new \\ProcessOut\\ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\");\n\n$transaction = $client->newTransaction()->find(\"tr_ItJdKlhfaVn0SUGd9z1i9Jqe0STl4jxC\");"
+        - language: go
+          code: "import \"github.com/processout/processout-go\"\n\nvar client = processout.New(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\",\n)\n\ntr, err := client.NewTransaction().Find(\"tr_ItJdKlhfaVn0SUGd9z1i9Jqe0STl4jxC\")"
+        samples-languages:
+        - node
+        - python
+        - ruby
+        - php
+        - go
+      tags:
+      - Transactions
+components:
+  securitySchemes:
+    sec0:
+      type: http
+      scheme: basic

@@ -1,0 +1,837 @@
+openapi: 3.1.0
+info:
+  title: ProcessOut Balances Events API
+  version: 1.0.3
+  description: ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation. Authentication is HTTP Basic using a project ID (username) and secret API key (password). This OpenAPI 3.1 description was assembled by API Evangelist from the per-operation OpenAPI fragments ProcessOut publishes in each ReadMe API-reference page.
+  contact:
+    email: help@processout.com
+    url: https://docs.processout.com
+servers:
+- url: https://api.processout.com
+  description: Production
+security:
+- sec0: []
+tags:
+- name: Events
+paths:
+  /events/{event_id}:
+    get:
+      summary: Fetching an event
+      description: ''
+      operationId: fetching-an-event
+      parameters:
+      - name: event_id
+        in: path
+        description: ID of the event received on the webhook endpoint
+        schema:
+          type: string
+        required: true
+      - name: Idempotency-Key
+        in: header
+        description: Unique key to your request that will be used for idempotency
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"event\": {\n        \"id\": \"ev_rV1yRUxr8IZ4p5sumcW2fbLxRy4FTB3C\",\n        \"project_id\": \"proj_jhgTvqTxNmyJVwAaKHDk3C4wqFFPah8r\",\n        \"webhooks\": null,\n        \"name\": \"transaction.failed\",\n        \"data\": {\n            \"name\": \"transaction.failed\",\n            \"sandbox\": true,\n            \"transaction\": {\n                \"acquirer_name\": null,\n                \"amount\": \"10\",\n                \"amount_local\": \"11.1\",\n                \"attempts_count\": 1,\n                \"authorized\": false,\n                \"authorized_amount\": \"0\",\n                \"authorized_amount_local\": \"0\",\n                \"authorized_at\": null,\n                \"available_amount\": \"0\",\n                \"available_amount_local\": \"0\",\n                \"avs_check\": \"unknown\",\n                \"buyer\": {\n                    \"address\": \"\",\n                    \"email\": \"\",\n                    \"name\": \"\",\n                    \"phone\": \"\"\n                },\n                \"captured\": false,\n                \"captured_amount\": \"0\",\n                \"captured_amount_local\": \"0\",\n                \"captured_at\": null,\n                \"card\": {\n                    \"address1\": null,\n                    \"address2\": null,\n                    \"app_color_depth\": 24,\n                    \"app_java_enabled\": false,\n                    \"app_language\": \"en-US\",\n                    \"app_screen_height\": 1080,\n                    \"app_screen_width\": 2560,\n                    \"app_timezone_offset\": -60,\n                    \"avs_check\": \"unknown\",\n                    \"bank_name\": \"STRIPE PAYMENTS UK LIMITED\",\n                    \"brand\": \"visa classic\",\n                    \"category\": \"consumer\",\n                    \"checks\": {\n                        \"avs_check\": \"unknown\",\n                        \"avs_name_check\": \"unknown\",\n                        \"avs_name_check_reason\": null,\n                        \"avs_postal_check\": \"unknown\",\n                        \"avs_postal_check_reason\": null,\n                        \"avs_street_check\": \"unknown\",\n                        \"avs_street_check_reason\": null,\n                        \"cvc_check\": \"failed\",\n                        \"cvc_check_reason\": null\n                    },\n                    \"city\": null,\n                    \"co_scheme\": null,\n                    \"country_code\": \"GB\",\n                    \"created_at\": \"2023-04-22T15:48:53.701681Z\",\n                    \"cvc_check\": \"failed\",\n                    \"cvc_tokenized\": true,\n                    \"exp_month\": 12,\n                    \"exp_year\": 2026,\n                    \"expires_soon\": false,\n                    \"fingerprint\": \"f83990dd8700010a2fa3b658bfb11c2570e8c99807d609ab9864854909063096\",\n                    \"header_accept\": \"*/*\",\n                    \"header_referer\": \"https://checkout.processout.com/\",\n                    \"id\": \"card_2qT1ms6dp7lgkaxa4gu6u6kRWL1cEO2L\",\n                    \"iin\": \"424242\",\n                    \"ip_address\": \"176.27.120.213\",\n                    \"last_4_digits\": \"4242\",\n                    \"metadata\": {},\n                    \"name\": \"zefze\",\n                    \"payment_source_detail\": null,\n                    \"preferred_scheme\": null,\n                    \"project_id\": \"proj_jhgTvqTxNmyJVwAaKHDk3C4wqFFPah8r\",\n                    \"sandbox\": true,\n                    \"scheme\": \"visa\",\n                    \"state\": null,\n                    \"token_type\": null,\n                    \"tokenization_method\": null,\n                    \"type\": \"credit\",\n                    \"update_reason_code\": null,\n                    \"update_type\": null,\n                    \"updated_at\": \"2023-04-22T15:48:55.165556Z\",\n                    \"used\": null,\n                    \"user_agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.4 Safari/605.1.15\",\n                    \"zip\": null\n                },\n                \"card_checks\": {\n                    \"avs_check\": \"unknown\",\n                    \"avs_name_check\": \"unknown\",\n                    \"avs_name_check_reason\": null,\n                    \"avs_postal_check\": \"unknown\",\n                    \"avs_postal_check_reason\": null,\n                    \"avs_street_check\": \"unknown\",\n                    \"avs_street_check_reason\": null,\n                    \"cvc_check\": \"failed\",\n                    \"cvc_check_reason\": null\n                },\n                \"card_id\": \"card_2qT1ms6dp7lgkaxa4gu6u6kRWL1cEO2L\",\n                \"chargedback\": false,\n                \"chargedback_at\": null,\n                \"created_at\": \"2023-04-22T15:48:40.90936Z\",\n                \"currency\": \"EUR\",\n                \"currency_fee\": null,\n                \"customer_id\": null,\n                \"cvc_check\": \"failed\",\n                \"details\": {\n                    \"country\": \"GB\"\n                },\n                \"duplicate_distance_seconds\": null,\n                \"eci\": null,\n                \"error_code\": \"card.failed-cvc\",\n                \"error_message\": \"Bad Track Data\",\n                \"error_recommendations\": [],\n                \"estimated_fee\": \"0.6\",\n                \"fraud_service_results\": null,\n                \"gateway_configuration\": {\n                    \"config_entries\": null,\n                    \"created_at\": \"2021-08-17T09:30:16.805364Z\",\n                    \"default_currency\": \"USD\",\n                    \"enabled\": true,\n                    \"enabled_at\": \"2022-09-09T09:04:29.794495Z\",\n                    \"gateway_id\": 11,\n                    \"gateway_name\": \"checkoutcom\",\n                    \"id\": \"gway_conf_ndv31saui5hu84u3iwantt2oc8w79x2n\",\n                    \"is_pulling\": false,\n                    \"merchant_account_country_code\": null,\n                    \"name\": \"Checkout.com Testing Account\",\n                    \"processing_region\": null,\n                    \"project_id\": \"proj_jhgTvqTxNmyJVwAaKHDk3C4wqFFPah8r\",\n                    \"public_keys\": {\n                        \"public_key\": \"pk_test_7a6c1f88-5fa0-4a38-af89-d9b847dcd233\"\n                    },\n                    \"sandbox\": true,\n                    \"sub_accounts_enabled\": [\n                        \"checkoutcom\",\n                        \"checkoutcomgiropay\",\n                        \"checkoutcomsofort\",\n                        \"checkoutcomalipay\",\n                        \"checkoutcomboleto\",\n                        \"checkoutcommultibanco\",\n                        \"checkoutcombcmc\",\n                        \"checkoutcompoli\"\n                    ]\n                },\n                \"gateway_configuration_id\": \"gway_conf_ndv31saui5hu84u3iwantt2oc8w79x2n\",\n                \"gateway_fee\": \"0\",\n                \"gateway_fee_details\": {\n                    \"exchange_fee\": \"0\",\n                    \"interchange_fee\": \"0\",\n                    \"interchange_fee_estimate\": \"0\",\n                    \"markup_fee\": \"0\",\n                    \"processing_fee\": \"0\",\n                    \"refund_fee\": \"0\",\n                    \"scheme_fee\": \"0\",\n                    \"scheme_fee_estimate\": \"0\"\n                },\n                \"gateway_fee_local\": \"0\",\n                \"gateway_name\": \"checkoutcom\",\n                \"id\": \"tr_NcIZWFdUQhfOQdfefQov14vN77tRa2Yn\",\n                \"incremented_amount\": \"0\",\n                \"incremented_amount_local\": \"0\",\n                \"initial_scheme_transaction_id\": null,\n                \"invoice\": {\n                    \"amount\": \"10\",\n                    \"cancel_url\": null,\n                    \"card_verification\": null,\n                    \"challenge_indicator\": null,\n                    \"created_at\": \"2023-04-22T15:48:40.908045Z\",\n                    \"currency\": \"EUR\",\n                    \"customer_id\": null,\n                    \"details\": null,\n                    \"device\": {\n                        \"channel\": null,\n                        \"id\": null,\n                        \"ip_address\": null\n                    },\n                    \"exemption_reason_3ds2\": null,\n                    \"gateway_data\": {},\n                    \"id\": \"iv_gDvoOlsMlUSlGbBf7XEaZtNhMu3qcxRB\",\n                    \"incremental\": null,\n                    \"initiation_type\": null,\n                    \"merchant_initiator_type\": null,\n                    \"metadata\": {},\n                    \"name\": \"test\",\n                    \"payment_intent\": null,\n                    \"payment_type\": null,\n                    \"project_id\": \"proj_jhgTvqTxNmyJVwAaKHDk3C4wqFFPah8r\",\n                    \"require_backend_capture\": null,\n                    \"return_url\": null,\n                    \"risk\": {\n                        \"is_legit\": null,\n                        \"score\": null,\n                        \"skip_gateway_rules\": null\n                    },\n                    \"sandbox\": true,\n                    \"sca_exemption_reason\": null,\n                    \"shipping\": {\n                        \"address1\": null,\n                        \"address2\": null,\n                        \"amount\": \"0\",\n                        \"city\": null,\n                        \"country_code\": null,\n                        \"delay\": null,\n                        \"expects_shipping_at\": null,\n                        \"method\": null,\n                        \"phone_number\": null,\n                        \"provider\": null,\n                        \"relay_store_name\": null,\n                        \"state\": null,\n                        \"zip\": null\n                    },\n                    \"statement_descriptor\": \"test\",\n                    \"subscription_id\": null,\n                    \"tax\": {\n                        \"amount\": null,\n                        \"rate\": null\n                    },\n                    \"token_id\": null,\n                    \"transaction_id\": \"tr_NcIZWFdUQhfOQdfefQov14vN77tRa2Yn\",\n                    \"url\": \"https://checkout.processout.com/test-proj_jhgTvqTxNmyJVwAaKHDk3C4wqFFPah8r/iv_gDvoOlsMlUSlGbBf7XEaZtNhMu3qcxRB\",\n                    \"webhook_url\": null\n                },\n                \"invoice_id\": \"iv_gDvoOlsMlUSlGbBf7XEaZtNhMu3qcxRB\",\n                \"is_on_us\": null,\n                \"mcc\": null,\n                \"merchant_account_id\": null,\n                \"merchant_advice_code\": null,\n                \"merchant_advice_reason\": null,\n                \"metadata\": {},\n                \"name\": \"test\",\n                \"operations\": [\n                    {\n                        \"acquirer_name\": null,\n                        \"amount\": \"10\",\n                        \"amount_local\": \"11.1\",\n                        \"arn\": null,\n                        \"authenticated_transaction_id\": null,\n                        \"authorization_code\": null,\n                        \"card_checks\": {\n                            \"avs_check\": \"\",\n                            \"avs_name_check\": \"\",\n                            \"avs_name_check_reason\": null,\n                            \"avs_postal_check\": \"\",\n                            \"avs_postal_check_reason\": null,\n                            \"avs_street_check\": \"\",\n                            \"avs_street_check_reason\": null,\n                            \"cvc_check\": \"\",\n                            \"cvc_check_reason\": null\n                        },\n                        \"card_id\": \"card_2qT1ms6dp7lgkaxa4gu6u6kRWL1cEO2L\",\n                        \"challenge_indicator\": \"\",\n                        \"chargeback_reason\": null,\n                        \"created_at\": \"2023-04-22T15:48:55.165458Z\",\n                        \"currency\": \"EUR\",\n                        \"eci\": null,\n                        \"error_code\": null,\n                        \"error_message\": null,\n                        \"gateway_configuration_id\": \"gway_conf_ndv31saui5hu84u3iwantt2oc8w79x2n\",\n                        \"gateway_data\": {\n                            \"auth_code\": \"060924\",\n                            \"response_code\": \"20087\",\n                            \"response_summary\": \"Bad Track Data\",\n                            \"risk_flagged\": \"false\"\n                        },\n                        \"gateway_operation_id\": \"\",\n                        \"has_failed\": false,\n                        \"id\": \"tr_op_sB4MK0VrvMICvImDtCClnOPJIHPYAQuX\",\n                        \"initial_scheme_transaction_id\": \"\",\n                        \"is_accountable\": false,\n                        \"is_attempt\": false,\n                        \"is_on_us\": null,\n                        \"mcc\": null,\n                        \"merchant_account_id\": null,\n                        \"merchant_advice_code\": null,\n                        \"merchant_advice_reason\": null,\n                        \"metadata\": {},\n                        \"payment_data_network_authentication\": null,\n                        \"payment_data_three_d_s_2_authentication\": null,\n                        \"payment_data_three_d_s_authentication\": null,\n                        \"payment_data_three_d_s_request\": null,\n                        \"payment_type\": \"card\",\n                        \"recommendation_code\": null,\n                        \"recommendation_reason\": null,\n                        \"sca_exemption_reason\": \"\",\n                        \"scheme_id\": null,\n                        \"token_id\": null,\n                        \"transaction_id\": \"tr_NcIZWFdUQhfOQdfefQov14vN77tRa2Yn\",\n                        \"type\": \"request\"\n                    },\n                    {\n                        \"acquirer_name\": null,\n                        \"amount\": \"10\",\n                        \"amount_local\": \"11.1\",\n                        \"arn\": \"471171956026\",\n                        \"authenticated_transaction_id\": null,\n                        \"authorization_code\": \"060924\",\n                        \"card_checks\": {\n                            \"avs_check\": \"\",\n                            \"avs_name_check\": \"\",\n                            \"avs_name_check_reason\": null,\n                            \"avs_postal_check\": \"\",\n                            \"avs_postal_check_reason\": null,\n                            \"avs_street_check\": \"\",\n                            \"avs_street_check_reason\": null,\n                            \"cvc_check\": \"\",\n                            \"cvc_check_reason\": null\n                        },\n                        \"card_id\": \"card_2qT1ms6dp7lgkaxa4gu6u6kRWL1cEO2L\",\n                        \"challenge_indicator\": \"\",\n                        \"chargeback_reason\": null,\n                        \"created_at\": \"2023-04-22T15:48:55.165506Z\",\n                        \"currency\": \"EUR\",\n                        \"eci\": null,\n                        \"error_code\": \"card.failed-cvc\",\n                        \"error_message\": \"Bad Track Data\",\n                        \"gateway_configuration_id\": \"gway_conf_ndv31saui5hu84u3iwantt2oc8w79x2n\",\n                        \"gateway_data\": {\n                            \"auth_code\": \"060924\",\n                            \"response_code\": \"20087\",\n                            \"response_summary\": \"Bad Track Data\",\n                            \"risk_flagged\": \"false\"\n                        },\n                        \"gateway_operation_id\": \"pay_gqtryygdsxk2tfwrkrkcjl4ozy\",\n                        \"has_failed\": false,\n                        \"id\": \"tr_op_Jfp2qWayFXMeZmATKwBi5XecYYl0oIgD\",\n                        \"initial_scheme_transaction_id\": \"\",\n                        \"is_accountable\": false,\n                        \"is_attempt\": true,\n                        \"is_on_us\": null,\n                        \"mcc\": null,\n                        \"merchant_account_id\": null,\n                        \"merchant_advice_code\": null,\n                        \"merchant_advice_reason\": null,\n                        \"metadata\": {\n                            \"gateway_error_code\": \"20087\"\n                        },\n                        \"payment_data_network_authentication\": null,\n                        \"payment_data_three_d_s_2_authentication\": null,\n                        \"payment_data_three_d_s_authentication\": null,\n                        \"payment_data_three_d_s_request\": null,\n                        \"payment_type\": \"card\",\n                        \"recommendation_code\": null,\n                        \"recommendation_reason\": null,\n                        \"sca_exemption_reason\": \"\",\n                        \"scheme_id\": \"583169616534378\",\n                        \"token_id\": null,\n                        \"transaction_id\": \"tr_NcIZWFdUQhfOQdfefQov14vN77tRa2Yn\",\n                        \"type\": \"authorization\"\n                    },\n                    {\n                        \"acquirer_name\": null,\n                        \"amount\": \"10\",\n                        \"amount_local\": \"11.1\",\n                        \"arn\": \"471171956026\",\n                        \"authenticated_transaction_id\": null,\n                        \"authorization_code\": \"060924\",\n                        \"card_checks\": {\n                            \"avs_check\": \"\",\n                            \"avs_name_check\": \"\",\n                            \"avs_name_check_reason\": null,\n                            \"avs_postal_check\": \"\",\n                            \"avs_postal_check_reason\": null,\n                            \"avs_street_check\": \"\",\n                            \"avs_street_check_reason\": null,\n                            \"cvc_check\": \"\",\n                            \"cvc_check_reason\": null\n                        },\n                        \"card_id\": \"card_2qT1ms6dp7lgkaxa4gu6u6kRWL1cEO2L\",\n                        \"challenge_indicator\": \"\",\n                        \"chargeback_reason\": null,\n                        \"created_at\": \"2023-04-22T15:48:55.16555Z\",\n                        \"currency\": \"EUR\",\n                        \"eci\": null,\n                        \"error_code\": \"card.failed-cvc\",\n                        \"error_message\": \"Bad Track Data\",\n                        \"gateway_configuration_id\": \"gway_conf_ndv31saui5hu84u3iwantt2oc8w79x2n\",\n                        \"gateway_data\": {\n                            \"auth_code\": \"060924\",\n                            \"response_code\": \"20087\",\n                            \"response_summary\": \"Bad Track Data\",\n                            \"risk_flagged\": \"false\"\n                        },\n                        \"gateway_operation_id\": \"pay_gqtryygdsxk2tfwrkrkcjl4ozy\",\n                        \"has_failed\": true,\n                        \"id\": \"tr_op_B8xDqGpxiY85spnNo4e1z2ehgyiIbiLY\",\n                        \"initial_scheme_transaction_id\": \"\",\n                        \"is_accountable\": false,\n                        \"is_attempt\": false,\n                        \"is_on_us\": null,\n                        \"mcc\": null,\n                        \"merchant_account_id\": null,\n                        \"merchant_advice_code\": null,\n                        \"merchant_advice_reason\": null,\n                        \"metadata\": {\n                            \"gateway_error_code\": \"20087\"\n                        },\n                        \"payment_data_network_authentication\": null,\n                        \"payment_data_three_d_s_2_authentication\": null,\n                        \"payment_data_three_d_s_authentication\": null,\n                        \"payment_data_three_d_s_request\": null,\n                        \"payment_type\": \"card\",\n                        \"recommendation_code\": null,\n                        \"recommendation_reason\": null,\n                        \"sca_exemption_reason\": \"\",\n                        \"scheme_id\": \"583169616534378\",\n                        \"token_id\": null,\n                        \"transaction_id\": \"tr_NcIZWFdUQhfOQdfefQov14vN77tRa2Yn\",\n                        \"type\": \"authorization\"\n                    }\n                ],\n                \"payment_type\": \"card\",\n                \"processout_fee\": \"0\",\n                \"project_id\": \"proj_jhgTvqTxNmyJVwAaKHDk3C4wqFFPah8r\",\n                \"received_fraud_notification\": false,\n                \"received_retrieval_request\": false,\n                \"recommendation_code\": null,\n                \"recommendation_reason\": null,\n                \"refunded\": false,\n                \"refunded_amount\": \"0\",\n                \"refunded_amount_local\": \"0\",\n                \"refunded_at\": null,\n                \"refunds\": [],\n                \"routing_tags\": [\n                    \"rule-2-route\"\n                ],\n                \"sandbox\": true,\n                \"sca\": {\n                    \"challenge_result\": \"no-challenge-indicator-set\",\n                    \"exemption_result\": \"no-exemption-reason-set\",\n                    \"inscope_compliance\": \"not-applicable\",\n                    \"out_of_scope_reason\": \"unknown\",\n                    \"scope\": \"unknown\"\n                },\n                \"scheme_id\": \"583169616534378\",\n                \"status\": \"failed\",\n                \"subscription_cycle\": null,\n                \"subscription_id\": null,\n                \"three_d_s\": null,\n                \"three_d_s_status\": \"unchecked\",\n                \"three_d_s_version\": null,\n                \"token_id\": null,\n                \"voided\": false,\n                \"voided_at\": null\n            }\n        },\n        \"sandbox\": true,\n        \"fired_at\": \"2023-04-22T15:48:57.55294073Z\"\n    },\n    \"success\": true\n}"
+              schema:
+                type: object
+                properties:
+                  event:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: ev_rV1yRUxr8IZ4p5sumcW2fbLxRy4FTB3C
+                      project_id:
+                        type: string
+                        example: proj_jhgTvqTxNmyJVwAaKHDk3C4wqFFPah8r
+                      webhooks: {}
+                      name:
+                        type: string
+                        example: transaction.failed
+                      data:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                            example: transaction.failed
+                          sandbox:
+                            type: boolean
+                            example: true
+                            default: true
+                          transaction:
+                            type: object
+                            properties:
+                              acquirer_name: {}
+                              amount:
+                                type: string
+                                example: '10'
+                              amount_local:
+                                type: string
+                                example: '11.1'
+                              attempts_count:
+                                type: integer
+                                example: 1
+                                default: 0
+                              authorized:
+                                type: boolean
+                                example: false
+                                default: true
+                              authorized_amount:
+                                type: string
+                                example: '0'
+                              authorized_amount_local:
+                                type: string
+                                example: '0'
+                              authorized_at: {}
+                              available_amount:
+                                type: string
+                                example: '0'
+                              available_amount_local:
+                                type: string
+                                example: '0'
+                              avs_check:
+                                type: string
+                                example: unknown
+                              buyer:
+                                type: object
+                                properties:
+                                  address:
+                                    type: string
+                                    example: ''
+                                  email:
+                                    type: string
+                                    example: ''
+                                  name:
+                                    type: string
+                                    example: ''
+                                  phone:
+                                    type: string
+                                    example: ''
+                              captured:
+                                type: boolean
+                                example: false
+                                default: true
+                              captured_amount:
+                                type: string
+                                example: '0'
+                              captured_amount_local:
+                                type: string
+                                example: '0'
+                              captured_at: {}
+                              card:
+                                type: object
+                                properties:
+                                  address1: {}
+                                  address2: {}
+                                  app_color_depth:
+                                    type: integer
+                                    example: 24
+                                    default: 0
+                                  app_java_enabled:
+                                    type: boolean
+                                    example: false
+                                    default: true
+                                  app_language:
+                                    type: string
+                                    example: en-US
+                                  app_screen_height:
+                                    type: integer
+                                    example: 1080
+                                    default: 0
+                                  app_screen_width:
+                                    type: integer
+                                    example: 2560
+                                    default: 0
+                                  app_timezone_offset:
+                                    type: integer
+                                    example: -60
+                                    default: 0
+                                  avs_check:
+                                    type: string
+                                    example: unknown
+                                  bank_name:
+                                    type: string
+                                    example: STRIPE PAYMENTS UK LIMITED
+                                  brand:
+                                    type: string
+                                    example: visa classic
+                                  category:
+                                    type: string
+                                    example: consumer
+                                  checks:
+                                    type: object
+                                    properties:
+                                      avs_check:
+                                        type: string
+                                        example: unknown
+                                      avs_name_check:
+                                        type: string
+                                        example: unknown
+                                      avs_name_check_reason: {}
+                                      avs_postal_check:
+                                        type: string
+                                        example: unknown
+                                      avs_postal_check_reason: {}
+                                      avs_street_check:
+                                        type: string
+                                        example: unknown
+                                      avs_street_check_reason: {}
+                                      cvc_check:
+                                        type: string
+                                        example: failed
+                                      cvc_check_reason: {}
+                                  city: {}
+                                  co_scheme: {}
+                                  country_code:
+                                    type: string
+                                    example: GB
+                                  created_at:
+                                    type: string
+                                    example: '2023-04-22T15:48:53.701681Z'
+                                  cvc_check:
+                                    type: string
+                                    example: failed
+                                  cvc_tokenized:
+                                    type: boolean
+                                    example: true
+                                    default: true
+                                  exp_month:
+                                    type: integer
+                                    example: 12
+                                    default: 0
+                                  exp_year:
+                                    type: integer
+                                    example: 2026
+                                    default: 0
+                                  expires_soon:
+                                    type: boolean
+                                    example: false
+                                    default: true
+                                  fingerprint:
+                                    type: string
+                                    example: f83990dd8700010a2fa3b658bfb11c2570e8c99807d609ab9864854909063096
+                                  header_accept:
+                                    type: string
+                                    example: '*/*'
+                                  header_referer:
+                                    type: string
+                                    example: https://checkout.processout.com/
+                                  id:
+                                    type: string
+                                    example: card_2qT1ms6dp7lgkaxa4gu6u6kRWL1cEO2L
+                                  iin:
+                                    type: string
+                                    example: '424242'
+                                  ip_address:
+                                    type: string
+                                    example: 176.27.120.213
+                                  last_4_digits:
+                                    type: string
+                                    example: '4242'
+                                  metadata:
+                                    type: object
+                                    properties: {}
+                                  name:
+                                    type: string
+                                    example: zefze
+                                  payment_source_detail: {}
+                                  preferred_scheme: {}
+                                  project_id:
+                                    type: string
+                                    example: proj_jhgTvqTxNmyJVwAaKHDk3C4wqFFPah8r
+                                  sandbox:
+                                    type: boolean
+                                    example: true
+                                    default: true
+                                  scheme:
+                                    type: string
+                                    example: visa
+                                  state: {}
+                                  token_type: {}
+                                  tokenization_method: {}
+                                  type:
+                                    type: string
+                                    example: credit
+                                  update_reason_code: {}
+                                  update_type: {}
+                                  updated_at:
+                                    type: string
+                                    example: '2023-04-22T15:48:55.165556Z'
+                                  used: {}
+                                  user_agent:
+                                    type: string
+                                    example: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.4 Safari/605.1.15
+                                  zip: {}
+                              card_checks:
+                                type: object
+                                properties:
+                                  avs_check:
+                                    type: string
+                                    example: unknown
+                                  avs_name_check:
+                                    type: string
+                                    example: unknown
+                                  avs_name_check_reason: {}
+                                  avs_postal_check:
+                                    type: string
+                                    example: unknown
+                                  avs_postal_check_reason: {}
+                                  avs_street_check:
+                                    type: string
+                                    example: unknown
+                                  avs_street_check_reason: {}
+                                  cvc_check:
+                                    type: string
+                                    example: failed
+                                  cvc_check_reason: {}
+                              card_id:
+                                type: string
+                                example: card_2qT1ms6dp7lgkaxa4gu6u6kRWL1cEO2L
+                              chargedback:
+                                type: boolean
+                                example: false
+                                default: true
+                              chargedback_at: {}
+                              created_at:
+                                type: string
+                                example: '2023-04-22T15:48:40.90936Z'
+                              currency:
+                                type: string
+                                example: EUR
+                              currency_fee: {}
+                              customer_id: {}
+                              cvc_check:
+                                type: string
+                                example: failed
+                              details:
+                                type: object
+                                properties:
+                                  country:
+                                    type: string
+                                    example: GB
+                              duplicate_distance_seconds: {}
+                              eci: {}
+                              error_code:
+                                type: string
+                                example: card.failed-cvc
+                              error_message:
+                                type: string
+                                example: Bad Track Data
+                              error_recommendations:
+                                type: array
+                              estimated_fee:
+                                type: string
+                                example: '0.6'
+                              fraud_service_results: {}
+                              gateway_configuration:
+                                type: object
+                                properties:
+                                  config_entries: {}
+                                  created_at:
+                                    type: string
+                                    example: '2021-08-17T09:30:16.805364Z'
+                                  default_currency:
+                                    type: string
+                                    example: USD
+                                  enabled:
+                                    type: boolean
+                                    example: true
+                                    default: true
+                                  enabled_at:
+                                    type: string
+                                    example: '2022-09-09T09:04:29.794495Z'
+                                  gateway_id:
+                                    type: integer
+                                    example: 11
+                                    default: 0
+                                  gateway_name:
+                                    type: string
+                                    example: checkoutcom
+                                  id:
+                                    type: string
+                                    example: gway_conf_ndv31saui5hu84u3iwantt2oc8w79x2n
+                                  is_pulling:
+                                    type: boolean
+                                    example: false
+                                    default: true
+                                  merchant_account_country_code: {}
+                                  name:
+                                    type: string
+                                    example: Checkout.com Testing Account
+                                  processing_region: {}
+                                  project_id:
+                                    type: string
+                                    example: proj_jhgTvqTxNmyJVwAaKHDk3C4wqFFPah8r
+                                  public_keys:
+                                    type: object
+                                    properties:
+                                      public_key:
+                                        type: string
+                                        example: pk_test_7a6c1f88-5fa0-4a38-af89-d9b847dcd233
+                                  sandbox:
+                                    type: boolean
+                                    example: true
+                                    default: true
+                                  sub_accounts_enabled:
+                                    type: array
+                                    items:
+                                      type: string
+                                      example: checkoutcom
+                              gateway_configuration_id:
+                                type: string
+                                example: gway_conf_ndv31saui5hu84u3iwantt2oc8w79x2n
+                              gateway_fee:
+                                type: string
+                                example: '0'
+                              gateway_fee_details:
+                                type: object
+                                properties:
+                                  exchange_fee:
+                                    type: string
+                                    example: '0'
+                                  interchange_fee:
+                                    type: string
+                                    example: '0'
+                                  interchange_fee_estimate:
+                                    type: string
+                                    example: '0'
+                                  markup_fee:
+                                    type: string
+                                    example: '0'
+                                  processing_fee:
+                                    type: string
+                                    example: '0'
+                                  refund_fee:
+                                    type: string
+                                    example: '0'
+                                  scheme_fee:
+                                    type: string
+                                    example: '0'
+                                  scheme_fee_estimate:
+                                    type: string
+                                    example: '0'
+                              gateway_fee_local:
+                                type: string
+                                example: '0'
+                              gateway_name:
+                                type: string
+                                example: checkoutcom
+                              id:
+                                type: string
+                                example: tr_NcIZWFdUQhfOQdfefQov14vN77tRa2Yn
+                              incremented_amount:
+                                type: string
+                                example: '0'
+                              incremented_amount_local:
+                                type: string
+                                example: '0'
+                              initial_scheme_transaction_id: {}
+                              invoice:
+                                type: object
+                                properties:
+                                  amount:
+                                    type: string
+                                    example: '10'
+                                  cancel_url: {}
+                                  card_verification: {}
+                                  challenge_indicator: {}
+                                  created_at:
+                                    type: string
+                                    example: '2023-04-22T15:48:40.908045Z'
+                                  currency:
+                                    type: string
+                                    example: EUR
+                                  customer_id: {}
+                                  details: {}
+                                  device:
+                                    type: object
+                                    properties:
+                                      channel: {}
+                                      id: {}
+                                      ip_address: {}
+                                  exemption_reason_3ds2: {}
+                                  gateway_data:
+                                    type: object
+                                    properties: {}
+                                  id:
+                                    type: string
+                                    example: iv_gDvoOlsMlUSlGbBf7XEaZtNhMu3qcxRB
+                                  incremental: {}
+                                  initiation_type: {}
+                                  merchant_initiator_type: {}
+                                  metadata:
+                                    type: object
+                                    properties: {}
+                                  name:
+                                    type: string
+                                    example: test
+                                  payment_intent: {}
+                                  payment_type: {}
+                                  project_id:
+                                    type: string
+                                    example: proj_jhgTvqTxNmyJVwAaKHDk3C4wqFFPah8r
+                                  require_backend_capture: {}
+                                  return_url: {}
+                                  risk:
+                                    type: object
+                                    properties:
+                                      is_legit: {}
+                                      score: {}
+                                      skip_gateway_rules: {}
+                                  sandbox:
+                                    type: boolean
+                                    example: true
+                                    default: true
+                                  sca_exemption_reason: {}
+                                  shipping:
+                                    type: object
+                                    properties:
+                                      address1: {}
+                                      address2: {}
+                                      amount:
+                                        type: string
+                                        example: '0'
+                                      city: {}
+                                      country_code: {}
+                                      delay: {}
+                                      expects_shipping_at: {}
+                                      method: {}
+                                      phone_number: {}
+                                      provider: {}
+                                      relay_store_name: {}
+                                      state: {}
+                                      zip: {}
+                                  statement_descriptor:
+                                    type: string
+                                    example: test
+                                  subscription_id: {}
+                                  tax:
+                                    type: object
+                                    properties:
+                                      amount: {}
+                                      rate: {}
+                                  token_id: {}
+                                  transaction_id:
+                                    type: string
+                                    example: tr_NcIZWFdUQhfOQdfefQov14vN77tRa2Yn
+                                  url:
+                                    type: string
+                                    example: https://checkout.processout.com/test-proj_jhgTvqTxNmyJVwAaKHDk3C4wqFFPah8r/iv_gDvoOlsMlUSlGbBf7XEaZtNhMu3qcxRB
+                                  webhook_url: {}
+                              invoice_id:
+                                type: string
+                                example: iv_gDvoOlsMlUSlGbBf7XEaZtNhMu3qcxRB
+                              is_on_us: {}
+                              mcc: {}
+                              merchant_account_id: {}
+                              merchant_advice_code: {}
+                              merchant_advice_reason: {}
+                              metadata:
+                                type: object
+                                properties: {}
+                              name:
+                                type: string
+                                example: test
+                              operations:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    acquirer_name: {}
+                                    amount:
+                                      type: string
+                                      example: '10'
+                                    amount_local:
+                                      type: string
+                                      example: '11.1'
+                                    arn: {}
+                                    authenticated_transaction_id: {}
+                                    authorization_code: {}
+                                    card_checks:
+                                      type: object
+                                      properties:
+                                        avs_check:
+                                          type: string
+                                          example: ''
+                                        avs_name_check:
+                                          type: string
+                                          example: ''
+                                        avs_name_check_reason: {}
+                                        avs_postal_check:
+                                          type: string
+                                          example: ''
+                                        avs_postal_check_reason: {}
+                                        avs_street_check:
+                                          type: string
+                                          example: ''
+                                        avs_street_check_reason: {}
+                                        cvc_check:
+                                          type: string
+                                          example: ''
+                                        cvc_check_reason: {}
+                                    card_id:
+                                      type: string
+                                      example: card_2qT1ms6dp7lgkaxa4gu6u6kRWL1cEO2L
+                                    challenge_indicator:
+                                      type: string
+                                      example: ''
+                                    chargeback_reason: {}
+                                    created_at:
+                                      type: string
+                                      example: '2023-04-22T15:48:55.165458Z'
+                                    currency:
+                                      type: string
+                                      example: EUR
+                                    eci: {}
+                                    error_code: {}
+                                    error_message: {}
+                                    gateway_configuration_id:
+                                      type: string
+                                      example: gway_conf_ndv31saui5hu84u3iwantt2oc8w79x2n
+                                    gateway_data:
+                                      type: object
+                                      properties:
+                                        auth_code:
+                                          type: string
+                                          example: 060924
+                                        response_code:
+                                          type: string
+                                          example: '20087'
+                                        response_summary:
+                                          type: string
+                                          example: Bad Track Data
+                                        risk_flagged:
+                                          type: string
+                                          example: 'false'
+                                    gateway_operation_id:
+                                      type: string
+                                      example: ''
+                                    has_failed:
+                                      type: boolean
+                                      example: false
+                                      default: true
+                                    id:
+                                      type: string
+                                      example: tr_op_sB4MK0VrvMICvImDtCClnOPJIHPYAQuX
+                                    initial_scheme_transaction_id:
+                                      type: string
+                                      example: ''
+                                    is_accountable:
+                                      type: boolean
+                                      example: false
+                                      default: true
+                                    is_attempt:
+                                      type: boolean
+                                      example: false
+                                      default: true
+                                    is_on_us: {}
+                                    mcc: {}
+                                    merchant_account_id: {}
+                                    merchant_advice_code: {}
+                                    merchant_advice_reason: {}
+                                    metadata:
+                                      type: object
+                                      properties: {}
+                                    payment_data_network_authentication: {}
+                                    payment_data_three_d_s_2_authentication: {}
+                                    payment_data_three_d_s_authentication: {}
+                                    payment_data_three_d_s_request: {}
+                                    payment_type:
+                                      type: string
+                                      example: card
+                                    recommendation_code: {}
+                                    recommendation_reason: {}
+                                    sca_exemption_reason:
+                                      type: string
+                                      example: ''
+                                    scheme_id: {}
+                                    token_id: {}
+                                    transaction_id:
+                                      type: string
+                                      example: tr_NcIZWFdUQhfOQdfefQov14vN77tRa2Yn
+                                    type:
+                                      type: string
+                                      example: request
+                              payment_type:
+                                type: string
+                                example: card
+                              processout_fee:
+                                type: string
+                                example: '0'
+                              project_id:
+                                type: string
+                                example: proj_jhgTvqTxNmyJVwAaKHDk3C4wqFFPah8r
+                              received_fraud_notification:
+                                type: boolean
+                                example: false
+                                default: true
+                              received_retrieval_request:
+                                type: boolean
+                                example: false
+                                default: true
+                              recommendation_code: {}
+                              recommendation_reason: {}
+                              refunded:
+                                type: boolean
+                                example: false
+                                default: true
+                              refunded_amount:
+                                type: string
+                                example: '0'
+                              refunded_amount_local:
+                                type: string
+                                example: '0'
+                              refunded_at: {}
+                              refunds:
+                                type: array
+                              routing_tags:
+                                type: array
+                                items:
+                                  type: string
+                                  example: rule-2-route
+                              sandbox:
+                                type: boolean
+                                example: true
+                                default: true
+                              sca:
+                                type: object
+                                properties:
+                                  challenge_result:
+                                    type: string
+                                    example: no-challenge-indicator-set
+                                  exemption_result:
+                                    type: string
+                                    example: no-exemption-reason-set
+                                  inscope_compliance:
+                                    type: string
+                                    example: not-applicable
+                                  out_of_scope_reason:
+                                    type: string
+                                    example: unknown
+                                  scope:
+                                    type: string
+                                    example: unknown
+                              scheme_id:
+                                type: string
+                                example: '583169616534378'
+                              status:
+                                type: string
+                                example: failed
+                              subscription_cycle: {}
+                              subscription_id: {}
+                              three_d_s: {}
+                              three_d_s_status:
+                                type: string
+                                example: unchecked
+                              three_d_s_version: {}
+                              token_id: {}
+                              voided:
+                                type: boolean
+                                example: false
+                                default: true
+                              voided_at: {}
+                      sandbox:
+                        type: boolean
+                        example: true
+                        default: true
+                      fired_at:
+                        type: string
+                        example: '2023-04-22T15:48:57.55294073Z'
+                  success:
+                    type: boolean
+                    example: true
+                    default: true
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"success\": false,\n  \"message\": \"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\",\n  \"error_type\": \"request.authentication.invalid\"\n}"
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+                  message:
+                    type: string
+                    example: Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!
+                  error_type:
+                    type: string
+                    example: request.authentication.invalid
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"error_type\":\"resource.event.not-found\",\n  \"message\":\"The event could not be found.\",\n  \"success\":false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: resource.event.not-found
+                  message:
+                    type: string
+                    example: The event could not be found.
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+        4XX:
+          description: 4XX
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"error_type\": \"*Error code*\",\n  \"message\": \"*Error message*\",\n  \"success\": false\n}"
+              schema:
+                type: object
+                properties:
+                  error_type:
+                    type: string
+                    example: '*Error code*'
+                  message:
+                    type: string
+                    example: '*Error message*'
+                  success:
+                    type: boolean
+                    example: false
+                    default: true
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: node
+          code: "var ProcessOut = require(\"processout\");\nvar client = new ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\",\n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\");\n\nclient.newEvent().find(\"ev_T3wg9169RyGLnf1BIgTjLhrolEZU1DSb\").then(\n    function(event) {\n        // We may now access the event\n\n    }, function(err) {\n        // An error occured\n\n    });"
+          name: node.js
+        - language: python
+          code: "import processout\nclient = processout.ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\")\n\nevent = client.new_event().find(\"ev_T3wg9169RyGLnf1BIgTjLhrolEZU1DSb\")"
+        - language: ruby
+          code: "require \"processout\"\nclient = ProcessOut::Client.new(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\")\n\nevent = client.event.find(\"ev_T3wg9169RyGLnf1BIgTjLhrolEZU1DSb\")"
+        - language: php
+          code: "<?php\n$client = new \\ProcessOut\\ProcessOut(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\");\n\n$event = $client->newEvent()->find(\"ev_T3wg9169RyGLnf1BIgTjLhrolEZU1DSb\");"
+        - language: go
+          code: "import \"github.com/processout/processout-go\"\n\nvar client = processout.New(\n    \"test-proj_gAO1Uu0ysZJvDuUpOGPkUBeE3pGalk3x\", \n    \"key_sandbox_mah31RDFqcDxmaS7MvhDbJfDJvjtsFTB\",\n)\n\nev, err := client.NewEvent().Find(\"ev_T3wg9169RyGLnf1BIgTjLhrolEZU1DSb\")"
+        samples-languages:
+        - node
+        - python
+        - ruby
+        - php
+        - go
+      tags:
+      - Events
+components:
+  securitySchemes:
+    sec0:
+      type: http
+      scheme: basic
