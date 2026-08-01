@@ -1,0 +1,19 @@
+generated: '2026-07-20'
+method: searched
+source: https://status.processout.com/
+description: >-
+  Versioning, status and reliability posture for the ProcessOut API.
+versioning:
+  scheme: server-negotiated
+  current: 1.3.0.1
+  latest: 1.3.0.1
+  available: ['1.0.0.0', '1.1.0.0', '1.2.0.0', '1.3.0.0', '1.3.0.1']
+  discovery: GET https://api.processout.com/ returns current_version, latest_version and versions[]
+status_page: https://status.processout.com/
+webhooks:
+  retry_window: at least 12 retries over 3 days (final attempt 48-72h after first)
+  delivery: at-least-once
+deprecation:
+  policy_url: null
+  note: No public deprecation/Sunset-header policy was found at enrichment time.
+deprecated_operations: []

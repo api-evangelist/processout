@@ -1,0 +1,83 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/processout-openapi.json
+docs: https://docs.processout.com/reference/getting-started-with-your-api
+entities:
+- name: Invoice
+  description: A payment request; can be authorized, captured, incremented, refunded, deleted.
+  operations:
+  - create-an-invoice
+  - fetch-an-invoice
+  - authorizing-an-invoice
+  - capture-an-invoice
+  - increment-an-invoice
+  - refund-an-invoice
+  - delete-an-invoice
+- name: Customer
+  description: A payer; owns tokens and cards.
+  operations:
+  - creating-a-customer
+- name: Card
+  description: A tokenized card in the PCI DSS vault; can be provisioned as a network token.
+  operations:
+  - creating-a-card
+  - updating-a-card
+  - provisioning-network-token
+- name: Token
+  description: A reusable payment instrument saved against a customer for recurring/one-click payments.
+  operations:
+  - creating-a-token
+  - fetching-a-token
+  - update-a-token
+  - fetch-a-token-balance
+- name: Transaction
+  description: The result of processing an invoice through a gateway; carries state and unified error/decline code.
+  operations:
+  - fetching-a-transaction
+- name: Event
+  description: An immutable record of a state change, delivered via webhooks.
+  operations:
+  - fetching-an-event
+- name: Payout
+  description: A settlement/reconciliation payout from a PSP, with items and reports.
+  operations:
+  - listing-payouts
+  - fetching-a-payout
+  - listing-payout-items
+  - deleting-payout
+- name: Report
+  description: A raw or processed PSP reconciliation report.
+  operations:
+  - listing-reports
+  - fetching-report
+  - downloading-raw-psp-report
+  - deleting-uploaded-report
+relationships:
+- from: Customer
+  to: Token
+  type: has_many
+  via: /customers/{customer_id}/tokens
+- from: Customer
+  to: Transaction
+  type: has_many
+  via: customer_id
+- from: Invoice
+  to: Transaction
+  type: has_one
+  via: invoice_id
+- from: Invoice
+  to: Refund
+  type: has_many
+  via: /invoices/{invoice_id}/refunds
+- from: Token
+  to: Card
+  type: belongs_to
+  via: card_id
+- from: Payout
+  to: PayoutItem
+  type: has_many
+  via: /payouts/{payout_id}/items
+- from: Transaction
+  to: Event
+  type: has_many
+  via: event

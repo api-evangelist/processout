@@ -1,0 +1,32 @@
+{
+  "provider": "processout",
+  "sources": [
+    "processout-balances-api-openapi.yml",
+    "processout-cards-api-openapi.yml",
+    "processout-customers-api-openapi.yml",
+    "processout-events-api-openapi.yml",
+    "processout-invoices-api-openapi.yml",
+    "processout-network-tokens-api-openapi.yml",
+    "processout-payouts-api-openapi.yml",
+    "processout-projects-api-openapi.yml",
+    "processout-transactions-api-openapi.yml",
+    "processout-uploads-api-openapi.yml"
+  ],
+  "outputs": [
+    "processout-balances-api-openapi.yml",
+    "processout-cards-api-openapi.yml",
+    "processout-customers-api-openapi.yml",
+    "processout-events-api-openapi.yml",
+    "processout-invoices-api-openapi.yml",
+    "processout-network-tokens-api-openapi.yml",
+    "processout-payouts-api-openapi.yml",
+    "processout-projects-api-openapi.yml",
+    "processout-transactions-api-openapi.yml",
+    "processout-uploads-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

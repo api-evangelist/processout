@@ -1,0 +1,34 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.processout.com/docs/rate-limits
+description: >-
+  ProcessOut enforces three independent rate limits using a Generic Cell Rate
+  Algorithm (GCRA) token bucket per project, specified in requests per minute (RPM).
+  Exceeding the bucket returns HTTP 429. Every API response carries the x-ratelimit
+  (the project's limit) and x-ratelimit-remaining (remaining bucket capacity) headers.
+  Values are allocated per project and may be changed by ProcessOut at any time.
+algorithm: GCRA token bucket (per project)
+unit: requests-per-minute
+over_limit_status: 429
+headers:
+  limit: x-ratelimit
+  remaining: x-ratelimit-remaining
+rate_limits:
+  - name: primary
+    scope: All production endpoints not covered by the secondary limit.
+    unit: requests-per-minute
+    limit_count: 3000
+    limit_note: >-
+      3000 RPM is the documented worked example; actual allocation is per project
+      and may differ.
+  - name: secondary
+    scope: >-
+      Endpoints usually triggered by ProcessOut behaviour — currently only
+      GET /events and GET /events/{event_id} (called in response to outbound webhooks).
+    unit: requests-per-minute
+  - name: sandbox
+    scope: All requests to the sandbox environment.
+    unit: requests-per-minute
+guidance: >-
+  Monitor x-ratelimit-remaining and throttle as it approaches 0; the primary,
+  secondary and sandbox limits must be monitored separately.

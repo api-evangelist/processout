@@ -1,25 +1,265 @@
 aid: processout
 name: ProcessOut
-description: ProcessOut is a company surfaced as a portfolio company of techstars and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  ProcessOut is a payments technical layer and orchestration platform that
+  standardizes how merchants connect to 100+ payment providers (PSPs and alternative
+  payment methods). It provides a PCI DSS card vault, tokenization for recurring and
+  one-click payments, dynamic no-code checkout, ML-based smart routing to lift
+  authorization rates and cut cost, plus analytics and transaction reconciliation.
+  The REST API (https://api.processout.com) authenticates with HTTP Basic project
+  keys, supports idempotency keys and webhooks, and ships first-party SDKs for
+  Node.js, Python, Ruby, PHP and Go plus client-side ProcessOut.js and iOS/Android.
+  A hosted MCP server exposes the API and docs to AI agents. Originally a Techstars
+  company, ProcessOut is now part of Checkout.com.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.prod.website-files.com/65688bb5be2a2261a634aa71/65d8bb4c124d1591e814f499_o%20grid.jpg
 url: https://raw.githubusercontent.com/api-evangelist/processout/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - techstars
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enriched
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 22
+  pass: local-v1
 tags:
+- Payments
+- Payment Orchestration
+- Smart Routing
+- Tokenization
+- Checkout
+- Reconciliation
+- Fraud
+- 3-D Secure
 - Company
-apis: []
+apis:
+- aid: processout:processout-balances-api
+  name: ProcessOut Balances API
+  description: The Balances API from ProcessOut — 1 operation(s) for balances.
+  humanURL: https://docs.processout.com/reference/getting-started-with-your-api
+  baseURL: https://api.processout.com
+  tags:
+  - Balances
+  properties:
+  - type: OpenAPI
+    url: openapi/processout-balances-api-openapi.yml
+  - type: Authentication
+    url: authentication/processout-authentication.yml
+- aid: processout:processout-cards-api
+  name: ProcessOut Cards API
+  description: The Cards API from ProcessOut — 2 operation(s) for cards.
+  humanURL: https://docs.processout.com/reference/getting-started-with-your-api
+  baseURL: https://api.processout.com
+  tags:
+  - Cards
+  properties:
+  - type: OpenAPI
+    url: openapi/processout-cards-api-openapi.yml
+  - type: Authentication
+    url: authentication/processout-authentication.yml
+- aid: processout:processout-customers-api
+  name: ProcessOut Customers API
+  description: The Customers API from ProcessOut — 3 operation(s) for customers.
+  humanURL: https://docs.processout.com/reference/getting-started-with-your-api
+  baseURL: https://api.processout.com
+  tags:
+  - Customers
+  properties:
+  - type: OpenAPI
+    url: openapi/processout-customers-api-openapi.yml
+  - type: Authentication
+    url: authentication/processout-authentication.yml
+- aid: processout:processout-events-api
+  name: ProcessOut Events API
+  description: The Events API from ProcessOut — 1 operation(s) for events.
+  humanURL: https://docs.processout.com/reference/getting-started-with-your-api
+  baseURL: https://api.processout.com
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/processout-events-api-openapi.yml
+  - type: Authentication
+    url: authentication/processout-authentication.yml
+- aid: processout:processout-invoices-api
+  name: ProcessOut Invoices API
+  description: The Invoices API from ProcessOut — 6 operation(s) for invoices.
+  humanURL: https://docs.processout.com/reference/getting-started-with-your-api
+  baseURL: https://api.processout.com
+  tags:
+  - Invoices
+  properties:
+  - type: OpenAPI
+    url: openapi/processout-invoices-api-openapi.yml
+  - type: Authentication
+    url: authentication/processout-authentication.yml
+- aid: processout:processout-network-tokens-api
+  name: ProcessOut Network Tokens API
+  description: The Network Tokens API from ProcessOut — 1 operation(s) for network tokens.
+  humanURL: https://docs.processout.com/reference/getting-started-with-your-api
+  baseURL: https://api.processout.com
+  tags:
+  - Network Tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/processout-network-tokens-api-openapi.yml
+  - type: Authentication
+    url: authentication/processout-authentication.yml
+- aid: processout:processout-payouts-api
+  name: ProcessOut Payouts API
+  description: The Payouts API from ProcessOut — 3 operation(s) for payouts.
+  humanURL: https://docs.processout.com/reference/getting-started-with-your-api
+  baseURL: https://api.processout.com
+  tags:
+  - Payouts
+  properties:
+  - type: OpenAPI
+    url: openapi/processout-payouts-api-openapi.yml
+  - type: Authentication
+    url: authentication/processout-authentication.yml
+- aid: processout:processout-projects-api
+  name: ProcessOut Projects API
+  description: The Projects API from ProcessOut — 1 operation(s) for projects.
+  humanURL: https://docs.processout.com/reference/getting-started-with-your-api
+  baseURL: https://api.processout.com
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/processout-projects-api-openapi.yml
+  - type: Authentication
+    url: authentication/processout-authentication.yml
+- aid: processout:processout-transactions-api
+  name: ProcessOut Transactions API
+  description: The Transactions API from ProcessOut — 1 operation(s) for transactions.
+  humanURL: https://docs.processout.com/reference/getting-started-with-your-api
+  baseURL: https://api.processout.com
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/processout-transactions-api-openapi.yml
+  - type: Authentication
+    url: authentication/processout-authentication.yml
+- aid: processout:processout-uploads-api
+  name: ProcessOut Uploads API
+  description: The Uploads API from ProcessOut — 3 operation(s) for uploads.
+  humanURL: https://docs.processout.com/reference/getting-started-with-your-api
+  baseURL: https://api.processout.com
+  tags:
+  - Uploads
+  properties:
+  - type: OpenAPI
+    url: openapi/processout-uploads-api-openapi.yml
+  - type: Authentication
+    url: authentication/processout-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+# --- Spec + agent surface ---
+- type: OpenAPI
+  url: openapi/processout-openapi.json
+- type: Overlay
+  url: overlays/processout-openapi-overlay.yaml
+- type: MCPServer
+  url: mcp/processout-mcp.yml
+- type: LLMsTxt
+  url: llms/processout-llms.txt
+- type: AgenticAccess
+  url: agentic-access/processout-agentic-access.yml
+- type: AgentSkill
+  url: skills/_index.yml
+# --- SDKs / packages ---
+- type: Packages
+  url: packages/processout-packages.yml
+- type: SDKs
+  url: packages/processout-packages.yml
+- type: Components
+  url: components/processout-components.yml
+# --- Runtime semantics ---
+- type: Authentication
+  url: authentication/processout-authentication.yml
+- type: Conventions
+  url: conventions/processout-conventions.yml
+- type: Idempotency
+  url: conventions/processout-conventions.yml
+- type: RateLimits
+  url: rate-limits/processout-rate-limits.yml
+- type: ErrorCatalog
+  url: errors/processout-problem-types.yml
+- type: DeclineCodes
+  url: errors/processout-decline-codes.yml
+- type: DataModel
+  url: data-model/processout-data-model.yml
+- type: Sandbox
+  url: sandbox/processout-sandbox.yml
+- type: Lifecycle
+  url: lifecycle/processout-lifecycle.yml
+- type: Conformance
+  url: conformance/processout-conformance.yml
+# --- Events / webhooks ---
+- type: Webhooks
+  url: asyncapi/processout-webhooks.yml
+# --- Security ---
+- type: VulnerabilityDisclosure
+  url: security/processout-vulnerability-disclosure.yml
+- type: Security
+  url: https://www.processout.com/security
+- type: DomainSecurity
+  url: security/processout-domain-security.yml
+- type: Compliance
+  url: https://www.processout.com/security
+- type: WellKnown
+  url: well-known/processout-well-known.yml
+# --- Operational transparency ---
+- type: StatusPage
+  url: https://status.processout.com/
+# --- Link properties (site-published) ---
 - type: Website
-  url: https://processout.com/
+  url: https://www.processout.com/
+- type: DeveloperPortal
+  url: https://docs.processout.com/
+- type: Documentation
+  url: https://docs.processout.com/docs
+- type: APIReference
+  url: https://docs.processout.com/reference/getting-started-with-your-api
+- type: GettingStarted
+  url: https://docs.processout.com/docs/getting-started
+- type: SDKs
+  url: https://github.com/processout
+- type: GitHubOrganization
+  url: https://github.com/processout
+- type: Support
+  url: https://docs.processout.com/docs/faq
+- type: Blog
+  url: https://www.processout.com/blog
+- type: SignUp
+  url: https://dashboard.processout.com/login
+- type: TermsOfService
+  url: https://www.processout.com/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.processout.com/privacy-policy
+- type: LinkedIn
+  url: https://www.linkedin.com/company/processout/
+- type: Twitter
+  url: https://twitter.com/processout

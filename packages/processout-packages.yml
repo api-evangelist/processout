@@ -1,0 +1,74 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/processout
+docs: https://docs.processout.com/docs/setting-up-your-environment
+description: >-
+  First-party ProcessOut client libraries. The server SDKs (Node.js, Python, Ruby,
+  PHP, Go) are generated API bindings; the client-side/mobile SDKs (ProcessOut.js,
+  iOS, Android) collect and tokenize card data in the browser or app. All are
+  published from the github.com/processout organization under MIT.
+packages:
+  - language: javascript
+    registry: npm
+    name: processout
+    url: https://www.npmjs.com/package/processout
+    repo: https://github.com/processout/processout-node
+    install: npm install processout
+    latest: 10.0.0
+    official: true
+    kind: server-sdk
+  - language: python
+    registry: pypi
+    name: processout
+    url: https://pypi.org/project/processout/
+    repo: https://github.com/processout/processout-python
+    install: pip install processout
+    latest: 9.0.1
+    official: true
+    kind: server-sdk
+  - language: php
+    registry: packagist
+    name: processout/processout-php
+    url: https://packagist.org/packages/processout/processout-php
+    repo: https://github.com/processout/processout-php
+    install: composer require processout/processout-php
+    official: true
+    kind: server-sdk
+  - language: ruby
+    registry: rubygems
+    name: processout
+    url: https://rubygems.org/gems/processout
+    repo: https://github.com/processout/processout-ruby
+    install: gem install processout
+    official: true
+    kind: server-sdk
+  - language: go
+    registry: go-modules
+    name: github.com/processout/processout-go
+    url: https://pkg.go.dev/github.com/processout/processout-go
+    repo: https://github.com/processout/processout-go
+    install: go get github.com/processout/processout-go
+    official: true
+    kind: server-sdk
+  - language: javascript
+    registry: github
+    name: processout.js
+    url: https://github.com/processout/processout.js
+    repo: https://github.com/processout/processout.js
+    official: true
+    kind: client-sdk
+    notes: Browser JS library with modal & white-label / Dynamic Checkout support.
+  - language: swift
+    registry: github
+    name: processout-ios
+    url: https://github.com/processout/processout-ios
+    repo: https://github.com/processout/processout-ios
+    official: true
+    kind: mobile-sdk
+  - language: kotlin
+    registry: github
+    name: processout-android
+    url: https://github.com/processout/processout-android
+    repo: https://github.com/processout/processout-android
+    official: true
+    kind: mobile-sdk

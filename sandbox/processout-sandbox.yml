@@ -1,0 +1,127 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.processout.com/docs/testing-in-the-sandbox
+description: 'ProcessOut sandbox: a mock testing environment fully separated from production. Enabled by using sandbox project keys; every main object carries a sandbox:true attribute when created in the
+  sandbox.'
+environments:
+  separation: Production and sandbox are fully separate; objects created in one are not visible in the other.
+  key_prefixes:
+    sandbox_project_id: test-proj_...
+    sandbox_secret_key: key_sandbox_... (also shown as key_test_...)
+    production_project_id: proj_... (remove the test- prefix)
+    production_secret_key: key_live_...
+  auth: 'HTTP Basic: project ID as username, secret key as password.'
+  base_url: https://api.processout.com
+  notes: Sandbox does not validate expiry date or CVC of test cards. Genuine card numbers never work in sandbox; test numbers never work in production.
+example_customer_id: cust_LvjCcLOVe6iWn2aeCNhNmK7RbbG6K8XF
+test_cards:
+- number: '4242424242424242'
+  behavior: VISA
+- number: '5555555555554444'
+  behavior: Mastercard
+- number: '378282246310005'
+  behavior: American Express
+- number: '30123456789019'
+  behavior: Diners Club
+- number: '3530111333300000'
+  behavior: JCB
+- number: '6011111111111117'
+  behavior: Discover
+- number: '4977830000000001'
+  behavior: FR
+- number: '4360000001000005'
+  behavior: FR (carte-bancaire)
+- number: '5130290000000009'
+  behavior: FR (Mastercard/carte-bancaire)
+- number: '4658580000000008'
+  behavior: GB
+- number: '4571730000000003'
+  behavior: DK
+- number: '4023600000000002'
+  behavior: IT
+- number: '4338300000000009'
+  behavior: AR
+- number: '4835910000000003'
+  behavior: CN
+- number: '4000000000000101'
+  behavior: 3-D Secure supported and required on the card
+- number: '4000000000000119'
+  behavior: 3-D Secure not supported on the card
+- number: '4000000000000259'
+  behavior: 3-D Secure v2 supported but v1 not supported
+- number: '4000000000003238'
+  behavior: 3-D Secure v2 not supported but v1 supported
+- number: '4000000000003055'
+  behavior: 3-D Secure v2 supported with frictionless (no fingerprint)
+- number: '4000000000003063'
+  behavior: 3-D Secure v2 supported with frictionless (with fingerprint)
+- number: '4000000000003220'
+  behavior: 3-D Secure v2 supported with fingerprint failing
+- number: '4000000000003253'
+  behavior: 3-D Secure v2 required for SCA, no authentication when Merchant Initiated Transaction
+- number: '4000000000003246'
+  behavior: 3-D Secure v1 required but v2 not supported
+- number: '4000000000002180'
+  behavior: The authorization on the card will fail with error code `card.do-not-honor`
+- number: '4000000000002198'
+  behavior: The authorization on the card will fail with error code `card.possible-fraud`
+- number: '4000000000002206'
+  behavior: The authorization on the card will fail with error code `card.no-money`
+- number: '4000000000002214'
+  behavior: The authorization on the card will fail with error code `card.expired`
+- number: '4000000000002222'
+  behavior: The authorization on the card will fail with error code `card.stolen`
+- number: '4000000000002230'
+  behavior: The authorization on the card will fail with error code `card.failed-cvc`
+- number: '4000000000002248'
+  behavior: The authorization on the card will fail with error code `card.failed-avs`
+- number: '4000000000002255'
+  behavior: The authorization on the card will fail with error code `card.not-authorized`
+- number: '4000000000002263'
+  behavior: The authorization on the card will fail with error code `card.inactive`
+- number: '4000000000002271'
+  behavior: The authorization on the card will fail with error code `card.lost`
+- number: '4000000000002289'
+  behavior: The authorization on the card will fail with error code `card.region-not-authorized`
+- number: '4127969420587632'
+  behavior: The authorization on the card will fail with error code `card.blacklisted`
+- number: '4000000000000002'
+  behavior: The credit card will be denied
+- number: '4000000000000010'
+  behavior: The authorization on the card will be successful, but any capture will fail
+- number: '4000000000000028'
+  behavior: The CVC check will fail
+- number: '4000000000000036'
+  behavior: The AVS check will fail
+- number: '4000000000000044'
+  behavior: The CVC and AVS checks will both fail
+- number: '4000000000000069'
+  behavior: The payment will be successful, but a chargeback will be initiated as soon as the payment completes
+- number: '4000000000000077'
+  behavior: The payment will be successful, but refunds will be declined
+- number: '4000000000000085'
+  behavior: The authorization will be successful, but an AVS Postal check will fail
+- number: '4000000000000093'
+  behavior: The authorization will be successful, but an AVS Street check will fail
+- number: '4000000000000200'
+  behavior: The payment will be successful, but a failed chargeback will be initiated as soon as the payment completes
+- number: '4000000000000309'
+  behavior: The payment will be successful, but a retrieval request will be initiated as soon as the payment completes
+- number: '4000000000001216'
+  behavior: The card will succeed on a verification but fail on a transaction
+- number: '4000000000004004'
+  behavior: The payment will be successful, but a fraud notification will be sent
+- number: '4000000000006223'
+  behavior: The payment will be successful, but any incremental capture will result in a failure
+- number: '4000000000000531'
+  behavior: The authorization will be successful but any incremental authorization will fail
+- number: '4000000000003303'
+  behavior: The authorization will be successful but any incremental authorization will fail with error `card.no-money`
+- number: '4000000000006009'
+  behavior: The authorization on the card will fail with error code `card.no-money` in **subsequent** requests. For example, if you perform a card verification, this will be successful, but any new authorizations
+    after that will fail.
+- number: '4000000000004301'
+  behavior: The authorization on the card will fail with error code `card.expired` in **subsequent** requests. For example, if you perform a card verification, this will be successful, but any new authorizations
+    after that will fail.
+- number: '5337480000007168'
+  behavior: The transaction will fail with a recommandation code set do `do-not-retry`.

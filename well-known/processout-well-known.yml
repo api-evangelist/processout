@@ -1,0 +1,21 @@
+generated: '2026-07-20'
+method: searched
+host: https://api.processout.com
+description: >-
+  Probe of the ProcessOut API host discovery surface. No /.well-known/ documents are
+  published (all probed paths returned 404). Absence is recorded as valid data.
+documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+also_probed:
+  - host: https://processout.com
+    path: /.well-known/security.txt
+    status: 404

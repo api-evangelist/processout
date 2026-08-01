@@ -1,0 +1,487 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.processout.com/docs/error-codes.md
+docs: https://docs.processout.com/docs/error-codes
+description: ProcessOut normalizes decline reasons from 100+ downstream gateways/PSPs into a single unified error-code taxonomy. Codes are grouped into hard declines (do not retry) and soft declines (may
+  be retried). Surfaced on the transaction/invoice object as the error/decline code.
+envelope_field: error_code
+categories:
+- name: hard-decline
+  meaning: Terminal decline (fraud, blocked, stolen/lost); do not retry the transaction.
+- name: soft-decline
+  meaning: Recoverable decline (issuer/network/limit/validation); may be retried, possibly after remediation or authentication.
+decline_codes:
+- code: gateway.possible-fraud
+  category: hard-decline
+  meaning: The transaction is flagged as a potential fraud risk.
+- code: gateway.blocked
+  category: hard-decline
+  meaning: The gateway or merchant account has been blocked or restricted.
+- code: card.possible-fraud
+  category: hard-decline
+  meaning: The payment was blocked for potential fraud
+- code: card.blacklisted
+  category: hard-decline
+  meaning: The card was blacklisted from the payment provider
+- code: card.stolen
+  category: hard-decline
+  meaning: The card was stolen
+- code: card.lost
+  category: hard-decline
+  meaning: The card was lost by its card holder
+- code: card.security-violation
+  category: hard-decline
+  meaning: The transaction represented a security threat during its processing and was declined
+- code: card.keep-card
+  category: hard-decline
+  meaning: The card needs to be kept or retained.
+- code: card.authorization-revoked
+  category: hard-decline
+  meaning: The authorization for the card transaction has been revoked.
+- code: payment.declined
+  category: soft-decline
+  meaning: The payment was declined, but no further information was returned
+- code: gateway.declined
+  category: soft-decline
+  meaning: The gateway that attempted to process the payment returned a generic decline. This can be caused by validation errors, fraud prevention tool or other specific errors.
+- code: card.needs-authentication
+  category: soft-decline
+  meaning: The card requires a 3DS authentication to be performed, for example in the scope of 3DS2/SCA
+- code: card.declined
+  category: soft-decline
+  meaning: Similarly to payment.declined, the card payment was declined with no further information
+- code: card.do-not-honor
+  category: soft-decline
+  meaning: Do Not Honor is the default error code sent by bank, without any additional information
+- code: card.no-action-taken
+  category: soft-decline
+  meaning: No action was done by the payment provider, and should be retried
+- code: card.please-retry
+  category: soft-decline
+  meaning: The payment should be retried
+- code: card.acquirer-failed
+  category: soft-decline
+  meaning: The acquirer used by the payment processor failed to process the transaction
+- code: card.issuer-failed
+  category: soft-decline
+  meaning: The card holder bank failed to process the transaction
+- code: card.processing-error
+  category: soft-decline
+  meaning: The processing failed at the acquirer or card holder bank level
+- code: card.issuer-down
+  category: soft-decline
+  meaning: The card holder bank could not process the payment
+- code: card.maximum-attempts
+  category: soft-decline
+  meaning: The card maximum payment attempts were reached- the customer should contact its bank
+- code: card.contact-bank
+  category: soft-decline
+  meaning: The card holder bank declined the payment, and should be contacted by your customer
+- code: card.exceeded-limits
+  category: soft-decline
+  meaning: 'The card limits were reached (ex: amounts, transactions volume) and the customer should contact its bank'
+- code: card.exceeded-withdrawal-limit
+  category: soft-decline
+  meaning: The card withdrawal limit was reached, the customer should contact its bank
+- code: card.exceeded-activity-limits
+  category: soft-decline
+  meaning: The card activity limit was reached, the customer should contact its bank
+- code: card.no-money
+  category: soft-decline
+  meaning: The card has no money left in its bank account, the customer should add more funds
+- code: card.duplicate
+  category: soft-decline
+  meaning: The transaction had high chances of being a duplicate, and was declined
+- code: card.issuer-not-found
+  category: soft-decline
+  meaning: The payment provider could not find the card issuer bank
+- code: card.network-failed
+  category: soft-decline
+  meaning: The payment provider failed to contact the card network to process the transaction
+- code: card.not-supported
+  category: soft-decline
+  meaning: The card is not supported by the payment provider
+- code: card.currency-unsupported
+  category: soft-decline
+  meaning: The currency is not supported by this card
+- code: card.type-not-supported
+  category: soft-decline
+  meaning: The card type was not supported by the payment provider
+- code: card.not-activated
+  category: soft-decline
+  meaning: The card was not activated yet by the card holder or its bank
+- code: card.expired
+  category: soft-decline
+  meaning: The card was expired
+- code: card.invalid
+  category: soft-decline
+  meaning: The card was invalid (invalid number/expiration date/CVC)
+- code: card.invalid-number
+  category: soft-decline
+  meaning: The card has an invalid number
+- code: card.invalid-pin
+  category: soft-decline
+  meaning: The card PIN was invalid. This error code does not apply for online payments
+- code: card.invalid-name
+  category: soft-decline
+  meaning: The name on the card was invalid (potential AVS failure)
+- code: card.invalid-expiry-date
+  category: soft-decline
+  meaning: The card expiration date was invalid
+- code: card.invalid-expiry-month
+  category: soft-decline
+  meaning: The card expiration month was invalid
+- code: card.invalid-expiry-year
+  category: soft-decline
+  meaning: The card expiration year was invalid
+- code: card.invalid-zip
+  category: soft-decline
+  meaning: The card holder ZIP code was invalid (potential AVS failure)
+- code: card.invalid-address
+  category: soft-decline
+  meaning: The card holder address was invalid (potential AVS failure)
+- code: card.missing-cvc
+  category: soft-decline
+  meaning: The card CVC was missing, but needed to process the payment
+- code: card.missing-expiry
+  category: soft-decline
+  meaning: The card expiry date was missing, but needed to process the payment
+- code: card.missing-number
+  category: soft-decline
+  meaning: The card number was missing
+- code: card.missing-3ds
+  category: soft-decline
+  meaning: The card 3DS verification process was missing but needed to process the payment
+- code: card.failed-cvc
+  category: soft-decline
+  meaning: The card CVC check failed
+- code: card.failed-avs
+  category: soft-decline
+  meaning: The card AVS check failed
+- code: card.failed-avs-postal
+  category: soft-decline
+  meaning: The card AVS check failed on the postal code
+- code: card.unsupported-3ds
+  category: soft-decline
+  meaning: The card does not support 3DS authentication (but a 3DS authentication was requested)
+- code: card.failed-3ds
+  category: soft-decline
+  meaning: The card 3DS check failed
+- code: card.expired-3ds
+  category: soft-decline
+  meaning: The card 3DS check expired and needs to be retried
+- code: card.failed-avs-address
+  category: soft-decline
+  meaning: The card AVS check failed on the address
+- code: card.failed-cvc-and-avs
+  category: soft-decline
+  meaning: Both the card CVC and AVS checks failed
+- code: card.bad-track-data
+  category: soft-decline
+  meaning: The track data of the card was invalid (expiration date or CVC)
+- code: card.not-authorized
+  category: soft-decline
+  meaning: The card is not authorized to make the payment
+- code: card.not-registered
+  category: soft-decline
+  meaning: The card was not yet registered and can therefore not process payments
+- code: card.dont-retry
+  category: soft-decline
+  meaning: The payment should not be retried
+- code: card.invalid-account
+  category: soft-decline
+  meaning: The card bank account was invalid, the customer should contact its bank
+- code: card.revoked
+  category: soft-decline
+  meaning: The card was revoked
+- code: card.revoked-all
+  category: soft-decline
+  meaning: All the card holder cards were revoked
+- code: card.test
+  category: soft-decline
+  meaning: The card was a test card and can't be used to process live transactions
+- code: card.acquirer-not-found
+  category: soft-decline
+  meaning: The acquirer or payment processor was not found or recognized.
+- code: card.already-blocked
+  category: soft-decline
+  meaning: The card is already blocked or restricted.
+- code: card.already-captured
+  category: soft-decline
+  meaning: The card transaction has already been captured or completed.
+- code: card.already-refused
+  category: soft-decline
+  meaning: The card transaction has already been refused.
+- code: card.approve-after-identification
+  category: soft-decline
+  meaning: The card transaction requires additional identification for approval.
+- code: card.canceled-by-client
+  category: soft-decline
+  meaning: The card transaction was canceled by the client.
+- code: card.cannot-verify-pin
+  category: soft-decline
+  meaning: The PIN for the card cannot be verified.
+- code: card.contact-acquirer
+  category: soft-decline
+  meaning: The cardholder needs to contact the acquirer or payment processor for further assistance.
+- code: card.couldnt-3ds
+  category: soft-decline
+  meaning: The 3D Secure authentication for the card transaction could not be performed.
+- code: card.eci-conflict
+  category: soft-decline
+  meaning: There is a conflict with the Electronic Commerce Indicator (ECI) for the card transaction.
+- code: card.exceeded-maximum-amount
+  category: soft-decline
+  meaning: The card transaction amount has exceeded the maximum allowed amount.
+- code: card.exceeded-pin-attempts
+  category: soft-decline
+  meaning: The number of PIN attempts for the card has been exceeded.
+- code: card.exemption-declined
+  category: soft-decline
+  meaning: The exemption for the card transaction has been declined.
+- code: card.failed-3ds-technical
+  category: soft-decline
+  meaning: There was a technical failure with the 3D Secure authentication for the card transaction.
+- code: card.formatting-error
+  category: soft-decline
+  meaning: There was an error with the formatting of the card transaction.
+- code: card.high-risk
+  category: soft-decline
+  meaning: The card transaction is flagged as high risk.
+- code: card.holder-not-authorized
+  category: soft-decline
+  meaning: The cardholder is not authorized for the card transaction.
+- code: card.inactive
+  category: soft-decline
+  meaning: The card is inactive and cannot be used for the transaction.
+- code: card.invalid-amount
+  category: soft-decline
+  meaning: The specified amount for the card transaction is invalid.
+- code: card.invalid-avs
+  category: soft-decline
+  meaning: The Address Verification Service (AVS) for the card is invalid.
+- code: card.invalid-bank-country-code
+  category: soft-decline
+  meaning: The country code of the card's issuing bank is invalid.
+- code: card.invalid-brand
+  category: soft-decline
+  meaning: The card brand or type is invalid or not supported.
+- code: card.invalid-cvc
+  category: soft-decline
+  meaning: The Card Verification Code (CVC) or Card Security Code (CSC) for the card is invalid.
+- code: card.invalid-eci
+  category: soft-decline
+  meaning: The Electronic Commerce Indicator (ECI) for the card transaction is invalid.
+- code: card.invalid-merchant
+  category: soft-decline
+  meaning: The merchant for the card transaction is invalid.
+- code: card.invalid-pares
+  category: soft-decline
+  meaning: The Payment Authentication Response (PARES) for the card transaction is invalid.
+- code: card.invalid-scheme
+  category: soft-decline
+  meaning: The card scheme or network is invalid or not supported.
+- code: card.invalid-transaction
+  category: soft-decline
+  meaning: The card transaction is invalid.
+- code: card.invalid-ucaf
+  category: soft-decline
+  meaning: The Universal Cardholder Authentication Field (UCAF) for the card transaction is invalid.
+- code: card.invalid-vpas
+  category: soft-decline
+  meaning: The Verified by Visa (VbV) or Mastercard SecureCode (MSC) validation for the card transaction is invalid.
+- code: card.issuer-maintenance
+  category: soft-decline
+  meaning: The issuer or bank of the card is currently undergoing maintenance.
+- code: card.issuer-malfunction
+  category: soft-decline
+  meaning: The issuer or bank of the card is experiencing a malfunction.
+- code: card.law-violation
+  category: soft-decline
+  meaning: The card transaction violates laws or regulations.
+- code: card.missing-avs
+  category: soft-decline
+  meaning: The Address Verification Service (AVS) data is missing.
+- code: card.missing-name
+  category: soft-decline
+  meaning: The cardholder name is missing.
+- code: card.missing-pin
+  category: soft-decline
+  meaning: The PIN (Personal Identification Number) is missing for the card transaction.
+- code: card.no-cheque-account
+  category: soft-decline
+  meaning: No cheque account is associated with the card.
+- code: card.no-credit-account
+  category: soft-decline
+  meaning: No credit account is associated with the card.
+- code: card.no-savings-account
+  category: soft-decline
+  meaning: No savings account is associated with the card.
+- code: card.not-found
+  category: soft-decline
+  meaning: The card information or account was not found.
+- code: card.pending
+  category: soft-decline
+  meaning: The card transaction is pending or in progress.
+- code: card.physical-authentication-error
+  category: soft-decline
+  meaning: There was an error with the physical authentication of the card.
+- code: card.pin-not-changed
+  category: soft-decline
+  meaning: The PIN for the card cannot be changed.
+- code: card.possible-counterfeit
+  category: soft-decline
+  meaning: The card transaction is flagged as a possible counterfeit.
+- code: card.reauthorization-not-allowed
+  category: soft-decline
+  meaning: Reauthorization is not allowed for the card transaction.
+- code: card.region-not-authorized
+  category: soft-decline
+  meaning: The card transaction is not authorized in the specified region.
+- code: card.restricted
+  category: soft-decline
+  meaning: The card is restricted and cannot be used for the transaction.
+- code: card.surcharge-not-allowed
+  category: soft-decline
+  meaning: Surcharge fees are not allowed for the card transaction.
+- code: card.surcharge-not-supported
+  category: soft-decline
+  meaning: Surcharge fees are not supported for the card transaction.
+- code: card.terminal-not-allowed
+  category: soft-decline
+  meaning: The card is not allowed at the terminal or point of sale.
+- code: card.terminal-not-found
+  category: soft-decline
+  meaning: The card terminal was not found or recognized.
+- code: card.terminal-not-initialized
+  category: soft-decline
+  meaning: The card terminal is not initialized and cannot be used.
+- code: card.timeout
+  category: soft-decline
+  meaning: The card transaction timed out.
+- code: card.transaction-not-processed
+  category: soft-decline
+  meaning: The card transaction was not processed.
+- code: card.unsupported-3ds2
+  category: soft-decline
+  meaning: The 3D Secure 2 authentication is not supported for the card transaction.
+- code: customer.cancelled
+  category: soft-decline
+  meaning: The customer has canceled the transaction.
+- code: customer.payment-method-revoked
+  category: soft-decline
+  meaning: The customer has canceled the payment method
+- code: customer.disputed
+  category: soft-decline
+  meaning: The transaction is disputed by the customer.
+- code: customer.invalid-address
+  category: soft-decline
+  meaning: The address of the customer is invalid.
+- code: customer.invalid-city
+  category: soft-decline
+  meaning: The city of the customer is invalid.
+- code: customer.invalid-country-code
+  category: soft-decline
+  meaning: The country code of the customer is invalid.
+- code: customer.invalid-email
+  category: soft-decline
+  meaning: The email address for the customer is invalid.
+- code: customer.invalid-firstname
+  category: soft-decline
+  meaning: The first name of the customer is invalid.
+- code: customer.invalid-ip-address
+  category: soft-decline
+  meaning: The IP address of the customer is invalid.
+- code: customer.invalid-lastname
+  category: soft-decline
+  meaning: The last name of the customer is invalid.
+- code: customer.invalid-legal-document
+  category: soft-decline
+  meaning: The legal document of the customer is invalid.
+- code: customer.invalid-name
+  category: soft-decline
+  meaning: The name of the customer is invalid.
+- code: customer.invalid-phone-number
+  category: soft-decline
+  meaning: The phone number of the customer is invalid.
+- code: customer.invalid-state
+  category: soft-decline
+  meaning: The state of the customer is invalid.
+- code: customer.invalid-zip
+  category: soft-decline
+  meaning: The ZIP code of the customer is invalid.
+- code: gateway.configuration-error
+  category: soft-decline
+  meaning: There is an error or issue with the gateway configuration.
+- code: gateway.duplicate
+  category: soft-decline
+  meaning: The transaction is a duplicate or has already been processed in the gateway.
+- code: gateway.expired
+  category: soft-decline
+  meaning: The transaction or authorization has expired in the gateway.
+- code: gateway.forbidden
+  category: soft-decline
+  meaning: Access to the gateway is forbidden or not allowed.
+- code: gateway.internal-error
+  category: soft-decline
+  meaning: An internal error occurred in the gateway.
+- code: gateway.invalid-billing-address
+  category: soft-decline
+  meaning: The billing address provided is invalid in the gateway.
+- code: gateway.invalid-credentials
+  category: soft-decline
+  meaning: The provided credentials for the gateway are invalid.
+- code: gateway.invalid-merchant
+  category: soft-decline
+  meaning: The merchant or account in the gateway is invalid.
+- code: gateway.invalid-repeat
+  category: soft-decline
+  meaning: The repeat transaction or request is invalid in the gateway.
+- code: gateway.invalid-state
+  category: soft-decline
+  meaning: The state or status of the transaction is invalid in the gateway.
+- code: gateway.limit-exceeded
+  category: soft-decline
+  meaning: A limit or threshold has been exceeded in the gateway.
+- code: gateway.maintenance
+  category: soft-decline
+  meaning: The gateway is currently undergoing maintenance.
+- code: gateway.network-error
+  category: soft-decline
+  meaning: There was a network error in the gateway.
+- code: gateway.not-allowed
+  category: soft-decline
+  meaning: The requested action or method is not allowed in the gateway.
+- code: gateway.not-found
+  category: soft-decline
+  meaning: The requested resource or endpoint was not found in the gateway.
+- code: gateway.rate-limit-exceeded
+  category: soft-decline
+  meaning: The rate limit for the gateway has been exceeded.
+- code: gateway.retry
+  category: soft-decline
+  meaning: The transaction or request should be retried in the gateway
+- code: gateway.timeout
+  category: soft-decline
+  meaning: The request to the gateway timed out.
+- code: gateway.transaction-not-found
+  category: soft-decline
+  meaning: The requested transaction was not found in the gateway.
+- code: gateway.transaction-pending
+  category: soft-decline
+  meaning: The transaction is pending or in progress in the gateway.
+- code: gateway.unknown-error
+  category: soft-decline
+  meaning: An unknown error occurred in the gateway.
+- code: gateway.unsupported-country-code
+  category: soft-decline
+  meaning: The requested country code is not supported in the gateway.
+- code: gateway.unsupported-currency
+  category: soft-decline
+  meaning: The requested currency is not supported in the gateway.
+- code: gateway.validation-error
+  category: soft-decline
+  meaning: There was an error validating the request in the gateway.
+- code: request.transaction-blocked
+  category: soft-decline
+  meaning: The transaction has been blocked by ProcessOut for compliance reasons

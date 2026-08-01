@@ -1,0 +1,26 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for ProcessOut API
+  version: 1.0.0
+extends: openapi/processout-openapi.json
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: '2026-07-20'
+      x-apievangelist-source: >-
+        Assembled from the per-operation OpenAPI fragments ProcessOut publishes in
+        each ReadMe API-reference page (docs.processout.com/reference/*).
+      x-authentication: http-basic (project ID + secret key)
+      x-idempotency-key-header: Idempotency-Key
+  - target: $.info
+    update:
+      x-conventions: conventions/processout-conventions.yml
+      x-error-catalog: errors/processout-problem-types.yml
+      x-decline-codes: errors/processout-decline-codes.yml
+      x-rate-limits: rate-limits/processout-rate-limits.yml
+      x-webhooks: asyncapi/processout-webhooks.yml
+      x-sandbox: sandbox/processout-sandbox.yml
+  - target: $.info
+    update:
+      x-agentic-access: agentic-access/processout-agentic-access.yml
+      x-mcp-server: https://docs.processout.com/mcp

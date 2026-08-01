@@ -1,0 +1,24 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/processout-openapi.json
+description: >-
+  Packaged Agent Skills for the ProcessOut API. Each skill is grounded in real
+  operationIds present in openapi/processout-openapi.json and the conventions,
+  idempotency and error rules captured in this repo.
+skills:
+  - file: processout-accept-card-payment.md
+    name: Accept a card payment
+    api: openapi/processout-openapi.json
+    operations: [creating-a-customer, creating-a-card, create-an-invoice, authorizing-an-invoice, capture-an-invoice]
+  - file: processout-save-token-and-charge.md
+    name: Save a token and charge for future payments
+    api: openapi/processout-openapi.json
+    operations: [creating-a-customer, creating-a-token, create-an-invoice, authorizing-an-invoice]
+  - file: processout-handle-webhook-event.md
+    name: Handle a webhook event
+    api: openapi/processout-openapi.json
+    operations: [fetching-an-event, fetching-a-transaction]
+  - file: processout-reconcile-payouts.md
+    name: Reconcile payouts and reports
+    api: openapi/processout-openapi.json
+    operations: [listing-payouts, fetching-a-payout, listing-payout-items, listing-reports, fetching-report]

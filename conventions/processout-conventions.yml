@@ -1,0 +1,51 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.processout.com/reference/getting-started-with-your-api
+description: >-
+  Cross-cutting request/response semantics for the ProcessOut API, harvested from the
+  docs and derived from the OpenAPI. Cross-links errors/, lifecycle/, authentication/
+  and rate-limits/.
+authentication:
+  style: http-basic
+  detail: >-
+    Project ID as username, secret API key as password. Sandbox uses a test-
+    prefixed project ID and a key_sandbox_/key_test_ secret; production removes the
+    prefix and uses a key_live_ secret. See authentication/processout-authentication.yml.
+idempotency:
+  supported: true
+  mechanism: header
+  header: Idempotency-Key
+  description: >-
+    Mutating operations accept an Idempotency-Key request header — a unique key to the
+    request used for idempotency — so retries do not create duplicate resources. The
+    header is declared across the create/mutate operations in the OpenAPI.
+  source: openapi/processout-openapi.json
+versioning:
+  scheme: server-negotiated
+  detail: >-
+    The API root (GET https://api.processout.com/) advertises current_version and
+    latest_version plus the list of available versions (1.0.0.0 - 1.3.0.1 observed).
+  current: 1.3.0.1
+error_envelope:
+  format: processout-json
+  fields: [success, error_type, message]
+  detail: >-
+    Errors return a JSON body with success:false, an error_type and a human-readable
+    message. Payment declines are surfaced as a unified error/decline code on the
+    transaction. See errors/processout-problem-types.yml and errors/processout-decline-codes.yml.
+rate_limit_signaling:
+  headers: [x-ratelimit, x-ratelimit-remaining]
+  over_limit_status: 429
+  detail: See rate-limits/processout-rate-limits.yml (GCRA, three independent limits).
+webhooks:
+  delivery: at-least-once
+  ordering: not-guaranteed
+  dedupe_required: true
+  retries: at least 12 retries over 3 days with exponential backoff
+  payload: '{ event_id, event_type } — fetch full event via GET /events/{event_id}.'
+  detail: See asyncapi/processout-webhooks.yml.
+resource_expansion:
+  supported: true
+  detail: >-
+    The first level of sub-resources is expanded automatically on events/resources;
+    deeper resources must be fetched. See docs/reference/expanding-resources.

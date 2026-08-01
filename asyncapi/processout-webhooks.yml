@@ -1,0 +1,41 @@
+generated: '2026-07-20'
+method: searched
+spec_type: Webhooks
+source: https://docs.processout.com/reference/webhooks
+description: >-
+  ProcessOut delivers events via webhooks (also called callbacks / IPN) as HTTP POST
+  requests. ProcessOut normalizes native gateway/PSP notification formats into a single
+  consistent event shape. No AsyncAPI document is published; this captures the webhook
+  contract. ProcessOut hosts no public AsyncAPI/event spec.
+transport: http-post
+payload_shape:
+  fields: [event_id, event_type]
+  example:
+    event_id: ev_kHVj3R57mQBInbWwGy4co0235GTLIYTH
+    event_type: transaction.captured
+  note: >-
+    The POST body carries only the event_id and event_type; fetch the full event via
+    GET /events/{event_id} (operationId fetching-an-event) to read the resource state.
+delivery:
+  guarantee: at-least-once
+  dedupe_required: true
+  ordering: not-guaranteed
+  content_type: application/json
+  csrf: Webhook endpoints must disable CSRF protection to accept POSTs.
+retries:
+  guarantee: at least 12 retries over 3 days
+  backoff: partially non-deterministic exponential backoff based on Euler's number
+  final_attempt: between 48 and 72 hours after the first attempt
+  abandon_after: 3 days
+configuration:
+  dashboard: https://dashboard.processout.com
+  per_invoice_override: webhook_url parameter on invoice creation
+event_types_observed:
+  - transaction.captured
+  - transaction.failed
+  - invoice.completed
+  - invoice.pending
+event_types_note: >-
+  ProcessOut fires events for significant status changes (primarily transactions,
+  also other resources). The full transaction-event list is documented at
+  docs.processout.com/reference/fetching-an-event#transaction-events.

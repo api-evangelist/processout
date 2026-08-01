@@ -1,0 +1,101 @@
+# ProcessOut Documentation
+
+> Documentation for ProcessOut
+
+## Guides
+- [Getting Started with ProcessOut](https://docs.processout.com/docs/getting-started.md): This page will help you get started with ProcessOut. You'll be up and running in a jiffy!
+- [Migrating to ProcessOut](https://docs.processout.com/docs/migrating-to-processout.md)
+- [Security standards](https://docs.processout.com/docs/security-standards.md)
+- [Setting up your environment](https://docs.processout.com/docs/setting-up-your-environment.md)
+- [Handling Android App Links](https://docs.processout.com/docs/handling-android-app-links.md)
+- [Testing in the Sandbox](https://docs.processout.com/docs/testing-in-the-sandbox.md)
+- [Error codes management](https://docs.processout.com/docs/error-codes.md)
+- [Integration best practices](https://docs.processout.com/docs/integration-best-practices.md)
+- [Rate Limits](https://docs.processout.com/docs/rate-limits.md)
+- [Accepting card payments](https://docs.processout.com/docs/accepting-card-payments.md)
+- [Tokenizing a Combo Card](https://docs.processout.com/docs/tokenizing-a-combo-card.md)
+- [Tokenizing a card in a mobile app](https://docs.processout.com/docs/tokenizing-a-card-in-a-mobile-app.md): Use the flexible ProcessOut UI to collect card details or build your own form.
+- [Scanning a card details](https://docs.processout.com/docs/scanning-a-card.md)
+- [Authorizing a payment](https://docs.processout.com/docs/authorizing-a-payment.md)
+- [3DS Hosted Page](https://docs.processout.com/docs/3ds-hosted-page.md): Server-to-server 3DS continuation flow
+- [3-D Secure 2 handlers for mobile apps](https://docs.processout.com/docs/3-d-secure-2-handlers-for-mobile-apps.md)
+- [CVC and AVS checks](https://docs.processout.com/docs/cvc-and-avs-checks.md)
+- [Using Google Pay](https://docs.processout.com/docs/using-google-pay.md)
+- [Using Apple Pay](https://docs.processout.com/docs/using-apple-pay.md)
+- [Apple Pay certificate management](https://docs.processout.com/docs/apple-pay-certificate-management.md)
+- [Network Tokens](https://docs.processout.com/docs/network-tokens.md)
+- [Accepting Alternative Payment Methods](https://docs.processout.com/docs/alternative-payment-methods.md): As the global payment landscape evolves, offering alternative payment methods to your customers has become increasingly important. These methods can include a wide range of localized payment options tailored to meet the unique preferences of your end-users, such as digital wallets, online bank transfers, Buy Now Pay Later (BNPL), and more.
+- [APM Prerequisites](https://docs.processout.com/docs/apm-prerequisites.md)
+- [Client SDKs: Hosted Payment Page](https://docs.processout.com/docs/sdks-hosted-payment-page.md)
+- [Client SDKs: Embedded Components](https://docs.processout.com/docs/sdks-embedded-components.md)
+- [Android: Redirect Handling](https://docs.processout.com/docs/native-alternative-payments-redirect-handling-android.md): Some payment methods allow the user to authenticate in a companion app. When supported, the SDK automatically redirects the user to that app. This guide describes the available configuration options for returning the user to your app.
+- [iOS: Redirect Handling](https://docs.processout.com/docs/native-alternative-payments-redirect-handling-ios.md): Some payment methods allow the user to authenticate in a companion app. When supported, the SDK automatically redirects the user to that app. This page covers the available options and their tradeoffs.
+- [Server to Server: Hosted Payment Page](https://docs.processout.com/docs/server-to-server-hosted-payment-page.md)
+- [Dynamic Checkout](https://docs.processout.com/docs/dynamic-checkout.md): Learn how to use ProcessOut’s Dynamic Checkout feature to manage payments without code.
+- [Integrating Dynamic Checkout](https://docs.processout.com/docs/integrating-dynamic-checkout.md): Add Dynamic Checkout to your payment flow easily
+- [Web: ProcessOut.js](https://docs.processout.com/docs/dynamic-checkout-web.md): Integrate and customize Dynamic Checkout using our client-side Javascript SDK
+- [Web: Headless (advanced)](https://docs.processout.com/docs/dynamic-checkout-headless.md): Integrate the ProcessOut API directly to build infinitely customizable user interfaces
+- [Mobile: iOS](https://docs.processout.com/docs/dynamic-checkout-ios.md): Integrating the Dynamic Checkout UI on iOS
+- [Mobile: Android](https://docs.processout.com/docs/dynamic-checkout-android.md): Integrating the Dynamic Checkout UI on Android
+- [Managing the payment flow](https://docs.processout.com/docs/managing-the-payment-flow.md): Use the ProcessOut Dashboard to control your Dynamic Checkout payment user interface.
+- [Saving a token to capture future payments](https://docs.processout.com/docs/saving-a-token-to-capture-future-payments.md)
+- [Tokenizing Alternative Payment methods](https://docs.processout.com/docs/saving-apm-tokens.md)
+- [Make a payment & save the card for future payments](https://docs.processout.com/docs/pay-tokenize-flow.md)
+- [Payment page](https://docs.processout.com/docs/payment-page.md): Learn how to build your no-code customer checkout flow on ProcessOut.
+- [Reconciling your transactions](https://docs.processout.com/docs/reconcile-your-transactions.md)
+- [ProcessOut Organization Management and Permissions](https://docs.processout.com/docs/organization-management-and-permissions.md)
+- [Organization Hierarchy](https://docs.processout.com/docs/organization-hierarchy.md)
+- [ProcessOut Permission Model Explained](https://docs.processout.com/docs/processout-permission-model-explained.md)
+- [Roles Management](https://docs.processout.com/docs/roles-management.md)
+- [Members](https://docs.processout.com/docs/members.md)
+- [Teams](https://docs.processout.com/docs/teams.md)
+- [API Keys](https://docs.processout.com/docs/api-keys.md)
+- [Security](https://docs.processout.com/docs/security.md)
+- [FAQ](https://docs.processout.com/docs/faq.md)
+- [Defining routing rules](https://docs.processout.com/docs/defining-custom-routing-rules-1.md)
+- [Data explorer for analytics](https://docs.processout.com/docs/data-explorer.md)
+- [Getting Started With Alerting](https://docs.processout.com/docs/getting-started-with-alerting.md)
+- [Using webhooks to respond to events](https://docs.processout.com/docs/using-webhooks-to-respond-to-events.md)
+- [Data warehouse exports](https://docs.processout.com/docs/data-warehouse-exports.md): ProcessOut offers daily exports of your transaction data in a S3 bucket.
+- [MCP](https://docs.processout.com/docs/mcp.md)
+
+## API Reference
+- [Getting Started](https://docs.processout.com/reference/getting-started-with-your-api.md): This page will help you get started with ProcessOut API
+- [Webhooks](https://docs.processout.com/reference/webhooks.md)
+- [Creating resources](https://docs.processout.com/reference/creating-resources.md)
+- [Fetching resources](https://docs.processout.com/reference/fetching-resources.md)
+- [Invoices](https://docs.processout.com/reference/invoices.md)
+- [Create an invoice](https://docs.processout.com/reference/create-an-invoice.md)
+- [Fetch an invoice](https://docs.processout.com/reference/fetch-an-invoice.md)
+- [Authorizing an invoice](https://docs.processout.com/reference/authorizing-an-invoice.md)
+- [Increment an authorization on an invoice](https://docs.processout.com/reference/increment-an-invoice.md)
+- [Capture an invoice](https://docs.processout.com/reference/capture-an-invoice.md)
+- [Refund an invoice](https://docs.processout.com/reference/refund-an-invoice.md)
+- [Delete an invoice](https://docs.processout.com/reference/delete-an-invoice.md): Delete invoices that have not had a payment started yet.
+- [Creating a customer](https://docs.processout.com/reference/creating-a-customer.md)
+- [Creating a card](https://docs.processout.com/reference/creating-a-card.md)
+- [Provisioning Network Token for card](https://docs.processout.com/reference/provisioning-network-token.md)
+- [Updating a card](https://docs.processout.com/reference/updating-a-card.md)
+- [Tokens](https://docs.processout.com/reference/tokens.md)
+- [Creating a token](https://docs.processout.com/reference/creating-a-token.md)
+- [Fetching a token](https://docs.processout.com/reference/fetching-a-token.md)
+- [Update a token](https://docs.processout.com/reference/update-a-token.md)
+- [Fetch a token balance](https://docs.processout.com/reference/fetch-a-token-balance.md)
+- [Transaction](https://docs.processout.com/reference/transaction.md)
+- [Fetching a transaction](https://docs.processout.com/reference/fetching-a-transaction.md)
+- [Events](https://docs.processout.com/reference/events.md): Your project creates (or "fires") an `Event` object for any significant change in its status. This is particularly important for updates to transactions but events are also fired for other situations.
+- [Reconciliation](https://docs.processout.com/reference/payout.md)
+- [Listing payouts](https://docs.processout.com/reference/listing-payouts.md)
+- [Fetching a payout](https://docs.processout.com/reference/fetching-a-payout.md)
+- [Listing payout items](https://docs.processout.com/reference/listing-payout-items.md)
+- [Listing reports](https://docs.processout.com/reference/listing-reports.md)
+- [Fetching report](https://docs.processout.com/reference/fetching-report.md)
+- [Downloading raw PSP report](https://docs.processout.com/reference/downloading-raw-psp-report.md)
+- [Setting up SFTP payouts export](https://docs.processout.com/reference/setting-up-sftp-payouts-export.md)
+- [Deleting SFTP payouts export](https://docs.processout.com/reference/deleting-sftp-payouts-export.md)
+- [Deleting uploaded report](https://docs.processout.com/reference/deleting-uploaded-report.md)
+- [Deleting payout](https://docs.processout.com/reference/deleting-payout.md)
+- [List audit logs](https://docs.processout.com/reference/getauditlogs.md): The audit logs API is used to retrieve a list of actions performed within an organization. Authentication is done with the organization ID as the username, and the API secret as the password. Logs capture the resource state before and after each action (previous_state and next_state), allowing for comprehensive auditing.  For pagination, see [listing resources](https://docs.processout.com/reference/listing-resources).
+
+## Pages
+- [Blog](https://docs.processout.com/blog.md)

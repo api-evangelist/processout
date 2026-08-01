@@ -1,0 +1,33 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.processout.com/docs/sdks-embedded-components
+description: >-
+  Client-side / embeddable UI surfaces ProcessOut ships for collecting payment
+  details and rendering checkout, distinct from the server SDKs in packages/.
+families:
+  - name: ProcessOut.js
+    kind: web-js-library
+    url: https://docs.processout.com/docs/dynamic-checkout-web
+    repo: https://github.com/processout/processout.js
+    description: >-
+      Browser JavaScript library that securely collects and tokenizes card data
+      (white-label or modal), powering Dynamic Checkout on the web.
+  - name: Dynamic Checkout
+    kind: prebuilt-checkout
+    url: https://docs.processout.com/docs/dynamic-checkout
+    surfaces: [web, ios, android]
+    description: >-
+      No-code / low-code prebuilt checkout UI managed from the dashboard, integrable
+      via ProcessOut.js (web), or the iOS/Android SDKs.
+  - name: Hosted Payment Page
+    kind: hosted-checkout
+    url: https://docs.processout.com/docs/sdks-hosted-payment-page
+    description: ProcessOut-hosted payment page for redirect-based collection.
+  - name: Embedded Components (mobile)
+    kind: mobile-ui
+    url: https://docs.processout.com/docs/sdks-embedded-components
+    surfaces: [ios, android]
+    repos:
+      - https://github.com/processout/processout-ios
+      - https://github.com/processout/processout-android
+    description: Native embeddable payment UI components for iOS and Android.

@@ -1,0 +1,58 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/processout-openapi.json
+docs: https://docs.processout.com/reference/creating-resources
+format: processout-json
+note: ProcessOut returns errors as a JSON body with success:false, an error_type and a human message (not RFC 9457 problem+json). Transaction-level payment declines are catalogued separately in errors/processout-decline-codes.yml.
+  Status classes below are derived from the harvested OpenAPI responses (ReadMe emits 4XX/5XX response ranges).
+problems:
+- status: 400
+  response_key: 4XX
+  title: Bad request — invalid parameters or malformed request.
+  occurrences_in_spec: 25
+  example_operations:
+  - openapi/processout-openapi.json#authorizing-an-invoice
+  - openapi/processout-openapi.json#capture-an-invoice
+  - openapi/processout-openapi.json#create-an-invoice
+  - openapi/processout-openapi.json#creating-a-card
+- status: 400
+  response_key: '400'
+  title: Bad request — invalid parameters or malformed request.
+  occurrences_in_spec: 6
+  example_operations:
+  - openapi/processout-openapi.json#create-an-invoice
+  - openapi/processout-openapi.json#creating-a-card
+  - openapi/processout-openapi.json#creating-a-customer
+  - openapi/processout-openapi.json#creating-a-token
+- status: 401
+  response_key: '401'
+  title: Unauthorized — missing or invalid project keys (HTTP Basic).
+  occurrences_in_spec: 24
+  example_operations:
+  - openapi/processout-openapi.json#authorizing-an-invoice
+  - openapi/processout-openapi.json#capture-an-invoice
+  - openapi/processout-openapi.json#create-an-invoice
+  - openapi/processout-openapi.json#creating-a-customer
+- status: 404
+  response_key: '404'
+  title: Resource not found.
+  occurrences_in_spec: 14
+  example_operations:
+  - openapi/processout-openapi.json#authorizing-an-invoice
+  - openapi/processout-openapi.json#capture-an-invoice
+  - openapi/processout-openapi.json#creating-a-token
+  - openapi/processout-openapi.json#delete-an-invoice
+- status: 410
+  response_key: '410'
+  title: Error
+  occurrences_in_spec: 3
+  example_operations:
+  - openapi/processout-openapi.json#authorizing-an-invoice
+  - openapi/processout-openapi.json#capture-an-invoice
+  - openapi/processout-openapi.json#increment-an-invoice
+- status: 422
+  response_key: '422'
+  title: Error
+  occurrences_in_spec: 1
+  example_operations:
+  - openapi/processout-openapi.json#provisioning-network-token

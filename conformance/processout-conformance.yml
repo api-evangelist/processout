@@ -1,0 +1,42 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.processout.com/docs/security-standards
+description: >-
+  Industry / cross-cutting standards ProcessOut conforms to. Compliance claims are
+  taken from the published security-standards documentation; API-shape items are
+  derived from the harvested OpenAPI.
+standards:
+  - id: pci-dss
+    conforms: true
+    evidence: >-
+      PCI DSS card vault at the highest level; ProcessOut.js tokenization lets
+      merchants qualify for SAQ A. (docs: security-standards)
+  - id: psd2-sca
+    conforms: true
+    evidence: Smart Router is fully compliant with PSD2 and Strong Customer Authentication.
+  - id: 3ds2
+    conforms: true
+    evidence: 3-D Secure 2 (3DS2) supported/implemented for SCA.
+  - id: oidc
+    conforms: true
+    evidence: Dashboard SSO supports OIDC (and SAML) for enterprise auth.
+  - id: saml
+    conforms: true
+    evidence: Dashboard SSO supports SAML.
+  - id: http-basic-auth
+    conforms: true
+    evidence: openapi securitySchemes sec0 type http scheme basic
+  - id: idempotency
+    conforms: true
+    evidence: Idempotency-Key header on mutating operations (openapi)
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors use a custom JSON envelope (success/error_type/message), not application/problem+json.
+  - id: oauth2
+    conforms: false
+    evidence: API authenticates with HTTP Basic project keys, not OAuth 2.
+compliance_program:
+  published: true
+  certifications: [PCI DSS]
+  regulatory: [PSD2/SCA, 3DS2]
+  page: https://www.processout.com/security
