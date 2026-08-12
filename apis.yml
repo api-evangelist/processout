@@ -178,7 +178,7 @@ maintainers:
 common:
 # --- Spec + agent surface ---
 - type: OpenAPI
-  url: openapi/processout-openapi.json
+  url: openapi/_original/processout-openapi.json
 - type: Overlay
   url: overlays/processout-openapi-overlay.yaml
 - type: MCPServer
