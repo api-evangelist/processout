@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ProcessOut Balances API",
+    "version": "1.0.3"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Balances",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch a token balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.processout.com/balances/tokens/:token_id",
+            "params": [
+              {
+                "name": "token_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the customer token"
+              }
+            ]
+          },
+          "docs": "Fetch a token balance"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

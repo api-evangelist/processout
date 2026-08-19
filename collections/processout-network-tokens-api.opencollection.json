@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ProcessOut Balances Network Tokens API",
+    "version": "1.0.3"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Network Tokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Provisioning Network Token for card",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.processout.com/network-tokens",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Provisioning Network Token for card"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

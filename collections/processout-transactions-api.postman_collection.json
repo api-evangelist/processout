@@ -1,0 +1,327 @@
+{
+  "item": [
+    {
+      "id": "277df105-c9ac-4155-a220-0282cf5f8dbb",
+      "name": "Transactions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "93c75996-2e41-4f8d-a3bb-8509154d798c",
+          "name": "Fetching a transaction",
+          "request": {
+            "name": "Fetching a transaction",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions",
+                ":transaction_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transaction_id",
+                  "description": "(Required) ID of the transaction"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique key to your request that will be used for idempotency",
+                "key": "Idempotency-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "20aabe8f-9078-434d-8b18-1c35cd136696",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) ID of the transaction"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"success\\\": true,\\n    \\\"transaction\\\": {\\n        \\\"id\\\": \\\"tr_msUOyQgmJp8UduKANzblNwa5hrjQGag5\\\",\\n        \\\"project_id\\\": \\\"proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S\\\",\\n        \\\"customer_id\\\": \\\"cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA\\\",\\n        \\\"routing_tags\\\": [\\n            \\\"rule-2-route\\\",\\n            \\\"GB1\\\",\\n            \\\"rule-3-dynamic_3ds\\\",\\n            \\\"country == FR\\\",\\n            \\\"currency == EUR\\\",\\n            \\\"card_last4 == 0001\\\",\\n            \\\"rule-4-dynamic_3ds\\\",\\n            \\\"card_country == FR\\\",\\n            \\\"currency == EUR\\\",\\n            \\\"amount > 30\\\",\\n            \\\"rule-5-dynamic_3ds\\\",\\n            \\\"card_country == FR\\\",\\n            \\\"currency == EUR\\\",\\n            \\\"amount > 30\\\"\\n        ],\\n        \\\"fraud_service_results\\\": null,\\n        \\\"operations\\\": null,\\n        \\\"name\\\": \\\"Amazing Product\\\",\\n        \\\"currency\\\": \\\"EUR\\\",\\n        \\\"details\\\": {\\n            \\\"country\\\": \\\"GB\\\"\\n        },\\n        \\\"metadata\\\": {\\n            \\\"fruit\\\": \\\"banana\\\"\\n        },\\n        \\\"sandbox\\\": true,\\n        \\\"created_at\\\": \\\"2023-04-22T15:19:08.653492Z\\\",\\n        \\\"invoice_id\\\": \\\"iv_cyxGn7nrOHuqQO4X5jbbwv16eN7GkZvB\\\",\\n        \\\"gateway_name\\\": \\\"sandbox\\\",\\n        \\\"status\\\": \\\"authorized\\\",\\n        \\\"three_d_s_status\\\": \\\"unchecked\\\",\\n        \\\"three_d_s_version\\\": null,\\n        \\\"gateway_configuration_id\\\": \\\"gway_conf_c23e011db34f4bac44e051840dfa3783\\\",\\n        \\\"token_id\\\": null,\\n        \\\"card_id\\\": \\\"card_DOekWV1nHVVloKxjqDOuZFr4CmSGj5rx\\\",\\n        \\\"error_code\\\": null,\\n        \\\"error_message\\\": null,\\n        \\\"three_d_s\\\": null,\\n        \\\"payment_type\\\": \\\"card\\\",\\n        \\\"eci\\\": null,\\n        \\\"mcc\\\": null,\\n        \\\"merchant_account_id\\\": null,\\n        \\\"cvc_check\\\": \\\"passed\\\",\\n        \\\"avs_check\\\": \\\"passed\\\",\\n        \\\"card_checks\\\": {\\n            \\\"cvc_check\\\": \\\"passed\\\",\\n            \\\"cvc_check_reason\\\": null,\\n            \\\"avs_check\\\": \\\"passed\\\",\\n            \\\"avs_postal_check\\\": \\\"passed\\\",\\n            \\\"avs_postal_check_reason\\\": null,\\n            \\\"avs_street_check\\\": \\\"passed\\\",\\n            \\\"avs_street_check_reason\\\": null,\\n            \\\"avs_name_check\\\": \\\"passed\\\",\\n            \\\"avs_name_check_reason\\\": null\\n        },\\n        \\\"amount\\\": \\\"29\\\",\\n        \\\"amount_local\\\": \\\"32.18\\\",\\n        \\\"authorized_amount\\\": \\\"29\\\",\\n        \\\"authorized_amount_local\\\": \\\"32.18\\\",\\n        \\\"captured_amount\\\": \\\"0\\\",\\n        \\\"captured_amount_local\\\": \\\"0\\\",\\n        \\\"available_amount\\\": \\\"0\\\",\\n        \\\"available_amount_local\\\": \\\"0\\\",\\n        \\\"incremented_amount\\\": \\\"0\\\",\\n        \\\"incremented_amount_local\\\": \\\"0\\\",\\n        \\\"refunded_amount\\\": \\\"0\\\",\\n        \\\"refunded_amount_local\\\": \\\"0\\\",\\n        \\\"currency_fee\\\": null,\\n        \\\"gateway_fee\\\": \\\"0\\\",\\n        \\\"gateway_fee_local\\\": \\\"0\\\",\\n        \\\"authorized_at\\\": \\\"2023-04-22T15:19:13.048765Z\\\",\\n        \\\"captured_at\\\": null,\\n        \\\"refunded_at\\\": null,\\n        \\\"voided_at\\\": null,\\n        \\\"chargedback_at\\\": null,\\n        \\\"received_fraud_notification\\\": false,\\n        \\\"received_retrieval_request\\\": false,\\n        \\\"acquirer_name\\\": null,\\n        \\\"attempts_count\\\": 1,\\n        \\\"authorized\\\": true,\\n        \\\"captured\\\": false,\\n        \\\"refunded\\\": false,\\n        \\\"voided\\\": false,\\n        \\\"chargedback\\\": false,\\n        \\\"merchant_advice_code\\\": null,\\n        \\\"merchant_advice_reason\\\": null,\\n        \\\"recommendation_code\\\": null,\\n        \\\"recommendation_reason\\\": null,\\n        \\\"scheme_id\\\": \\\"5196843282\\\",\\n        \\\"initial_scheme_transaction_id\\\": null,\\n        \\\"sca\\\": null,\\n        \\\"subscription_cycle\\\": null,\\n        \\\"error_recommendations\\\": [],\\n        \\\"gateway_fee_details\\\": {\\n            \\\"processing_fee\\\": \\\"0\\\",\\n            \\\"exchange_fee\\\": \\\"0\\\",\\n            \\\"refund_fee\\\": \\\"0\\\",\\n            \\\"interchange_fee\\\": \\\"0\\\",\\n            \\\"scheme_fee\\\": \\\"0\\\",\\n            \\\"markup_fee\\\": \\\"0\\\",\\n            \\\"interchange_fee_estimate\\\": \\\"0\\\",\\n            \\\"scheme_fee_estimate\\\": \\\"0\\\"\\n        },\\n        \\\"external_details\\\": {\\n        \\t\\t\\\"customer\\\": {\\n              \\\"last_name\\\": \\\"\\\",\\n              \\\"first_name\\\": \\\"\\\",\\n              \\\"address1\\\": \\\"\\\",\\n              \\\"address2\\\": \\\"\\\",\\n              \\\"state\\\": \\\"\\\",\\n              \\\"city\\\": \\\"\\\",\\n              \\\"zip\\\": \\\"\\\",\\n              \\\"country_code\\\": \\\"\\\",\\n              \\\"phone_number\\\": \\\"\\\",\\n              \\\"email\\\": \\\"\\\"\\n  \\t\\t\\t\\t\\t},\\n  \\t\\t\\t\\t\\t\\\"shipping\\\": {\\n              \\\"address1\\\": \\\"\\\",\\n              \\\"address2\\\": \\\"\\\",\\n              \\\"state\\\": \\\"\\\",\\n              \\\"city\\\": \\\"\\\",\\n              \\\"zip\\\": \\\"\\\",\\n              \\\"country_code\\\": \\\"\\\"\\n  \\t\\t\\t\\t\\t}\\n        },  \\n        \\\"estimated_fee\\\": \\\"1.17\\\",\\n        \\\"refunds\\\": null,\\n        \\\"buyer\\\": {\\n            \\\"name\\\": \\\"\\\",\\n            \\\"email\\\": \\\"\\\",\\n            \\\"address\\\": \\\"\\\",\\n            \\\"phone\\\": \\\"\\\"\\n        },\\n        \\\"is_on_us\\\": null,\\n        \\\"processout_fee\\\": \\\"0\\\",\\n        \\\"subscription_id\\\": null,\\n        \\\"duplicate_distance_seconds\\\": null\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d77ac506-a701-4da2-aa42-c5aa65760094",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) ID of the transaction"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"success\\\": false,\\n  \\\"message\\\": \\\"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\\\",\\n  \\\"error_type\\\": \\\"request.authentication.invalid\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2132d0a6-34b6-410e-879f-372ffae774bc",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) ID of the transaction"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"error_type\\\": \\\"resource.transaction.not-found\\\",\\n    \\\"message\\\": \\\"The transaction could not be found.\\\",\\n    \\\"success\\\": false\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98fba5ec-a215-4fc4-9751-7859653f9779",
+              "name": "4XX",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_id",
+                      "description": "(Required) ID of the transaction"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"error_type\\\": \\\"*Error code*\\\",\\n  \\\"message\\\": \\\"*Error message*\\\",\\n  \\\"success\\\": false\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.processout.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9d313a32-cd23-4ba2-81d3-54e9abd58e37",
+    "name": "ProcessOut Balances Transactions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation. Authentication is HTTP Basic using a project ID (username) and secret API key (password). This OpenAPI 3.1 description was assembled by API Evangelist from the per-operation OpenAPI fragments ProcessOut publishes in each ReadMe API-reference page.\n\nContact Support:\n Email: help@processout.com",
+      "type": "text/plain"
+    }
+  }
+}

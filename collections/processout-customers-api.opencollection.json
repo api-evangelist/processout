@@ -1,0 +1,121 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ProcessOut Balances Customers API",
+    "version": "1.0.3"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Customers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Creating a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.processout.com/customers",
+            "headers": [
+              {
+                "name": "Idempotency-Key",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creating a customer"
+        },
+        {
+          "info": {
+            "name": "Creating a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.processout.com/customers/:customer_id/tokens",
+            "headers": [
+              {
+                "name": "Idempotency-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "customer_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of your customer"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creating a token"
+        },
+        {
+          "info": {
+            "name": "Fetching a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.processout.com/customers/:customer_id/tokens/:token_id",
+            "headers": [
+              {
+                "name": "Idempotency-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "customer_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of your customer"
+              },
+              {
+                "name": "token_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the customer token"
+              }
+            ]
+          },
+          "docs": "Fetching a token"
+        },
+        {
+          "info": {
+            "name": "Update a token",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.processout.com/customers/:customer_id/tokens/:token_id",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

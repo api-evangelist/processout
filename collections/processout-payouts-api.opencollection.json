@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ProcessOut Balances Payouts API",
+    "version": "1.0.3"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payouts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetching a payout",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.processout.com/payouts/:payout_id",
+            "headers": [
+              {
+                "name": "Idempotency-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "payout_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the payout, received via webhooks or fetched with the API"
+              }
+            ]
+          },
+          "docs": "Fetching a payout"
+        },
+        {
+          "info": {
+            "name": "Deleting payout",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.processout.com/payouts/:payout_id",
+            "headers": [
+              {
+                "name": "Idempotency-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "payout_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the payout"
+              }
+            ]
+          },
+          "docs": "Deleting payout"
+        },
+        {
+          "info": {
+            "name": "Listing payout items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.processout.com/payouts/:payout_id/items",
+            "headers": [
+              {
+                "name": "Idempotency-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "payout_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the payout, received via webhooks or fetched with the API"
+              }
+            ]
+          },
+          "docs": "Listing payout items"
+        },
+        {
+          "info": {
+            "name": "Listing payouts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.processout.com/payouts",
+            "headers": [
+              {
+                "name": "Idempotency-Key",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Listing payouts"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

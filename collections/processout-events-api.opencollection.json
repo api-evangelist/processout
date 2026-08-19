@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ProcessOut Balances Events API",
+    "version": "1.0.3"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetching an event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.processout.com/events/:event_id",
+            "headers": [
+              {
+                "name": "Idempotency-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "event_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the event received on the webhook endpoint"
+              }
+            ]
+          },
+          "docs": "Fetching an event"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

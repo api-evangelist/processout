@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ProcessOut Balances Uploads API",
+    "version": "1.0.3"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Uploads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetching report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.processout.com/uploads/reports/:report_id",
+            "headers": [
+              {
+                "name": "Idempotency-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "report_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the report"
+              }
+            ]
+          },
+          "docs": "Fetching report"
+        },
+        {
+          "info": {
+            "name": "Deleting uploaded report",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.processout.com/uploads/reports/:report_id",
+            "headers": [
+              {
+                "name": "Idempotency-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "report_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the uploaded report"
+              }
+            ]
+          },
+          "docs": "Deleting uploaded report"
+        },
+        {
+          "info": {
+            "name": "Downloading raw PSP report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.processout.com/uploads/reports/:report_id/raw",
+            "headers": [
+              {
+                "name": "Idempotency-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "report_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the report"
+              }
+            ]
+          },
+          "docs": "Downloading raw PSP report"
+        },
+        {
+          "info": {
+            "name": "Listing reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.processout.com/uploads/reports",
+            "headers": [
+              {
+                "name": "Idempotency-Key",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Listing reports"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1026 @@
+{
+  "item": [
+    {
+      "id": "874b1d2d-f2c1-4d95-88da-05ad4ced0e7c",
+      "name": "Payouts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "117e6ae0-714e-4c84-8486-e5962da86da1",
+          "name": "Deleting payout",
+          "request": {
+            "name": "Deleting payout",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payouts",
+                ":payout_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "payout_id",
+                  "description": "(Required) ID of the payout"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique key to your request that will be used for idempotency",
+                "key": "Idempotency-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e1c1fad1-36c9-4878-a0df-b323d7b480b9",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts",
+                    ":payout_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payout_id",
+                      "description": "(Required) ID of the payout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"success\\\": true\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62d8bb21-225e-4985-a07e-c83f8d52caab",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts",
+                    ":payout_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payout_id",
+                      "description": "(Required) ID of the payout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"success\\\": false,\\n    \\\"message\\\": \\\"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\\\",\\n    \\\"error_type\\\": \\\"request.authentication.invalid\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d09be08-aeb7-4935-86e0-8b1c3e3a3871",
+              "name": "4XX",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts",
+                    ":payout_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payout_id",
+                      "description": "(Required) ID of the payout"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"error_type\\\": \\\"*Error code*\\\",\\n  \\\"message\\\": \\\"*Error message*\\\",\\n  \\\"success\\\": false\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27cb19c4-b072-43f1-b404-020786c3576b",
+          "name": "Fetching a payout",
+          "request": {
+            "name": "Fetching a payout",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payouts",
+                ":payout_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "payout_id",
+                  "description": "(Required) ID of the payout, received via webhooks or fetched with the API"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique key to your request that will be used for idempotency",
+                "key": "Idempotency-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42c1b1d0-1abc-47a5-9ac1-9df2f754c89b",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts",
+                    ":payout_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payout_id",
+                      "description": "(Required) ID of the payout, received via webhooks or fetched with the API"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"payout\\\": {\\n        \\\"id\\\": \\\"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\\\",\\n        \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n        \\\"gateway_configuration\\\": {\\n            \\\"id\\\": \\\"gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2\\\",\\n            \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n            \\\"gateway_id\\\": 6,\\n            \\\"gateway_name\\\": \\\"stripe\\\",\\n            \\\"name\\\": \\\"Stripe US\\\",\\n            \\\"default_currency\\\": \\\"USD\\\",\\n            \\\"processing_region\\\": null,\\n            \\\"merchant_account_country_code\\\": null,\\n            \\\"enabled\\\": true,\\n            \\\"sub_accounts_enabled\\\": [\\n                \\\"stripe\\\"\\n            ],\\n            \\\"public_keys\\\": {\\n                \\\"public_key\\\": \\\"pk_test_pFEddfERFEdfEFE\\\"\\n            },\\n            \\\"is_pulling\\\": false,\\n            \\\"config_entries\\\": null,\\n            \\\"sandbox\\\": false,\\n            \\\"created_at\\\": \\\"2017-12-12T16:25:49.238147Z\\\",\\n            \\\"enabled_at\\\": \\\"2017-12-12T16:25:50.553585Z\\\"\\n        },\\n        \\\"gateway_configuration_id\\\": \\\"gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2\\\",\\n        \\\"report_ids\\\": [\\n            \\\"rep_123CLedNlW2WSdqEF0DlxWJtBOZfvMK0\\\",\\n            \\\"rep_456CLedNlW2WSdqEF0DlxWJtBOZfvMK1\\\"\\n        ],\\n        \\\"gateway_resource_id\\\": \\\"po_1GZ5A3GY1kBCI7IQNUjT6oeK\\\",\\n        \\\"status\\\": \\\"received\\\",\\n        \\\"failure_reason_code\\\": null,\\n        \\\"failure_reason\\\": null,\\n        \\\"metadata\\\": {},\\n        \\\"amount\\\": \\\"5315.26\\\",\\n        \\\"currency\\\": \\\"EUR\\\",\\n        \\\"bank_name\\\": \\\"N26 BANK GMBH\\\",\\n        \\\"bank_summary\\\": \\\"\\\",\\n        \\\"sales_transactions\\\": 617,\\n        \\\"sales_volume\\\": \\\"5549.72\\\",\\n        \\\"sales_fees\\\": \\\"-234.46\\\",\\n        \\\"refunds_transactions\\\": 0,\\n        \\\"refunds_volume\\\": \\\"0\\\",\\n        \\\"refunds_fees\\\": \\\"0\\\",\\n        \\\"chargebacks_transactions\\\": 0,\\n        \\\"chargebacks_volume\\\": \\\"0\\\",\\n        \\\"chargebacks_fees\\\": \\\"0\\\",\\n        \\\"fees\\\": \\\"-234.46\\\",\\n\\t\\t\\t  \\\"adjustments\\\": \\\"0\\\",\\n        \\\"adjustments_volume\\\": \\\"0\\\",\\n        \\\"adjustments_fees\\\": \\\"0\\\",\\n        \\\"reserve\\\": \\\"0\\\",\\n        \\\"reserve_volume\\\": \\\"0\\\",\\n        \\\"reserve_fees\\\": \\\"0\\\",\\n        \\\"settled_at\\\": \\\"2020-04-16T23:59:25Z\\\",\\n        \\\"created_at\\\": \\\"2020-04-18T01:17:48.755358Z\\\"\\n    },\\n    \\\"success\\\": true\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4f5a2f5-27ff-474d-97e1-ebafa8cb570d",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts",
+                    ":payout_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payout_id",
+                      "description": "(Required) ID of the payout, received via webhooks or fetched with the API"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"success\\\": false,\\n  \\\"message\\\": \\\"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\\\",\\n  \\\"error_type\\\": \\\"request.authentication.invalid\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0793a340-cf16-45ff-95a7-f729a954ff40",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts",
+                    ":payout_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payout_id",
+                      "description": "(Required) ID of the payout, received via webhooks or fetched with the API"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"error_type\\\":\\\"resource.payout.not-found\\\",\\n  \\\"message\\\":\\\"The payout could not be found.\\\",\\n  \\\"success\\\":false\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ece93d80-cb00-44d4-ae41-7f425976b9be",
+              "name": "4XX",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts",
+                    ":payout_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payout_id",
+                      "description": "(Required) ID of the payout, received via webhooks or fetched with the API"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"error_type\\\": \\\"*Error code*\\\",\\n  \\\"message\\\": \\\"*Error message*\\\",\\n  \\\"success\\\": false\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bac932eb-d271-449b-a791-0f093d1ce3ec",
+          "name": "Listing payout items",
+          "request": {
+            "name": "Listing payout items",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payouts",
+                ":payout_id",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "payout_id",
+                  "description": "(Required) ID of the payout, received via webhooks or fetched with the API"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique key to your request that will be used for idempotency",
+                "key": "Idempotency-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "10ef2537-0030-43e0-9d31-09f07c8a2848",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts",
+                    ":payout_id",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payout_id",
+                      "description": "(Required) ID of the payout, received via webhooks or fetched with the API"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"count\\\": 10,\\n  \\\"has_more\\\": true,\\n  \\\"items\\\": [\\n    {\\n      \\\"id\\\": \\\"payt_itm_UokoiqzvKDC3Ab1VTAyP07lE6Ebu7zMa\\\",\\n      \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n      \\\"payout_id\\\": \\\"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\\\",\\n      \\\"transaction_id\\\": null,\\n      \\\"report_id\\\": \\\"rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW\\\",\\n      \\\"type\\\": \\\"sale\\\",\\n      \\\"payment_provider_type\\\": null,\\n      \\\"gateway_resource_id\\\": \\\"pi_XXXXbqGY1kBCI7IQyjDGB8Ih\\\",\\n      \\\"amount\\\": \\\"9\\\",\\n      \\\"fees\\\": \\\"-0.38\\\",\\n      \\\"breakdown\\\": {\\n        \\\"scheme_fee\\\":  null,\\n        \\\"interchange_fee\\\":  null,\\n        \\\"gateway_fee\\\": null,\\n        \\\"markup_fee\\\":  null,\\n        \\\"acquirer_fee\\\": null,\\n        \\\"other_fee\\\": \\\"-0.38\\\"\\n      },\\n      \\\"metadata\\\": {},\\n      \\\"created_at\\\": \\\"2020-04-16T23:59:25Z\\\"\\n    },\\n    {\\n      \\\"id\\\": \\\"payt_itm_opEjabroBqashziWVbTWwfdT0Efv6dZ5\\\",\\n      \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n      \\\"payout_id\\\": \\\"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\\\",\\n      \\\"transaction_id\\\": null,\\n      \\\"report_id\\\": \\\"rep_456e5RDbW3zf0eu73bkeeeSc1d0D6aiW\\\",\\n      \\\"type\\\": \\\"sale\\\",\\n      \\\"payment_provider_type\\\": null,\\n      \\\"gateway_resource_id\\\": \\\"pi_XXXXZ5GY1kBCI7IQlFp9E4ek\\\",\\n      \\\"amount\\\": \\\"9\\\",\\n      \\\"fees\\\": \\\"-0.38\\\",\\n      \\\"breakdown\\\": {\\n        \\\"scheme_fee\\\":  null,\\n        \\\"interchange_fee\\\":  null,\\n        \\\"gateway_fee\\\": null,\\n        \\\"markup_fee\\\":  null,\\n        \\\"acquirer_fee\\\": null,\\n        \\\"other_fee\\\": \\\"-0.38\\\"\\n      },\\n      \\\"metadata\\\": {},\\n      \\\"created_at\\\": \\\"2020-04-16T23:56:40Z\\\"\\n    },\\n    {\\n      \\\"id\\\": \\\"payt_itm_2bYYgllki6k6ozN1zzt5dPizabtKDmpA\\\",\\n      \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n      \\\"payout_id\\\": \\\"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\\\",\\n      \\\"transaction_id\\\": null,\\n      \\\"report_id\\\": \\\"rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW\\\",\\n      \\\"type\\\": \\\"sale\\\",\\n      \\\"payment_provider_type\\\": null,\\n      \\\"gateway_resource_id\\\": \\\"pi_XXXXX2GY1kBCI7IQRxTrZw9z\\\",\\n      \\\"amount\\\": \\\"9\\\",\\n      \\\"fees\\\": \\\"-0.38\\\",\\n      \\\"breakdown\\\": {\\n        \\\"scheme_fee\\\":  null,\\n        \\\"interchange_fee\\\":  null,\\n        \\\"gateway_fee\\\": null,\\n        \\\"markup_fee\\\":  null,\\n        \\\"acquirer_fee\\\": null,\\n        \\\"other_fee\\\": \\\"-0.38\\\"\\n      },\\n      \\\"metadata\\\": {},\\n      \\\"created_at\\\": \\\"2020-04-16T23:54:25Z\\\"\\n    },\\n    {\\n      \\\"id\\\": \\\"payt_itm_k28TTQvQUKXwt2nzEpyI8a4eCT7pEkxD\\\",\\n      \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n      \\\"payout_id\\\": \\\"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\\\",\\n      \\\"transaction_id\\\": null,\\n      \\\"report_id\\\": \\\"rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW\\\",\\n      \\\"type\\\": \\\"sale\\\",\\n      \\\"payment_provider_type\\\": null,\\n      \\\"gateway_resource_id\\\": \\\"pi_XXXXUNGY1kBCI7IQYn01EhgS\\\",\\n      \\\"amount\\\": \\\"9\\\",\\n      \\\"fees\\\": \\\"-0.38\\\",\\n      \\\"breakdown\\\": {\\n        \\\"scheme_fee\\\":  null,\\n        \\\"interchange_fee\\\":  null,\\n        \\\"gateway_fee\\\": null,\\n        \\\"markup_fee\\\":  null,\\n        \\\"acquirer_fee\\\": null,\\n        \\\"other_fee\\\": \\\"-0.38\\\"\\n      },\\n      \\\"metadata\\\": {},\\n      \\\"created_at\\\": \\\"2020-04-16T23:51:43Z\\\"\\n    },\\n    {\\n      \\\"id\\\": \\\"payt_itm_hmoYuFGmwPWHLaPoIwuUjVZEzOgwfnyG\\\",\\n      \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n      \\\"payout_id\\\": \\\"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\\\",\\n      \\\"transaction_id\\\": null,\\n      \\\"report_id\\\": \\\"rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW\\\",\\n      \\\"type\\\": \\\"sale\\\",\\n      \\\"payment_provider_type\\\": null,\\n      \\\"gateway_resource_id\\\": \\\"pi_XXXXS4GY1kBCI7IQNh8AMOaT\\\",\\n      \\\"amount\\\": \\\"9\\\",\\n      \\\"fees\\\": \\\"-0.38\\\",\\n      \\\"breakdown\\\": {\\n        \\\"scheme_fee\\\":  null,\\n        \\\"interchange_fee\\\":  null,\\n        \\\"gateway_fee\\\": null,\\n        \\\"markup_fee\\\":  null,\\n        \\\"acquirer_fee\\\": null,\\n        \\\"other_fee\\\": \\\"-0.38\\\"\\n      },\\n      \\\"metadata\\\": {},\\n      \\\"created_at\\\": \\\"2020-04-16T23:49:23Z\\\"\\n    },\\n    {\\n      \\\"id\\\": \\\"payt_itm_07I3UDtOIAKQeRDBcI6UbqcO1M1rZmmW\\\",\\n      \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n      \\\"payout_id\\\": \\\"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\\\",\\n      \\\"transaction_id\\\": null,\\n      \\\"report_id\\\": \\\"rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW\\\",\\n      \\\"type\\\": \\\"sale\\\",\\n      \\\"payment_provider_type\\\": null,\\n      \\\"gateway_resource_id\\\": \\\"pi_XXXXPPGY1kBCI7IQdDMhAoHe\\\",\\n      \\\"amount\\\": \\\"9\\\",\\n      \\\"fees\\\": \\\"-0.38\\\",\\n      \\\"breakdown\\\": {\\n        \\\"scheme_fee\\\":  null,\\n        \\\"interchange_fee\\\":  null,\\n        \\\"gateway_fee\\\": null,\\n        \\\"markup_fee\\\":  null,\\n        \\\"acquirer_fee\\\": null,\\n        \\\"other_fee\\\": \\\"-0.38\\\"\\n      },\\n      \\\"metadata\\\": {},\\n      \\\"created_at\\\": \\\"2020-04-16T23:46:44Z\\\"\\n    },\\n    {\\n      \\\"id\\\": \\\"payt_itm_A4BwCS4WsnuabEjBOFiwmjtv6IVK7c18\\\",\\n      \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n      \\\"payout_id\\\": \\\"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\\\",\\n      \\\"transaction_id\\\": null,\\n      \\\"report_id\\\": \\\"rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW\\\",\\n      \\\"type\\\": \\\"sale\\\",\\n      \\\"payment_provider_type\\\": null,\\n      \\\"gateway_resource_id\\\": \\\"pi_XXXXNBGY1kBCI7IQBV7R7MIU\\\",\\n      \\\"amount\\\": \\\"9\\\",\\n      \\\"fees\\\": \\\"-0.38\\\",\\n      \\\"breakdown\\\": {\\n        \\\"scheme_fee\\\":  null,\\n        \\\"interchange_fee\\\":  null,\\n        \\\"gateway_fee\\\": null,\\n        \\\"markup_fee\\\":  null,\\n        \\\"acquirer_fee\\\": null,\\n        \\\"other_fee\\\": \\\"-0.38\\\"\\n      },\\n      \\\"metadata\\\": {},\\n      \\\"created_at\\\": \\\"2020-04-16T23:44:19Z\\\"\\n    },\\n    {\\n      \\\"id\\\": \\\"payt_itm_Wpo6ZCeuG1GT8mbYprGxm2Kue7hOubdC\\\",\\n      \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n      \\\"payout_id\\\": \\\"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\\\",\\n      \\\"transaction_id\\\": null,\\n      \\\"report_id\\\": \\\"rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW\\\",\\n      \\\"type\\\": \\\"sale\\\",\\n      \\\"payment_provider_type\\\": null,\\n      \\\"gateway_resource_id\\\": \\\"pi_XXXXKUGY1kBCI7IQ9ADiiy4C\\\",\\n      \\\"amount\\\": \\\"9\\\",\\n      \\\"fees\\\": \\\"-0.38\\\",\\n      \\\"breakdown\\\": {\\n        \\\"scheme_fee\\\":  null,\\n        \\\"interchange_fee\\\":  null,\\n        \\\"gateway_fee\\\": null,\\n        \\\"markup_fee\\\":  null,\\n        \\\"acquirer_fee\\\": null,\\n        \\\"other_fee\\\": \\\"-0.38\\\"\\n      },\\n      \\\"metadata\\\": {},\\n      \\\"created_at\\\": \\\"2020-04-16T23:41:36Z\\\"\\n    },\\n    {\\n      \\\"id\\\": \\\"payt_itm_yitkEAVd6Lle1Wtk5A1PmtCY1D82cMKg\\\",\\n      \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n      \\\"payout_id\\\": \\\"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\\\",\\n      \\\"transaction_id\\\": null,\\n      \\\"report_id\\\": \\\"rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW\\\",\\n      \\\"type\\\": \\\"sale\\\",\\n      \\\"payment_provider_type\\\": null,\\n      \\\"gateway_resource_id\\\": \\\"pi_XXXXIIGY1kBCI7IQc2Hg9h3y\\\",\\n      \\\"amount\\\": \\\"9\\\",\\n      \\\"fees\\\": \\\"-0.38\\\",\\n      \\\"breakdown\\\": {\\n        \\\"scheme_fee\\\":  null,\\n        \\\"interchange_fee\\\":  null,\\n        \\\"gateway_fee\\\": null,\\n        \\\"markup_fee\\\":  null,\\n        \\\"acquirer_fee\\\": null,\\n        \\\"other_fee\\\": \\\"-0.38\\\"\\n      },\\n      \\\"metadata\\\": {},\\n      \\\"created_at\\\": \\\"2020-04-16T23:39:16Z\\\"\\n    },\\n    {\\n      \\\"id\\\": \\\"payt_itm_MHkO7Ls54sFxuFxGjnwl0RLKPU7gaCFy\\\",\\n      \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n      \\\"payout_id\\\": \\\"payt_TThsHEiq4UzgnUZGXTP8oDjJQtxjWgJe\\\",\\n      \\\"transaction_id\\\": null,\\n      \\\"report_id\\\": \\\"rep_123e5RDbW3zf0eu73bkeeeSc1d0D6aiW\\\",\\n      \\\"type\\\": \\\"sale\\\",\\n      \\\"payment_provider_type\\\": null,\\n      \\\"gateway_resource_id\\\": \\\"pi_XXXXFdGY1kBCI7IQNcs7VbCq\\\",\\n      \\\"amount\\\": \\\"9\\\",\\n      \\\"fees\\\": \\\"-0.38\\\",\\n      \\\"breakdown\\\": {\\n        \\\"scheme_fee\\\":  null,\\n        \\\"interchange_fee\\\":  null,\\n        \\\"gateway_fee\\\": null,\\n        \\\"markup_fee\\\":  null,\\n        \\\"acquirer_fee\\\": null,\\n        \\\"other_fee\\\": \\\"-0.38\\\"\\n      },\\n      \\\"metadata\\\": {},\\n      \\\"created_at\\\": \\\"2020-04-16T23:36:39Z\\\"\\n    }\\n  ],\\n  \\\"limit\\\": 10,\\n  \\\"order\\\": \\\"desc\\\",\\n  \\\"success\\\": true,\\n  \\\"total_count\\\": 14451\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c087e985-40e6-4011-a241-b85027733deb",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts",
+                    ":payout_id",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payout_id",
+                      "description": "(Required) ID of the payout, received via webhooks or fetched with the API"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"success\\\": false,\\n  \\\"message\\\": \\\"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\\\",\\n  \\\"error_type\\\": \\\"request.authentication.invalid\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91369b8b-1805-4dfe-ad92-1d6d7d01596f",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts",
+                    ":payout_id",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payout_id",
+                      "description": "(Required) ID of the payout, received via webhooks or fetched with the API"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"error_type\\\":\\\"resource.payout.not-found\\\",\\n  \\\"message\\\":\\\"The payout could not be found.\\\",\\n  \\\"success\\\":false\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1a86bf1-3808-408d-b627-cd8f946d0361",
+              "name": "4XX",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts",
+                    ":payout_id",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payout_id",
+                      "description": "(Required) ID of the payout, received via webhooks or fetched with the API"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"error_type\\\": \\\"*Error code*\\\",\\n  \\\"message\\\": \\\"*Error message*\\\",\\n  \\\"success\\\": false\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3bde472-a0c2-42c2-a892-a563cdd9c90d",
+          "name": "Listing payouts",
+          "request": {
+            "name": "Listing payouts",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payouts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique key to your request that will be used for idempotency",
+                "key": "Idempotency-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "df8de1ff-3911-4f99-aaac-c99bf4424329",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"count\\\": 3,\\n    \\\"has_more\\\": false,\\n    \\\"limit\\\": 10,\\n    \\\"order\\\": \\\"desc\\\",\\n    \\\"payouts\\\": [\\n        {\\n            \\\"id\\\": \\\"payt_xrrP1uGvDRkP0aAXtqqehDdFhqIgXJ30\\\",\\n            \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n            \\\"gateway_configuration\\\": {\\n                \\\"id\\\": \\\"gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2\\\",\\n                \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n                \\\"gateway_id\\\": 6,\\n                \\\"gateway_name\\\": \\\"stripe\\\",\\n                \\\"name\\\": \\\"Stripe US Account\\\",\\n                \\\"default_currency\\\": \\\"USD\\\",\\n                \\\"processing_region\\\": null,\\n                \\\"merchant_account_country_code\\\": null,\\n                \\\"enabled\\\": true,\\n                \\\"sub_accounts_enabled\\\": [\\n                    \\\"stripe\\\"\\n                ],\\n                \\\"public_keys\\\": {\\n                    \\\"public_key\\\": \\\"pk_test_pmXXEEFGFlFeFFTRd33\\\"\\n                },\\n                \\\"is_pulling\\\": false,\\n                \\\"config_entries\\\": null,\\n                \\\"sandbox\\\": false,\\n                \\\"created_at\\\": \\\"2017-12-12T16:25:49.238147Z\\\",\\n                \\\"enabled_at\\\": \\\"2017-12-12T16:25:50.553585Z\\\"\\n            },\\n            \\\"gateway_configuration_id\\\": \\\"gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2\\\",\\n            \\\"gateway_resource_id\\\": \\\"po_1GaXWaGY1kBCI7IQirV34GFM\\\",\\n            \\\"status\\\": \\\"received\\\",\\n            \\\"failure_reason_code\\\": null,\\n            \\\"failure_reason\\\": null,\\n            \\\"metadata\\\": {},\\n            \\\"amount\\\": \\\"5402.93\\\",\\n            \\\"currency\\\": \\\"EUR\\\",\\n            \\\"bank_name\\\": \\\"N26 BANK GMBH\\\",\\n            \\\"bank_summary\\\": \\\"\\\",\\n            \\\"sales_transactions\\\": 625,\\n            \\\"sales_volume\\\": \\\"5640.43\\\",\\n            \\\"sales_fees\\\": \\\"-237.5\\\",\\n            \\\"refunds_transactions\\\": 0,\\n            \\\"refunds_volume\\\": \\\"0\\\",\\n            \\\"refunds_fees\\\": \\\"0\\\",\\n            \\\"chargebacks_transactions\\\": 0,\\n            \\\"chargebacks_volume\\\": \\\"0\\\",\\n            \\\"chargebacks_fees\\\": \\\"0\\\",\\n            \\\"fees\\\": \\\"-234.46\\\",\\n            \\\"adjustments\\\": \\\"0\\\",\\n            \\\"adjustments_volume\\\": \\\"0\\\",\\n            \\\"adjustments_fees\\\": \\\"0\\\",\\n            \\\"reserve\\\": \\\"0\\\",\\n            \\\"reserve_volume\\\": \\\"0\\\",\\n            \\\"reserve_fees\\\": \\\"0\\\",\\n            \\\"settled_at\\\": \\\"2020-04-20T23:57:14Z\\\",\\n            \\\"created_at\\\": \\\"2020-04-22T01:47:58.250171Z\\\"\\n        },\\n        {\\n            \\\"id\\\": \\\"payt_uuVSsvmuGdxqVR1YoquQxLUt3cBw74gc\\\",\\n            \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n            \\\"gateway_configuration\\\": {\\n                \\\"id\\\": \\\"gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2\\\",\\n                \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n                \\\"gateway_id\\\": 6,\\n                \\\"gateway_name\\\": \\\"stripe\\\",\\n                \\\"name\\\": \\\"Adyen\\\",\\n                \\\"default_currency\\\": \\\"USD\\\",\\n                \\\"processing_region\\\": null,\\n                \\\"merchant_account_country_code\\\": null,\\n                \\\"enabled\\\": true,\\n                \\\"sub_accounts_enabled\\\": [\\n                    \\\"stripe\\\"\\n                ],\\n                \\\"public_keys\\\": {\\n                    \\\"public_key\\\": \\\"pk_test_pmXXEEFGFlFeFFTRd33\\\"\\n                },\\n                \\\"is_pulling\\\": false,\\n                \\\"config_entries\\\": null,\\n                \\\"sandbox\\\": false,\\n                \\\"created_at\\\": \\\"2017-12-12T16:25:49.238147Z\\\",\\n                \\\"enabled_at\\\": \\\"2017-12-12T16:25:50.553585Z\\\"\\n            },\\n            \\\"gateway_configuration_id\\\": \\\"gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2\\\",\\n            \\\"gateway_resource_id\\\": \\\"po_1GaAfVGY1kBCI7IQ2DxffZUN\\\",\\n            \\\"status\\\": \\\"received\\\",\\n            \\\"failure_reason_code\\\": null,\\n            \\\"failure_reason\\\": null,\\n            \\\"metadata\\\": {},\\n            \\\"amount\\\": \\\"5367.86\\\",\\n            \\\"currency\\\": \\\"EUR\\\",\\n            \\\"bank_name\\\": \\\"N26 BANK GMBH\\\",\\n            \\\"bank_summary\\\": \\\"\\\",\\n            \\\"sales_transactions\\\": 622,\\n            \\\"sales_volume\\\": \\\"5604.22\\\",\\n            \\\"sales_fees\\\": \\\"-236.36\\\",\\n            \\\"refunds_transactions\\\": 0,\\n            \\\"refunds_volume\\\": \\\"0\\\",\\n            \\\"refunds_fees\\\": \\\"0\\\",\\n            \\\"chargebacks_transactions\\\": 0,\\n            \\\"chargebacks_volume\\\": \\\"0\\\",\\n            \\\"chargebacks_fees\\\": \\\"0\\\",\\n            \\\"fees\\\": \\\"-234.46\\\",\\n            \\\"adjustments\\\": \\\"0\\\",\\n            \\\"adjustments_volume\\\": \\\"0\\\",\\n            \\\"adjustments_fees\\\": \\\"0\\\",\\n            \\\"reserve\\\": \\\"0\\\",\\n            \\\"reserve_volume\\\": \\\"0\\\",\\n            \\\"reserve_fees\\\": \\\"0\\\",\\n            \\\"settled_at\\\": \\\"2020-04-19T23:58:54Z\\\",\\n            \\\"created_at\\\": \\\"2020-04-21T01:17:58.583458Z\\\"\\n        },\\n        {\\n            \\\"id\\\": \\\"payt_Q4LcEBbnjppQqYn5rxJzOYoml07ODnaM\\\",\\n            \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n            \\\"gateway_configuration\\\": {\\n                \\\"id\\\": \\\"gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2\\\",\\n                \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n                \\\"gateway_id\\\": 6,\\n                \\\"gateway_name\\\": \\\"stripe\\\",\\n                \\\"name\\\": \\\"Adyen\\\",\\n                \\\"default_currency\\\": \\\"USD\\\",\\n                \\\"processing_region\\\": null,\\n                \\\"merchant_account_country_code\\\": null,\\n                \\\"enabled\\\": true,\\n                \\\"sub_accounts_enabled\\\": [\\n                    \\\"stripe\\\"\\n                ],\\n                \\\"public_keys\\\": {\\n                    \\\"public_key\\\": \\\"pk_test_pmXXEEFGFlFeFFTRd33\\\"\\n                },\\n                \\\"is_pulling\\\": false,\\n                \\\"config_entries\\\": null,\\n                \\\"sandbox\\\": false,\\n                \\\"created_at\\\": \\\"2017-12-12T16:25:49.238147Z\\\",\\n                \\\"enabled_at\\\": \\\"2017-12-12T16:25:50.553585Z\\\"\\n            },\\n            \\\"gateway_configuration_id\\\": \\\"gway_conf_p7yr1ns1py9nie3ipxidxc2wz6uxq34m-2\\\",\\n            \\\"gateway_resource_id\\\": \\\"po_1GZobgGY1kBCI7IQB7bpVoT2\\\",\\n            \\\"status\\\": \\\"received\\\",\\n            \\\"failure_reason_code\\\": null,\\n            \\\"failure_reason\\\": null,\\n            \\\"metadata\\\": {},\\n            \\\"amount\\\": \\\"5350.78\\\",\\n            \\\"currency\\\": \\\"EUR\\\",\\n            \\\"bank_name\\\": \\\"N26 BANK GMBH\\\",\\n            \\\"bank_summary\\\": \\\"\\\",\\n            \\\"sales_transactions\\\": 620,\\n            \\\"sales_volume\\\": \\\"5586.38\\\",\\n            \\\"sales_fees\\\": \\\"-235.6\\\",\\n            \\\"refunds_transactions\\\": 0,\\n            \\\"refunds_volume\\\": \\\"0\\\",\\n            \\\"refunds_fees\\\": \\\"0\\\",\\n            \\\"chargebacks_transactions\\\": 0,\\n            \\\"chargebacks_volume\\\": \\\"0\\\",\\n            \\\"chargebacks_fees\\\": \\\"0\\\",\\n            \\\"fees\\\": \\\"-234.46\\\",\\n            \\\"adjustments\\\": \\\"0\\\",\\n            \\\"adjustments_volume\\\": \\\"0\\\",\\n            \\\"adjustments_fees\\\": \\\"0\\\",\\n            \\\"reserve\\\": \\\"0\\\",\\n            \\\"reserve_volume\\\": \\\"0\\\",\\n            \\\"reserve_fees\\\": \\\"0\\\",\\n            \\\"settled_at\\\": \\\"2020-04-18T23:59:57Z\\\",\\n            \\\"created_at\\\": \\\"2020-04-20T01:47:16.05964Z\\\"\\n        }\\n    ],\\n    \\\"success\\\": true,\\n    \\\"total_count\\\": 2\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9bd8ba2b-f49c-45ae-9256-4e909fcbb7c8",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"success\\\": false,\\n  \\\"message\\\": \\\"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\\\",\\n  \\\"error_type\\\": \\\"request.authentication.invalid\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e88fe17b-526a-4bd4-981d-e4cf94f285f7",
+              "name": "4XX",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"error_type\\\": \\\"*Error code*\\\",\\n  \\\"message\\\": \\\"*Error message*\\\",\\n  \\\"success\\\": false\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.processout.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d32e1057-7803-410c-b696-a121ae904d26",
+    "name": "ProcessOut Balances Payouts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation. Authentication is HTTP Basic using a project ID (username) and secret API key (password). This OpenAPI 3.1 description was assembled by API Evangelist from the per-operation OpenAPI fragments ProcessOut publishes in each ReadMe API-reference page.\n\nContact Support:\n Email: help@processout.com",
+      "type": "text/plain"
+    }
+  }
+}

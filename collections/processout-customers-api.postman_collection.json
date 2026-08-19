@@ -1,0 +1,1266 @@
+{
+  "item": [
+    {
+      "id": "e56f0da2-4c2c-47c9-8f92-72ca7c9dd320",
+      "name": "Customers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ac76afea-2263-45f3-ad06-a63a0253c7e3",
+          "name": "Creating a customer",
+          "request": {
+            "name": "Creating a customer",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique key to your request that will be used for idempotency",
+                "key": "Idempotency-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"address1\": \"<string>\",\n  \"address2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"zip\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"phone\": {\n    \"number\": \"<string>\",\n    \"dialing_code\": \"<string>\"\n  },\n  \"legal_document\": \"<string>\",\n  \"ip_address\": \"<string>\",\n  \"sex\": \"<string>\",\n  \"date_of_birth\": \"<date>\",\n  \"is_business\": \"<boolean>\",\n  \"metadata\": \"{}\",\n  \"registered_at\": \"<date>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5b4345f4-f6df-41e5-b824-f8d4b4634d3d",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"address1\": \"<string>\",\n  \"address2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"zip\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"phone\": {\n    \"number\": \"<string>\",\n    \"dialing_code\": \"<string>\"\n  },\n  \"legal_document\": \"<string>\",\n  \"ip_address\": \"<string>\",\n  \"sex\": \"<string>\",\n  \"date_of_birth\": \"<date>\",\n  \"is_business\": \"<boolean>\",\n  \"metadata\": \"{}\",\n  \"registered_at\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"customer\\\": {\\n        \\\"id\\\": \\\"cust_IaR72c6JPoYdWvr5N1XX3blkH2ilRIvK\\\",\\n        \\\"project_id\\\": \\\"proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S\\\",\\n        \\\"tokens\\\": null,\\n        \\\"subscriptions\\\": null,\\n        \\\"transactions\\\": null,\\n        \\\"balance\\\": \\\"0\\\",\\n        \\\"currency\\\": null,\\n        \\\"email\\\": \\\"lorenzo.roger@example.com\\\",\\n        \\\"first_name\\\": \\\"Lorenzo\\\",\\n        \\\"last_name\\\": \\\"Roger\\\",\\n        \\\"address1\\\": \\\"4848 Rue Abel\\\",\\n        \\\"address2\\\": \\\"Cedex 7\\\",\\n        \\\"city\\\": \\\"Poitiers\\\",\\n        \\\"state\\\": \\\"Pyrénées-Orientales\\\",\\n        \\\"zip\\\": \\\"29173\\\",\\n        \\\"country_code\\\": \\\"FR\\\",\\n        \\\"ip_address\\\": \\\"1.1.1.1\\\",\\n        \\\"phone\\\": {\\n            \\\"number\\\": \\\"685869595\\\",\\n            \\\"dialing_code\\\": \\\"0033\\\"\\n        },\\n        \\\"legal_document\\\": \\\"1122.434.234\\\",\\n        \\\"date_of_birth\\\": \\\"2001-11-11T04:56:05Z\\\",\\n        \\\"metadata\\\": {},\\n        \\\"sandbox\\\": true,\\n        \\\"created_at\\\": \\\"2023-04-22T08:55:55.645447048Z\\\",\\n        \\\"registered_at\\\": \\\"2005-08-07T23:19:49Z\\\",\\n        \\\"is_business\\\": false,\\n        \\\"sex\\\": \\\"male\\\",\\n        \\\"default_token_id\\\": null\\n    },\\n    \\\"success\\\": true\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82651d0d-2086-448c-b563-d85b914e188e",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"address1\": \"<string>\",\n  \"address2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"zip\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"phone\": {\n    \"number\": \"<string>\",\n    \"dialing_code\": \"<string>\"\n  },\n  \"legal_document\": \"<string>\",\n  \"ip_address\": \"<string>\",\n  \"sex\": \"<string>\",\n  \"date_of_birth\": \"<date>\",\n  \"is_business\": \"<boolean>\",\n  \"metadata\": \"{}\",\n  \"registered_at\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"error_type\\\": \\\"request.validation.invalid-ip-address\\\",\\n    \\\"message\\\": \\\"The customer IP address is invalid.\\\",\\n    \\\"success\\\": false\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b16356c-fe88-44f8-b5a6-87eaccc85035",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"address1\": \"<string>\",\n  \"address2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"zip\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"phone\": {\n    \"number\": \"<string>\",\n    \"dialing_code\": \"<string>\"\n  },\n  \"legal_document\": \"<string>\",\n  \"ip_address\": \"<string>\",\n  \"sex\": \"<string>\",\n  \"date_of_birth\": \"<date>\",\n  \"is_business\": \"<boolean>\",\n  \"metadata\": \"{}\",\n  \"registered_at\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"success\\\": false,\\n    \\\"message\\\": \\\"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\\\",\\n    \\\"error_type\\\": \\\"request.authentication.invalid\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf4b5f6e-07ea-449f-a409-80197b2b5464",
+              "name": "4XX",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"address1\": \"<string>\",\n  \"address2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"zip\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"phone\": {\n    \"number\": \"<string>\",\n    \"dialing_code\": \"<string>\"\n  },\n  \"legal_document\": \"<string>\",\n  \"ip_address\": \"<string>\",\n  \"sex\": \"<string>\",\n  \"date_of_birth\": \"<date>\",\n  \"is_business\": \"<boolean>\",\n  \"metadata\": \"{}\",\n  \"registered_at\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"error_type\\\": \\\"*Error code*\\\",\\n    \\\"message\\\": \\\"*Error message*\\\",\\n    \\\"success\\\": false\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b708a0fa-dfaf-4572-b4cd-8cad7118294b",
+          "name": "Creating a token",
+          "request": {
+            "name": "Creating a token",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customers",
+                ":customer_id",
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customer_id",
+                  "description": "(Required) ID of your customer"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique key to your request that will be used for idempotency",
+                "key": "Idempotency-Key",
+                "value": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"invoice_id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"invoice_return_url\": \"<string>\",\n  \"return_url\": \"<string>\",\n  \"cancel_url\": \"<string>\",\n  \"metadata\": {},\n  \"source\": \"<string>\",\n  \"verify\": \"<boolean>\",\n  \"verify_statement_descriptor\": \"<string>\",\n  \"verify_metadata\": \"<string>\",\n  \"manual_invoice_cancellation\": \"<boolean>\",\n  \"webhook_url\": \"<string>\",\n  \"device\": {\n    \"id\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"ip_address\": \"<string>\"\n  },\n  \"preferred_scheme\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "19834820-37cc-46ff-a09d-2aae9c196839",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customer_id",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) ID of your customer"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoice_id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"invoice_return_url\": \"<string>\",\n  \"return_url\": \"<string>\",\n  \"cancel_url\": \"<string>\",\n  \"metadata\": {},\n  \"source\": \"<string>\",\n  \"verify\": \"<boolean>\",\n  \"verify_statement_descriptor\": \"<string>\",\n  \"verify_metadata\": \"<string>\",\n  \"manual_invoice_cancellation\": \"<boolean>\",\n  \"webhook_url\": \"<string>\",\n  \"device\": {\n    \"id\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"ip_address\": \"<string>\"\n  },\n  \"preferred_scheme\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"success\\\": true,\\n    \\\"token\\\": {\\n        \\\"id\\\": \\\"tok_4H77e0IrpFrp3YhvBGmbuJr54MRob5yl\\\",\\n        \\\"customer_id\\\": \\\"cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA\\\",\\n        \\\"invoice_id\\\": null,\\n        \\\"gateway_configuration_id\\\": null,\\n        \\\"gateway_configuration_sub_account\\\": null,\\n        \\\"card\\\": {\\n            \\\"project_id\\\": \\\"proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S\\\",\\n            \\\"update_type\\\": null,\\n            \\\"update_reason_code\\\": null,\\n            \\\"scheme\\\": \\\"visa\\\",\\n            \\\"co_scheme\\\": null,\\n            \\\"preferred_scheme\\\": null,\\n            \\\"type\\\": \\\"credit\\\",\\n            \\\"bank_name\\\": null,\\n            \\\"brand\\\": null,\\n            \\\"category\\\": null,\\n            \\\"iin\\\": \\\"400000\\\",\\n            \\\"last_4_digits\\\": \\\"0101\\\",\\n            \\\"fingerprint\\\": \\\"43d7ff88cb38993d87311c2e54779cc9ec0c20298a5ef84c31e519ef6a068a79\\\",\\n            \\\"exp_month\\\": 7,\\n            \\\"exp_year\\\": 2026,\\n            \\\"cvc_check\\\": \\\"unavailable\\\",\\n            \\\"avs_check\\\": \\\"unavailable\\\",\\n            \\\"checks\\\": {\\n                \\\"cvc_check\\\": \\\"unavailable\\\",\\n                \\\"cvc_check_reason\\\": null,\\n                \\\"avs_check\\\": \\\"unavailable\\\",\\n                \\\"avs_postal_check\\\": \\\"unavailable\\\",\\n                \\\"avs_postal_check_reason\\\": null,\\n                \\\"avs_street_check\\\": \\\"unavailable\\\",\\n                \\\"avs_street_check_reason\\\": null,\\n                \\\"avs_name_check\\\": \\\"unavailable\\\",\\n                \\\"avs_name_check_reason\\\": null\\n            },\\n            \\\"token_type\\\": null,\\n            \\\"name\\\": \\\"Matéo Garnier\\\",\\n            \\\"address1\\\": \\\"133 rue Lamarck\\\",\\n            \\\"address2\\\": \\\"Cedex 7\\\",\\n            \\\"city\\\": \\\"Paris\\\",\\n            \\\"state\\\": \\\"Ile De France\\\",\\n            \\\"country_code\\\": \\\"US\\\",\\n            \\\"zip\\\": \\\"75018\\\",\\n            \\\"ip_address\\\": \\\"176.27.120.213\\\",\\n            \\\"user_agent\\\": \\\"PostmanRuntime/7.32.2\\\",\\n            \\\"header_accept\\\": \\\"*/*\\\",\\n            \\\"app_color_depth\\\": null,\\n            \\\"app_java_enabled\\\": null,\\n            \\\"app_language\\\": null,\\n            \\\"app_screen_height\\\": null,\\n            \\\"app_screen_width\\\": null,\\n            \\\"app_timezone_offset\\\": null,\\n            \\\"header_referer\\\": null,\\n            \\\"expires_soon\\\": false,\\n            \\\"metadata\\\": {},\\n            \\\"used\\\": null,\\n            \\\"sandbox\\\": true,\\n            \\\"created_at\\\": \\\"2023-04-22T10:37:15.854105Z\\\",\\n            \\\"updated_at\\\": \\\"2023-04-22T10:37:15.854104Z\\\",\\n            \\\"id\\\": \\\"card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy\\\",\\n            \\\"cvc_tokenized\\\": true,\\n            \\\"tokenization_method\\\": null,\\n            \\\"payment_source_detail\\\": null\\n        },\\n        \\\"card_id\\\": \\\"card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy\\\",\\n        \\\"is_subscription_only\\\": false,\\n        \\\"is_default\\\": true,\\n        \\\"return_url\\\": \\\"https://mymerchant.com/return\\\",\\n        \\\"cancel_url\\\": \\\"https://mymerchant.com/cancel\\\",\\n        \\\"is_chargeable\\\": true,\\n        \\\"type\\\": \\\"card\\\",\\n        \\\"metadata\\\": {\\n            \\\"test\\\": \\\"23456789\\\"\\n        },\\n        \\\"description\\\": null,\\n        \\\"created_at\\\": \\\"2023-04-22T10:37:17.950649Z\\\",\\n        \\\"summary\\\": \\\"**** **** **** 0101\\\",\\n        \\\"verification_status\\\": \\\"not-requested\\\",\\n        \\\"manual_invoice_cancellation\\\": null,\\n        \\\"can_get_balance\\\": null\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "254ba409-b90a-4887-b932-4205dd0f76d9",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customer_id",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) ID of your customer"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoice_id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"invoice_return_url\": \"<string>\",\n  \"return_url\": \"<string>\",\n  \"cancel_url\": \"<string>\",\n  \"metadata\": {},\n  \"source\": \"<string>\",\n  \"verify\": \"<boolean>\",\n  \"verify_statement_descriptor\": \"<string>\",\n  \"verify_metadata\": \"<string>\",\n  \"manual_invoice_cancellation\": \"<boolean>\",\n  \"webhook_url\": \"<string>\",\n  \"device\": {\n    \"id\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"ip_address\": \"<string>\"\n  },\n  \"preferred_scheme\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"error_type\\\": \\\"request.validation.invalid-description\\\",\\n    \\\"message\\\": \\\"The description Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ... Description too long ...  must be at most 255 characters long.\\\",\\n    \\\"success\\\": false\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b454a3f1-8ae0-450e-bd06-ab2a6c342016",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customer_id",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) ID of your customer"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoice_id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"invoice_return_url\": \"<string>\",\n  \"return_url\": \"<string>\",\n  \"cancel_url\": \"<string>\",\n  \"metadata\": {},\n  \"source\": \"<string>\",\n  \"verify\": \"<boolean>\",\n  \"verify_statement_descriptor\": \"<string>\",\n  \"verify_metadata\": \"<string>\",\n  \"manual_invoice_cancellation\": \"<boolean>\",\n  \"webhook_url\": \"<string>\",\n  \"device\": {\n    \"id\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"ip_address\": \"<string>\"\n  },\n  \"preferred_scheme\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"success\\\": false,\\n    \\\"message\\\": \\\"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\\\",\\n    \\\"error_type\\\": \\\"request.authentication.invalid\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bbff5ba7-d9f7-4884-b1e8-a54fed5b561b",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customer_id",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) ID of your customer"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoice_id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"invoice_return_url\": \"<string>\",\n  \"return_url\": \"<string>\",\n  \"cancel_url\": \"<string>\",\n  \"metadata\": {},\n  \"source\": \"<string>\",\n  \"verify\": \"<boolean>\",\n  \"verify_statement_descriptor\": \"<string>\",\n  \"verify_metadata\": \"<string>\",\n  \"manual_invoice_cancellation\": \"<boolean>\",\n  \"webhook_url\": \"<string>\",\n  \"device\": {\n    \"id\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"ip_address\": \"<string>\"\n  },\n  \"preferred_scheme\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"error_type\\\": \\\"resource.customer.not-found\\\",\\n    \\\"message\\\": \\\"The customer could not be found.\\\",\\n    \\\"success\\\": false\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "002ee67d-753a-41d6-8375-5a82d847f02f",
+              "name": "4XX",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customer_id",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) ID of your customer"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoice_id\": \"<string>\",\n  \"description\": \"<string>\",\n  \"invoice_return_url\": \"<string>\",\n  \"return_url\": \"<string>\",\n  \"cancel_url\": \"<string>\",\n  \"metadata\": {},\n  \"source\": \"<string>\",\n  \"verify\": \"<boolean>\",\n  \"verify_statement_descriptor\": \"<string>\",\n  \"verify_metadata\": \"<string>\",\n  \"manual_invoice_cancellation\": \"<boolean>\",\n  \"webhook_url\": \"<string>\",\n  \"device\": {\n    \"id\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"ip_address\": \"<string>\"\n  },\n  \"preferred_scheme\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"error_type\\\": \\\"*Error code*\\\",\\n  \\\"message\\\": \\\"*Error message*\\\",\\n  \\\"success\\\": false\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "117331f8-97fa-422d-a902-eb8764df3fd0",
+          "name": "Fetching a token",
+          "request": {
+            "name": "Fetching a token",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customers",
+                ":customer_id",
+                "tokens",
+                ":token_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customer_id",
+                  "description": "(Required) ID of your customer"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token_id",
+                  "description": "(Required) ID of the customer token"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Unique key to your request that will be used for idempotency",
+                "key": "Idempotency-Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b69bc8d3-923a-4b14-aeef-bce7442bc25d",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customer_id",
+                    "tokens",
+                    ":token_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) ID of your customer"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token_id",
+                      "description": "(Required) ID of the customer token"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"success\\\": true,\\n    \\\"token\\\": {\\n        \\\"id\\\": \\\"tok_4H77e0IrpFrp3YhvBGmbuJr54MRob5yl\\\",\\n        \\\"customer_id\\\": \\\"cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA\\\",\\n        \\\"invoice_id\\\": null,\\n        \\\"gateway_configuration_id\\\": null,\\n        \\\"gateway_configuration_sub_account\\\": null,\\n        \\\"card\\\": {\\n            \\\"project_id\\\": \\\"proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S\\\",\\n            \\\"update_type\\\": null,\\n            \\\"update_reason_code\\\": null,\\n            \\\"scheme\\\": \\\"visa\\\",\\n            \\\"co_scheme\\\": null,\\n            \\\"preferred_scheme\\\": null,\\n            \\\"type\\\": \\\"credit\\\",\\n            \\\"bank_name\\\": null,\\n            \\\"brand\\\": null,\\n            \\\"category\\\": null,\\n            \\\"iin\\\": \\\"400000\\\",\\n            \\\"last_4_digits\\\": \\\"0101\\\",\\n            \\\"fingerprint\\\": \\\"43d7ff88cb38993d87311c2e54779cc9ec0c20298a5ef84c31e519ef6a068a79\\\",\\n            \\\"exp_month\\\": 7,\\n            \\\"exp_year\\\": 2026,\\n            \\\"cvc_check\\\": \\\"unavailable\\\",\\n            \\\"avs_check\\\": \\\"unavailable\\\",\\n            \\\"checks\\\": {\\n                \\\"cvc_check\\\": \\\"unavailable\\\",\\n                \\\"cvc_check_reason\\\": null,\\n                \\\"avs_check\\\": \\\"unavailable\\\",\\n                \\\"avs_postal_check\\\": \\\"unavailable\\\",\\n                \\\"avs_postal_check_reason\\\": null,\\n                \\\"avs_street_check\\\": \\\"unavailable\\\",\\n                \\\"avs_street_check_reason\\\": null,\\n                \\\"avs_name_check\\\": \\\"unavailable\\\",\\n                \\\"avs_name_check_reason\\\": null\\n            },\\n            \\\"token_type\\\": null,\\n            \\\"name\\\": \\\"Matéo Garnier\\\",\\n            \\\"address1\\\": \\\"133 rue Lamarck\\\",\\n            \\\"address2\\\": \\\"Cedex 7\\\",\\n            \\\"city\\\": \\\"Paris\\\",\\n            \\\"state\\\": \\\"Ile De France\\\",\\n            \\\"country_code\\\": \\\"US\\\",\\n            \\\"zip\\\": \\\"75018\\\",\\n            \\\"ip_address\\\": \\\"176.27.120.213\\\",\\n            \\\"user_agent\\\": \\\"PostmanRuntime/7.32.2\\\",\\n            \\\"header_accept\\\": \\\"*/*\\\",\\n            \\\"app_color_depth\\\": null,\\n            \\\"app_java_enabled\\\": null,\\n            \\\"app_language\\\": null,\\n            \\\"app_screen_height\\\": null,\\n            \\\"app_screen_width\\\": null,\\n            \\\"app_timezone_offset\\\": null,\\n            \\\"header_referer\\\": null,\\n            \\\"expires_soon\\\": false,\\n            \\\"metadata\\\": {},\\n            \\\"used\\\": null,\\n            \\\"sandbox\\\": true,\\n            \\\"created_at\\\": \\\"2023-04-22T10:37:15.854105Z\\\",\\n            \\\"updated_at\\\": \\\"2023-04-22T10:37:15.854104Z\\\",\\n            \\\"id\\\": \\\"card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy\\\",\\n            \\\"cvc_tokenized\\\": true,\\n            \\\"tokenization_method\\\": null,\\n            \\\"payment_source_detail\\\": null\\n        },\\n        \\\"card_id\\\": \\\"card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy\\\",\\n        \\\"is_subscription_only\\\": false,\\n        \\\"is_default\\\": true,\\n        \\\"return_url\\\": \\\"https://mymerchant.com/return\\\",\\n        \\\"cancel_url\\\": \\\"https://mymerchant.com/cancel\\\",\\n        \\\"is_chargeable\\\": true,\\n        \\\"type\\\": \\\"card\\\",\\n        \\\"metadata\\\": {\\n            \\\"test\\\": \\\"23456789\\\"\\n        },\\n        \\\"description\\\": null,\\n        \\\"created_at\\\": \\\"2023-04-22T10:37:17.950649Z\\\",\\n        \\\"summary\\\": \\\"**** **** **** 0101\\\",\\n        \\\"verification_status\\\": \\\"not-requested\\\",\\n        \\\"manual_invoice_cancellation\\\": null,\\n        \\\"can_get_balance\\\": null\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce7df3b0-de08-42ec-87d0-dd0757d2b5ff",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customer_id",
+                    "tokens",
+                    ":token_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) ID of your customer"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token_id",
+                      "description": "(Required) ID of the customer token"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"success\\\": false,\\n    \\\"message\\\": \\\"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\\\",\\n    \\\"error_type\\\": \\\"request.authentication.invalid\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c112457b-d5b4-46da-ab12-23395900f724",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customer_id",
+                    "tokens",
+                    ":token_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) ID of your customer"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token_id",
+                      "description": "(Required) ID of the customer token"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"error_type\\\": \\\"resource.token.not-found\\\",\\n    \\\"message\\\": \\\"The token could not be found.\\\",\\n    \\\"success\\\": false\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a720ebda-42bf-4f5c-ab41-917dd1f365e1",
+              "name": "4XX",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customer_id",
+                    "tokens",
+                    ":token_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_id",
+                      "description": "(Required) ID of your customer"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token_id",
+                      "description": "(Required) ID of the customer token"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"error_type\\\": \\\"*Error code*\\\",\\n  \\\"message\\\": \\\"*Error message*\\\",\\n  \\\"success\\\": false\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6aa51946-c1a5-497e-8ea5-0269433cb0c7",
+          "name": "Update a token",
+          "request": {
+            "name": "Update a token",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customers",
+                ":customer_id",
+                "tokens",
+                ":token_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"source\": \"<string>\",\n  \"metadata\": \"<json>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "80ba548b-b136-4687-bdde-7e8b2d4d595f",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customer_id",
+                    "tokens",
+                    ":token_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"source\": \"<string>\",\n  \"metadata\": \"<json>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"success\\\": true,\\n    \\\"token\\\": {\\n        \\\"id\\\": \\\"tok_4H77e0IrpFrp3YhvBGmbuJr54MRob5yl\\\",\\n        \\\"customer_id\\\": \\\"cust_D5BDaQQ8XL4xoUfKRjpBQjoEIwMA6asA\\\",\\n        \\\"invoice_id\\\": null,\\n        \\\"gateway_configuration_id\\\": null,\\n        \\\"gateway_configuration_sub_account\\\": null,\\n        \\\"card\\\": {\\n            \\\"project_id\\\": \\\"proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S\\\",\\n            \\\"update_type\\\": null,\\n            \\\"update_reason_code\\\": null,\\n            \\\"scheme\\\": \\\"visa\\\",\\n            \\\"co_scheme\\\": null,\\n            \\\"preferred_scheme\\\": null,\\n            \\\"type\\\": \\\"credit\\\",\\n            \\\"bank_name\\\": null,\\n            \\\"brand\\\": null,\\n            \\\"category\\\": null,\\n            \\\"iin\\\": \\\"400000\\\",\\n            \\\"last_4_digits\\\": \\\"0101\\\",\\n            \\\"fingerprint\\\": \\\"43d7ff88cb38993d87311c2e54779cc9ec0c20298a5ef84c31e519ef6a068a79\\\",\\n            \\\"exp_month\\\": 7,\\n            \\\"exp_year\\\": 2026,\\n            \\\"cvc_check\\\": \\\"unavailable\\\",\\n            \\\"avs_check\\\": \\\"unavailable\\\",\\n            \\\"checks\\\": {\\n                \\\"cvc_check\\\": \\\"unavailable\\\",\\n                \\\"cvc_check_reason\\\": null,\\n                \\\"avs_check\\\": \\\"unavailable\\\",\\n                \\\"avs_postal_check\\\": \\\"unavailable\\\",\\n                \\\"avs_postal_check_reason\\\": null,\\n                \\\"avs_street_check\\\": \\\"unavailable\\\",\\n                \\\"avs_street_check_reason\\\": null,\\n                \\\"avs_name_check\\\": \\\"unavailable\\\",\\n                \\\"avs_name_check_reason\\\": null\\n            },\\n            \\\"token_type\\\": null,\\n            \\\"name\\\": \\\"Matéo Garnier\\\",\\n            \\\"address1\\\": \\\"133 rue Lamarck\\\",\\n            \\\"address2\\\": \\\"Cedex 7\\\",\\n            \\\"city\\\": \\\"Paris\\\",\\n            \\\"state\\\": \\\"Ile De France\\\",\\n            \\\"country_code\\\": \\\"US\\\",\\n            \\\"zip\\\": \\\"75018\\\",\\n            \\\"ip_address\\\": \\\"176.27.120.213\\\",\\n            \\\"user_agent\\\": \\\"PostmanRuntime/7.32.2\\\",\\n            \\\"header_accept\\\": \\\"*/*\\\",\\n            \\\"app_color_depth\\\": null,\\n            \\\"app_java_enabled\\\": null,\\n            \\\"app_language\\\": null,\\n            \\\"app_screen_height\\\": null,\\n            \\\"app_screen_width\\\": null,\\n            \\\"app_timezone_offset\\\": null,\\n            \\\"header_referer\\\": null,\\n            \\\"expires_soon\\\": false,\\n            \\\"metadata\\\": {},\\n            \\\"used\\\": null,\\n            \\\"sandbox\\\": true,\\n            \\\"created_at\\\": \\\"2023-04-22T10:37:15.854105Z\\\",\\n            \\\"updated_at\\\": \\\"2023-04-22T10:37:15.854104Z\\\",\\n            \\\"id\\\": \\\"card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy\\\",\\n            \\\"cvc_tokenized\\\": true,\\n            \\\"tokenization_method\\\": null,\\n            \\\"payment_source_detail\\\": null\\n        },\\n        \\\"card_id\\\": \\\"card_WtbRZBADSSL0MJSTKrbYZHuPuCkSVGBy\\\",\\n        \\\"is_subscription_only\\\": false,\\n        \\\"is_default\\\": true,\\n        \\\"return_url\\\": \\\"https://mymerchant.com/return\\\",\\n        \\\"cancel_url\\\": \\\"https://mymerchant.com/cancel\\\",\\n        \\\"is_chargeable\\\": true,\\n        \\\"type\\\": \\\"card\\\",\\n        \\\"metadata\\\": {\\n            \\\"test\\\": \\\"23456789\\\"\\n        },\\n        \\\"description\\\": null,\\n        \\\"created_at\\\": \\\"2023-04-22T10:37:17.950649Z\\\",\\n        \\\"summary\\\": \\\"**** **** **** 0101\\\",\\n        \\\"verification_status\\\": \\\"not-requested\\\",\\n        \\\"manual_invoice_cancellation\\\": null,\\n        \\\"can_get_balance\\\": null\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4367b4e1-7764-43d3-a306-bcbbda30e0ce",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customer_id",
+                    "tokens",
+                    ":token_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"source\": \"<string>\",\n  \"metadata\": \"<json>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"error_type\\\": \\\"resource.customer.not-found\\\",\\n    \\\"message\\\": \\\"The customer could not be found.\\\",\\n    \\\"success\\\": false\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f7c6ff6b-2804-403c-9316-aa2ae5863e82",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customer_id",
+                    "tokens",
+                    ":token_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"source\": \"<string>\",\n  \"metadata\": \"<json>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"success\\\": false,\\n    \\\"message\\\": \\\"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\\\",\\n    \\\"error_type\\\": \\\"request.authentication.invalid\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.processout.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ccbfe199-da66-483f-8849-f816ad0a42ce",
+    "name": "ProcessOut Balances Customers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation. Authentication is HTTP Basic using a project ID (username) and secret API key (password). This OpenAPI 3.1 description was assembled by API Evangelist from the per-operation OpenAPI fragments ProcessOut publishes in each ReadMe API-reference page.\n\nContact Support:\n Email: help@processout.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ProcessOut Balances Projects API",
+    "version": "1.0.3"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Setting up SFTP payouts export",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.processout.com/projects/:project_id/sftp-settings",
+            "headers": [
+              {
+                "name": "Idempotency-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the project for which the SFTP settings are updated"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Setting up SFTP payouts export"
+        },
+        {
+          "info": {
+            "name": "Deleting SFTP payouts export",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.processout.com/projects/:project_id/sftp-settings",
+            "headers": [
+              {
+                "name": "Idempotency-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the project for which the SFTP settings are updated"
+              }
+            ]
+          },
+          "docs": "Deleting SFTP payouts export"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
