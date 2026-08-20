@@ -47,6 +47,16 @@ tags:
 - Checkout
 - Reconciliation
 - Fraud
+- 3D Secure
+- Company
+tags_raw:
+- Payments
+- Payment Orchestration
+- Smart Routing
+- Tokenization
+- Checkout
+- Reconciliation
+- Fraud
 - 3-D Secure
 - Company
 apis:
@@ -92,6 +102,8 @@ apis:
   humanURL: https://docs.processout.com/reference/getting-started-with-your-api
   baseURL: https://api.processout.com
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
@@ -140,6 +152,8 @@ apis:
   humanURL: https://docs.processout.com/reference/getting-started-with-your-api
   baseURL: https://api.processout.com
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -152,6 +166,8 @@ apis:
   humanURL: https://docs.processout.com/reference/getting-started-with-your-api
   baseURL: https://api.processout.com
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
