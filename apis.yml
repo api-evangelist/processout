@@ -11,6 +11,18 @@ description: >-
   Node.js, Python, Ruby, PHP and Go plus client-side ProcessOut.js and iOS/Android.
   A hosted MCP server exposes the API and docs to AI agents. Originally a Techstars
   company, ProcessOut is now part of Checkout.com.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
