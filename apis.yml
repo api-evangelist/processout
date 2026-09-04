@@ -25,15 +25,18 @@ deliveryModel:
   method: derived
 accessModel:
   pricing: unknown
-  onboarding: self-serve
+  onboarding: unknown
   trial: false
   try_now: false
   public: false
-  label: Self-serve signup
-  confidence: medium
+  label: Unknown
+  confidence: low
   source:
   - authentication
-  generated: '2026-07-22'
+  - rate-limits
+  - security
+  - sandbox
+  generated: '2026-09-03'
   method: derived
 image: https://cdn.prod.website-files.com/65688bb5be2a2261a634aa71/65d8bb4c124d1591e814f499_o%20grid.jpg
 url: https://raw.githubusercontent.com/api-evangelist/processout/refs/heads/main/apis.yml
