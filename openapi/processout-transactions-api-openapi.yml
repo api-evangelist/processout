@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: ProcessOut Balances Transactions API
+  title: ProcessOut Transactions API
   version: 1.0.3
-  description: ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation. Authentication is HTTP Basic using a project ID (username) and secret API key (password). This OpenAPI 3.1 description was assembled by API Evangelist from the per-operation OpenAPI fragments ProcessOut publishes in each ReadMe API-reference page.
+  description: ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation.
   contact:
     email: help@processout.com
     url: https://docs.processout.com
