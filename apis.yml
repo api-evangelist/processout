@@ -207,6 +207,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: RateLimits
+  url: rate-limits/processout-rate-limits.yml
 # --- Spec + agent surface ---
 - type: OpenAPI
   url: openapi/_original/processout-openapi.json
