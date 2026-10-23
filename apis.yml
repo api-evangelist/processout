@@ -207,6 +207,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/processout/overview
 - type: RateLimits
   url: rate-limits/processout-rate-limits.yml
 # --- Spec + agent surface ---
