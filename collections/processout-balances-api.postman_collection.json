@@ -1,227 +1,228 @@
 {
+  "info": {
+    "_postman_id": "14fbf6c5-880b-451d-b473-c2adc7af1d47",
+    "name": "ProcessOut Balances API",
+    "description": "ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation.\n\nContact Support:\n Email: help@processout.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:25:07.000Z",
+    "updatedAt": "2026-10-21T20:25:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-14fbf6c5-880b-451d-b473-c2adc7af1d47"
+  },
   "item": [
     {
-      "id": "eec46ab8-684e-423b-9878-9fd64abafd3c",
-      "name": "Balances",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "balances",
       "item": [
         {
-          "id": "3a811b0e-5c3f-49a1-b350-e8a61f809963",
-          "name": "Fetch a token balance",
-          "request": {
-            "name": "Fetch a token balance",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "balances",
-                "tokens",
-                ":token_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "token_id",
-                  "description": "(Required) ID of the customer token"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "tokens",
+          "item": [
             {
-              "id": "264cb3e6-c207-41e0-81ba-00f424ba0441",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "balances",
-                    "tokens",
-                    ":token_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "token_id",
-                      "description": "(Required) ID of the customer token"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{token_id}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Fetch a token balance",
+                  "id": "8f250325-a6cb-4154-bee6-39587715b84c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/balances/tokens/:token_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "balances",
+                        "tokens",
+                        ":token_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "1d963c56-b4d2-4cf0-aeed-7ca9a3dd3ae0",
+                          "key": "token_id",
+                          "value": "<string>",
+                          "description": "(Required) ID of the customer token"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "2bf691a2-3459-4ffc-8a44-8551ca4b08f5",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/balances/tokens/:token_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "balances",
+                            "tokens",
+                            ":token_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "token_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"balances\": {\n    \"vouchers\": [\n      {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"expiry\": {}\n      },\n      {\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\",\n        \"expiry\": {}\n      }\n    ],\n    \"available_balance\": {\n      \"amount\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"expiry\": {}\n    },\n    \"customer_action\": {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  },\n  \"success\": true\n}",
+                      "createdAt": "2026-10-21T20:25:08.000Z",
+                      "updatedAt": "2026-10-21T20:25:08.000Z",
+                      "uid": "35240-2bf691a2-3459-4ffc-8a44-8551ca4b08f5"
+                    },
+                    {
+                      "id": "1e4c653a-9aa0-425a-98df-6114fa8be2c8",
+                      "name": "401",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/balances/tokens/:token_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "balances",
+                            "tokens",
+                            ":token_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "token_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": true,\n  \"message\": \"<string>\",\n  \"error_type\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:25:08.000Z",
+                      "updatedAt": "2026-10-21T20:25:08.000Z",
+                      "uid": "35240-1e4c653a-9aa0-425a-98df-6114fa8be2c8"
+                    },
+                    {
+                      "id": "4d90a062-af30-4af5-b27f-e272a9d22ea6",
+                      "name": "4XX",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/balances/tokens/:token_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "balances",
+                            "tokens",
+                            ":token_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "token_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": \"<string>\",\n  \"message\": \"<string>\",\n  \"success\": true\n}",
+                      "createdAt": "2026-10-21T20:25:08.000Z",
+                      "updatedAt": "2026-10-21T20:25:08.000Z",
+                      "uid": "35240-4d90a062-af30-4af5-b27f-e272a9d22ea6"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:25:08.000Z",
+                  "updatedAt": "2026-10-21T20:25:08.000Z",
+                  "uid": "35240-8f250325-a6cb-4154-bee6-39587715b84c"
                 }
               ],
-              "body": "\"{\\n    \\\"balances\\\": {\\n        \\\"vouchers\\\": [{\\n            \\\"amount\\\": \\\"1500\\\",\\n            \\\"currency\\\": \\\"RON\\\",\\n            \\\"expiry\\\": null\\n        }],\\n        \\\"available_balance\\\": {\\n            \\\"amount\\\": \\\"1500\\\",\\n            \\\"currency\\\": \\\"RON\\\",\\n            \\\"expiry\\\": null\\n        },\\n        \\\"customer_action\\\": {\\n      \\t\\t\\\"type\\\": \\\"REDIRECT\\\",\\n      \\t\\t\\\"value\\\": \\\"path\\\"\\n    \\t\\t}\\n    },\\n    \\\"success\\\": true\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "fd567c11-3f05-4958-9384-936ac39ae4c2",
-              "name": "401",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "balances",
-                    "tokens",
-                    ":token_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "token_id",
-                      "description": "(Required) ID of the customer token"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"success\\\": false,\\n  \\\"message\\\": \\\"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\\\",\\n  \\\"error_type\\\": \\\"request.authentication.invalid\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1a5d47f9-ea6a-4ce4-af2c-a5626a806ca9",
-              "name": "4XX",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "balances",
-                    "tokens",
-                    ":token_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "token_id",
-                      "description": "(Required) ID of the customer token"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"error_type\\\": \\\"*Error code*\\\",\\n  \\\"message\\\": \\\"*Error message*\\\",\\n  \\\"success\\\": false\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "cb3f7053-fb6e-4431-8d4a-ae1d55d8e900",
+              "createdAt": "2026-10-21T20:25:08.000Z",
+              "updatedAt": "2026-10-21T20:25:08.000Z",
+              "uid": "35240-cb3f7053-fb6e-4431-8d4a-ae1d55d8e900"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "cfc2ec40-9879-4ad9-ae1e-6cbb978aa6ac",
+          "createdAt": "2026-10-21T20:25:08.000Z",
+          "updatedAt": "2026-10-21T20:25:08.000Z",
+          "uid": "35240-cfc2ec40-9879-4ad9-ae1e-6cbb978aa6ac"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.processout.com",
-      "key": "baseUrl"
+      "id": "ea9dfc23-068d-4e02-95ae-bef571319bfa",
+      "createdAt": "2026-10-21T20:25:08.000Z",
+      "updatedAt": "2026-10-21T20:25:08.000Z",
+      "uid": "35240-ea9dfc23-068d-4e02-95ae-bef571319bfa"
     }
   ],
   "auth": {
@@ -229,21 +230,20 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "4fa15441-8cf1-440e-a1d9-e030924999c8",
-    "name": "ProcessOut Balances API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation. Authentication is HTTP Basic using a project ID (username) and secret API key (password). This OpenAPI 3.1 description was assembled by API Evangelist from the per-operation OpenAPI fragments ProcessOut publishes in each ReadMe API-reference page.\n\nContact Support:\n Email: help@processout.com",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.processout.com"
     }
-  }
+  ]
 }

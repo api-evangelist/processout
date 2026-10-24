@@ -1,380 +1,783 @@
 {
+  "info": {
+    "_postman_id": "f3ca72ef-0fdd-49c2-bb02-795f742407b2",
+    "name": "ProcessOut Uploads API",
+    "description": "ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation.\n\nContact Support:\n Email: help@processout.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:26:11.000Z",
+    "updatedAt": "2026-10-21T20:26:12.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f3ca72ef-0fdd-49c2-bb02-795f742407b2"
+  },
   "item": [
     {
-      "id": "f9db302e-4a53-4b1e-858b-98ef6694f21a",
-      "name": "Uploads",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "uploads",
       "item": [
         {
-          "id": "54f5646b-4190-4dec-ad5b-d79de6300e74",
-          "name": "Deleting uploaded report",
-          "request": {
-            "name": "Deleting uploaded report",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "uploads",
-                "reports",
-                ":report_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "report_id",
-                  "description": "(Required) ID of the uploaded report"
-                }
-              ]
-            },
-            "header": [
-              {
-                "disabled": false,
-                "description": "Unique key to your request that will be used for idempotency",
-                "key": "Idempotency-Key",
-                "value": "<string>"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
+          "name": "reports",
+          "item": [
             {
-              "id": "5ca83b6a-2eee-421f-b0d2-6a6d5d9e880b",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "uploads",
-                    "reports",
-                    ":report_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "report_id",
-                      "description": "(Required) ID of the uploaded report"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{report_id}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "raw",
+                  "item": [
+                    {
+                      "name": "Downloading raw PSP report",
+                      "id": "f9fe9f92-2e92-43be-943f-6f0f1afd46fb",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Unique key to your request that will be used for idempotency",
+                            "key": "Idempotency-Key",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/uploads/reports/:report_id/raw",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "uploads",
+                            "reports",
+                            ":report_id",
+                            "raw"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f24e2ecf-af84-4018-b6e9-a9490d692490",
+                              "key": "report_id",
+                              "value": "<string>",
+                              "description": "(Required) ID of the report"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "25cdc7d3-aa56-438e-aded-eba1b218fe64",
+                          "name": "200",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Unique key to your request that will be used for idempotency",
+                                "key": "Idempotency-Key",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/uploads/reports/:report_id/raw",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "uploads",
+                                "reports",
+                                ":report_id",
+                                "raw"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "report_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"download_url\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:26:12.000Z",
+                          "updatedAt": "2026-10-21T20:26:12.000Z",
+                          "uid": "35240-25cdc7d3-aa56-438e-aded-eba1b218fe64"
+                        },
+                        {
+                          "id": "38f139fd-70a7-4594-8606-c33cee080a19",
+                          "name": "401",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Unique key to your request that will be used for idempotency",
+                                "key": "Idempotency-Key",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/uploads/reports/:report_id/raw",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "uploads",
+                                "reports",
+                                ":report_id",
+                                "raw"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "report_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"success\": true,\n  \"message\": \"<string>\",\n  \"error_type\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:26:12.000Z",
+                          "updatedAt": "2026-10-21T20:26:12.000Z",
+                          "uid": "35240-38f139fd-70a7-4594-8606-c33cee080a19"
+                        },
+                        {
+                          "id": "7be10dff-2f05-448b-bf5c-fb12dcd1071d",
+                          "name": "404",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Unique key to your request that will be used for idempotency",
+                                "key": "Idempotency-Key",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/uploads/reports/:report_id/raw",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "uploads",
+                                "reports",
+                                ":report_id",
+                                "raw"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "report_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": \"<string>\",\n  \"message\": \"<string>\",\n  \"success\": true\n}",
+                          "createdAt": "2026-10-21T20:26:12.000Z",
+                          "updatedAt": "2026-10-21T20:26:12.000Z",
+                          "uid": "35240-7be10dff-2f05-448b-bf5c-fb12dcd1071d"
+                        },
+                        {
+                          "id": "9455e5b0-e4ed-48fe-9f1a-c8bd80f7cbff",
+                          "name": "4XX",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Unique key to your request that will be used for idempotency",
+                                "key": "Idempotency-Key",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/uploads/reports/:report_id/raw",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "uploads",
+                                "reports",
+                                ":report_id",
+                                "raw"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "report_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": \"<string>\",\n  \"message\": \"<string>\",\n  \"success\": true\n}",
+                          "createdAt": "2026-10-21T20:26:12.000Z",
+                          "updatedAt": "2026-10-21T20:26:12.000Z",
+                          "uid": "35240-9455e5b0-e4ed-48fe-9f1a-c8bd80f7cbff"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:26:12.000Z",
+                      "updatedAt": "2026-10-21T20:26:12.000Z",
+                      "uid": "35240-f9fe9f92-2e92-43be-943f-6f0f1afd46fb"
+                    }
+                  ],
+                  "id": "b254ec2f-4759-4a87-b5e7-6bde98e040e8",
+                  "createdAt": "2026-10-21T20:26:12.000Z",
+                  "updatedAt": "2026-10-21T20:26:12.000Z",
+                  "uid": "35240-b254ec2f-4759-4a87-b5e7-6bde98e040e8"
+                },
+                {
+                  "name": "Deleting uploaded report",
+                  "id": "910eae12-6773-4738-9a20-83474b80f383",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Unique key to your request that will be used for idempotency",
+                        "key": "Idempotency-Key",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/uploads/reports/:report_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "uploads",
+                        "reports",
+                        ":report_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "fa05f9f9-9ed2-42d7-8464-4dde571a0cc2",
+                          "key": "report_id",
+                          "value": "<string>",
+                          "description": "(Required) ID of the uploaded report"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "4c62b825-75b2-4fa2-8bf5-19699be8360c",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Unique key to your request that will be used for idempotency",
+                            "key": "Idempotency-Key",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/uploads/reports/:report_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "uploads",
+                            "reports",
+                            ":report_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "report_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": true\n}",
+                      "createdAt": "2026-10-21T20:26:12.000Z",
+                      "updatedAt": "2026-10-21T20:26:12.000Z",
+                      "uid": "35240-4c62b825-75b2-4fa2-8bf5-19699be8360c"
+                    },
+                    {
+                      "id": "83a862fb-a61b-496c-b805-8c460747c1ff",
+                      "name": "401",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Unique key to your request that will be used for idempotency",
+                            "key": "Idempotency-Key",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/uploads/reports/:report_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "uploads",
+                            "reports",
+                            ":report_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "report_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": true,\n  \"message\": \"<string>\",\n  \"error_type\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:26:12.000Z",
+                      "updatedAt": "2026-10-21T20:26:12.000Z",
+                      "uid": "35240-83a862fb-a61b-496c-b805-8c460747c1ff"
+                    },
+                    {
+                      "id": "92dc04ae-60dc-4a1a-a606-20a60fa11245",
+                      "name": "4XX",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Unique key to your request that will be used for idempotency",
+                            "key": "Idempotency-Key",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/uploads/reports/:report_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "uploads",
+                            "reports",
+                            ":report_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "report_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": \"<string>\",\n  \"message\": \"<string>\",\n  \"success\": true\n}",
+                      "createdAt": "2026-10-21T20:26:12.000Z",
+                      "updatedAt": "2026-10-21T20:26:12.000Z",
+                      "uid": "35240-92dc04ae-60dc-4a1a-a606-20a60fa11245"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:26:12.000Z",
+                  "updatedAt": "2026-10-21T20:26:12.000Z",
+                  "uid": "35240-910eae12-6773-4738-9a20-83474b80f383"
+                },
+                {
+                  "name": "Fetching report",
+                  "id": "761ca389-1fdf-42bd-8fc2-d424f22f4eb7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Unique key to your request that will be used for idempotency",
+                        "key": "Idempotency-Key",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/uploads/reports/:report_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "uploads",
+                        "reports",
+                        ":report_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e5884019-deb7-4664-bf1c-f467167913f4",
+                          "key": "report_id",
+                          "value": "<string>",
+                          "description": "(Required) ID of the report"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "b6fd10a9-efdf-44ff-b0e1-07da21a718df",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Unique key to your request that will be used for idempotency",
+                            "key": "Idempotency-Key",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/uploads/reports/:report_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "uploads",
+                            "reports",
+                            ":report_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "report_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"report\": {\n    \"id\": \"<string>\",\n    \"project_id\": \"<string>\",\n    \"gateway_configuration_id\": \"<string>\",\n    \"gateway_resource_id\": {},\n    \"description\": \"<string>\",\n    \"error\": {},\n    \"is_processed\": true,\n    \"payload_size_bytes\": 0,\n    \"processed_bytes\": 0,\n    \"status\": \"<string>\",\n    \"progress_percentage\": 0,\n    \"contains_data_from\": {},\n    \"contains_data_to\": {},\n    \"created_at\": \"<string>\"\n  },\n  \"success\": true\n}",
+                      "createdAt": "2026-10-21T20:26:12.000Z",
+                      "updatedAt": "2026-10-21T20:26:12.000Z",
+                      "uid": "35240-b6fd10a9-efdf-44ff-b0e1-07da21a718df"
+                    },
+                    {
+                      "id": "118945e5-f08a-4032-832b-a9960446080d",
+                      "name": "401",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Unique key to your request that will be used for idempotency",
+                            "key": "Idempotency-Key",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/uploads/reports/:report_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "uploads",
+                            "reports",
+                            ":report_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "report_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": true,\n  \"message\": \"<string>\",\n  \"error_type\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:26:12.000Z",
+                      "updatedAt": "2026-10-21T20:26:12.000Z",
+                      "uid": "35240-118945e5-f08a-4032-832b-a9960446080d"
+                    },
+                    {
+                      "id": "1888c384-eb33-45ef-9d1e-b9e1df3dac5c",
+                      "name": "404",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Unique key to your request that will be used for idempotency",
+                            "key": "Idempotency-Key",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/uploads/reports/:report_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "uploads",
+                            "reports",
+                            ":report_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "report_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": \"<string>\",\n  \"message\": \"<string>\",\n  \"success\": true\n}",
+                      "createdAt": "2026-10-21T20:26:12.000Z",
+                      "updatedAt": "2026-10-21T20:26:12.000Z",
+                      "uid": "35240-1888c384-eb33-45ef-9d1e-b9e1df3dac5c"
+                    },
+                    {
+                      "id": "fb29956a-a33f-4595-8c0e-ff436f4b69e4",
+                      "name": "4XX",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Unique key to your request that will be used for idempotency",
+                            "key": "Idempotency-Key",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/uploads/reports/:report_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "uploads",
+                            "reports",
+                            ":report_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "report_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": \"<string>\",\n  \"message\": \"<string>\",\n  \"success\": true\n}",
+                      "createdAt": "2026-10-21T20:26:12.000Z",
+                      "updatedAt": "2026-10-21T20:26:12.000Z",
+                      "uid": "35240-fb29956a-a33f-4595-8c0e-ff436f4b69e4"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:26:12.000Z",
+                  "updatedAt": "2026-10-21T20:26:12.000Z",
+                  "uid": "35240-761ca389-1fdf-42bd-8fc2-d424f22f4eb7"
                 }
               ],
-              "body": "\"{\\n    \\\"success\\\": true\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "ff7424f5-5113-4280-8f13-d5e4c9609231",
+              "createdAt": "2026-10-21T20:26:12.000Z",
+              "updatedAt": "2026-10-21T20:26:12.000Z",
+              "uid": "35240-ff7424f5-5113-4280-8f13-d5e4c9609231"
             },
             {
-              "id": "98532c6b-f59e-4889-90ca-8e34e079586e",
-              "name": "401",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "uploads",
-                    "reports",
-                    ":report_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "report_id",
-                      "description": "(Required) ID of the uploaded report"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
+              "name": "Listing reports",
+              "id": "fdb7367b-a786-4fae-8979-8ca2d4ac2989",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
               },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"success\\\": false,\\n    \\\"message\\\": \\\"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\\\",\\n    \\\"error_type\\\": \\\"request.authentication.invalid\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "157eb60c-d7a3-494d-9dec-81eee7b6d731",
-              "name": "4XX",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "uploads",
-                    "reports",
-                    ":report_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "report_id",
-                      "description": "(Required) ID of the uploaded report"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"error_type\\\": \\\"*Error code*\\\",\\n  \\\"message\\\": \\\"*Error message*\\\",\\n  \\\"success\\\": false\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "1b456dc7-5efc-447f-a567-e954bf343745",
-          "name": "Fetching report",
-          "request": {
-            "name": "Fetching report",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "uploads",
-                "reports",
-                ":report_id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "report_id",
-                  "description": "(Required) ID of the report"
-                }
-              ]
-            },
-            "header": [
-              {
-                "disabled": false,
-                "description": "Unique key to your request that will be used for idempotency",
-                "key": "Idempotency-Key",
-                "value": "<string>"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "3efb935e-b5e7-4171-93bc-a341ad978825",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "uploads",
-                    "reports",
-                    ":report_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "report_id",
-                      "description": "(Required) ID of the report"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
+              "request": {
                 "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"report\\\": {\\n    \\\"id\\\": \\\"rep_123CLedNlW2WSdqEF0DlxWJtBOZfvMK0\\\",\\n    \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n    \\\"gateway_configuration_id\\\": \\\"gway_conf_123exd5kivrg3iwpdt2rcbovgx9ixa7\\\",\\n    \\\"gateway_resource_id\\\": null,\\n    \\\"description\\\": \\\"file1.csv\\\",\\n    \\\"error\\\": null,\\n    \\\"is_processed\\\": true,\\n    \\\"payload_size_bytes\\\": 65901,\\n    \\\"processed_bytes\\\": 65901,\\n    \\\"status\\\": \\\"processed\\\",\\n    \\\"progress_percentage\\\": 100,\\n    \\\"contains_data_from\\\": null,\\n    \\\"contains_data_to\\\": null,\\n    \\\"created_at\\\": \\\"2024-07-25T09:36:21.144754Z\\\"\\n  },\\n  \\\"success\\\": true\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ce83d394-be25-46b1-9211-809904a69256",
-              "name": "401",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "uploads",
-                    "reports",
-                    ":report_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "report_id",
-                      "description": "(Required) ID of the report"
-                    }
-                  ]
-                },
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
                     "description": "Unique key to your request that will be used for idempotency",
                     "key": "Idempotency-Key",
                     "value": "<string>"
@@ -384,639 +787,178 @@
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"success\\\": false,\\n  \\\"message\\\": \\\"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\\\",\\n  \\\"error_type\\\": \\\"request.authentication.invalid\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "98ee6ffc-3660-4a70-97d7-5986cec829a0",
-              "name": "404",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "uploads",
-                    "reports",
-                    ":report_id"
-                  ],
+                  "raw": "{{baseUrl}}/uploads/reports",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "report_id",
-                      "description": "(Required) ID of the report"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"error_type\\\":\\\"resource.report.not-found\\\",\\n  \\\"message\\\":\\\"The report could not be found.\\\",\\n  \\\"success\\\":false\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "247bf3f8-ce47-412b-b2c6-bd0623f85f5e",
-              "name": "4XX",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "uploads",
-                    "reports",
-                    ":report_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "report_id",
-                      "description": "(Required) ID of the report"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"error_type\\\": \\\"*Error code*\\\",\\n  \\\"message\\\": \\\"*Error message*\\\",\\n  \\\"success\\\": false\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "dd16a1e3-5f77-42be-952b-c81d6ee63388",
-          "name": "Downloading raw PSP report",
-          "request": {
-            "name": "Downloading raw PSP report",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "uploads",
-                "reports",
-                ":report_id",
-                "raw"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "report_id",
-                  "description": "(Required) ID of the report"
-                }
-              ]
-            },
-            "header": [
-              {
-                "disabled": false,
-                "description": "Unique key to your request that will be used for idempotency",
-                "key": "Idempotency-Key",
-                "value": "<string>"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "13937f38-9c46-4aa6-a430-3d28ccebdf28",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "uploads",
-                    "reports",
-                    ":report_id",
-                    "raw"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "report_id",
-                      "description": "(Required) ID of the report"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{ \\\"download_url\\\": \\\"...\\\" }\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "25e947f2-a757-4e5c-9ab9-8ac900334ba3",
-              "name": "401",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "uploads",
-                    "reports",
-                    ":report_id",
-                    "raw"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "report_id",
-                      "description": "(Required) ID of the report"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"success\\\": false,\\n  \\\"message\\\": \\\"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\\\",\\n  \\\"error_type\\\": \\\"request.authentication.invalid\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "00744490-4e11-4842-b86a-c354fd24b327",
-              "name": "404",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "uploads",
-                    "reports",
-                    ":report_id",
-                    "raw"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "report_id",
-                      "description": "(Required) ID of the report"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"error_type\\\":\\\"resource.report.not-found\\\",\\n  \\\"message\\\":\\\"The report could not be found.\\\",\\n  \\\"success\\\":false\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f9654413-59da-4a54-8d46-9689f328143b",
-              "name": "4XX",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "uploads",
-                    "reports",
-                    ":report_id",
-                    "raw"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "report_id",
-                      "description": "(Required) ID of the report"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"error_type\\\": \\\"*Error code*\\\",\\n  \\\"message\\\": \\\"*Error message*\\\",\\n  \\\"success\\\": false\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c0dd083e-5204-47e5-bcf9-3b8381d83b6c",
-          "name": "Listing reports",
-          "request": {
-            "name": "Listing reports",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "uploads",
-                "reports"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "disabled": false,
-                "description": "Unique key to your request that will be used for idempotency",
-                "key": "Idempotency-Key",
-                "value": "<string>"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "580efdbb-5a2d-46b3-a04f-3dfa894ffe67",
-              "name": "200",
-              "originalRequest": {
-                "url": {
                   "path": [
                     "uploads",
                     "reports"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "e22b6450-e737-42b6-b2fb-8ff2d4142b86",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Unique key to your request that will be used for idempotency",
+                        "key": "Idempotency-Key",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/uploads/reports",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "uploads",
+                        "reports"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"count\": 0,\n  \"has_more\": true,\n  \"limit\": 0,\n  \"order\": \"<string>\",\n  \"reports\": [\n    {\n      \"id\": \"<string>\",\n      \"project_id\": \"<string>\",\n      \"gateway_configuration_id\": \"<string>\",\n      \"gateway_resource_id\": {},\n      \"description\": \"<string>\",\n      \"error\": {},\n      \"is_processed\": true,\n      \"payload_size_bytes\": 0,\n      \"processed_bytes\": 0,\n      \"status\": \"<string>\",\n      \"progress_percentage\": 0,\n      \"contains_data_from\": {},\n      \"contains_data_to\": {},\n      \"created_at\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"project_id\": \"<string>\",\n      \"gateway_configuration_id\": \"<string>\",\n      \"gateway_resource_id\": {},\n      \"description\": \"<string>\",\n      \"error\": {},\n      \"is_processed\": true,\n      \"payload_size_bytes\": 0,\n      \"processed_bytes\": 0,\n      \"status\": \"<string>\",\n      \"progress_percentage\": 0,\n      \"contains_data_from\": {},\n      \"contains_data_to\": {},\n      \"created_at\": \"<string>\"\n    }\n  ],\n  \"success\": true,\n  \"total_count\": 0\n}",
+                  "createdAt": "2026-10-21T20:26:12.000Z",
+                  "updatedAt": "2026-10-21T20:26:12.000Z",
+                  "uid": "35240-e22b6450-e737-42b6-b2fb-8ff2d4142b86"
+                },
+                {
+                  "id": "0ceee157-cce2-44d0-8644-825e704942c6",
+                  "name": "401",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Unique key to your request that will be used for idempotency",
+                        "key": "Idempotency-Key",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/uploads/reports",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "uploads",
+                        "reports"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"success\": true,\n  \"message\": \"<string>\",\n  \"error_type\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:26:12.000Z",
+                  "updatedAt": "2026-10-21T20:26:12.000Z",
+                  "uid": "35240-0ceee157-cce2-44d0-8644-825e704942c6"
+                },
+                {
+                  "id": "3b4abba3-2f0d-43a9-ba15-c9646977cfa3",
+                  "name": "4XX",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Unique key to your request that will be used for idempotency",
+                        "key": "Idempotency-Key",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/uploads/reports",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "uploads",
+                        "reports"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": \"<string>\",\n  \"message\": \"<string>\",\n  \"success\": true\n}",
+                  "createdAt": "2026-10-21T20:26:12.000Z",
+                  "updatedAt": "2026-10-21T20:26:12.000Z",
+                  "uid": "35240-3b4abba3-2f0d-43a9-ba15-c9646977cfa3"
                 }
               ],
-              "body": "\"{\\n    \\\"count\\\": 2,\\n    \\\"has_more\\\": false,\\n    \\\"limit\\\": 10,\\n    \\\"order\\\": \\\"desc\\\",\\n    \\\"reports\\\": [\\n        {\\n            \\\"id\\\": \\\"rep_123CLedNlW2WSdqEF0DlxWJtBOZfvMK0\\\",\\n            \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n            \\\"gateway_configuration_id\\\": \\\"gway_conf_123exd5kivrg3iwpdt2rcbovgx9ixa7\\\",\\n            \\\"gateway_resource_id\\\": null,\\n            \\\"description\\\": \\\"file1.csv\\\",\\n            \\\"error\\\": null,\\n            \\\"is_processed\\\": true,\\n            \\\"payload_size_bytes\\\": 65901,\\n            \\\"processed_bytes\\\": 65901,\\n            \\\"status\\\": \\\"processed\\\",\\n            \\\"progress_percentage\\\": 100,\\n            \\\"contains_data_from\\\": null,\\n            \\\"contains_data_to\\\": null,\\n            \\\"created_at\\\": \\\"2024-07-25T09:36:21.144754Z\\\"\\n        },\\n        {\\n            \\\"id\\\": \\\"rep_456CLedNlW2WSdqEF0DlxWJtBOZfvMK0\\\",\\n            \\\"project_id\\\": \\\"proj_BCdhW7DG55F5SyxFgR70XFz5CBEfWokh\\\",\\n            \\\"gateway_configuration_id\\\": \\\"gway_conf_456exd5kivrg3iwpdt2rcbovgx9ixa7\\\",\\n            \\\"gateway_resource_id\\\": null,\\n            \\\"description\\\": \\\"file2.csv\\\",\\n            \\\"error\\\": null,\\n            \\\"is_processed\\\": true,\\n            \\\"payload_size_bytes\\\": 1109,\\n            \\\"processed_bytes\\\": 1109,\\n            \\\"status\\\": \\\"processed\\\",\\n            \\\"progress_percentage\\\": 100,\\n            \\\"contains_data_from\\\": null,\\n            \\\"contains_data_to\\\": null,\\n            \\\"created_at\\\": \\\"2024-07-24T12:23:00.433922Z\\\"\\n        }\\n    ],\\n    \\\"success\\\": true,\\n    \\\"total_count\\\": 2\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "27199914-e61a-455b-be4d-206d396e5e38",
-              "name": "401",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "uploads",
-                    "reports"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"success\\\": false,\\n  \\\"message\\\": \\\"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\\\",\\n  \\\"error_type\\\": \\\"request.authentication.invalid\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "05cbd0b4-cd8e-4ca9-bbea-74a41ecc68bf",
-              "name": "4XX",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "uploads",
-                    "reports"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"error_type\\\": \\\"*Error code*\\\",\\n  \\\"message\\\": \\\"*Error message*\\\",\\n  \\\"success\\\": false\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:26:12.000Z",
+              "updatedAt": "2026-10-21T20:26:12.000Z",
+              "uid": "35240-fdb7367b-a786-4fae-8979-8ca2d4ac2989"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "4b411d82-254b-458f-bf14-97897a7c7773",
+          "createdAt": "2026-10-21T20:26:12.000Z",
+          "updatedAt": "2026-10-21T20:26:12.000Z",
+          "uid": "35240-4b411d82-254b-458f-bf14-97897a7c7773"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.processout.com",
-      "key": "baseUrl"
+      "id": "978b385c-8f08-461d-ac8c-026e07a36f81",
+      "createdAt": "2026-10-21T20:26:12.000Z",
+      "updatedAt": "2026-10-21T20:26:12.000Z",
+      "uid": "35240-978b385c-8f08-461d-ac8c-026e07a36f81"
     }
   ],
   "auth": {
@@ -1024,21 +966,20 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "b24d14e3-1276-47d8-a8d1-5904b025f9d3",
-    "name": "ProcessOut Balances Uploads API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation. Authentication is HTTP Basic using a project ID (username) and secret API key (password). This OpenAPI 3.1 description was assembled by API Evangelist from the per-operation OpenAPI fragments ProcessOut publishes in each ReadMe API-reference page.\n\nContact Support:\n Email: help@processout.com",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.processout.com"
     }
-  }
+  ]
 }

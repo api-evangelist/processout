@@ -1,516 +1,511 @@
 {
+  "info": {
+    "_postman_id": "7604c12b-739b-4ccf-98d5-fe71fd24fb1a",
+    "name": "ProcessOut Projects API",
+    "description": "ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation.\n\nContact Support:\n Email: help@processout.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:25:56.000Z",
+    "updatedAt": "2026-10-21T20:25:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7604c12b-739b-4ccf-98d5-fe71fd24fb1a"
+  },
   "item": [
     {
-      "id": "905e8573-0da6-4d10-a0ce-aaad12297624",
-      "name": "Projects",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "projects",
       "item": [
         {
-          "id": "e8cee58f-c703-4285-8992-0f909c83c571",
-          "name": "Deleting SFTP payouts export",
-          "request": {
-            "name": "Deleting SFTP payouts export",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "projects",
-                ":project_id",
-                "sftp-settings"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "project_id",
-                  "description": "(Required) ID of the project for which the SFTP settings are updated"
-                }
-              ]
-            },
-            "header": [
-              {
-                "disabled": false,
-                "description": "Unique key to your request that will be used for idempotency",
-                "key": "Idempotency-Key",
-                "value": "<string>"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
+          "name": "{project_id}",
+          "item": [
             {
-              "id": "36fa399a-e92b-477f-bf38-9c7d6e0778ee",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "projects",
-                    ":project_id",
-                    "sftp-settings"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "project_id",
-                      "description": "(Required) ID of the project for which the SFTP settings are updated"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "sftp-settings",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Deleting SFTP payouts export",
+                  "id": "81cfb706-6d44-41ee-8a81-4bdcaf06c8c6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Unique key to your request that will be used for idempotency",
+                        "key": "Idempotency-Key",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:project_id/sftp-settings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":project_id",
+                        "sftp-settings"
+                      ],
+                      "variable": [
+                        {
+                          "id": "739282c9-9147-4e29-ac3e-de261af7a801",
+                          "key": "project_id",
+                          "value": "<string>",
+                          "description": "(Required) ID of the project for which the SFTP settings are updated"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "78948e51-4139-4e05-9f90-851584a87c45",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Unique key to your request that will be used for idempotency",
+                            "key": "Idempotency-Key",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:project_id/sftp-settings",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":project_id",
+                            "sftp-settings"
+                          ],
+                          "variable": [
+                            {
+                              "key": "project_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": true\n}",
+                      "createdAt": "2026-10-21T20:25:57.000Z",
+                      "updatedAt": "2026-10-21T20:25:57.000Z",
+                      "uid": "35240-78948e51-4139-4e05-9f90-851584a87c45"
+                    },
+                    {
+                      "id": "25c3db31-5199-47b2-a713-ffecff632331",
+                      "name": "401",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Unique key to your request that will be used for idempotency",
+                            "key": "Idempotency-Key",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:project_id/sftp-settings",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":project_id",
+                            "sftp-settings"
+                          ],
+                          "variable": [
+                            {
+                              "key": "project_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": true,\n  \"message\": \"<string>\",\n  \"error_type\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:25:57.000Z",
+                      "updatedAt": "2026-10-21T20:25:57.000Z",
+                      "uid": "35240-25c3db31-5199-47b2-a713-ffecff632331"
+                    },
+                    {
+                      "id": "f58d5eec-1e70-40e4-8b92-865acb89939c",
+                      "name": "4XX",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Unique key to your request that will be used for idempotency",
+                            "key": "Idempotency-Key",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:project_id/sftp-settings",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":project_id",
+                            "sftp-settings"
+                          ],
+                          "variable": [
+                            {
+                              "key": "project_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": \"<string>\",\n  \"message\": \"<string>\",\n  \"success\": true\n}",
+                      "createdAt": "2026-10-21T20:25:57.000Z",
+                      "updatedAt": "2026-10-21T20:25:57.000Z",
+                      "uid": "35240-f58d5eec-1e70-40e4-8b92-865acb89939c"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:25:57.000Z",
+                  "updatedAt": "2026-10-21T20:25:57.000Z",
+                  "uid": "35240-81cfb706-6d44-41ee-8a81-4bdcaf06c8c6"
+                },
+                {
+                  "name": "Setting up SFTP payouts export",
+                  "id": "23f2af8e-db01-433b-969d-b62949d26ddd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "Unique key to your request that will be used for idempotency",
+                        "key": "Idempotency-Key",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"endpoint\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"private_key\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:project_id/sftp-settings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":project_id",
+                        "sftp-settings"
+                      ],
+                      "variable": [
+                        {
+                          "id": "97992eb7-25d1-428a-ac3d-d638bd08bb91",
+                          "key": "project_id",
+                          "value": "<string>",
+                          "description": "(Required) ID of the project for which the SFTP settings are updated"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "bd51552a-5dd5-4995-8e5d-7e33fa0df3b3",
+                      "name": "200",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "Unique key to your request that will be used for idempotency",
+                            "key": "Idempotency-Key",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"endpoint\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"private_key\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:project_id/sftp-settings",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":project_id",
+                            "sftp-settings"
+                          ],
+                          "variable": [
+                            {
+                              "key": "project_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": true\n}",
+                      "createdAt": "2026-10-21T20:25:57.000Z",
+                      "updatedAt": "2026-10-21T20:25:57.000Z",
+                      "uid": "35240-bd51552a-5dd5-4995-8e5d-7e33fa0df3b3"
+                    },
+                    {
+                      "id": "1dc22c7f-dde6-4e53-8d55-e6f138d58ede",
+                      "name": "401",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "Unique key to your request that will be used for idempotency",
+                            "key": "Idempotency-Key",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"endpoint\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"private_key\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:project_id/sftp-settings",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":project_id",
+                            "sftp-settings"
+                          ],
+                          "variable": [
+                            {
+                              "key": "project_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": true,\n  \"message\": \"<string>\",\n  \"error_type\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:25:57.000Z",
+                      "updatedAt": "2026-10-21T20:25:57.000Z",
+                      "uid": "35240-1dc22c7f-dde6-4e53-8d55-e6f138d58ede"
+                    },
+                    {
+                      "id": "ac403d27-70a9-478b-9429-9a89f19f354b",
+                      "name": "4XX",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "Unique key to your request that will be used for idempotency",
+                            "key": "Idempotency-Key",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"endpoint\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"private_key\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:project_id/sftp-settings",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":project_id",
+                            "sftp-settings"
+                          ],
+                          "variable": [
+                            {
+                              "key": "project_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": \"<string>\",\n  \"message\": \"<string>\",\n  \"success\": true\n}",
+                      "createdAt": "2026-10-21T20:25:57.000Z",
+                      "updatedAt": "2026-10-21T20:25:57.000Z",
+                      "uid": "35240-ac403d27-70a9-478b-9429-9a89f19f354b"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:25:57.000Z",
+                  "updatedAt": "2026-10-21T20:25:57.000Z",
+                  "uid": "35240-23f2af8e-db01-433b-969d-b62949d26ddd"
                 }
               ],
-              "body": "\"{\\n    \\\"success\\\": true\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "449ee842-a234-4a37-b93b-0d758ed96959",
-              "name": "401",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "projects",
-                    ":project_id",
-                    "sftp-settings"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "project_id",
-                      "description": "(Required) ID of the project for which the SFTP settings are updated"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"success\\\": false,\\n    \\\"message\\\": \\\"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\\\",\\n    \\\"error_type\\\": \\\"request.authentication.invalid\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e845f6bd-448e-4e23-af12-df7e274c0f02",
-              "name": "4XX",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "projects",
-                    ":project_id",
-                    "sftp-settings"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "project_id",
-                      "description": "(Required) ID of the project for which the SFTP settings are updated"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"error_type\\\": \\\"*Error code*\\\",\\n  \\\"message\\\": \\\"*Error message*\\\",\\n  \\\"success\\\": false\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "4f558049-e0b8-4ed2-b0c5-68d261ccc774",
+              "createdAt": "2026-10-21T20:25:57.000Z",
+              "updatedAt": "2026-10-21T20:25:57.000Z",
+              "uid": "35240-4f558049-e0b8-4ed2-b0c5-68d261ccc774"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b1c6df86-b65b-45b9-86ad-d13b70294d98",
-          "name": "Setting up SFTP payouts export",
-          "request": {
-            "name": "Setting up SFTP payouts export",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "projects",
-                ":project_id",
-                "sftp-settings"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "project_id",
-                  "description": "(Required) ID of the project for which the SFTP settings are updated"
-                }
-              ]
-            },
-            "header": [
-              {
-                "disabled": false,
-                "description": "Unique key to your request that will be used for idempotency",
-                "key": "Idempotency-Key",
-                "value": "<string>"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"endpoint\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"private_key\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "36236efb-f8e1-4c51-b524-2bb84eafc266",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "projects",
-                    ":project_id",
-                    "sftp-settings"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "project_id",
-                      "description": "(Required) ID of the project for which the SFTP settings are updated"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"endpoint\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"private_key\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"success\\\": true\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "52965ab4-1cf7-4854-8d56-b843ffee761f",
-              "name": "401",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "projects",
-                    ":project_id",
-                    "sftp-settings"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "project_id",
-                      "description": "(Required) ID of the project for which the SFTP settings are updated"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"endpoint\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"private_key\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"success\\\": false,\\n    \\\"message\\\": \\\"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\\\",\\n    \\\"error_type\\\": \\\"request.authentication.invalid\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "0b45d5b7-0684-42fc-9cf4-4880e12e46a2",
-              "name": "4XX",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "projects",
-                    ":project_id",
-                    "sftp-settings"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "project_id",
-                      "description": "(Required) ID of the project for which the SFTP settings are updated"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"endpoint\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"private_key\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"error_type\\\": \\\"*Error code*\\\",\\n  \\\"message\\\": \\\"*Error message*\\\",\\n  \\\"success\\\": false\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "65061737-e86b-4179-aeaa-ea43ce47e1d7",
+          "createdAt": "2026-10-21T20:25:57.000Z",
+          "updatedAt": "2026-10-21T20:25:57.000Z",
+          "uid": "35240-65061737-e86b-4179-aeaa-ea43ce47e1d7"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.processout.com",
-      "key": "baseUrl"
+      "id": "c3589c77-cc2d-403d-a6a2-9ac29f446486",
+      "createdAt": "2026-10-21T20:25:57.000Z",
+      "updatedAt": "2026-10-21T20:25:57.000Z",
+      "uid": "35240-c3589c77-cc2d-403d-a6a2-9ac29f446486"
     }
   ],
   "auth": {
@@ -518,21 +513,20 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "79fa624e-e587-430b-9a28-61ad63d0d8b1",
-    "name": "ProcessOut Balances Projects API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation. Authentication is HTTP Basic using a project ID (username) and secret API key (password). This OpenAPI 3.1 description was assembled by API Evangelist from the per-operation OpenAPI fragments ProcessOut publishes in each ReadMe API-reference page.\n\nContact Support:\n Email: help@processout.com",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.processout.com"
     }
-  }
+  ]
 }

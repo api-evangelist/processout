@@ -1,35 +1,363 @@
 {
+  "info": {
+    "_postman_id": "cd3a0d9c-a31c-41e6-84b0-5f3d3ee3a344",
+    "name": "ProcessOut Cards API",
+    "description": "ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation.\n\nContact Support:\n Email: help@processout.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:25:12.000Z",
+    "updatedAt": "2026-10-21T20:25:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cd3a0d9c-a31c-41e6-84b0-5f3d3ee3a344"
+  },
   "item": [
     {
-      "id": "d0abd07a-e512-41fb-a727-f937a598572d",
-      "name": "Cards",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "cards",
       "item": [
         {
-          "id": "68c6c464-967d-405c-94a7-d4f87a9d767e",
+          "name": "{card_id}",
+          "item": [
+            {
+              "name": "Updating a card",
+              "id": "3473edc0-5471-4e71-b7d6-62f32a74f263",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cvc2\": \"<string>\",\n  \"preferred_scheme\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/cards/:card_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cards",
+                    ":card_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "4b5f75a9-a177-4aa3-afbe-573e89ba6f9f",
+                      "key": "card_id",
+                      "value": "<string>",
+                      "description": "(Required) ID of the card tokenized"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "457c6004-89f6-4f79-86fe-adb57abe9ae7",
+                  "name": "200",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "Unique key to your request that will be used for idempotency",
+                        "key": "Idempotency-Key",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"cvc2\": \"<string>\",\n  \"preferred_scheme\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cards/:card_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cards",
+                        ":card_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "card_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"card\": {\n    \"project_id\": \"<string>\",\n    \"update_type\": \"<string>\",\n    \"update_reason_code\": \"<string>\",\n    \"scheme\": \"<string>\",\n    \"co_scheme\": {},\n    \"preferred_scheme\": {},\n    \"type\": \"<string>\",\n    \"bank_name\": {},\n    \"brand\": {},\n    \"category\": {},\n    \"iin\": \"<string>\",\n    \"last_4_digits\": \"<string>\",\n    \"fingerprint\": \"<string>\",\n    \"exp_month\": 0,\n    \"exp_year\": 0,\n    \"cvc_check\": \"<string>\",\n    \"avs_check\": \"<string>\",\n    \"checks\": {\n      \"cvc_check\": \"<string>\",\n      \"cvc_check_reason\": {},\n      \"avs_check\": \"<string>\",\n      \"avs_postal_check\": \"<string>\",\n      \"avs_postal_check_reason\": {},\n      \"avs_street_check\": \"<string>\",\n      \"avs_street_check_reason\": {},\n      \"avs_name_check\": \"<string>\",\n      \"avs_name_check_reason\": {}\n    },\n    \"token_type\": {},\n    \"name\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"billing_country_code\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"ip_address\": \"<string>\",\n    \"user_agent\": \"<string>\",\n    \"header_accept\": \"<string>\",\n    \"app_color_depth\": {},\n    \"app_java_enabled\": {},\n    \"app_language\": {},\n    \"app_screen_height\": {},\n    \"app_screen_width\": {},\n    \"app_timezone_offset\": {},\n    \"header_referer\": {},\n    \"expires_soon\": true,\n    \"metadata\": {},\n    \"used\": {},\n    \"sandbox\": true,\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"id\": \"<string>\",\n    \"cvc_tokenized\": true,\n    \"tokenization_method\": {},\n    \"payment_source_detail\": {}\n  },\n  \"success\": true\n}",
+                  "createdAt": "2026-10-21T20:25:13.000Z",
+                  "updatedAt": "2026-10-21T20:25:13.000Z",
+                  "uid": "35240-457c6004-89f6-4f79-86fe-adb57abe9ae7"
+                },
+                {
+                  "id": "734e96fd-9f82-40cf-b0da-84342f1d9fb5",
+                  "name": "401",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "Unique key to your request that will be used for idempotency",
+                        "key": "Idempotency-Key",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"cvc2\": \"<string>\",\n  \"preferred_scheme\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cards/:card_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cards",
+                        ":card_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "card_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"success\": true,\n  \"message\": \"<string>\",\n  \"error_type\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T20:25:13.000Z",
+                  "updatedAt": "2026-10-21T20:25:13.000Z",
+                  "uid": "35240-734e96fd-9f82-40cf-b0da-84342f1d9fb5"
+                },
+                {
+                  "id": "0d45f780-d586-4aaa-a867-2a3f042a2be8",
+                  "name": "404",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "Unique key to your request that will be used for idempotency",
+                        "key": "Idempotency-Key",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"cvc2\": \"<string>\",\n  \"preferred_scheme\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cards/:card_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cards",
+                        ":card_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "card_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": \"<string>\",\n  \"message\": \"<string>\",\n  \"success\": true\n}",
+                  "createdAt": "2026-10-21T20:25:13.000Z",
+                  "updatedAt": "2026-10-21T20:25:13.000Z",
+                  "uid": "35240-0d45f780-d586-4aaa-a867-2a3f042a2be8"
+                },
+                {
+                  "id": "348dc407-49af-4d7a-adf4-4c296d0137ee",
+                  "name": "4XX",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "Unique key to your request that will be used for idempotency",
+                        "key": "Idempotency-Key",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"cvc2\": \"<string>\",\n  \"preferred_scheme\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cards/:card_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cards",
+                        ":card_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "card_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": \"<string>\",\n  \"message\": \"<string>\",\n  \"success\": true\n}",
+                  "createdAt": "2026-10-21T20:25:13.000Z",
+                  "updatedAt": "2026-10-21T20:25:13.000Z",
+                  "uid": "35240-348dc407-49af-4d7a-adf4-4c296d0137ee"
+                }
+              ],
+              "createdAt": "2026-10-21T20:25:13.000Z",
+              "updatedAt": "2026-10-21T20:25:13.000Z",
+              "uid": "35240-3473edc0-5471-4e71-b7d6-62f32a74f263"
+            }
+          ],
+          "id": "26b6a76d-5242-46fb-8b76-35826e817af2",
+          "createdAt": "2026-10-21T20:25:13.000Z",
+          "updatedAt": "2026-10-21T20:25:13.000Z",
+          "uid": "35240-26b6a76d-5242-46fb-8b76-35826e817af2"
+        },
+        {
           "name": "Creating a card",
+          "id": "29c0ff0b-1314-4503-acfe-fe75261d3547",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Creating a card",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "cards"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
+            "method": "POST",
             "header": [
               {
-                "disabled": false,
                 "description": "Unique key to your request that will be used for idempotency",
                 "key": "Idempotency-Key",
                 "value": "<string>"
@@ -43,533 +371,220 @@
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": null,
             "body": {
               "mode": "raw",
               "raw": "{\n  \"number\": \"<string>\",\n  \"exp_year\": \"<string>\",\n  \"exp_month\": \"<string>\",\n  \"cvc2\": \"<string>\",\n  \"name\": \"<string>\",\n  \"contact\": {\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"billing_country_code\": \"<string>\",\n    \"zip\": \"<string>\"\n  },\n  \"device\": {\n    \"request_origin\": \"<string>\",\n    \"ip_address\": \"<string>\"\n  },\n  \"preferred_scheme\": \"<string>\"\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
-            }
-          },
-          "response": [
-            {
-              "id": "460bbfb7-3bde-4b40-80e3-bfe00815f20d",
-              "name": "200",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "cards"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"number\": \"<string>\",\n  \"exp_year\": \"<string>\",\n  \"exp_month\": \"<string>\",\n  \"cvc2\": \"<string>\",\n  \"name\": \"<string>\",\n  \"contact\": {\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"billing_country_code\": \"<string>\",\n    \"zip\": \"<string>\"\n  },\n  \"device\": {\n    \"request_origin\": \"<string>\",\n    \"ip_address\": \"<string>\"\n  },\n  \"preferred_scheme\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"card\": {\n    \"project_id\": \"proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S\",\n    \"update_type\": null,\n    \"update_reason_code\": null,\n    \"scheme\": \"visa\",\n    \"co_scheme\": null,\n    \"preferred_scheme\": null,\n    \"type\": \"credit\",\n    \"bank_name\": null,\n    \"brand\": null,\n    \"category\": null,\n    \"iin\": \"400000\",\n    \"last_4_digits\": \"0101\",\n    \"fingerprint\": \"0f041fb914a50c7555df2318df1a9f9571cc96305c07b4f944e29fd17bfd1691\",\n    \"exp_month\": 11,\n    \"exp_year\": 2026,\n    \"cvc_check\": \"unavailable\",\n    \"avs_check\": \"unavailable\",\n    \"checks\": {\n      \"cvc_check\": \"unavailable\",\n      \"cvc_check_reason\": null,\n      \"avs_check\": \"unavailable\",\n      \"avs_postal_check\": \"unavailable\",\n      \"avs_postal_check_reason\": null,\n      \"avs_street_check\": \"unavailable\",\n      \"avs_street_check_reason\": null,\n      \"avs_name_check\": \"unavailable\",\n      \"avs_name_check_reason\": null\n    },\n    \"token_type\": null,\n    \"name\": \"Matéo Garnier\",\n    \"address1\": \"133 rue Lamarck\",\n    \"address2\": \"Cedex 7\",\n    \"city\": \"Paris\",\n    \"state\": \"Ile De France\",\n    \"country_code\": \"US\",\n    \"billing_country_code\": \"FR\",\n    \"zip\": \"75018\",\n    \"ip_address\": \"1.2.3.4\",\n    \"user_agent\": \"PostmanRuntime/7.32.2\",\n    \"header_accept\": \"*/*\",\n    \"app_color_depth\": null,\n    \"app_java_enabled\": null,\n    \"app_language\": null,\n    \"app_screen_height\": null,\n    \"app_screen_width\": null,\n    \"app_timezone_offset\": null,\n    \"header_referer\": null,\n    \"expires_soon\": false,\n    \"metadata\": {},\n    \"used\": null,\n    \"sandbox\": true,\n    \"created_at\": \"2023-04-22T10:10:21.019103785Z\",\n    \"updated_at\": \"2023-04-22T10:10:21.019103681Z\",\n    \"id\": \"card_zZAeVmdrJjN58PbB8lVSrqh3rqEuH3Ai\",\n    \"cvc_tokenized\": true,\n    \"tokenization_method\": null,\n    \"payment_source_detail\": null\n  },\n  \"success\": true\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "6e8d27e7-dce5-4a8d-8290-77af48cac82b",
-              "name": "400",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "cards"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"number\": \"<string>\",\n  \"exp_year\": \"<string>\",\n  \"exp_month\": \"<string>\",\n  \"cvc2\": \"<string>\",\n  \"name\": \"<string>\",\n  \"contact\": {\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"billing_country_code\": \"<string>\",\n    \"zip\": \"<string>\"\n  },\n  \"device\": {\n    \"request_origin\": \"<string>\",\n    \"ip_address\": \"<string>\"\n  },\n  \"preferred_scheme\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"success\\\":false,\\n  \\\"error_type\\\":\\\"card.invalid-number\\\",\\n  \\\"message\\\":\\\"Your card’s number is invalid.\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "fc69df8c-7d1e-417c-a35e-6bd15ff0c7dd",
-              "name": "4XX",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "cards"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"number\": \"<string>\",\n  \"exp_year\": \"<string>\",\n  \"exp_month\": \"<string>\",\n  \"cvc2\": \"<string>\",\n  \"name\": \"<string>\",\n  \"contact\": {\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"billing_country_code\": \"<string>\",\n    \"zip\": \"<string>\"\n  },\n  \"device\": {\n    \"request_origin\": \"<string>\",\n    \"ip_address\": \"<string>\"\n  },\n  \"preferred_scheme\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n  \\\"error_type\\\": \\\"*Error code*\\\",\\n  \\\"message\\\": \\\"*Error message*\\\",\\n  \\\"success\\\": false\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e4f602c8-97c6-4d8f-949f-36b634a0c83c",
-          "name": "Updating a card",
-          "request": {
-            "name": "Updating a card",
-            "description": {
-              "content": "",
-              "type": "text/plain"
             },
             "url": {
-              "path": [
-                "cards",
-                ":card_id"
-              ],
+              "raw": "{{baseUrl}}/cards",
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "card_id",
-                  "description": "(Required) ID of the card tokenized"
-                }
+              "path": [
+                "cards"
               ]
-            },
-            "header": [
-              {
-                "disabled": false,
-                "description": "Unique key to your request that will be used for idempotency",
-                "key": "Idempotency-Key",
-                "value": "<string>"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"cvc2\": \"<string>\",\n  \"preferred_scheme\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
             }
           },
           "response": [
             {
-              "id": "86161ecf-26dd-4de2-beb2-7070b2b113ea",
+              "id": "1d33db09-9b37-4609-bb38-bc448498ba8d",
               "name": "200",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "cards",
-                    ":card_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "card_id",
-                      "description": "(Required) ID of the card tokenized"
-                    }
-                  ]
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
                     "description": "Unique key to your request that will be used for idempotency",
                     "key": "Idempotency-Key",
                     "value": "<string>"
                   },
                   {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
                   }
                 ],
-                "method": "PUT",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"cvc2\": \"<string>\",\n  \"preferred_scheme\": \"<string>\"\n}",
+                  "raw": "{\n  \"number\": \"<string>\",\n  \"exp_year\": \"<string>\",\n  \"exp_month\": \"<string>\",\n  \"cvc2\": \"<string>\",\n  \"name\": \"<string>\",\n  \"contact\": {\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"billing_country_code\": \"<string>\",\n    \"zip\": \"<string>\"\n  },\n  \"device\": {\n    \"request_origin\": \"<string>\",\n    \"ip_address\": \"<string>\"\n  },\n  \"preferred_scheme\": \"<string>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/cards",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cards"
+                  ]
                 }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"card\": {\n    \"project_id\": \"proj_IFCgGTmyClrgTOzsschN1y7GJttHVQ7S\",\n    \"update_type\": \"new-cvc2\",\n    \"update_reason_code\": \"request\",\n    \"scheme\": \"visa\",\n    \"co_scheme\": null,\n    \"preferred_scheme\": null,\n    \"type\": \"credit\",\n    \"bank_name\": null,\n    \"brand\": null,\n    \"category\": null,\n    \"iin\": \"400000\",\n    \"last_4_digits\": \"0101\",\n    \"fingerprint\": \"0f041fb914a50c7555df2318df1a9f9571cc96305c07b4f944e29fd17bfd1691\",\n    \"exp_month\": 11,\n    \"exp_year\": 2026,\n    \"cvc_check\": \"unavailable\",\n    \"avs_check\": \"unavailable\",\n    \"checks\": {\n      \"cvc_check\": \"unavailable\",\n      \"cvc_check_reason\": null,\n      \"avs_check\": \"unavailable\",\n      \"avs_postal_check\": \"unavailable\",\n      \"avs_postal_check_reason\": null,\n      \"avs_street_check\": \"unavailable\",\n      \"avs_street_check_reason\": null,\n      \"avs_name_check\": \"unavailable\",\n      \"avs_name_check_reason\": null\n    },\n    \"token_type\": null,\n    \"name\": \"Matéo Garnier\",\n    \"address1\": \"133 rue Lamarck\",\n    \"address2\": \"Cedex 7\",\n    \"city\": \"Paris\",\n    \"state\": \"Ile De France\",\n    \"country_code\": \"US\",\n    \"billing_country_code\": \"FR\",\n    \"zip\": \"75018\",\n    \"ip_address\": \"1.2.3.4\",\n    \"user_agent\": \"PostmanRuntime/7.32.2\",\n    \"header_accept\": \"*/*\",\n    \"app_color_depth\": null,\n    \"app_java_enabled\": null,\n    \"app_language\": null,\n    \"app_screen_height\": null,\n    \"app_screen_width\": null,\n    \"app_timezone_offset\": null,\n    \"header_referer\": null,\n    \"expires_soon\": false,\n    \"metadata\": {},\n    \"used\": null,\n    \"sandbox\": true,\n    \"created_at\": \"2023-04-22T10:10:21.019103Z\",\n    \"updated_at\": \"2023-04-22T10:22:11.46316117Z\",\n    \"id\": \"card_zZAeVmdrJjN58PbB8lVSrqh3rqEuH3Ai\",\n    \"cvc_tokenized\": true,\n    \"tokenization_method\": null,\n    \"payment_source_detail\": null\n  },\n  \"success\": true\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"card\": {\n    \"project_id\": \"<string>\",\n    \"update_type\": {},\n    \"update_reason_code\": {},\n    \"scheme\": \"<string>\",\n    \"co_scheme\": {},\n    \"preferred_scheme\": {},\n    \"type\": \"<string>\",\n    \"bank_name\": {},\n    \"brand\": {},\n    \"category\": {},\n    \"iin\": \"<string>\",\n    \"last_4_digits\": \"<string>\",\n    \"fingerprint\": \"<string>\",\n    \"exp_month\": 0,\n    \"exp_year\": 0,\n    \"cvc_check\": \"<string>\",\n    \"avs_check\": \"<string>\",\n    \"checks\": {\n      \"cvc_check\": \"<string>\",\n      \"cvc_check_reason\": {},\n      \"avs_check\": \"<string>\",\n      \"avs_postal_check\": \"<string>\",\n      \"avs_postal_check_reason\": {},\n      \"avs_street_check\": \"<string>\",\n      \"avs_street_check_reason\": {},\n      \"avs_name_check\": \"<string>\",\n      \"avs_name_check_reason\": {}\n    },\n    \"token_type\": {},\n    \"name\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"billing_country_code\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"ip_address\": \"<string>\",\n    \"user_agent\": \"<string>\",\n    \"header_accept\": \"<string>\",\n    \"app_color_depth\": {},\n    \"app_java_enabled\": {},\n    \"app_language\": {},\n    \"app_screen_height\": {},\n    \"app_screen_width\": {},\n    \"app_timezone_offset\": {},\n    \"header_referer\": {},\n    \"expires_soon\": true,\n    \"metadata\": {},\n    \"used\": {},\n    \"sandbox\": true,\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\",\n    \"id\": \"<string>\",\n    \"cvc_tokenized\": true,\n    \"tokenization_method\": {},\n    \"payment_source_detail\": {}\n  },\n  \"success\": true\n}",
+              "createdAt": "2026-10-21T20:25:13.000Z",
+              "updatedAt": "2026-10-21T20:25:13.000Z",
+              "uid": "35240-1d33db09-9b37-4609-bb38-bc448498ba8d"
             },
             {
-              "id": "cdc8e60c-37e2-4f31-9254-c7eb3e8b0a8a",
-              "name": "401",
+              "id": "18476a84-9202-465f-b36b-e8fddd4a1c77",
+              "name": "400",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "cards",
-                    ":card_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "card_id",
-                      "description": "(Required) ID of the card tokenized"
-                    }
-                  ]
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
                     "description": "Unique key to your request that will be used for idempotency",
                     "key": "Idempotency-Key",
                     "value": "<string>"
                   },
                   {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
                   }
                 ],
-                "method": "PUT",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"cvc2\": \"<string>\",\n  \"preferred_scheme\": \"<string>\"\n}",
+                  "raw": "{\n  \"number\": \"<string>\",\n  \"exp_year\": \"<string>\",\n  \"exp_month\": \"<string>\",\n  \"cvc2\": \"<string>\",\n  \"name\": \"<string>\",\n  \"contact\": {\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"billing_country_code\": \"<string>\",\n    \"zip\": \"<string>\"\n  },\n  \"device\": {\n    \"request_origin\": \"<string>\",\n    \"ip_address\": \"<string>\"\n  },\n  \"preferred_scheme\": \"<string>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"success\\\": false,\\n    \\\"message\\\": \\\"Could not read your project ID. Please make sure to use Basic HTTP authentication using your project ID as the username. If you have any questions, feel free to ask for help at help@processout.com!\\\",\\n    \\\"error_type\\\": \\\"request.authentication.invalid\\\"\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f55d8a5f-7216-4de7-b781-f1209cbdd277",
-              "name": "404",
-              "originalRequest": {
+                },
                 "url": {
-                  "path": [
-                    "cards",
-                    ":card_id"
-                  ],
+                  "raw": "{{baseUrl}}/cards",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "card_id",
-                      "description": "(Required) ID of the card tokenized"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"cvc2\": \"<string>\",\n  \"preferred_scheme\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "\"{\\n    \\\"error_type\\\": \\\"resource.card.not-found\\\",\\n    \\\"message\\\": \\\"The card could not be found.\\\",\\n    \\\"success\\\": false\\n}\"",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "1e20ba6e-9def-490f-8776-59d09c02e307",
-              "name": "4XX",
-              "originalRequest": {
-                "url": {
                   "path": [
-                    "cards",
-                    ":card_id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "card_id",
-                      "description": "(Required) ID of the card tokenized"
-                    }
+                    "cards"
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "disabled": false,
-                    "description": "Unique key to your request that will be used for idempotency",
-                    "key": "Idempotency-Key",
-                    "value": "<string>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"cvc2\": \"<string>\",\n  \"preferred_scheme\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
                 }
               },
               "status": "Bad Request",
               "code": 400,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "\"{\\n  \\\"error_type\\\": \\\"*Error code*\\\",\\n  \\\"message\\\": \\\"*Error message*\\\",\\n  \\\"success\\\": false\\n}\"",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"success\": true,\n  \"error_type\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T20:25:13.000Z",
+              "updatedAt": "2026-10-21T20:25:13.000Z",
+              "uid": "35240-18476a84-9202-465f-b36b-e8fddd4a1c77"
+            },
+            {
+              "id": "2acccb7d-2d9e-43b3-a7c0-3a46411f3e2f",
+              "name": "4XX",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Unique key to your request that will be used for idempotency",
+                    "key": "Idempotency-Key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"number\": \"<string>\",\n  \"exp_year\": \"<string>\",\n  \"exp_month\": \"<string>\",\n  \"cvc2\": \"<string>\",\n  \"name\": \"<string>\",\n  \"contact\": {\n    \"address1\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"billing_country_code\": \"<string>\",\n    \"zip\": \"<string>\"\n  },\n  \"device\": {\n    \"request_origin\": \"<string>\",\n    \"ip_address\": \"<string>\"\n  },\n  \"preferred_scheme\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/cards",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cards"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error_type\": \"<string>\",\n  \"message\": \"<string>\",\n  \"success\": true\n}",
+              "createdAt": "2026-10-21T20:25:13.000Z",
+              "updatedAt": "2026-10-21T20:25:13.000Z",
+              "uid": "35240-2acccb7d-2d9e-43b3-a7c0-3a46411f3e2f"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T20:25:13.000Z",
+          "updatedAt": "2026-10-21T20:25:13.000Z",
+          "uid": "35240-29c0ff0b-1314-4503-acfe-fe75261d3547"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.processout.com",
-      "key": "baseUrl"
+      "id": "515e900d-f38c-4d98-b078-f78f0871a248",
+      "createdAt": "2026-10-21T20:25:13.000Z",
+      "updatedAt": "2026-10-21T20:25:13.000Z",
+      "uid": "35240-515e900d-f38c-4d98-b078-f78f0871a248"
     }
   ],
   "auth": {
@@ -577,21 +592,20 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "d6fc044d-d196-4ca9-82e8-b675ba4f4552",
-    "name": "ProcessOut Balances Cards API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation. Authentication is HTTP Basic using a project ID (username) and secret API key (password). This OpenAPI 3.1 description was assembled by API Evangelist from the per-operation OpenAPI fragments ProcessOut publishes in each ReadMe API-reference page.\n\nContact Support:\n Email: help@processout.com",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.processout.com"
     }
-  }
+  ]
 }

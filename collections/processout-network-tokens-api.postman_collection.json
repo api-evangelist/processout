@@ -1,32 +1,26 @@
 {
+  "info": {
+    "_postman_id": "387ee625-54cf-4b2e-844d-b8f28f7970e2",
+    "name": "ProcessOut Network Tokens API",
+    "description": "ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation.\n\nContact Support:\n Email: help@processout.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:25:46.000Z",
+    "updatedAt": "2026-10-21T20:25:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-387ee625-54cf-4b2e-844d-b8f28f7970e2"
+  },
   "item": [
     {
-      "id": "c5435695-1046-4300-bbd3-e10fd1f48a7d",
-      "name": "Network Tokens",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "network-tokens",
       "item": [
         {
-          "id": "d68ec2a4-08e6-41bd-92bd-3f4d43c65943",
           "name": "Provisioning Network Token for card",
+          "id": "c3a2c082-99c0-46cf-9109-5827422238aa",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Provisioning Network Token for card",
-            "description": {
-              "content": "",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "network-tokens"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
+            "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
@@ -37,188 +31,205 @@
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": null,
             "body": {
               "mode": "raw",
               "raw": "{\n  \"card_id\": \"<string>\"\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/network-tokens",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "network-tokens"
+              ]
             }
           },
           "response": [
             {
-              "id": "cc8f2f1f-166d-4483-927f-ade353723fa1",
+              "id": "30de0718-c350-4439-9104-476856e0a8f0",
               "name": "202",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "network-tokens"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"card_id\": \"<string>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/network-tokens",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "network-tokens"
+                  ]
                 }
               },
               "status": "Accepted",
               "code": 202,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "\"{\\n    \\\"network_token\\\": {\\n        \\\"status\\\": \\\"pending\\\"\\n    },\\n    \\\"success\\\": true\\n}\"",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"network_token\": {\n    \"status\": \"<string>\"\n  },\n  \"success\": true\n}",
+              "createdAt": "2026-10-21T20:25:47.000Z",
+              "updatedAt": "2026-10-21T20:25:47.000Z",
+              "uid": "35240-30de0718-c350-4439-9104-476856e0a8f0"
             },
             {
-              "id": "d0eef0c3-6bf2-4977-8e25-dfef3cb16ad9",
+              "id": "6f6c705f-fd16-403f-afba-9bbe74336224",
               "name": "422",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "network-tokens"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"card_id\": \"<string>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/network-tokens",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "network-tokens"
+                  ]
                 }
               },
               "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
               "code": 422,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "\"{\\n    \\\"error_type\\\": \\\"request.validation.provisioning-not-possible\\\",\\n    \\\"message\\\": \\\"network token status is active: provisioning not possible\\\",\\n    \\\"success\\\": false\\n}\"",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"error_type\": \"<string>\",\n  \"message\": \"<string>\",\n  \"success\": true\n}",
+              "createdAt": "2026-10-21T20:25:47.000Z",
+              "updatedAt": "2026-10-21T20:25:47.000Z",
+              "uid": "35240-6f6c705f-fd16-403f-afba-9bbe74336224"
             },
             {
-              "id": "c64d488e-c4e8-4674-8112-beaa08adfe54",
+              "id": "450f9aa3-d772-45f1-bd58-acf6a4ea22c5",
               "name": "4XX",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "network-tokens"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"card_id\": \"<string>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/network-tokens",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "network-tokens"
+                  ]
                 }
               },
               "status": "Bad Request",
               "code": 400,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "\"{\\n  \\\"error_type\\\": \\\"*Error code*\\\",\\n  \\\"message\\\": \\\"*Error message*\\\",\\n  \\\"success\\\": false\\n}\"",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"error_type\": \"<string>\",\n  \"message\": \"<string>\",\n  \"success\": true\n}",
+              "createdAt": "2026-10-21T20:25:47.000Z",
+              "updatedAt": "2026-10-21T20:25:47.000Z",
+              "uid": "35240-450f9aa3-d772-45f1-bd58-acf6a4ea22c5"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T20:25:47.000Z",
+          "updatedAt": "2026-10-21T20:25:47.000Z",
+          "uid": "35240-c3a2c082-99c0-46cf-9109-5827422238aa"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.processout.com",
-      "key": "baseUrl"
+      "id": "55ab1dc1-7151-4043-954a-e41a388cd8d1",
+      "createdAt": "2026-10-21T20:25:47.000Z",
+      "updatedAt": "2026-10-21T20:25:47.000Z",
+      "uid": "35240-55ab1dc1-7151-4043-954a-e41a388cd8d1"
     }
   ],
   "auth": {
@@ -226,21 +237,20 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "7f00a377-7841-4f09-980c-b8d24b739d73",
-    "name": "ProcessOut Balances Network Tokens API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "ProcessOut is a payments technical layer that standardizes merchant connections to 100+ payment providers (PSPs/APMs), with a PCI DSS card vault, tokenization for recurring payments, dynamic/no-code checkout, ML-based smart routing, analytics and transaction reconciliation. Authentication is HTTP Basic using a project ID (username) and secret API key (password). This OpenAPI 3.1 description was assembled by API Evangelist from the per-operation OpenAPI fragments ProcessOut publishes in each ReadMe API-reference page.\n\nContact Support:\n Email: help@processout.com",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.processout.com"
     }
-  }
+  ]
 }
