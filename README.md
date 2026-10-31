@@ -64,6 +64,153 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-ProcessOut is a company surfaced as a portfolio company of techstars and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+ProcessOut is a payments technical layer and orchestration platform that standardizes how merchants connect to 100+ payment providers (PSPs and alternative payment methods). It provides a PCI DSS card vault, tokenization for recurring and one-click payments, dynamic no-code checkout, ML-based smart routing to lift authorization rates and cut cost, plus analytics and transaction reconciliation. The REST API (https://api.processout.com) authenticates with HTTP Basic project keys, supports idempotency keys and webhooks, and ships first-party SDKs for Node.js, Python, Ruby, PHP and Go plus client-side ProcessOut.js and iOS/Android. A hosted MCP server exposes the API and docs to AI agents. Originally a Techstars company, ProcessOut is now part of Checkout.com.
 
-Backed by: techstars — https://processout.com/
+**Areas:** Payments · Payment Orchestration · Smart Routing · Tokenization · Checkout · Reconciliation · Fraud Prevention · 3D Secure · Company
+
+## ProcessOut on APIs.io
+
+Everything profiled for ProcessOut is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/processout/](https://apis.io/providers/processout/)** — or go straight to one of the APIs or properties below.
+
+### APIs (10)
+
+- [ProcessOut Balances API](https://apis.io/apis/processout/processout-balances-api/) — The Balances API from ProcessOut — 1 operation(s) for balances.
+- [ProcessOut Cards API](https://apis.io/apis/processout/processout-cards-api/) — The Cards API from ProcessOut — 2 operation(s) for cards.
+- [ProcessOut Customers API](https://apis.io/apis/processout/processout-customers-api/) — The Customers API from ProcessOut — 3 operation(s) for customers.
+- [ProcessOut Events API](https://apis.io/apis/processout/processout-events-api/) — The Events API from ProcessOut — 1 operation(s) for events.
+- [ProcessOut Invoices API](https://apis.io/apis/processout/processout-invoices-api/) — The Invoices API from ProcessOut — 6 operation(s) for invoices.
+- [ProcessOut Network Tokens API](https://apis.io/apis/processout/processout-network-tokens-api/) — The Network Tokens API from ProcessOut — 1 operation(s) for network tokens.
+- [ProcessOut Payouts API](https://apis.io/apis/processout/processout-payouts-api/) — The Payouts API from ProcessOut — 3 operation(s) for payouts.
+- [ProcessOut Projects API](https://apis.io/apis/processout/processout-projects-api/) — The Projects API from ProcessOut — 1 operation(s) for projects.
+- [ProcessOut Transactions API](https://apis.io/apis/processout/processout-transactions-api/) — The Transactions API from ProcessOut — 1 operation(s) for transactions.
+- [ProcessOut Uploads API](https://apis.io/apis/processout/processout-uploads-api/) — The Uploads API from ProcessOut — 3 operation(s) for uploads.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Processout Webhooks](https://apis.io/asyncapis/processout/processout-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [processout](https://apis.io/servers/processout/processout/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Processout Agentic Access](https://apis.io/agentic-access/processout/processout-agentic-access/)
+
+#### Collections (10)
+
+Postman and Open Collection request collections.
+
+- [ProcessOut Balances API](https://apis.io/collections/processout/open-processout-balances-api/)
+- [ProcessOut Balances Cards API](https://apis.io/collections/processout/open-processout-cards-api/)
+- [ProcessOut Balances Customers API](https://apis.io/collections/processout/open-processout-customers-api/)
+- [ProcessOut Balances Events API](https://apis.io/collections/processout/open-processout-events-api/)
+- [ProcessOut Balances Invoices API](https://apis.io/collections/processout/open-processout-invoices-api/)
+- [ProcessOut Balances Network Tokens API](https://apis.io/collections/processout/open-processout-network-tokens-api/)
+- [ProcessOut Balances Payouts API](https://apis.io/collections/processout/open-processout-payouts-api/)
+- [ProcessOut Balances Projects API](https://apis.io/collections/processout/open-processout-projects-api/)
+- [ProcessOut Balances Transactions API](https://apis.io/collections/processout/open-processout-transactions-api/)
+- [ProcessOut Balances Uploads API](https://apis.io/collections/processout/open-processout-uploads-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Processout Openapi Overlay](https://apis.io/overlays/processout/processout-openapi-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Processout Authentication](https://apis.io/security/processout/processout-authentication/)
+- [Processout Domain Security](https://apis.io/security/processout/processout-domain-security/)
+- [Processout Vulnerability Disclosure](https://apis.io/security/processout/processout-vulnerability-disclosure/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Processout Rate Limits](https://apis.io/rate-limits/processout/processout-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.processout.com/)
+- [Documentation](https://docs.processout.com/docs)
+- [Getting started](https://docs.processout.com/docs/getting-started)
+- [API reference](https://docs.processout.com/reference/getting-started-with-your-api)
+- [Sign up](https://dashboard.processout.com/login)
+- [Support](https://docs.processout.com/docs/faq)
+- [Blog](https://www.processout.com/blog)
+- [Security](https://www.processout.com/security)
+- [Compliance](https://www.processout.com/security)
+- [Terms of service](https://www.processout.com/terms-of-service)
+- [Privacy policy](https://www.processout.com/privacy-policy)
+- [GitHub](https://github.com/processout)
+- [Status](https://status.processout.com/)
+
+## API Evangelist rating
+
+**Kin Score 50.8** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.7 |
+| Contract quality | 57.6 |
+| Contract governance | 18.2 |
+| Operational transparency | 60.5 |
+| Developer ergonomics | 51.8 |
+| Access clarity | 28.9 |
+
+**Agent readiness 47.6** — agent-native
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | verified |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 44.6** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/processout/](https://apis.io/providers/processout/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for ProcessOut: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/processout/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
